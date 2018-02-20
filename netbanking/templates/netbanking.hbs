@@ -1,12 +1,12 @@
 
 <div id="netBanking" class="blockMain ">
 	<h3>Popular banks :</h3>
-	<ul id="popularBanks">
+	<ul class="popularBanks">
 		{{#each allbank}} 
 			{{#if popular}}
 				<li class="{{titile}}">
-					<label for="{{value}}_bank">
-						<input type="radio" name="nbbank_radio" class="radio-box" value="{{value}}" id="{{value}}_bank">
+					<label>
+						<input type="radio" name="nbbank_radio" class="radio-box" value="{{value}}" data-nbtype="{{value}}-nb">
 						<span class="bankLogo lo-nb{{value}}">{{nbname}}</span>
 					</label>
 					
@@ -18,7 +18,7 @@
 
 	
 	<div class="form-group">
-		<label class="control-label">All other banks</label>
+		<h3>All other banks</h3>
 		<select name="nbbank_select" id="nbbank_select">
 		<option value=" ">Select bank</option>
 		{{#each allbank}}
@@ -28,6 +28,6 @@
 		</select>
 	</div>
 	<div class="form-group">
-		<input type="submit" value="Submit" id="nb_submit" class="btn">
+		<input type="submit" value="Submit" data-btnid="nb_submit" class="btn">
 	</div>
 </div>

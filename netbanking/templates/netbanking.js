@@ -9,13 +9,11 @@ templates['netbanking.hbs'] = template({"1":function(container,depth0,helpers,pa
 
   return "				<li class=\""
     + alias4(((helper = (helper = helpers.titile || (depth0 != null ? depth0.titile : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"titile","hash":{},"data":data}) : helper)))
-    + "\">\r\n					<label for=\""
+    + "\">\r\n					<label>\r\n						<input type=\"radio\" name=\"nbbank_radio\" class=\"radio-box\" value=\""
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
-    + "_bank\">\r\n						<input type=\"radio\" name=\"nbbank_radio\" class=\"radio-box\" value=\""
+    + "\" data-nbtype=\""
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
-    + "\" id=\""
-    + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
-    + "_bank\">\r\n						<span class=\"bankLogo lo-nb"
+    + "-nb\">\r\n						<span class=\"bankLogo lo-nb"
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
     + "\">"
     + alias4(((helper = (helper = helpers.nbname || (depth0 != null ? depth0.nbname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nbname","hash":{},"data":data}) : helper)))
@@ -31,10 +29,10 @@ templates['netbanking.hbs'] = template({"1":function(container,depth0,helpers,pa
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {});
 
-  return "\r\n<div id=\"netBanking\" class=\"blockMain\">\r\n	<h3>Popular banks :</h3>\r\n	<ul id=\"popularBanks\">\r\n"
+  return "\r\n<div id=\"netBanking\" class=\"blockMain \">\r\n	<h3>Popular banks :</h3>\r\n	<ul class=\"popularBanks\">\r\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.allbank : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "	</ul>\r\n\r\n\r\n	\r\n	<div class=\"form-group\">\r\n		<label class=\"control-label\">All other banks</label>\r\n		<select name=\"nbbank_select\" id=\"nbbank_select\">\r\n		<option value=\" \">Select bank</option>\r\n"
+    + "	</ul>\r\n\r\n\r\n	\r\n	<div class=\"form-group\">\r\n		<h3>All other banks</h3>\r\n		<select name=\"nbbank_select\" id=\"nbbank_select\">\r\n		<option value=\" \">Select bank</option>\r\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.allbank : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "		</select>\r\n	</div>\r\n	<div class=\"form-group\">\r\n		<input type=\"submit\" value=\"Submit\" id=\"nb_submit\" class=\"btn\">\r\n	</div>\r\n</div>";
+    + "		</select>\r\n	</div>\r\n	<div class=\"form-group\">\r\n		<input type=\"submit\" value=\"Submit\" data-btnid=\"nb_submit\" class=\"btn\">\r\n	</div>\r\n</div>";
 },"useData":true});
 })();

@@ -1,21 +1,29 @@
 $(document).ready(function(){
 
+    $(".form-group input").focusout(function(){
+        if($(this).val() != ""){
+            $(this).addClass("has-content");
+        }else{
+            $(this).removeClass("has-content");
+        }
+    });
+
     var bankData = {
         'allbank':[
             {
                 nbname:'ICICI Bank',
-                titile:'nbicici',
                 value:'icici',
+                titile:'nbicici',
                 popular : true
             },{
                 nbname:'HDFC Bank',
-                titile:'nbhdfc',
                 value:'hdfc',
+                titile:'nbhdfc',
                 popular : true
             },{
                 nbname:'Kotak Bank',
                 value:'kotak',
-                titile:'nbkotak' ,
+                titile:'nbkotak'
             },{
                 nbname:'Axis Bank',
                 value:'axis',
@@ -24,28 +32,30 @@ $(document).ready(function(){
             },{
                 nbname:'SBI Bank',
                 value:'sbi',
-                titile:'nbsbi' 
+                titile:'nbsbi'
             }
         ]
-        };
+    };
     
     var nbankli = Handlebars.templates['netbanking.hbs'](bankData);
     $('.tab-container').html(nbankli);
 
-   var options = {
-    'users':[
-        {
-            'name':'BMW',
-            'jobTitle':'I am a car',
-            'class':'fcar'
-        },{
-            'name':'Merc',
-            'jobTitle':'I am a car too'
-        }
-    ]
+    var cardData = {
+        cnLabel:'Card Number',
+        cxLabel:'Card Exp Date',
+        chnLabel:'Card Holder Name',
+        cvvLabel:'CSV / CVV',
+        'allcard':[
+            {
+                
+
+
+            }
+        ]
     };
-    var productDom = Handlebars.templates['products.hbs'](options);
-    //$('body').append(productDom);
+    var cards = Handlebars.templates['cards.hbs'](cardData);
+    $('.tab-container').html(cards);
+   
 
    
 });
