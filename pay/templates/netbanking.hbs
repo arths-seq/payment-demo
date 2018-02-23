@@ -1,0 +1,33 @@
+
+<div class="blockMain blockNetbanking" data="tabs-2">
+	<h3>Popular banks :</h3>
+	<ul class="popularBanks">
+		{{#each allbank}} 
+			{{#if popular}}
+				<li class="{{titile}}">
+					<label>
+						<input type="radio" name="nbbank_radio" class="radio-box" value="{{value}}" data-nbtype="{{value}}-nb">
+						<span class="bankLogo lo-nb{{value}}">{{nbname}}</span>
+					</label>
+					
+				</li>
+			{{/if}}
+		{{/each}}
+	</ul>
+
+
+	
+	<div class="form-group">
+		<h3>All other banks</h3>
+		<select name="nbbank_select" >
+		<option value=" ">Select bank</option>
+		{{#each allbank}}
+			<option value="{{value}}">{{nbname}}</option>
+
+		{{/each}}
+		</select>
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Submit" data-btnid="nb_submit" class="btn">
+	</div>
+</div>
