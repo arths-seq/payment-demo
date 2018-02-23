@@ -1,4 +1,4 @@
-.main-container:after, .container:after, .container-fluid:after, .tab-menu:after, .amount-block:after, .blockNetbanking ul:after, ul.wallet-list:after {
+.main-container:after, .container:after, .container-fluid:after, .tab-menu:after, .amount-block:after, .blockNetbanking ul:after, ul.wallet-list:after, ul.menu-list:after {
   content: '';
   clear: both;
   display: block;
@@ -1125,7 +1125,6 @@ body {
   max-width: 181px;
   float: left;
   overflow: hidden;
-  min-height: 50vh;
   border: 0px solid #b3b3ea; }
 
 .amount-block {
@@ -1240,5 +1239,38 @@ ul.menu-list .menuli {
 @media (min-width: 768px) {
   .amount-block {
     float: right; } }
+@media (max-width: 480px) {
+  .pay-container {
+    border: none; }
+    .pay-container:before {
+      content: '';
+      width: 0px; }
+    .pay-container:after {
+      content: '';
+      width: 0px; }
+
+  .tab-menu {
+    width: 90%;
+    max-width: inherit;
+    margin: 0 auto;
+    float: none; }
+
+  ul.menu-list .menuli {
+    width: 50%;
+    float: left; }
+    ul.menu-list .menuli a {
+      padding: 50px 20px;
+      margin: 8px;
+      border-bottom: none;
+      text-align: center;
+      background-color: #efefef;
+      border-radius: 3px;
+      border: 1px solid #d4d4d4;
+      height: calc(100vh - 75vh); }
+      ul.menu-list .menuli a:hover, ul.menu-list .menuli a.active {
+        background-color: #787f97;
+        color: #fff; }
+    ul.menu-list .menuli:last-child a {
+      border: 1px solid #d4d4d4; } }
 
 /*# sourceMappingURL=main.css.map */
