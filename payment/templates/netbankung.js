@@ -29,7 +29,7 @@ templates['netbanking.hbs'] = template({"1":function(container,depth0,helpers,pa
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {});
 
-  return "\r\n<div id=\"netBanking\" class=\"blockMain \">\r\n	<h3>Popular banks :</h3>\r\n	<ul class=\"popularBanks\">\r\n"
+  return "\r\n<div id=\"netBanking\" class=\"blockMain blockNetBanking\">\r\n	<h3>Popular banks :</h3>\r\n	<ul class=\"popularBanks\">\r\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.allbank : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "	</ul>\r\n\r\n\r\n	\r\n	<div class=\"form-group\">\r\n		<h3>All other banks</h3>\r\n		<select name=\"nbbank_select\" id=\"nbbank_select\">\r\n		<option value=\" \">Select bank</option>\r\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.allbank : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")

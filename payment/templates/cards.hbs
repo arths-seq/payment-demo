@@ -1,0 +1,131 @@
+<div id="cards" class="blockMain blockCards" data="tabs-1">
+
+    <div class="defaultBlock">
+        {{#if isEmiTab}}
+            <div class="formDom form-group">
+                <select class="form-control">
+                    <option></option>
+                    {{#each cardEmiBank}} 
+                        {{#if cardEmi}}
+                            <option value="{{value}}">{{nbname}}</option>
+                        {{/if}}
+                    {{/each}}
+                </select>
+                <label>Select Bank</label>
+            </div>
+        {{/if}}
+        <div class="cardWrap">
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="tel" class="form-control">
+                    <label>{{cnLabel}}</label>
+                    <span class="input-group-addon icon {{iconCard}}"></span>
+                </div>
+                <span class="help">{{heCnum}}</span>
+            </div>
+
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" >
+                    <label>{{chnLabel}}</label>
+                    <span class="input-group-addon icon {{iconCname}}"></span>
+                </div>
+                <span class="help">{{heChold}}</span>
+            </div>
+
+        	<div class="row">                              
+                <div class="col-xs-6">
+                    <div class="formDom form-group">
+                        <input type="text" class="form-control" placeholder="MM / YY" >
+                        <label>{{cxLabel}}</label>
+                    </div>
+                </div>                             
+                <div class="col-xs-6">
+                    <div class="formDom form-group">
+                        <div class="input-group">
+                            <input type="password" class="form-control">
+                            <label>{{cvvLabel}}</label>
+                            <span class="input-group-addon icon {{iconCVV}}"></span>
+                        </div>
+                        <span class="help">{{heCVV}}</span>
+                    </div>
+                </div>
+            </div> 
+        </div>  
+        {{#if showSavedCard}}
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" class="checkbox-inline" value="">
+                    {{savetx}}
+                </label>
+            </div>  
+        {{/if}}
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn">
+        </div>    
+    </div>
+    
+
+    {{#if savedCard}}
+    <div class="savedCard">
+        <div class="signBlock">
+            <h3>Sign Up</h3>
+
+             <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" >
+                    <label>{{saveMob}}</label>
+                    <span class="input-group-addon icon {{iconMob}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" >
+                    <label>{{saveEmail}}</label>
+                    <span class="input-group-addon icon {{iconEmail}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" >
+                    <label>{{savePass}}</label>
+                    <span class="input-group-addon icon {{iconPass}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" >
+                    <label>{{confirmPass}}</label>
+                    <span class="input-group-addon icon {{iconPass}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn">
+            </div> 
+            <div class="row">
+                {{#if showSavedCard}}
+                    <div class="col-xs-6 needhelp">
+                        <a href="#" class="alink">Need help?
+                            <div class="info-content">
+                                <p><strong>Rule 1:</strong> Password must not exceed 21 characters.</p>
+                                <p><strong>Rule 2:</strong> Password must contain at least 7 characters, with minimum if 1 uppercase character, 1 lowercase character and 1 number.</p>
+                                <p><strong>Rule 3:</strong> Password should not contain any space or any special characters (e.g. ~ ! @ # $ % ^ &amp; * ( ) - _ + = . / \ |).</p>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+                <div class="col-xs-6 text-right">
+                    <a href="#" class="alink">go back</a>
+                </div>
+            </div>  
+
+        </div>
+    </div>
+    {{/if}}
+
+</div>         

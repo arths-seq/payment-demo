@@ -1,0 +1,19 @@
+
+<div class="blockMain blockWallet" data="tabs-6">
+	<ul class="blocklist walletlist">
+		{{#each allWallet}} 
+			<li class="{{titile}}">
+				<label for="{{titile}}-ppc">
+					<input type="radio" name="wallet_radio" class="radio-box" value="{{value}}" data-wallettype="{{value}}Wallet" id="{{titile}}-ppc">
+					<span class="walletLogo logo-{{titile}}">{{walletname}}</span>
+				</label>
+				
+			</li>
+		{{/each}}
+	</ul>
+	
+	
+	<div class="form-group">
+		<input type="submit" value="Submit" data-btnid="nb_submit" class="btn">
+	</div>
+</div>

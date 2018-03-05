@@ -9,18 +9,17 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
 }
-/*input[type="text"],input[type="email"],input[type="password"],input[type="tel"], select,textarea,.form-control{ */
-.form-control{ 
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"], select,textarea,.form-control{
   display: block;
   width: 100%;
   height: 34px;
-  padding: 6px 6px;
+  padding: 6px 0px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #d2dbdf;
   border-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
@@ -28,9 +27,8 @@ label {
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-/*input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus,input[type="tel"]:focus, select:focus,textarea:focus,.form-control:focus {*/
-.form-control:focus {
-  border-color: #ccc;
+input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus,input[type="tel"]:focus, select:focus,textarea:focus,.form-control:focus {
+  border-color: #d2dbdf;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102, 175, 233, 0);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.0), 0 0 8px rgba(102, 175, 233, 0);
@@ -74,7 +72,7 @@ textarea{
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .radio,
 .checkbox {
@@ -197,10 +195,11 @@ input[type="submit"], input[type="reset"],button,.btn {
   min-height:34px;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
   vertical-align: middle;
   -ms-touch-action: manipulation;
@@ -223,7 +222,6 @@ input[type="submit"], input[type="reset"],button,.btn {
 .btn:active.focus,
 .btn.active.focus {
   outline: 0;
-  outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 .btn:hover,
@@ -256,24 +254,58 @@ fieldset[disabled] a.btn {
   width:100%;
 }
 
-
 .form-group {
     position: relative;
 }
-
-/* */
-.form-control{
+.formDom {
+    position: relative;
+    border-bottom:1px solid #d2dbdf;
+    margin-bottom: 26px;
+}
+.formDom:after{
+    content:'';
+    position:absolute;
+    bottom:-1px;
+    left:0;
+    right:0;
+    border-bottom:1px solid #4085de;
+    -webkit-transform:scale(0,1);
+    -ms-transform:scale(0,1);
+    transform:scale(0,1);
+    -webkit-transition:.2s;
+    -o-transition:.2s;
+    transition:.2s;
+    pointer-events:none;
+    -webkit-transform-origin:center;
+    -ms-transform-origin:center;
+    transform-origin:center
+}
+.formDom.focused::after{
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    transform:scale(1)
+}
+.formDom input{
+  opacity: 0;
+}
+.focused input,.has-content input{
+  opacity: 1;
+}
+select.form-control option:first-child {
+    display: none;
+}
+.formDom .form-control{
     position:relative; 
     z-index: 2;
     padding:6px 0 0; 
     border: 0; 
-    border-bottom: 1px solid #d2dbdf;
+    /*border-bottom: 1px solid #d2dbdf;*/
     background-color: transparent;
 }
-.form-control:focus { 
-border:0px;
-border-bottom: 1px solid #4085de; 
-outline: 0;
+.formDom .form-control:focus { 
+    border:0px;
+    /*border-bottom: 1px solid #4085de; */
+    outline: 0;
 }
 
 .form-control ~ .focus-border{
@@ -285,15 +317,15 @@ outline: 0;
   background-color: #4085de; 
   transition: 0.4s;
 }
-.form-control:focus ~ .focus-border,.has-content.form-control ~ .focus-border{
+.form-control:focus ~ .focus-border,.has-content .form-control ~ .focus-border{
   width: 100%; 
   transition: 0.4s;
   }
-.has-content.form-control, .form-control:focus ~ .input-group-addon, .has-content.form-control ~ .input-group-addon{
-  border-bottom: 1px solid #4085de;
+.has-content .form-control, .form-control:focus ~ .input-group-addon, .has-content .form-control ~ .input-group-addon{
+  border-bottom: 0px solid #4085de;
   }
-.has-content.form-control, .has-content.form-control ~ .input-group-addon{
-  border-bottom: 1px solid #d2dbdf;
+.has-content .form-control, .has-content .form-control ~ .input-group-addon{
+  border-bottom: 0px solid #d2dbdf;
   }
 .form-control ~ label{
   position: absolute; 
@@ -308,9 +340,92 @@ outline: 0;
   font-weight:normal;
   }
 .form-control:focus ~ label, 
-.has-content.form-control ~ label{
+.has-content .form-control ~ label{
   top: -10px; 
-  font-size: 13px; 
+  font-size: 12px; 
   color: #90a4ae; 
   transition: 0.3s;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+        width: 100%;
+}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.input-group-addon {
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    border: 0;
+    border-bottom: 0px solid #d2dbdf;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    /*background-image: url(../images/i-user.png);*/
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+}
+
+
+
+.help{
+    -webkit-transform:translateY(-10px);
+    -ms-transform:translateY(-10px);
+    transform:translateY(-10px);
+    color:#fff;
+    font-weight:bold;
+    position:absolute;
+    line-height:16px;
+    padding:8px 12px;
+    font-size:12px;
+    background:#555;
+    -webkit-box-shadow:rgba(0,0,0,0.05) 1px 1px 2px 0;
+    box-shadow:rgba(0,0,0,0.05) 1px 1px 2px 0;
+    z-index:3;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    top:100%;
+    margin-top:12px;
+    pointer-events:none !important;
+        opacity: 0;
+}
+.help:after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    border-width:5px;
+    border-style:solid;
+    border-color:transparent transparent #555;
+    bottom:100%;
+    left:20px;
+    margin:0 0 -1px -10px
+}
+.focused .help{
+  opacity: 1;
+}
+.errorBox{
+    display:none;
+}
+.invalid .errorBox{
+    display:block;
 }

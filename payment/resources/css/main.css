@@ -1,4 +1,4 @@
-.main-container:after, .container:after, .container-fluid:after, .tab-menu:after, .amount-block:after, #netBanking ul:after {
+.main-container:after, .container:after, .container-fluid:after, .tab-menu:after, ul.menu-list:after, .amount-block:after, ul.blocklist:after, ul.blocklist li label:after {
   content: '';
   clear: both;
   display: block;
@@ -25,7 +25,8 @@ body {
   padding: 0; }
 
 a {
-  background-color: transparent; }
+  background-color: transparent;
+  color: #0066a5; }
 
 a:active,
 a:hover {
@@ -98,9 +99,43 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-td,
-th {
-  padding: 0; }
+td, th {
+  padding: 5px; }
+
+table > thead > tr > th {
+  vertical-align: middle;
+  color: #333;
+  font-weight: bold;
+  padding: 5px;
+  background-color: #eaeaea;
+  border-bottom: 1px solid #ddd; }
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  padding: 5px;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd; }
+
+.table {
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 100%; }
+
+.table-bordered {
+  border: 1px solid #ddd; }
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd; }
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #eff2f5; }
+
+.table-hover > tbody > tr:hover {
+  background-color: #f5f5f5; }
 
 li, ul {
   list-style-type: none;
@@ -113,6 +148,15 @@ h1, h1, h3, h4, h5, h6 {
   font-weight: 500;
   line-height: 1.1; }
 
+.text-right {
+  text-align: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
 fieldset {
   min-width: 0;
   padding: 0;
@@ -124,18 +168,17 @@ label {
   max-width: 100%;
   margin-bottom: 5px; }
 
-/*input[type="text"],input[type="email"],input[type="password"],input[type="tel"], select,textarea,.form-control{ */
-.form-control {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], select, textarea, .form-control {
   display: block;
   width: 100%;
   height: 34px;
-  padding: 6px 6px;
+  padding: 6px 0px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #d2dbdf;
   border-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -143,9 +186,8 @@ label {
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
-/*input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus,input[type="tel"]:focus, select:focus,textarea:focus,.form-control:focus {*/
-.form-control:focus {
-  border-color: #ccc;
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, select:focus, textarea:focus, .form-control:focus {
+  border-color: #d2dbdf;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0); }
@@ -188,7 +230,7 @@ textarea {
   resize: none; }
 
 .form-group {
-  margin-bottom: 15px; }
+  margin-bottom: 20px; }
 
 .radio,
 .checkbox {
@@ -304,10 +346,11 @@ input[type="submit"], input[type="reset"], button, .btn {
   min-height: 34px;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
   vertical-align: middle;
   -ms-touch-action: manipulation;
@@ -330,7 +373,6 @@ input[type="submit"], input[type="reset"], button, .btn {
 .btn:active.focus,
 .btn.active.focus {
   outline: 0;
-  outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
 .btn:hover,
@@ -364,18 +406,54 @@ fieldset[disabled] a.btn {
 .form-group {
   position: relative; }
 
-/* */
-.form-control {
+.formDom {
+  position: relative;
+  border-bottom: 1px solid #d2dbdf;
+  margin-bottom: 26px; }
+
+.formDom:after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #4085de;
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  pointer-events: none;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center; }
+
+.formDom.focused::after {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+
+.formDom input {
+  opacity: 0; }
+
+.focused input, .has-content input {
+  opacity: 1; }
+
+select.form-control option:first-child {
+  display: none; }
+
+.formDom .form-control {
   position: relative;
   z-index: 2;
   padding: 6px 0 0;
   border: 0;
-  border-bottom: 1px solid #d2dbdf;
+  /*border-bottom: 1px solid #d2dbdf;*/
   background-color: transparent; }
 
-.form-control:focus {
+.formDom .form-control:focus {
   border: 0px;
-  border-bottom: 1px solid #4085de;
+  /*border-bottom: 1px solid #4085de; */
   outline: 0; }
 
 .form-control ~ .focus-border {
@@ -387,15 +465,15 @@ fieldset[disabled] a.btn {
   background-color: #4085de;
   transition: 0.4s; }
 
-.form-control:focus ~ .focus-border, .has-content.form-control ~ .focus-border {
+.form-control:focus ~ .focus-border, .has-content .form-control ~ .focus-border {
   width: 100%;
   transition: 0.4s; }
 
-.has-content.form-control, .form-control:focus ~ .input-group-addon, .has-content.form-control ~ .input-group-addon {
-  border-bottom: 1px solid #4085de; }
+.has-content .form-control, .form-control:focus ~ .input-group-addon, .has-content .form-control ~ .input-group-addon {
+  border-bottom: 0px solid #4085de; }
 
-.has-content.form-control, .has-content.form-control ~ .input-group-addon {
-  border-bottom: 1px solid #d2dbdf; }
+.has-content .form-control, .has-content .form-control ~ .input-group-addon {
+  border-bottom: 0px solid #d2dbdf; }
 
 .form-control ~ label {
   position: absolute;
@@ -410,11 +488,91 @@ fieldset[disabled] a.btn {
   font-weight: normal; }
 
 .form-control:focus ~ label,
-.has-content.form-control ~ label {
+.has-content .form-control ~ label {
   top: -10px;
-  font-size: 13px;
+  font-size: 12px;
   color: #90a4ae;
   transition: 0.3s; }
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width: 100%; }
+
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0; }
+
+.input-group-addon, .input-group-btn, .input-group .form-control {
+  display: table-cell; }
+
+.input-group-addon, .input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle; }
+
+.input-group-addon {
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  border: 0;
+  border-bottom: 0px solid #d2dbdf;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  /*background-image: url(../images/i-user.png);*/
+  background-position: 0 5px;
+  background-repeat: no-repeat; }
+
+.help {
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  line-height: 16px;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: #555;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
+  z-index: 3;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  top: 100%;
+  margin-top: 12px;
+  pointer-events: none !important;
+  opacity: 0; }
+
+.help:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555;
+  bottom: 100%;
+  left: 20px;
+  margin: 0 0 -1px -10px; }
+
+.focused .help {
+  opacity: 1; }
+
+.errorBox {
+  display: none; }
+
+.invalid .errorBox {
+  display: block; }
 
 .container {
   /*padding-right: 15px;
@@ -1072,7 +1230,42 @@ fieldset[disabled] a.btn {
     margin-left: 0; } }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px; }
+  font-size: 13px;
+  color: #656565; }
+
+.alink {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0066a5; }
+  .alink:hover {
+    text-decoration: none; }
+
+.icon {
+  background-color: transparent;
+  background-image: url(../images/spriteimg.png);
+  background-repeat: no-repeat; }
+
+.iCard {
+  background-position: -2px -50px; }
+
+.iNameCard {
+  background-position: -42px -50px; }
+
+.iCVV {
+  background-position: -82px -50px; }
+
+.iUser {
+  background-position: -201px -52px; }
+
+.iMob {
+  background-position: -243px -52px; }
+
+.iPass {
+  background-position: -285px -52px; }
+
+.iEmail {
+  background-position: -318px -52px; }
 
 .mer-logo-txt {
   font-size: 30px;
@@ -1086,71 +1279,391 @@ body {
   margin: 0 auto; }
 
 .pay-container {
-  border: 1px solid #b7b7b8; }
+  border: 1px solid #b7b7b8;
+  position: relative; }
+  .pay-container:before {
+    content: '';
+    width: 1px;
+    background: #b7b7b8;
+    height: 100%;
+    position: absolute;
+    left: 22%;
+    top: 0;
+    display: block; }
+  .pay-container:after {
+    content: '';
+    width: 1px;
+    background: #b7b7b8;
+    height: 100%;
+    position: absolute;
+    right: 25.6%;
+    top: 0;
+    display: block; }
 
 .tab-container {
-  width: 100%;
-  max-width: 436px;
-  float: left; }
-
-.blockMain {
-  display: block;
-  padding: 15px; }
+  width: 52.4%;
+  max-width: 430px;
+  float: left;
+  position: relative;
+  min-height: 350px;
+  padding-bottom: 80px; }
 
 .tab-menu {
   margin: 0;
   padding: 0;
-  width: 100%;
-  max-width: 180px;
+  width: 22%;
+  max-width: 181px;
   float: left;
   overflow: hidden;
-  min-height: 50vh;
+  min-height: 20vh;
   border: 0px solid #b3b3ea; }
+
+ul.menu-list .menuli {
+  background-color: #fff; }
+  ul.menu-list .menuli a {
+    padding: 12px 10%;
+    text-decoration: none;
+    font-size: 14px;
+    color: #373a49;
+    display: block;
+    border-bottom: 1px solid #b7b7b8; }
+    ul.menu-list .menuli a:hover, ul.menu-list .menuli a.active {
+      background-color: #787f97;
+      color: #fff; }
+  ul.menu-list .menuli:last-child a {
+    border-bottom: none; }
 
 .amount-block {
-  float: right;
-  width: 100%;
-  max-width: 200px;
-  border: 0px solid #b3b3ea; }
+  width: 25.5%;
+  max-width: 210px;
+  border: 0px solid #b3b3ea;
+  padding: 35px 1% 15px;
+  font-size: 13px; }
+  .amount-block h2 {
+    font-size: 14px;
+    color: #0067a6;
+    font-weight: 700;
+    margin: 0 0 15px;
+    border-bottom: #becfd6 1px solid;
+    padding: 0 0 5px; }
+  .amount-block p {
+    margin: 0;
+    padding: 0; }
+  .amount-block .odrID, .amount-block .merName {
+    padding: 0 0 20px 0; }
 
-#netBanking ul {
+.amt-summary {
+  padding: 8px 8px;
+  background: #787f97;
+  line-height: 1.3;
+  color: #fff; }
+
+.currency-block {
+  background-color: #0067a6;
+  display: none; }
+
+.conRate {
+  font-size: 10px;
+  line-height: 20px;
+  display: none; }
+
+.discount-amount-block {
+  display: none; }
+
+.discount-amount-block .amt-summary {
+  background-color: #0067a6; }
+
+.applied-block {
+  padding: 6px 4px;
+  border: 1px solid #0067a6;
+  border-bottom: 0; }
+  .applied-block p {
+    padding: 3px 0px; }
+
+#cancel_offer {
   display: block;
-  margin: 0 -6px 35px 0; }
+  margin-left: 5px;
+  float: right;
+  color: red;
+  text-decoration: underline; }
+  #cancel_offer:hover {
+    text-decoration: none; }
 
-#netBanking li {
-  float: left; }
-  #netBanking li label {
+.footer {
+  position: absolute;
+  bottom: 0;
+  border: 0px solid #0067a6;
+  min-height: 48px;
+  margin-left: 22%;
+  padding: 0 3%;
+  width: 52.4%;
+  max-width: 430px; }
+
+.footLogo {
+  overflow: hidden; }
+
+.paylogo {
+  background-color: transparent;
+  background-image: url(../images/spriteimg.png);
+  background-repeat: no-repeat;
+  background-position: -8px -686px;
+  width: 160px;
+  height: 44px; }
+
+.tablogo {
+  background-color: transparent;
+  background-image: url(../images/spriteimg.png);
+  background-repeat: no-repeat;
+  background-position: -185px -16px;
+  width: 190px;
+  height: 38px;
+  float: right; }
+
+.tnc {
+  line-height: 1;
+  font-size: 11px;
+  padding: 5px 0; }
+
+.tnc a {
+  text-decoration: underline;
+  cursor: pointer; }
+  .tnc a:hover {
+    text-decoration: none; }
+
+.blockMain {
+  display: none;
+  padding: 35px 6% 15px;
+  margin: 0 auto;
+  max-width: 426px; }
+
+ul.blocklist {
+  display: block;
+  margin: 0 -7px 35px 0; }
+
+ul.blocklist li {
+  float: left;
+  overflow: hidden;
+  height: 36px;
+  margin: 0 8px 8px 0; }
+  ul.blocklist li label {
     border: 1px solid #becfd6;
     cursor: pointer;
-    display: block;
-    width: 132px;
-    min-height: 30px;
+    display: table;
+    width: 119px;
+    min-height: 36px;
     font-size: 13px;
-    line-height: 30px;
-    padding: 3px;
-    margin: 0 5px 8px 0; }
+    line-height: 14px;
+    padding: 3px 3px 3px 3px;
+    margin: 0; }
+    ul.blocklist li label.focused {
+      border: 1px solid #0066a5; }
+  ul.blocklist li input[type="radio"], ul.blocklist li input[type="checkbox"] {
+    display: none; }
 
-#netBanking .bankLogo {
+.blockNetBanking .bankLogo {
   background-color: transparent;
-  background-image: url(../images/new-sprite.png);
+  background-image: url(../images/spriteimg.png);
   background-repeat: no-repeat;
-  display: inline-block;
-  width: 98px;
+  display: table-cell;
+  vertical-align: top;
+  width: 26px;
   height: 26px;
   text-indent: -9999px; }
-  #netBanking .bankLogo.lo-nbicici {
-    background-position: -5px -213px; }
-  #netBanking .bankLogo.lo-nbhdfc {
-    background-position: -5px -183px; }
-  #netBanking .bankLogo.lo-nbaxis {
-    background-position: -151px -182px; }
-  #netBanking .bankLogo.lo-nbkotak {
-    background-position: -300px -215px; }
-  #netBanking .bankLogo.lo-nbsbi {
-    background-position: -300px -183px; }
+  .blockNetBanking .bankLogo.lo-nbicici {
+    background-position: -7px -156px; }
+  .blockNetBanking .bankLogo.lo-nbhdfc {
+    background-position: -48px -156px; }
+  .blockNetBanking .bankLogo.lo-nbaxis {
+    background-position: -86px -156px; }
+  .blockNetBanking .bankLogo.lo-nbkotak {
+    background-position: -126px -156px; }
+  .blockNetBanking .bankLogo.lo-nbsbi {
+    background-position: -7px -191px; }
+  .blockNetBanking .bankLogo.lo-nbbom {
+    background-position: -48px -191px; }
+
+.blockNetBanking .banktx {
+  display: table-cell;
+  vertical-align: middle;
+  width: 84px;
+  padding-left: 3px; }
+
+ul.walletlist li {
+  margin-bottom: 10px;
+  height: 42px; }
+
+ul.walletlist li label {
+  padding: 5px 3px; }
+
+.blockWallet .walletLogo {
+  background-color: transparent;
+  background-image: url(../images/spriteimg.png);
+  background-repeat: no-repeat;
+  display: table-cell;
+  vertical-align: top;
+  width: 119px;
+  height: 28px;
+  text-indent: -9999px; }
+  .blockWallet .walletLogo.logo-amazon {
+    background-position: 0px -326px; }
+  .blockWallet .walletLogo.logo-citrus {
+    background-position: -125px -325px; }
+  .blockWallet .walletLogo.logo-freecharge {
+    background-position: -245px -324px; }
+  .blockWallet .walletLogo.logo-payzap {
+    background-position: -366px -324px; }
+  .blockWallet .walletLogo.logo-jio {
+    background-position: -5px -373px; }
+  .blockWallet .walletLogo.logo-ola {
+    background-position: -125px -373px; }
+  .blockWallet .walletLogo.logo-payu {
+    background-position: -245px -373px; }
+  .blockWallet .walletLogo.logo-paytm {
+    background-position: -366px -373px; }
+  .blockWallet .walletLogo.logo-oxygen {
+    background-position: -5px -423px; }
+  .blockWallet .walletLogo.logo-quick {
+    background-position: -125px -423px; }
+  .blockWallet .walletLogo.logo-sbibuddy {
+    background-position: -245px -422px; }
+  .blockWallet .walletLogo.logo-money {
+    background-position: -366px -423px; }
+  .blockWallet .walletLogo.logo-mobikwik {
+    background-position: -5px -471px; }
+  .blockWallet .walletLogo.logo-itzcash {
+    background-position: -125px -470px; }
+  .blockWallet .walletLogo.logo-sodexo {
+    background-position: -245px -471px; }
 
 @media (min-width: 768px) {
   .amount-block {
     float: right; } }
+.blockEmitable {
+  font-size: 12px; }
+  .blockEmitable table > thead > tr > th {
+    text-align: left;
+    min-width: 25px; }
+  .blockEmitable table > tbody > tr > td {
+    min-width: 25px;
+    line-height: 14px; }
+
+/*
+.cardWrap{
+ 	border:1px solid #ccc;
+ 	border-radius: 15px;
+ 	margin-top:30px;
+ 	padding:30px 15px 0 15px; 
+ 	margin-bottom: 25px;
+ 	background-color: #f1f1f1;
+ 	box-shadow: 1px 2px 3px 0 rgba(0,0,0,.2);
+ 	& .input-group-addon{
+ 		display:none;
+ 	}
+}*/
+.savedCard {
+  margin: 0 auto;
+  max-width: 295px; }
+
+.savedCard h3 {
+  font-weight: bold;
+  margin-bottom: 15px; }
+
+.info-content {
+  /*background: #F7F7F7;
+  color: #373a49;
+  border: 1px solid #0067a6;
+  padding: 5px;
+  width: 222px;
+  margin: 5px 0 0;
+  position: absolute;
+  top: -110px;
+  left: 79px;
+  z-index: 9;*/
+  display: none;
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+  color: #fff;
+  position: absolute;
+  line-height: 16px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: normal;
+  background: #555;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
+  z-index: 3;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  bottom: 100%;
+  margin-top: 12px;
+  pointer-events: none !important;
+  min-width: 230px; }
+  .info-content:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555;
+    top: 100%;
+    left: 20px;
+    margin: 0 0 -1px -10px;
+    transform: rotate(180deg); }
+
+.info-content p {
+  border-top: 1px #becfd6 solid;
+  cursor: default !important;
+  font-size: 12px !important;
+  padding: 5px 0;
+  margin: 0; }
+
+.info-content p:first-child {
+  border-top: none; }
+
+.info-content p strong {
+  font-weight: 700;
+  padding: 0 0 5px;
+  color: #65c4ff; }
+
+.needhelp a:hover .info-content {
+  display: block; }
+
+@media all and (max-width: 840px) {
+  #wrap {
+    padding: 0 15px; }
+
+  .pay-container:before {
+    left: 21%; }
+
+  .pay-container:after {
+    right: 23.7%; }
+
+  .amount-block {
+    width: 23.5%; }
+
+  .tab-menu {
+    width: 21%; }
+
+  ul.menu-list .menuli a {
+    padding: 12px 8%; }
+
+  .tab-container {
+    width: 55.4%; }
+
+  .blockMain {
+    padding: 35px 4% 80px; }
+
+  .footer {
+    padding: 0 2%; }
+
+  .paylogo {
+    background-position: -8px -682px; }
+
+  .tablogo {
+    width: 176px;
+    background-size: 438px 666px;
+    background-position: -160px -10px; } }
 
 /*# sourceMappingURL=main.css.map */
