@@ -1,0 +1,15 @@
+{
+    "Company Name" : "Company Name",
+    "Credit Card" : "Credit Card",
+    "Debit Card" : "Debit Card",
+    "Credit Card No." : "Credit Card No.",
+    "Debit Card No." : "Debit Card No.",
+    "Card Holder Name" : "Card Holder Name",
+    "Card Expiry" : "Card Expiry",
+    "CVV" : "CVV",
+    "Summary" : "Summary",
+    "Order Id" : "Order Id",
+    "Merchant Name" : "Merchant Name",
+    "Amt" : "Amt",
+    "Submit" : "Submit"
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airpay</title>
+    <script>
+        var Payments = {
+			templates:{}
+		};
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <script type="text/javascript" src='vendor/jquery.min.js'></script>
+    <!-- <script type="text/javascript" src='vendor/handlebars.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    
+	<!---- Airpay JS Files --->
+	<script type="text/javascript" src='js/main.js'></script>
+    <script type="text/javascript" src='js/custom.js'></script>
+	
+	<!---- Airpay Template Files --->
+    <script type="text/javascript" src='templates/cards.js'></script>
+    <script type="text/javascript" src='templates/netbanking.js'></script>
+    <script type="text/javascript" src='templates/wallet.js'></script>
+    <script type="text/javascript" src='templates/menu_tab.js'></script>
+    <script type="text/javascript" src='templates/cash.js'></script>
+    <script type="text/javascript" src='templates/amex.js'></script>
+
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div class="main-container">
+
+            <div class="head">
+                <div class="logo">
+                    <div class="mer-logo-txt">Airpay DH</div>
+                </div>
+            </div>
+            <div class="message-block"></div>
+            <div class="pay-container">
+                <div class="container block-container">
+                    <div class="amount-block">
+                        <h2>Summary</h2>
+                        <p class="odrID">Order ID: <strong>33333</strong></p>
+                        <p class="merName">Airpay DH</p>
+
+                        <div class="discount-amount-block">
+                            <div class="applied-block">
+                                <p><strong>Total Amount:</strong><br>INR <span id="total_amount">1.00</span></p>
+                                <p><strong>Discount Amount:</strong> <a id="cancel_offer">Remove</a> <br> INR <span id="discount_amount">00.00</span></p>
+                            </div>
+
+                            <div class="amt-summary">
+                                <p>Payable Amount : INR <span>65.51</span></p>
+                            </div>
+                        </div>
+
+                        <div class="default-amount-block">
+                            <div class="amt-summary currency-block">
+                                <p>Original Amount: <span>USD&nbsp;1.00</span></p>
+                            </div>
+                            <div class="amt-summary">
+                                <p>Amount : INR <span>65.51</span></p>
+                            </div>
+                            <p class="conRate">Rate of Conversion: <span>INR&nbsp;65.51</span></p>
+                        </div>
+                    </div>
+
+                    <div class="tab-menu"></div>
+
+                    <div class="tabWrap">
+
+                        <div class="tab-container">
+                            <div class="closetab"></div>
+                        </div>
+
+                        <div class="footer">
+                            <div class="row">
+                                <div class="col-xs-6 footLogo">
+                                    <div class="paylogo"></div>
+                                </div>
+                                <div class="col-xs-6 ">
+                                    <div class="tablogo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tnc">
+                <p>Your transaction will appear on your bank or credit statement as 'airpay' or 'Test9'. To Cancel this transaction, please <a>click here</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
