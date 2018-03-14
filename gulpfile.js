@@ -68,9 +68,7 @@ gulp.task('dev-build',['sass','templates']);
 Gulp task to compile Production build
 */
 gulp.task('prod-build',['sass'],function(){
-  //gulp.task(['minify-scripts','minify-css','templates']);
-  //runSequence('clean', ['minify-scripts','minify-css','templates']);
-  return gulp .run(['minify-scripts','minify-css','templates']);
+  return gulp.start(['minify-scripts','minify-css','templates']);
 });
 
 /*
