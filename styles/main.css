@@ -1633,6 +1633,7 @@ ul.walletlist li label {
   .mobile ul.menu-list .menuli {
     width: 50%; } }
 
+<<<<<<< HEAD
 .spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
   width: 40px;
   height: 25px; }
@@ -1645,3 +1646,23 @@ ul.walletlist li label {
 
 .icon.mastercard {
   background-position: -39px -121px; }
+=======
+.bqr-tab-logo {
+  max-width: 100px;
+  display: block;
+  background: url(../img/spriteimg.png) 0px -977px no-repeat;
+  height: 85px; }
+
+.bharat-qr-submit {
+  width: 100%;
+  display: block;
+  background-color: #0067a6;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border: 0;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer; }
+>>>>>>> 1c50118de5f295522417a60a36abc1f04c76575a

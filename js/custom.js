@@ -64,29 +64,11 @@ $(document).ready(function () {
     });
 
     function getTab(blockDatatype) {
-        if (blockDatatype == "tabs-1") {
-            $('.blockMain').hide();
-            $('.blockMain[data="' + blockDatatype + '"]').show();
-        }
-        if (blockDatatype == "tabs-2") {
-            $('.blockMain').hide();
-            $('.blockMain[data="' + blockDatatype + '"]').show();
-        }
-		if (blockDatatype == "tabs-3") {
-            $('.blockMain').hide();
-            $('.blockMain[data="' + blockDatatype + '"]').show();
-        }
-        if (blockDatatype == "tabs-6") {
-            $('.blockMain').hide();
-            $('.blockMain[data="' + blockDatatype + '"]').show();
-        }
-		if (blockDatatype == "tabs-7") {
-            $('.blockMain').hide();
-            $('.blockMain[data="' + blockDatatype + '"]').show();
-        }
+        $('.blockMain').hide();
+        $('.blockMain[data="' + blockDatatype + '"]').show();
     }
 
-    var tabcont = $('.tabWrap')
+    var tabcont = $('.tabWrap');
 
     function showTab() {
         tabcont.css('height', '');
