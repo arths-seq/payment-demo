@@ -283,5 +283,7 @@ $(document).ready(function () {
     var menuDom = Payments.templates.menu_tab(menuData);
     $('.tab-menu').append(menuDom);
 
+    var bharatQr = Payments.templates.bharat_qr();
+    $('.tab-container').append(bharatQr);
 
 });
