@@ -1632,3 +1632,16 @@ ul.walletlist li label {
 @media (max-width: 480px) {
   .mobile ul.menu-list .menuli {
     width: 50%; } }
+
+.spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
+  width: 40px;
+  height: 25px; }
+
+.icon.visa {
+  background-position: 0 -121px; }
+
+.icon.amex {
+  background-position: -159px -121px; }
+
+.icon.mastercard {
+  background-position: -39px -121px; }

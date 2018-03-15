@@ -1,3 +1,36 @@
+// card number validation
+$(function() {
+    var cardNumber = $('.cardNumber');
+	
+    var cardIcon = $(".card-icon");
+
+    // Use the payform library to format and validate
+    // the payment fields.
+
+    cardNumber.payform('formatCardNumber');
+
+    cardNumber.keyup(function() {
+
+        cardIcon.removeClass('visa');
+            cardIcon.removeClass('amex');
+            cardIcon.removeClass('mastercard');
+
+        if ($.payform.validateCardNumber(cardNumber.val()) == false) {
+            cardNumber.addClass('errorvalue');
+        } else {
+            cardNumber.removeClass('errorvalue');
+        }
+		
+		if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
+            cardIcon.addClass('visa');
+        } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
+            cardIcon.addClass('amex');
+        } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
+            cardIcon.addClass('mastercard');
+        }
+    });
+});
+
 // expiry Date validation
 	function expiryDateValidation() {
 		$('.exp_date').on("keyup", function(e) {	
@@ -114,11 +147,7 @@
 	// csv/ cvv
 	function cvvLengthValidation(){
 		$(document).on('keyup', '.cvv', function (e) {
-			if($('.cardNumber').hasClass('amex') == true ){
-				$('.cvv').attr('maxlength',4);
-			}else {
-				$('.cvv').attr('maxlength',3);
-			}
+			$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
 		});	
 	};
 	// expriy date
