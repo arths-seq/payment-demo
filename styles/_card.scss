@@ -1,0 +1,17 @@
+
+.spriteCommon{
+    width: 40px;
+    height: 25px;
+}
+.icon.visa {
+    background-position: 0 -121px; 
+    @extend .spriteCommon;
+}
+.icon.amex {
+    background-position: -159px -121px;
+    @extend .spriteCommon;
+}
+.icon.mastercard {
+    background-position: -39px -121px;
+    @extend .spriteCommon;
+}

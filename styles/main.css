@@ -1633,6 +1633,20 @@ ul.walletlist li label {
   .mobile ul.menu-list .menuli {
     width: 50%; } }
 
+<<<<<<< HEAD
+.spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
+  width: 40px;
+  height: 25px; }
+
+.icon.visa {
+  background-position: 0 -121px; }
+
+.icon.amex {
+  background-position: -159px -121px; }
+
+.icon.mastercard {
+  background-position: -39px -121px; }
+=======
 .bqr-tab-logo {
   max-width: 100px;
   display: block;
@@ -1651,3 +1665,4 @@ ul.walletlist li label {
   text-align: center;
   padding: 10px 0;
   cursor: pointer; }
+>>>>>>> 1c50118de5f295522417a60a36abc1f04c76575a
