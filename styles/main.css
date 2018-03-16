@@ -1641,7 +1641,7 @@ ul.walletlist li label {
 
 .bharat-qr-submit {
   width: 100%;
-  display: none;
+  display: block;
   background-color: #0067a6;
   color: #fff;
   font-size: 13px;
