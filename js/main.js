@@ -204,18 +204,21 @@ $(document).ready(function () {
         ],
         'emiTable': [
             {
+                radioval: '1',
                 emiTenure: '0 months',
                 bankRate: '12%',
                 installments: 'Rs. 0',
                 interestPaid: 'Rs. 0'
             },
             {
+                radioval: '2',
                 emiTenure: '3 months',
                 bankRate: '12%',
                 installments: 'Rs. 55',
                 interestPaid: 'Rs. 20'
             },
             {
+                radioval: '3',
                 emiTenure: '6 months',
                 bankRate: '12%',
                 installments: 'Rs. 5,100',

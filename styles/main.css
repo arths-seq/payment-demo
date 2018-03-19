@@ -5,7 +5,7 @@
   display: block;
   height: 0; }
 
-.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon {
+.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
   background-repeat: no-repeat; }
@@ -1088,6 +1088,11 @@ body {
   .alink:hover {
     text-decoration: none; }
 
+.icon {
+  background-color: transparent;
+  background-image: url(../img/spriteimg.png);
+  background-repeat: no-repeat; }
+
 .iCard {
   background-position: -2px -50px; }
 
@@ -1159,6 +1164,29 @@ body {
   overflow: hidden;
   min-height: 20vh;
   border: 0px solid #b3b3ea; }
+
+.wallet-popup {
+  display: none; }
+
+.mainpopup {
+  position: fixed;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.2;
+  z-index: 9; }
+
+.popup {
+  position: absolute;
+  width: 88%;
+  background-color: #fff;
+  top: 0;
+  z-index: 99;
+  padding: 2%; }
 
 ul.menu-list .menuli {
   background-color: #fff; }
@@ -1593,7 +1621,7 @@ ul.walletlist li label {
   .mobile ul.menu-list .menuli {
     width: 50%; } }
 
-.spriteCommon, .icon.visa, .visa.eze_logo, .icon.amex, .amex.eze_logo, .icon.mastercard, .mastercard.eze_logo {
+.spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
   width: 40px;
   height: 25px; }
 
@@ -1601,13 +1629,13 @@ ul.walletlist li label {
   background-position: 0px -118px;
   width: 117px; }
 
-.icon.visa, .visa.eze_logo {
+.icon.visa {
   background-position: 0 -121px; }
 
-.icon.amex, .amex.eze_logo {
+.icon.amex {
   background-position: -159px -121px; }
 
-.icon.mastercard, .mastercard.eze_logo {
+.icon.mastercard {
   background-position: -39px -121px; }
 
 .formDom .form-control.net-banking-options {
@@ -1624,6 +1652,14 @@ ul.walletlist li label {
 
 .popularBanks .active {
   background-color: #e2e2e2 !important; }
+
+.emitable {
+  display: table;
+  border-collapse: separate;
+  margin-bottom: 20px; }
+  .emitable td {
+    border-top: 1px solid #becfd6;
+    border-bottom: none; }
 
 .eze_logo {
   background-position: -16px -518px;

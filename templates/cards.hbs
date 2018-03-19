@@ -13,7 +13,24 @@
                 </select>
                 <label>Select Bank</label>
             </div>
-            
+            <table width="100%" class="emitable">
+                <tr>
+                    <th></th>
+                    <th>EMI Tenure</th>
+                    <th>Bank Interest Rate</th>
+                    <th>Monthly Installments</th>
+                    <th>Interest paid to Bank</th>
+                </tr>
+                {{#each emiTable}}
+                <tr>
+                    <td><input type="radio" name="radioval" value="{{radioval}}" ></td>
+                    <td>{{emiTenure}}</td>
+                    <td>{{bankRate}}</td>
+                    <td>{{installments}}</td>
+                    <td>{{interestPaid}}</td>                    
+                </tr>
+                {{/each}}
+            </table>
             {{#each emiTable}} 
                 {{#if cardEmi}}
                     <option value="{{value}}">{{nbname}}</option>
