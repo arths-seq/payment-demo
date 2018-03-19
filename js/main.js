@@ -1,4 +1,5 @@
-var languageJson;
+var languageJson,
+    tabcont;
 function loadTranslateJson(){
     var currentLang = "mr",
         jsonFileName;
@@ -100,9 +101,60 @@ function loadMenuTab(){
             };
             var menuDom = Payments.templates.menu_tab(menuData);
             $('.tab-menu').append(menuDom);
-            renderSelectedTab();
+            bindMenuEvents();
+            if(!isMobile()){
+                renderSelectedTab();
+            }
         }
     });    
+}
+
+function bindMenuEvents(){
+    $('.tab-menu-options').on('click', function (event) {
+        $('.tab-menu-options.active').removeClass('active');
+        $(event.currentTarget).addClass('active');
+        var blockDatatype = $(event.currentTarget).attr('data-tab');
+        var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
+
+        renderSelectedTab(currentTabId);
+    });
+}
+
+function autoHeightAnimate(element, time, callback) {
+    var curHeight = element.height(), // Get Default Height
+        autoHeight = element.css('height', 'auto').height(); // Get Auto Height
+    element.height(curHeight); // Reset to Default Height
+    element.stop().animate({
+        height: autoHeight
+    }, time); // Animate to Auto Height
+}
+
+function showTab() {
+    tabcont.css('height', '');
+    autoHeightAnimate(tabcont, 500);
+    var tabHeight = tabcont.height();
+    setTimeout(function () {
+        $(".tabWrap").animate({
+            height: tabHeight
+        }, 500);
+        $('.tabWrap').addClass('showtab');
+        $('.tab-menu').fadeOut(500);
+    }, 500);
+    $('.footer,.closetab').show();
+}
+
+
+function hideTab() {
+    $('.closetab').on('click', function () {
+        $('.tabWrap').stop().animate({
+            height: '0'
+        }, 500, function () {
+            $('.tabWrap').removeClass('showtab');
+            $('.footer,.closetab').hide();
+            $('.tab-menu').fadeIn(500);
+        });
+
+    });
 }
 
 function renderSelectedTab(paymentId){
@@ -110,10 +162,7 @@ function renderSelectedTab(paymentId){
         case 'credit-debit':
             renderCCDC(paymentId);
             break;
-        case 'debit_card':
-            renderDebitCard(paymentId);
-            break;
-        case 'net_banking':
+        case 'net-banking':
             renderNetBanking(paymentId);
             break;
         case 'cash':
@@ -159,17 +208,37 @@ function renderSelectedTab(paymentId){
 }
 
 function renderCCDC(paymentTabId){
-    renderTab(paymentTabId,'cards.js', renderCcDc);
+    renderTab(paymentTabId,'cards', renderCcDc);
+}
+
+function renderNetBanking(paymentTabId){
+    renderTab(paymentTabId,'netbanking', renderNetBnk);
 }
 
 function renderTab(paymentTabId,templateFileName,callbackMethod){
-    $.ajax('./templates/'+templateFileName,{
-        success: $.proxy(function(callbackMethod,paymentTabId,responseData){
-            if(callbackMethod){
-                callbackMethod(paymentTabId);                
-            }
-        },this,callbackMethod,paymentTabId)
-    });
+    if(Payments.templates[templateFileName]){
+        $('.blockMain').hide();
+        $('[data-tab-type="'+paymentTabId+'"]').show();
+        if (isMobile()) {
+            tabcont = $('.tabWrap');
+            showTab();
+            hideTab();
+        }
+    } else {
+        $.ajax('./templates/'+templateFileName + '.js',{
+            success: $.proxy(function(callbackMethod,paymentTabId,responseData){
+                if(callbackMethod){
+                    callbackMethod(paymentTabId);                
+                }
+                if (isMobile()) {
+                    tabcont = $('.tabWrap');
+                    showTab();
+                    hideTab();
+                }
+            },this,callbackMethod,paymentTabId)
+        });
+    }
+   
 }
 
 $(document).ready(function(){

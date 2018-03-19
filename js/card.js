@@ -75,12 +75,12 @@ function renderCcDc(paymentTabId){
     };
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
-	$('[data-tab-type="' + paymentTabId + '"]').show();
+    $('.blockMain').hide();
+    $('[data-tab-type="'+paymentTabId+'"]').show();
 	bindCcDcEvent();
 }
 
 function bindCcDcEvent(){
-	debugger;
 	cvvLengthValidation();
 	expiryDateValidation();
 	expiryDateLengthValidation();
