@@ -1,10 +1,11 @@
 
 <div class="blockMain blockNetBanking" data="tabs-2">
 	<h3>Popular banks :</h3>
+	<input class="bankId" type="hidden" name="" value="HDFC">
 	<ul class="blocklist popularBanks">
 		{{#each allbank}} 
 			{{#if popular}}
-				<li class="{{titile}}">
+				<li class="" data-attr-bankid="{{titile}}" data-attr-bankname="{{nbname}}">
 					<label for="{{value}}-nb">
 						<input type="radio" name="nbbank_radio" class="radio-box" value="{{value}}" data-nbtype="{{value}}-nb" id="{{value}}-nb">
 						<span class="bankLogo lo-nb{{value}}"></span>
@@ -17,13 +18,14 @@
 	</ul>	
 	
 	<div class="formDom form-group">
-        <select name="nbbank_select" class="form-control">
+		<label>Select a different Bank</label>	
+        <select name="nbbank_select" class="form-control net-banking-options">
             <option></option>
             {{#each allbank}}
-				<option value="{{value}}">{{nbname}}</option>
+				<option value="{{titile}}">{{nbname}}</option>
 			{{/each}}
         </select>
-        <label>Select a different Bank</label>
+		<input name="bankName" type="text" class="textbox icondrop validate bankName" data-error-msg="Please select bank" placeholder="Select Bank Name">
     </div>
 	
 	<div class="form-group">
