@@ -148,7 +148,9 @@ $(document).ready(function () {
     $('.tab-container').append(walletkli);
 
     var cardData = {
-        isEmiTab: false,
+        isEmiTab: true,
+        pageID: "cards",
+        tab: "tabs-1",
         showSavedCard: true,
         savedCard: false,
         blockName: 'blockCards',

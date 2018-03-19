@@ -3,6 +3,7 @@ $default-color:#becfd6 ;
 $primary-color:#0066a5;
 $secondary-color:#787f97;
 %clearfix{content:''; clear:both; display: block; height:0;}
+%icon {background-color: transparent; background-image: url(../img/spriteimg.png); background-repeat: no-repeat;}
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;

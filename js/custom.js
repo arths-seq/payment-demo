@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $(".form-control").on('focusout', function () {
         $(this).parents('.formDom').removeClass("focused");
         if ($(this).val() != "") {
@@ -62,10 +61,19 @@ $(document).ready(function () {
             hideTab();
         }
     });
-
+    
     function getTab(blockDatatype) {
         $('.blockMain').hide();
-        $('.blockMain[data="' + blockDatatype + '"]').show();
+        if(blockDatatype == 'tabs-4'){ 
+            blockDatatype = 'tabs-1';
+            $('.blockMain[data="' + blockDatatype + '"]').show();
+            $('.blockMain[data="' + blockDatatype + '"]').attr('data','tabs-4');
+            return 1;
+        }else{
+            $('#cards').attr('data','tabs-1');
+        }
+        $('.blockMain[data="' + blockDatatype + '"]').show();        
+        
     }
 
     var tabcont = $('.tabWrap');
@@ -97,4 +105,5 @@ $(document).ready(function () {
 
         });
     }	
+    
 });

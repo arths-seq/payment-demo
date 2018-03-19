@@ -1,4 +1,4 @@
-<div id="cards" class="blockMain blockCards" data="tabs-1">
+<div id="{{pageID}}" class="blockMain blockCards {{cardsclasss}}" data={{tab}}>
 
     <div class="defaultBlock">
         {{#if isEmiTab}}
@@ -13,6 +13,12 @@
                 </select>
                 <label>Select Bank</label>
             </div>
+            
+            {{#each emiTable}} 
+                {{#if cardEmi}}
+                    <option value="{{value}}">{{nbname}}</option>
+                {{/if}}
+            {{/each}}
         {{/if}}
         <div class="cardWrap">
             <div class="formDom form-group">

@@ -1,7 +1,6 @@
 // card number validation
 $(function() {
-    var cardNumber = $('.cardNumber');
-	
+    var cardNumber = $('.cardNumber');	
     var cardIcon = $(".card-icon");
 
     // Use the payform library to format and validate

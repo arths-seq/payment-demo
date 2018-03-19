@@ -14,11 +14,6 @@ body {
     }
 }
 
-.icon {
-    background-color: transparent;
-    background-image: url(../img/spriteimg.png);
-    background-repeat: no-repeat;
-}
 
 .iCard {
     background-position: -2px -50px;
@@ -243,13 +238,13 @@ ul.menu-list {
 }
 
 .paylogo {
-    @extend .icon;
+    @extend %icon;
     background-position: -8px -686px;
     width: 160px;
     height: 44px;
 }
 .tablogo {
-    @extend .icon;
+    @extend %icon;
     background-position: -185px -16px;
     width: 190px;
     height: 38px;
@@ -314,7 +309,7 @@ ul.blocklist li {
 }
 
 .blockNetBanking .bankLogo {
-    @extend .icon;
+    @extend %icon;
     display: table-cell;
     vertical-align: top;
     width: 26px;
@@ -358,7 +353,7 @@ ul.walletlist li label {
 }
 
 .blockWallet .walletLogo {
-    @extend .icon;
+    @extend %icon;
     display: table-cell;
     vertical-align: top;
     width: 119px;
@@ -520,6 +515,7 @@ ul.walletlist li label {
 .box-shadow-none{
 	box-shadow:none !important;
 }
+
 @media (min-width: 768px) {
     .amount-block {
         float: right;
@@ -664,7 +660,9 @@ ul.walletlist li label {
         }
 
         .closetab {
-            @extend .icon;
+            background-color: transparent; 
+            background-image: url(../img/spriteimg.png); 
+            background-repeat: no-repeat;
             background-position: -82px -84px;
             float: right;
             height: 35px;
