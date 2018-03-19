@@ -35,3 +35,12 @@
 .popularBanks .active {
     background-color: #e2e2e2 !important;
 }
+.emitable{
+    display: table;
+    border-collapse: separate;
+    margin-bottom: 20px;
+    td{
+        border-top:1px solid #becfd6;
+        border-bottom: none;
+    }
+}
