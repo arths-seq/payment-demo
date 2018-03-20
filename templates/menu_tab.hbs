@@ -1,6 +1,9 @@
 <ul class="menu-list">
     {{#each menu}}
-        <li class="menuli" data-tab="tabs-{{tab}}" ><img src="img/{{imgicon}}-icon.png" alt="" class="imgmob"/><a href="#" data-menu-type="{{data}}"  class="menu-link">{{tabname}}</a></li>
+        <li class="menuli tab-menu-options" data-tab="tabs-{{tab}}" >
+            <img src="img/{{imgicon}}-icon.png" alt="" class="imgmob"/>
+            <a href="#" data-tab-id="{{data}}"  class="menu-link">{{tabname}}</a>
+        </li>
    {{/each}}
 </ul>
 

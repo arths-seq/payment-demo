@@ -1,297 +1,258 @@
-$(document).ready(function () {
+var languageJson,
+    tabcont;
+function loadTranslateJson(){
+    var currentLang = "mr",
+        jsonFileName;
 
-    var bankData = {
-        'allbank': [
-            {
-                nbname: 'ICICI Bank',
-                value: 'icici',
-                titile: 'nbicici',
-                popular: true
-            }, {
-                nbname: 'HDFC Bank',
-                value: 'hdfc',
-                titile: 'nbhdfc',
-                popular: true
-            }, {
-                nbname: 'Kotak Bank',
-                value: 'kotak',
-                titile: 'nbkotak',
-                popular: true
-            }, {
-                nbname: 'Axis Bank',
-                value: 'axis',
-                titile: 'nbaxis',
-                popular: true
-            }, {
-                nbname: 'SBI Bank',
-                value: 'sbi',
-                titile: 'nbsbi',
-                popular: true
-            }, {
-                nbname: 'Bank of Maharashtra',
-                value: 'bom',
-                titile: 'nbbom',
-                popular: true
+    switch (currentLang){
+        case 'en':
+            jsonFileName = 'en.json';
+            break;
+        case 'mr':
+            jsonFileName = 'mr.json';
+            break;
+        case 'dr':
+            jsonFileName = 'dr.json';
+            break;
+        default :
+            jsonFileName = 'en.json';
+            break;
+    }
+
+    languageJson = JSON.parse(localStorage.getItem(currentLang+'-payment'));
+    if(!languageJson){
+        $.ajax('./language/'+jsonFileName,{
+            success: $.proxy(function(currentLang,data){
+                languageJson = JSON.parse(data);
+                localStorage.setItem(currentLang+'-payment',data);
+                render();
+            },this,currentLang)
+        });
+    } else {
+        render();
+    }
+}
+
+function translate(translationText){
+    return  languageJson[translationText] || translationText;     
+}
+
+function render(){
+    loadMenuTab();
+}
+
+function loadMenuTab(){
+    $.ajax('./templates/menu_tab.js',{
+        success: function(){
+            var menuData = {
+                'menu': [
+                    {
+                        'data': 'credit-debit',
+                        'tab': '1',
+                        'tabname': 'Credit / Debit',
+                        'imgicon': 'cdc'
+                    }, {
+                        'data': 'net-banking',
+                        'tab': '2',
+                        'tabname': 'Net Banking',
+                        'imgicon': 'nb'
+                    }, {
+                        'data': 'cash',
+                        'tab': '3',
+                        'tabname': 'Cash',
+                        'imgicon': 'cash'
+                    }, {
+                        'data': 'emi',
+                        'tab': '4',
+                        'tabname': 'EMI',
+                        'imgicon': 'emi'
+                    }, {
+                        'data': 'rtgs',
+                        'tab': '5',
+                        'tabname': 'RTGS / NEFT',
+                        'imgicon': 'rtnft'
+                    }, {
+                        'data': 'wallet',
+                        'tab': '6',
+                        'tabname': 'Wallet',
+                        'imgicon': 'wallet'
+                    }, {
+                        'data': 'Amex-click',
+                        'tab': '7',
+                        'tabname': 'Amex eZeClick'
+                    }, {
+                        'data': 'Express_Payment',
+                        'tab': '8',
+                        'tabname': 'Express Payments'
+                    }, {
+                        'data': 'UPI',
+                        'tab': '9',
+                        'tabname': 'UPI'
+                    }, {
+                        'data': 'bharat-qr',
+                        'tab': '10',
+                        'tabname': 'Bharat QR'
+                    }, {
+                        'data': 'pay-later',
+                        'tab': '11',
+                        'tabname': 'Pay Later'
+                    },
+                ]
+            };
+            var menuDom = Payments.templates.menu_tab(menuData);
+            $('.tab-menu').append(menuDom);
+            bindMenuEvents();
+            if(!isMobile()){
+                renderSelectedTab();
             }
-        ]
-    };
+        }
+    });    
+}
 
-    var nbankli = Payments.templates.netbanking(bankData);
-    $('.tab-container').append(nbankli);
+function bindMenuEvents(){
+    $('.tab-menu-options').on('click', function (event) {
+        $('.tab-menu-options.active').removeClass('active');
+        $(event.currentTarget).addClass('active');
+        var blockDatatype = $(event.currentTarget).attr('data-tab');
+        var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
 
-	// cash st
-	var cashData = {
-		cashmob: 'Mobile Number',
-		cashpin: 'Pincode',
-		cashlocatin: 'Deposit Locations',
-		cashheCnum: 'Please enter a valid Mobile Number'
-    };
+        renderSelectedTab(currentTabId);
+    });
+}
 
-    var cashon = Payments.templates.cash(cashData);
-    $('.tab-container').append(cashon);
-	// cash end
-	// amex st
-	var amexData = {
-        'alladd': [
-            {
-                nbname: 'ICICI Bank',
-                popular: true
-            }, {
-                nbname: 'HDFC Bank',
-                popular: true
-            }, {
-                nbname: 'Kotak Bank',
-                popular: true
-            }, {
-                nbname: 'Axis Bank',
-                popular: true
-            }, {
-                nbname: 'SBI Bank',
-                popular: true
-            }, {
-                nbname: 'Bank of Maharashtra',
-                popular: true
-            }
-        ]
-    };
+function autoHeightAnimate(element, time, callback) {
+    var curHeight = element.height(), // Get Default Height
+        autoHeight = element.css('height', 'auto').height(); // Get Auto Height
+    element.height(curHeight); // Reset to Default Height
+    element.stop().animate({
+        height: autoHeight
+    }, time); // Animate to Auto Height
+}
 
-    var amextab = Payments.templates.amex(amexData);
-    $('.tab-container').append(amextab);
-	// amex end
-    var walletData = {
-        'allWallet': [
-            {
-                walletname: 'Amazon Pay',
-                value: 'amazon',
-                titile: 'amazon'
-            }, {
-                walletname: 'Citrus Wallet',
-                value: 'citrus',
-                titile: 'citrus'
-            }, {
-                walletname: 'Freecharge',
-                value: 'freecharge',
-                titile: 'freecharge'
-            }, {
-                walletname: 'HDFC PayZapp',
-                value: 'payzap',
-                titile: 'payzap'
-            }, {
-                walletname: 'JioMoney',
-                value: 'jio',
-                titile: 'jio'
-            }, {
-                walletname: 'Ola Money',
-                value: 'ola',
-                titile: 'ola'
-            }, {
-                walletname: 'PayU',
-                value: 'payu',
-                titile: 'payu'
-            }, {
-                walletname: 'Paytm',
-                value: 'paytm',
-                titile: 'paytm'
-            }, {
-                walletname: 'Oxigen Wallet',
-                value: 'oxygen',
-                titile: 'oxygen'
-            }, {
-                walletname: 'Quik wallet',
-                value: 'quick',
-                titile: 'quick'
-            }, {
-                walletname: 'SBI Buddy',
-                value: 'sbud',
-                titile: 'sbibuddy'
-            }, {
-                walletname: 'Money On Mobile',
-                value: 'money',
-                titile: 'money'
-            }, {
-                walletname: 'MobiKwik',
-                value: 'mobikwik',
-                titile: 'mobikwik'
-            }, {
-                walletname: 'Itz Cash',
-                value: 'itzcash',
-                titile: 'itzcash'
-            }, {
-                walletname: 'sodexo',
-                value: 'sodexo',
-                titile: 'sodexo'
-            }
-        ]
-    };
+function animateMobileTab() {
+    tabcont.css('height', '');
+    autoHeightAnimate(tabcont, 500);
+    var tabHeight = tabcont.height();
+    setTimeout(function () {
+        $(".tabWrap").animate({
+            height: tabHeight
+        }, 500);
+        $('.tabWrap').addClass('showtab');
+        $('.tab-menu').fadeOut(500);
+    }, 500);
+    $('.footer,.closetab').show();
+}
 
-    var walletkli = Payments.templates.wallet(walletData);
-    $('.tab-container').append(walletkli);
 
-    var cardData = {
-        isEmiTab: true,
-        pageID: "cards",
-        tab: "tabs-1",
-        showSavedCard: true,
-        savedCard: false,
-        blockName: 'blockCards',
-        cnLabel: 'Card Number',
-        cxLabel: 'Card Exp Date',
-        chnLabel: 'Card Holder Name',
-        cvvLabel: 'CSV / CVV',
-        saveMob: 'Mobile Number',
-        saveEmail: 'Enter your E-mail Id',
-        savePass: 'Enter your Password',
-        confirmPass: 'Re enter Password',
-        iconCard: 'iCard',
-        iconCname: 'iNameCard',
-        iconCVV: 'iCVV',
-        iconMob: 'iMob',
-        iconEmail: 'iEmail',
-        iconUser: 'iUser',
-        iconPass: 'iPass',
-        heCnum: 'Please enter a valid card number',
-        heChold: 'Please enter name on your card',
-        heCVV: 'Its a 3 digit code printed on the back of your card',
-        savetx: 'Save card now to enable express payments',
-        'cardEmiBank': [
-            {
-                nbname: 'ICICI Bank',
-                value: 'icici',
-                titile: 'nbicici',
-                cardEmi: true
-            }, {
-                nbname: 'HDFC Bank',
-                value: 'hdfc',
-                titile: 'nbhdfc',
-                cardEmi: true
-            }, {
-                nbname: 'Kotak Bank',
-                value: 'kotak',
-                titile: 'nbkotak',
-                cardEmi: false
-            }, {
-                nbname: 'Axis Bank',
-                value: 'axis',
-                titile: 'nbaxis',
-                cardEmi: true
-            }, {
-                nbname: 'SBI Bank',
-                value: 'sbi',
-                titile: 'nbsbi',
-                cardEmi: false
-            }
+function bindMobileHideEvent() {
+    $('.closetab').on('click', function () {
+        $('.tabWrap').stop().animate({
+            height: '0'
+        }, 500, function () {
+            $('.tabWrap').removeClass('showtab');
+            $('.footer,.closetab').hide();
+            $('.tab-menu').fadeIn(500);
+        });
 
-        ],
-        'emiTable': [
-            {
-                radioval: '1',
-                emiTenure: '0 months',
-                bankRate: '12%',
-                installments: 'Rs. 0',
-                interestPaid: 'Rs. 0'
-            },
-            {
-                radioval: '2',
-                emiTenure: '3 months',
-                bankRate: '12%',
-                installments: 'Rs. 55',
-                interestPaid: 'Rs. 20'
-            },
-            {
-                radioval: '3',
-                emiTenure: '6 months',
-                bankRate: '12%',
-                installments: 'Rs. 5,100',
-                interestPaid: 'Rs. 301'
-            }
-        ]
-    };
-    var cards = Payments.templates.cards(cardData);
-    $('.tab-container').append(cards);
+    });
+}
 
-    var menuData = {
-        'menu': [
-            {
-                'data': 'credit-debit',
-                'tab': '1',
-                'tabname': 'Credit / Debit',
-                'imgicon': 'cdc'
-            }, {
-                'data': 'net-banking',
-                'tab': '2',
-                'tabname': 'Net Banking',
-                'imgicon': 'nb'
-            }, {
-                'data': 'Cash',
-                'tab': '3',
-                'tabname': 'Cash',
-                'imgicon': 'cash'
-            }, {
-                'data': 'emi',
-                'tab': '4',
-                'tabname': 'EMI',
-                'imgicon': 'emi'
-            }, {
-                'data': 'rtgs',
-                'tab': '5',
-                'tabname': 'RTGS / NEFT',
-                'imgicon': 'rtnft'
-            }, {
-                'data': 'wallet',
-                'tab': '6',
-                'tabname': 'Wallet',
-                'imgicon': 'wallet'
-            }, {
-                'data': 'amex',
-                'tab': '7',
-                'tabname': 'Amex eZeClick'
-            }, {
-                'data': 'express-payments',
-                'tab': '8',
-                'tabname': 'Express Payments'
-            }, {
-                'data': 'upi',
-                'tab': '9',
-                'tabname': 'UPI'
-            }, {
-                'data': 'bharat-qr',
-                'tab': '10',
-                'tabname': 'Bharat QR'
-            }, {
-                'data': 'pay-later',
-                'tab': '11',
-                'tabname': 'Pay Later'
-            },
-        ]
-    };
+function renderSelectedTab(paymentId){
+    var callbackMethod,
+        fileName;
+    switch(paymentId) {
+        case 'credit-debit':
+            fileName = 'cards';
+            callbackMethod = renderCcDc;
+            break;
+        case 'net-banking':
+            fileName = 'netbanking';
+            callbackMethod = renderNetBnk;
+            break;
+        case 'cash':
+            fileName = 'cash';
+            callbackMethod = renderCashChannel;
+            break;
+        case 'emi':
+            fileName = 'emi';
+            callbackMethod = renderEmiChannel;
+            break;
+        case 'rtgs':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'wallet':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'Amex-click':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'Express_Payment':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'UPI':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'pay_later':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'imps':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'va':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'aloan':
+            fileName = '';
+            callbackMethod;
+            break;
+        case 'bharat-qr':
+            fileName = '';
+            callbackMethod;
+            break;
+        default:
+            paymentId = 'credit-debit';
+            fileName = 'cards';
+            callbackMethod = renderCcDc;
+            break;
+    }
 
-    var menuDom = Payments.templates.menu_tab(menuData);
-    $('.tab-menu').append(menuDom);
+    renderTab(paymentId,fileName,callbackMethod);
+}
 
-    var bharatQr = Payments.templates.bharat_qr();
-    $('.tab-container').append(bharatQr);
-    
-    var upi = Payments.templates.upi_vpa();
-    $('.tab-container').append(upi);
+function renderTab(paymentTabId,templateFileName,callbackMethod){
+    if(Payments.templates[templateFileName]){
+        $('.blockMain').hide();
+        $('[data-tab-type="'+paymentTabId+'"]').show();
+        if (isMobile()) {
+            tabcont = $('.tabWrap');
+            animateMobileTab();
+        }
+    } else {
+        $.ajax('./templates/'+templateFileName + '.js',{
+            success: $.proxy(function(callbackMethod,paymentTabId,responseData){
+                if(callbackMethod){
+                    callbackMethod(paymentTabId);                
+                }
+                if (isMobile()) {
+                    tabcont = $('.tabWrap');
+                    animateMobileTab();
+                    bindMobileHideEvent();
+                }
+            },this,callbackMethod,paymentTabId)
+        });
+    }
+   
+}
 
+$(document).ready(function(){
+    console.log('Hi we are in!!!');
+    loadTranslateJson();
 });
