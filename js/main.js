@@ -57,7 +57,7 @@ function loadMenuTab(){
                         'tabname': 'Net Banking',
                         'imgicon': 'nb'
                     }, {
-                        'data': 'Cash',
+                        'data': 'cash',
                         'tab': '3',
                         'tabname': 'Cash',
                         'imgicon': 'cash'
@@ -77,15 +77,15 @@ function loadMenuTab(){
                         'tabname': 'Wallet',
                         'imgicon': 'wallet'
                     }, {
-                        'data': 'amex',
+                        'data': 'Amex-click',
                         'tab': '7',
                         'tabname': 'Amex eZeClick'
                     }, {
-                        'data': 'express-payments',
+                        'data': 'Express_Payment',
                         'tab': '8',
                         'tabname': 'Express Payments'
                     }, {
-                        'data': 'upi',
+                        'data': 'UPI',
                         'tab': '9',
                         'tabname': 'UPI'
                     }, {
@@ -129,7 +129,7 @@ function autoHeightAnimate(element, time, callback) {
     }, time); // Animate to Auto Height
 }
 
-function showTab() {
+function animateMobileTab() {
     tabcont.css('height', '');
     autoHeightAnimate(tabcont, 500);
     var tabHeight = tabcont.height();
@@ -144,7 +144,7 @@ function showTab() {
 }
 
 
-function hideTab() {
+function bindMobileHideEvent() {
     $('.closetab').on('click', function () {
         $('.tabWrap').stop().animate({
             height: '0'
@@ -158,61 +158,73 @@ function hideTab() {
 }
 
 function renderSelectedTab(paymentId){
+    var callbackMethod,
+        fileName;
     switch(paymentId) {
         case 'credit-debit':
-            renderCCDC(paymentId);
+            fileName = 'cards';
+            callbackMethod = renderCcDc;
             break;
         case 'net-banking':
-            renderNetBanking(paymentId);
+            fileName = 'netbanking';
+            callbackMethod = renderNetBnk;
             break;
         case 'cash':
-            renderCashBlock(paymentId);
+            fileName = 'cash';
+            callbackMethod = renderCashChannel;
             break;
         case 'emi':
-            renderEmiBlock(paymentId);
+            fileName = 'emi';
+            callbackMethod = renderEmiChannel;
             break;
         case 'rtgs':
-            renderRtgsBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'wallet':
-            renderWalletBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'Amex-click':
-            renderAmexOnClickBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'Express_Payment':
-            renderExpressTabs(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'UPI':
-            renderUpiBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'pay_later':
-            renderPayLaterBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'imps':
-            renderImpsBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'va':
-            renderVirtualBlock(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
         case 'aloan':
-            renderAirloan(paymentId);
+            fileName = '';
+            callbackMethod;
             break;
-        case 'btqr':
-            renderbharatqr(paymentId);
+        case 'bharat-qr':
+            fileName = '';
+            callbackMethod;
             break;
         default:
-            renderCCDC('credit-debit');
+            paymentId = 'credit-debit';
+            fileName = 'cards';
+            callbackMethod = renderCcDc;
             break;
     }
-}
 
-function renderCCDC(paymentTabId){
-    renderTab(paymentTabId,'cards', renderCcDc);
-}
-
-function renderNetBanking(paymentTabId){
-    renderTab(paymentTabId,'netbanking', renderNetBnk);
+    renderTab(paymentId,fileName,callbackMethod);
 }
 
 function renderTab(paymentTabId,templateFileName,callbackMethod){
@@ -221,8 +233,7 @@ function renderTab(paymentTabId,templateFileName,callbackMethod){
         $('[data-tab-type="'+paymentTabId+'"]').show();
         if (isMobile()) {
             tabcont = $('.tabWrap');
-            showTab();
-            hideTab();
+            animateMobileTab();
         }
     } else {
         $.ajax('./templates/'+templateFileName + '.js',{
@@ -232,8 +243,8 @@ function renderTab(paymentTabId,templateFileName,callbackMethod){
                 }
                 if (isMobile()) {
                     tabcont = $('.tabWrap');
-                    showTab();
-                    hideTab();
+                    animateMobileTab();
+                    bindMobileHideEvent();
                 }
             },this,callbackMethod,paymentTabId)
         });

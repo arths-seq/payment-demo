@@ -1,4 +1,18 @@
 function renderCcDc(paymentTabId){
+	renderCcDcTemplate();
+    $('.blockMain').hide();
+    $('[data-tab-type="'+paymentTabId+'"]').show();
+	bindCcDcEvent();
+}
+
+function bindCcDcEvent(){
+	cvvLengthValidation();
+	expiryDateValidation();
+	expiryDateLengthValidation();
+	cardNumberUpdate();
+}
+
+function renderCcDcTemplate(){
 	var cardData = {
         isEmiTab: false,
         showSavedCard: true,
@@ -75,16 +89,6 @@ function renderCcDc(paymentTabId){
     };
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
-    $('.blockMain').hide();
-    $('[data-tab-type="'+paymentTabId+'"]').show();
-	bindCcDcEvent();
-}
-
-function bindCcDcEvent(){
-	cvvLengthValidation();
-	expiryDateValidation();
-	expiryDateLengthValidation();
-	cardNumberUpdate();
 }
 
 // card number validation
@@ -247,9 +251,3 @@ function expiryDateLengthValidation(){
 		yourInput = yourInput.length > 4 ? $(this).removeClass('errorvalue') : $(this).addClass('errorvalue');
 	});
 }	
-
-	// $(document).ready(function () {
-	// 	expiryDateValidation();
-	// });
-	// expiryDateLengthValidation();
-	// cvvLengthValidation();
