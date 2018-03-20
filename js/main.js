@@ -290,5 +290,8 @@ $(document).ready(function () {
 
     var bharatQr = Payments.templates.bharat_qr();
     $('.tab-container').append(bharatQr);
+    
+    var upi = Payments.templates.upi_vpa();
+    $('.tab-container').append(upi);
 
 });
