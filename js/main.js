@@ -23,7 +23,7 @@ function loadTranslateJson(){
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
-                languageJson = JSON.parse(data);
+                languageJson = data;
                 localStorage.setItem(currentLang+'-payment',data);
                 render();
             },this,currentLang)
@@ -194,8 +194,8 @@ function renderSelectedTab(paymentId){
             callbackMethod;
             break;
         case 'UPI':
-            fileName = '';
-            callbackMethod;
+            fileName = 'upi_vpa';
+            callbackMethod = renderUpi;
             break;
         case 'pay_later':
             fileName = '';
