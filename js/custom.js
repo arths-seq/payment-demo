@@ -26,14 +26,6 @@ function floatLabels() {
         $('body').removeClass('mobile');
     }
 
-    function displayTab() {
-        $('.blockMain[data="tabs-1"]').show();
-        $('.menuli:first-child').addClass('active');
-    }
-    if (!isMobile()) {
-        displayTab();
-    }
-
     $(window).resize(function () {
         if (isMobile()) {
             $('body').addClass('mobile');
@@ -41,22 +33,5 @@ function floatLabels() {
             $('.menuli:first-child').removeClass('active');
         } else {
             $('body').removeClass('mobile');
-            displayTab();
         }
     });
-
-    // $('.menuli').on('click', function (event) {
-    //     $('.menuli.active').removeClass('active');
-    //     $(event.currentTarget).addClass('active');
-    //     var blockDatatype = $(event.currentTarget).attr('data-tab');
-    //     getTab(blockDatatype);
-    //     if (isMobile()) {
-    //         showTab();
-    //         hideTab();
-    //     }
-    // });
-    
-    
-
-    	
-    
