@@ -19,7 +19,7 @@ function loadTranslateJson(){
             break;
     }
 
-    languageJson = JSON.parse(localStorage.getItem(currentLang+'-payment'));
+    languageJson = localStorage.getItem(currentLang+'-payment');
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
