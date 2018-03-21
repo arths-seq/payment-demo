@@ -152,7 +152,7 @@ $(document).ready(function () {
         pageID: "cards",
         tab: "tabs-1",
         showSavedCard: true,
-        savedCard: false,
+        savedCard: true,
         blockName: 'blockCards',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',
