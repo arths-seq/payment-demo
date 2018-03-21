@@ -19,7 +19,7 @@ function loadTranslateJson(){
             break;
     }
 
-    languageJson = JSON.parse(localStorage.getItem(currentLang+'-payment'));
+    languageJson = localStorage.getItem(currentLang+'-payment');
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
@@ -197,9 +197,9 @@ function renderSelectedTab(paymentId){
             fileName = 'upi_vpa';
             callbackMethod = renderUpi;
             break;
-        case 'pay_later':
-            fileName = '';
-            callbackMethod;
+        case 'pay-later':
+            fileName = 'paylater';
+            callbackMethod = renderPaylater;
             break;
         case 'imps':
             fileName = '';
