@@ -1193,29 +1193,6 @@ body {
   min-height: 20vh;
   border: 0px solid #b3b3ea; }
 
-.wallet-popup {
-  display: none; }
-
-.mainpopup {
-  position: fixed;
-  background-color: #000;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.2;
-  z-index: 9; }
-
-.popup {
-  position: absolute;
-  width: 88%;
-  background-color: #fff;
-  top: 0;
-  z-index: 99;
-  padding: 2%; }
-
 ul.menu-list .menuli {
   background-color: #fff; }
   ul.menu-list .menuli a {
@@ -1524,8 +1501,9 @@ ul.walletlist li label {
 .needhelp a:hover .info-content {
   display: block; }
 
-.errorvalue {
-  border-bottom: 1px solid red !important; }
+.has-content input.errorvalue {
+  border-bottom: 1px solid red !important;
+  opacity: 1; }
 
 .box-shadow-none {
   box-shadow: none !important; }
@@ -1760,21 +1738,21 @@ ul.walletlist li label {
   ul.blocklist li {
     width: 47%; } }
 
-.spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
+.spriteCommon, .visa ~ .card-icon, .amex ~ .card-icon, .mastercard ~ .card-icon {
   width: 40px;
   height: 25px; }
 
 .card-icon {
   background-position: 0px -118px;
-  width: 117px; }
+  width: 80px; }
 
-.icon.visa {
+.visa ~ .card-icon {
   background-position: 0 -121px; }
 
-.icon.amex {
+.amex ~ .card-icon {
   background-position: -159px -121px; }
 
-.icon.mastercard {
+.mastercard ~ .card-icon {
   background-position: -39px -121px; }
 
 .formDom .form-control.net-banking-options {

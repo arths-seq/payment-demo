@@ -5,18 +5,18 @@
 }
 .card-icon{
     background-position: 0px -118px;
-    width: 117px;
+    width: 80px;
     @extend %icon;
 }
-.icon.visa {
+.visa ~ .card-icon{
     background-position: 0 -121px; 
     @extend .spriteCommon;
 }
-.icon.amex {
+.amex ~ .card-icon {
     background-position: -159px -121px;
     @extend .spriteCommon;
 }
-.icon.mastercard {
+.mastercard ~ .card-icon {
     background-position: -39px -121px;
     @extend .spriteCommon;
 }

@@ -10,6 +10,7 @@ function bindCcDcEvent(){
 	expiryDateValidation();
 	expiryDateLengthValidation();
 	cardNumberUpdate();
+	floatLabels();
 }
 
 function renderCcDcTemplate(){
@@ -93,35 +94,61 @@ function renderCcDcTemplate(){
 
 // card number validation
 function cardNumberUpdate() {
-    var cardNumber = $('.cardNumber');
-	
-    var cardIcon = $(".card-icon");
+	$(".cardNumber").keyup(function () {
+		var ele = $(this);
+		var cardtype = ele.data('cardtype');
+		var e = ele.val().split(" ").join("");
+		if (e == "") {
 
-    // Use the payform library to format and validate
-    // the payment fields.
-
-    cardNumber.payform('formatCardNumber');
-
-    cardNumber.keyup(function() {
-
-        cardIcon.removeClass('visa');
-            cardIcon.removeClass('amex');
-            cardIcon.removeClass('mastercard');
-
-        if ($.payform.validateCardNumber(cardNumber.val()) == false) {
-            cardNumber.addClass('errorvalue');
-        } else {
-            cardNumber.removeClass('errorvalue');
+			ele.removeClass (function (index, className) {
+				return (className.match (/\w*-icon\w*/) || []).join(' ');
+				
+			});
+			//ele.addClass(cardtype+"logos");
+			$(this).addClass('errorvalue');
+		} else {
+			//$(this).addClass('errorvalue');
+			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
+			ele.val(e);
+			var r = get_card_type(e);
+			var i = r.split('_');
+			var ct = i[1].toLowerCase();;
+			ele.removeClass (function (index, className) {
+				return (className.match (/\w*-icon\w*/) || []).join(' ');
+				
+			});
+			ele.addClass(ct);	
+		}
+	});
+function get_card_type(number) {
+    number = number.replace(/ /g, '');
+    var prefix_ret = match_prefix(number);
+    if (prefix_ret != false) {
+        return prefix_ret;
+    }
+}
+function match_prefix(card_number) {
+    var card_prefix;
+    card_prefix = {
+        "CC_AMEX": [34, 37],
+        "CC_DINERSCLUB": [300, 301, 302, 303, 304, 305, 36, 38],
+        "CC_DISCOVER": [6011],
+        "CC_JCB": [3, 1800, 2131],
+        "CC_MASTERCARD": [51, 52, 53, 54, 55],
+        "CC_VISA": [4],
+        "CC_RUPAY": [5085, 5086, 5087, 5088, 5089, 6061, 6062, 6063, 6064, 6065, 6066, 6067, 6068, 6069, 607, 6080, 6081, 6082, 6083, 6084, 6085, 65215, 6522, 6523, 6524, 6525, 6526, 6527, 6528, 6530, 6531,6521],
+        "CC_MAESTRO": [622018, 600206, 504435, 504775, 504645, 603845, 504809, 504993, 504774, 502165, 502260, 504433, 504434, 504437, 504681, 504753, 504817, 504834, 504848, 504884, 504973, 508125, 508126, 508159, 603123, 603741,5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017, 5018, 502, 503, 504, 505, 506, 507, 508, 6012, 6013, 6014, 6015, 6016, 6017, 6018, 6019, 602, 603, 604, 605, 6060, 677, 675, 674, 673, 672, 671, 670, 6760, 6761, 6762, 6763, 6764, 6765, 6766, 6768, 6769, 581, 600, 622],
+    };
+    for (var index in card_prefix)
+        for (var index1 in card_prefix[index]) {
+            var pattern = card_prefix[index][index1];
+            var a = card_number.substring(0, pattern.toString().length);
+            if (a == pattern) {
+                return (index);
+            }
         }
-		
-		if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
-            cardIcon.addClass('visa');
-        } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
-            cardIcon.addClass('amex');
-        } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
-            cardIcon.addClass('mastercard');
-        }
-    });
+    return "CC_UNKNOWN";
+}
 }
 
 // expiry Date validation
