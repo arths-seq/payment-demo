@@ -66,26 +66,6 @@ function renderCcDcTemplate(){
                 cardEmi: false
             }
 
-        ],
-        'emiTable': [
-            {
-                emiTenure: '0 months',
-                bankRate: '12%',
-                installments: 'Rs. 0',
-                interestPaid: 'Rs. 0'
-            },
-            {
-                emiTenure: '3 months',
-                bankRate: '12%',
-                installments: 'Rs. 55',
-                interestPaid: 'Rs. 20'
-            },
-            {
-                emiTenure: '6 months',
-                bankRate: '12%',
-                installments: 'Rs. 5,100',
-                interestPaid: 'Rs. 301'
-            }
         ]
     };
     var cards = Payments.templates.cards(cardData);
@@ -94,7 +74,7 @@ function renderCcDcTemplate(){
 
 // card number validation
 function cardNumberUpdate() {
-	$(".cardNumber").keyup(function () {
+	$(".cardNumber").keyup(function () {		
 		var ele = $(this);
 		var cardtype = ele.data('cardtype');
 		var e = ele.val().split(" ").join("");
@@ -107,7 +87,6 @@ function cardNumberUpdate() {
 			//ele.addClass(cardtype+"logos");
 			$(this).addClass('errorvalue');
 		} else {
-			//$(this).addClass('errorvalue');
 			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
 			ele.val(e);
 			var r = get_card_type(e);
@@ -118,6 +97,10 @@ function cardNumberUpdate() {
 				
 			});
 			ele.addClass(ct);	
+		}
+		var cardnumber = $(this);
+		if(!cardnumber.val().length > 22){
+			$(this).addClass('errorvalue');
 		}
 	});
 function get_card_type(number) {
@@ -273,7 +256,7 @@ function cvvLengthValidation(){
 
 // expriy date
 function expiryDateLengthValidation(){
-	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
+	$(document).on('keyup blur', '.exp_date, .cardname, .cardNumber', function (e) {
 		var yourInput = $(this).val();
 		yourInput = yourInput.length > 4 ? $(this).removeClass('errorvalue') : $(this).addClass('errorvalue');
 	});

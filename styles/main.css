@@ -1763,13 +1763,6 @@ ul.walletlist li label {
   left: 0;
   opacity: 0; }
 
-.bankName {
-  opacity: 1 !important;
-  border: none !important; }
-
-.popularBanks .active {
-  background-color: #e2e2e2 !important; }
-
 .emitable {
   display: table;
   border-collapse: separate;
@@ -1823,3 +1816,11 @@ ul.walletlist li label {
   text-align: center;
   padding: 10px 0;
   cursor: pointer; }
+
+.formDom input.bankName {
+  opacity: 1;
+  border: none;
+  position: relative; }
+
+.popularBanks .active {
+  background-color: #e2e2e2 !important; }
