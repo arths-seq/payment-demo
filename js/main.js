@@ -101,6 +101,7 @@ function loadMenuTab(){
             };
             var menuDom = Payments.templates.menu_tab(menuData);
             $('.tab-menu').append(menuDom);
+            $('.menuli:first-child').addClass('active');
             bindMenuEvents();
             if(!isMobile()){
                 renderSelectedTab();
@@ -145,7 +146,7 @@ function animateMobileTab() {
 
 
 function bindMobileHideEvent() {
-    $('.closetab').on('click', function () {
+    $('.closetab').off('click').on('click', function () {
         $('.tabWrap').stop().animate({
             height: '0'
         }, 500, function () {
@@ -182,8 +183,8 @@ function renderSelectedTab(paymentId){
             callbackMethod;
             break;
         case 'wallet':
-            fileName = '';
-            callbackMethod;
+            fileName = 'wallet';
+            callbackMethod = renderWalletChannel;
             break;
         case 'Amex-click':
             fileName = '';
@@ -197,9 +198,9 @@ function renderSelectedTab(paymentId){
             fileName = 'upi_vpa';
             callbackMethod = renderUpi;
             break;
-        case 'pay_later':
-            fileName = '';
-            callbackMethod;
+        case 'pay-later':
+            fileName = 'paylater';
+            callbackMethod = renderPaylater;
             break;
         case 'imps':
             fileName = '';
@@ -234,6 +235,7 @@ function renderTab(paymentTabId,templateFileName,callbackMethod){
         if (isMobile()) {
             tabcont = $('.tabWrap');
             animateMobileTab();
+            bindMobileHideEvent();
         }
     } else {
         $.ajax('./templates/'+templateFileName + '.js',{
