@@ -1,18 +1,21 @@
 function renderEmiChannel(paymentTabId){
     renderEmiTemplate();
     $('.blockMain').hide();
-    $('[data-tab-type="'+paymentTabId+'"]').show();
+    $('#emi').addClass('block-emi');
+    $('#emi').removeClass('blockCards');
+    $('.block-emi').attr('data-tab-type','emi');
+    $('[data-tab-type="emi"]').show();
 	bindEmiEvent();
 }
 
 function renderEmiTemplate(){
     var emiData = {
         isEmiTab: true,
-        pageID: "cards",
-        tab: "tabs-1",
+        pageID: "emi",
+        tab: "tabs-4",
         showSavedCard: true,
-        savedCard: true,
-        blockName: 'blockCards',
+        savedCard: false,
+        blockName: 'block-emi',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',
         chnLabel: 'Card Holder Name',
@@ -59,10 +62,30 @@ function renderEmiTemplate(){
                 titile: 'nbsbi',
                 cardEmi: false
             }
+        ],
+        'emiTable': [
+            {
+                emiTenure: '0 months',
+                bankRate: '12%',
+                installments: 'Rs. 0',
+                interestPaid: 'Rs. 0'
+            },
+            {
+                emiTenure: '3 months',
+                bankRate: '12%',
+                installments: 'Rs. 55',
+                interestPaid: 'Rs. 20'
+            },
+            {
+                emiTenure: '6 months',
+                bankRate: '12%',
+                installments: 'Rs. 5,100',
+                interestPaid: 'Rs. 301'
+            }
         ]
-    },
-    emiTabTemplate = Payments.templates.cards(emiData);
-    
+    };
+    var emiTabTemplate = Payments.templates.cards(emiData);
+
 	$('.tab-container').append(emiTabTemplate);
 }
 

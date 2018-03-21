@@ -7,6 +7,8 @@ function renderCashChannel(paymentTabId){
 
 function bindCashEvents(){
 	mobileNum();
+	pinCodeValidation();
+	floatLabels();
 }
 
 function renderCashTemplate(){
@@ -32,4 +34,14 @@ function mobileNum() {
 				$(this).addClass('errorvalue');
 			}
 		});
+}
+function pinCodeValidation() {
+	$(document).on('keyup blur', '.cash_pincode', function(e) {
+		var pinCode = $(this);
+		if (pinCode.val().length > 5 && globalRegex1.test(pinCode.val())) {
+			$(this).removeClass('errorvalue');
+		} else {
+			$(this).addClass('errorvalue');
+		}
+	});
 }

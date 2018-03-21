@@ -9,7 +9,6 @@ function floatLabels() {
         }
     });
     $('.form-control').on('focus', function () {
-        placeholder = $(this).attr('placeholder');
         $(this).parents('.formDom').addClass("focused");
     });
     };    
