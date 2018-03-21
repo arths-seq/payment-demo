@@ -294,6 +294,25 @@ ul.menu-list {
         text-decoration: none;
     }
 }
+.closetab {
+        background-color: transparent; 
+        background-repeat: no-repeat;
+        background-position: -82px -84px;
+        float: right;
+
+       /* background-image: url(../img/spriteimg.png); 
+        height: 35px;
+        width: 35px;*/
+        display: none;
+        position: absolute;
+        z-index: 99;
+        bottom: -30px;
+        right: 6px;
+        padding: 3px 10px;
+        color:$primary-color;
+        font-size: 14px;
+        text-decoration: underline;
+    }
 
 .blockMain {
     display: none;
@@ -845,25 +864,7 @@ ul.walletlist li label {
         }
     }    
 
-    .closetab {
-        background-color: transparent; 
-        background-repeat: no-repeat;
-        background-position: -82px -84px;
-        float: right;
-
-       /* background-image: url(../img/spriteimg.png); 
-        height: 35px;
-        width: 35px;*/
-        display: none;
-        position: absolute;
-        z-index: 99;
-        bottom: -30px;
-        right: 6px;
-        padding: 3px 10px;
-        color:$primary-color;
-        font-size: 14px;
-        text-decoration: underline;
-    }
+    
 
 }
 
