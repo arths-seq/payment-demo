@@ -51,7 +51,7 @@ $(document).ready(function(){
 // } 
 
 // function renderCCDC(){
-//     var ccdcHtml = getCCDCTemplate();
+//     var ccdcHtml = getCCDCTemplate(dataObj);
 //     $('.payments-container').append(ccdcHtml);
 //     bindCCDCEvents();
 // }
