@@ -140,8 +140,8 @@ function animateMobileTab() {
         }, 500);
         $('.tabWrap').addClass('showtab');
         $('.tab-menu').fadeOut(500);
+        $('.footer,.closetab').fadeIn(500);
     }, 500);
-    $('.footer,.closetab').show();
 }
 
 
@@ -151,7 +151,7 @@ function bindMobileHideEvent() {
             height: '0'
         }, 500, function () {
             $('.tabWrap').removeClass('showtab');
-            $('.footer,.closetab').hide();
+            $('.footer,.closetab').fadeOut();
             $('.tab-menu').fadeIn(500);
         });
 
