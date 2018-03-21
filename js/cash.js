@@ -1,4 +1,15 @@
 function renderCashChannel(paymentTabId){
+	renderCashTemplate();
+    $('.blockMain').hide();
+    $('[data-tab-type="'+paymentTabId+'"]').show();
+	bindCashEvents();	
+}
+
+function bindCashEvents(){
+	mobileNum();
+}
+
+function renderCashTemplate(){
 	var cashData = {
 		cashmob: 'Mobile Number',
 		cashpin: 'Pincode',
@@ -8,13 +19,6 @@ function renderCashChannel(paymentTabId){
 
     var cashTemplate = Payments.templates.cash(cashData);
 	$('.tab-container').append(cashTemplate);
-    $('.blockMain').hide();
-    $('[data-tab-type="'+paymentTabId+'"]').show();
-	bindCashEvents();	
-}
-
-function bindCashEvents(){
-	mobileNum();
 }
 
 // mobile number validation
