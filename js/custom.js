@@ -1,16 +1,18 @@
-$(document).ready(function () {
+function floatLabels() {
     $(".form-control").on('focusout', function () {
+        
         $(this).parents('.formDom').removeClass("focused");
-        if ($(this).val() != "") {
-            $(this).parents('.formDom').addClass("has-content");
+           if ($(this).val() != "") {
+               $(this).parents('.formDom').addClass("has-content");             
         } else {
-            $(this).parents('.formDom').removeClass("has-content");
+            $(this).parents('.formDom').removeClass("has-content");            
         }
     });
-
     $('.form-control').on('focus', function () {
+        placeholder = $(this).attr('placeholder');
         $(this).parents('.formDom').addClass("focused");
     });
+    };    
 
     /* Function to animate height: auto */
     
@@ -58,4 +60,3 @@ $(document).ready(function () {
 
     	
     
-});

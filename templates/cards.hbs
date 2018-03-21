@@ -37,9 +37,10 @@
             {{/each}}
         {{/if}}
         <div class="cardWrap">
+            <input type="hidden" name="cardinfo.cardtype" id="cardType" value="CREDITCARD" />
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="tel" class="form-control cardNumber">
+                    <input type="tel" maxlength="23" class="form-control cardNumber">
                     <label>{{cnLabel}}</label>
                     <span class="input-group-addon icon card-icon {{iconCard}}"></span>
                 </div>
@@ -58,7 +59,7 @@
         	<div class="row">                              
                 <div class="col-xs-6">
                     <div class="formDom form-group">
-                        <input type="text" class="form-control exp_date" placeholder="MM/YY">
+                        <input type="tel" class="form-control exp_date" placeholder="MM/YY">
                         <label>{{cxLabel}}</label>
                     </div>
                 </div>                             
