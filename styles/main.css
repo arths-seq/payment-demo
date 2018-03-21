@@ -1,4 +1,4 @@
-.main-container:after, .container:after,
+.main-container:after, .head:after, .container:after,
 .container-fluid:after, .tab-menu:after, ul.menu-list:after, .amount-block:after, ul.blocklist:after, ul.blocklist li label:after, .step:after {
   content: '';
   clear: both;
@@ -162,6 +162,12 @@ h1, h1, h3, h4, h5, h6 {
 
 .text-center {
   text-align: center; }
+
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
 
 fieldset {
   min-width: 0;
@@ -1120,8 +1126,8 @@ body {
 .iaadhar {
   background-position: -360px -52px; }
 
-.ipan {
-  background-position: -318px -52px; }
+.ipancard {
+  background-position: -156px -52px; }
 
 .ical {
   background-position: -318px -52px; }
@@ -1139,6 +1145,13 @@ body {
 .main-container {
   max-width: 825px;
   margin: 0 auto; }
+
+.head {
+  position: relative; }
+
+.logo img {
+  max-width: 80%;
+  max-height: 75px; }
 
 .pay-container {
   border: 1px solid #b7b7b8;
@@ -1530,10 +1543,6 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
-.blockPaylater .defaultBlock {
-  max-width: 300px;
-  margin: 0 auto; }
-
 .stepwrap {
   max-width: 380px;
   margin: 0 auto;
@@ -1626,7 +1635,8 @@ ul.walletlist li label {
   .pay-container:after {
     right: 23.7%; }
   .amount-block {
-    width: 23.5%; }
+    width: 23.5%;
+    padding-top: 10px; }
   .tab-menu {
     width: 21%; }
   ul.menu-list .menuli a {
@@ -1642,7 +1652,14 @@ ul.walletlist li label {
   .tablogo {
     width: 176px;
     background-size: 438px 666px;
-    background-position: -160px -10px; } }
+    background-position: -160px -10px; }
+  ul.blocklist li {
+    height: 50px;
+    width: 31.3%; }
+    ul.blocklist li label {
+      width: 100%;
+      min-height: 50px;
+      padding: 10px 6%; } }
 
 @media (max-width: 767px) {
   .blockMain {
@@ -1712,26 +1729,36 @@ ul.walletlist li label {
     transition: all 0.5s;
     width: 100%; }
     .mobile .tabWrap.showtab {
-      top: 0;
+      top: 150px;
       transition: all 0.5s; }
     .mobile .tabWrap .tab-container {
       min-height: 0;
       padding-bottom: 0; }
     .mobile .tabWrap .footer {
       display: none; }
-    .mobile .tabWrap .closetab {
-      background-color: transparent;
-      background-image: url(../img/spriteimg.png);
-      background-repeat: no-repeat;
-      background-position: -82px -84px;
-      float: right;
-      height: 35px;
-      width: 35px;
-      display: none; } }
+  .closetab {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: -82px -84px;
+    float: right;
+    /* background-image: url(../img/spriteimg.png); 
+        height: 35px;
+        width: 35px;*/
+    display: none;
+    position: absolute;
+    z-index: 99;
+    bottom: -30px;
+    right: 6px;
+    padding: 3px 10px;
+    color: #0066a5;
+    font-size: 14px;
+    text-decoration: underline; } }
 
 @media (max-width: 480px) {
   .mobile ul.menu-list .menuli {
-    width: 50%; } }
+    width: 50%; }
+  ul.blocklist li {
+    width: 47%; } }
 
 .spriteCommon, .icon.visa, .icon.amex, .icon.mastercard {
   width: 40px;
