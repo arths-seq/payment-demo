@@ -1536,7 +1536,7 @@ ul.walletlist li label {
 .needhelp a:hover .info-content {
   display: block; }
 
-.has-content input.errorvalue, .form-control.errorvalue {
+.has-content input.errorvalue, .form-control.errorvalue, .focused .form-control.exp_date.errorvalue {
   border-bottom: 1px solid red !important;
   opacity: 1; }
 
