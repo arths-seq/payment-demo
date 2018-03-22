@@ -20,7 +20,7 @@ function loadTranslateJson(currentLang,isLanguageChange){
 
     languageJson = localStorage.getItem(currentLang+'-payment');
     if(languageJson && typeof languageJson === "string"){
-        languageJson = languageJson;
+        languageJson = JSON.parse(languageJson);
     }
 
     if(!languageJson){
@@ -176,12 +176,12 @@ function bindMobileHideEvent() {
     setTimeout(function () {
         $('.tabWrap').stop().animate({
             height: '0'
-        }, 1000, function () {
+        }, 500, function () {
             $('.tabWrap').removeClass('showtab');
             $('.footer,.closetab').fadeOut(500);
             $('.tab-menu').fadeIn(500);
         });
-}, 500);
+    }, 0);
     });
 }
 
