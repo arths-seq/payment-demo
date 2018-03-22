@@ -23,7 +23,6 @@ function loadTranslateJson(){
     if(languageJson && typeof languageJson === "string"){
         languageJson = JSON.parse(languageJson);
     }
-
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
