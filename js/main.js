@@ -15,11 +15,15 @@ function loadTranslateJson(){
             jsonFileName = 'dr.json';
             break;
         default :
-            jsonFileName = 'en.json';
+            jsonFileName = 'mr.json';
             break;
     }
 
     languageJson = localStorage.getItem(currentLang+'-payment');
+    if(languageJson && typeof languageJson === "string"){
+        languageJson = JSON.parse(languageJson);
+    }
+
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
@@ -187,8 +191,8 @@ function renderSelectedTab(paymentId){
             callbackMethod = renderWalletChannel;
             break;
         case 'Amex-click':
-            fileName = '';
-            callbackMethod;
+            fileName = 'amex';
+            callbackMethod = renderAmexChannel;
             break;
         case 'Express_Payment':
             fileName = '';

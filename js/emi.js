@@ -5,7 +5,8 @@ function renderEmiChannel(paymentTabId){
     $('#emi').removeClass('blockCards');
     $('.block-emi').attr('data-tab-type','emi');
     $('[data-tab-type="emi"]').show();
-	bindEmiEvent();
+    bindEmiEvent();
+    floatLabels();
 }
 
 function renderEmiTemplate(){
@@ -36,6 +37,12 @@ function renderEmiTemplate(){
         heCVV: 'Its a 3 digit code printed on the back of your card',
         savetx: 'Save card now to enable express payments',
         'cardEmiBank': [
+            {
+                nbname: 'Select Bank',
+                value: 'selectbank',
+                titile: 'selectbank',
+                cardEmi: true
+            },
             {
                 nbname: 'ICICI Bank',
                 value: 'icici',
@@ -90,5 +97,12 @@ function renderEmiTemplate(){
 }
 
 function bindEmiEvent(){
-
+    $('.emitable').hide();
+    $(document).on('change', 'select', function (e) {
+        if ($(this).val() == 'hdfc') {
+            $('.emitable').show();
+        }else if ($(this).val() == 'selectbank') {
+            $('.emitable').hide();
+        }
+    });
 }

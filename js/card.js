@@ -81,6 +81,7 @@ function cardNumberUpdate() {
 		if (e == "") {
 
 			ele.removeClass (function (index, className) {
+				$(this).addClass('errorvalue');
 				return (className.match (/\w*-icon\w*/) || []).join(' ');
 				
 			});
@@ -93,8 +94,7 @@ function cardNumberUpdate() {
 			var i = r.split('_');
 			var ct = i[1].toLowerCase();;
 			ele.removeClass (function (index, className) {
-				return (className.match (/\w*-icon\w*/) || []).join(' ');
-				
+				return (className.match (/\w*-icon\w*/) || []).join(' ');				
 			});
 			ele.addClass(ct);	
 		}
