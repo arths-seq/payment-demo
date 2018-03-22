@@ -1552,6 +1552,9 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
+.epay-uid, .epay-otp {
+  display: none; }
+
 .stepwrap {
   max-width: 380px;
   margin: 0 auto;
