@@ -446,6 +446,9 @@ fieldset[disabled] a.btn {
 select.form-control option:first-child {
   display: none; }
 
+.langbar select.form-control option:first-child {
+  display: block; }
+
 .formDom .form-control {
   position: relative;
   z-index: 2;
@@ -1835,7 +1838,7 @@ ul.walletlist li label {
     border-bottom: none; }
 
 .eze_logo {
-  background-position: -16px -518px;
+  background-position: -7px -518px;
   width: 204px;
   height: 55px; }
 

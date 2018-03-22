@@ -294,6 +294,10 @@ fieldset[disabled] a.btn {
 select.form-control option:first-child {
     display: none;
 }
+
+.langbar select.form-control option:first-child {
+    display: block;
+}
 .formDom .form-control{
     position:relative; 
     z-index: 2;
