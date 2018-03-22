@@ -1,8 +1,7 @@
 var languageJson,
     tabcont;
-function loadTranslateJson(){
-    var currentLang = "mr",
-        jsonFileName;
+function loadTranslateJson(currentLang,isLanguageChange){
+    var jsonFileName;
 
     switch (currentLang){
         case 'en':
@@ -15,7 +14,7 @@ function loadTranslateJson(){
             jsonFileName = 'dr.json';
             break;
         default :
-            jsonFileName = 'mr.json';
+            jsonFileName = 'en.json';
             break;
     }
 
@@ -23,16 +22,17 @@ function loadTranslateJson(){
     if(languageJson && typeof languageJson === "string"){
         languageJson = JSON.parse(languageJson);
     }
+
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
-            success: $.proxy(function(currentLang,data){
+            success: $.proxy(function(currentLang,data){debugger
                 languageJson = data;
                 localStorage.setItem(currentLang+'-payment',data);
-                render();
+                render(isLanguageChange);
             },this,currentLang)
         });
     } else {
-        render();
+        render(isLanguageChange);
     }
 }
 
@@ -40,81 +40,104 @@ function translate(translationText){
     return  languageJson[translationText] || translationText;     
 }
 
-function render(){
-    loadMenuTab();
+function render(isLanguageChange){
+    $('body').addClass('mobile');
+    loadMenuTab(isLanguageChange);
+    bindLangChangeEvent();
 }
 
-function loadMenuTab(){
-    $.ajax('./templates/menu_tab.js',{
-        success: function(){
-            var menuData = {
-                'menu': [
-                    {
-                        'data': 'credit-debit',
-                        'tab': '1',
-                        'tabname': 'Credit / Debit',
-                        'imgicon': 'cdc'
-                    }, {
-                        'data': 'net-banking',
-                        'tab': '2',
-                        'tabname': 'Net Banking',
-                        'imgicon': 'nb'
-                    }, {
-                        'data': 'cash',
-                        'tab': '3',
-                        'tabname': 'Cash',
-                        'imgicon': 'cash'
-                    }, {
-                        'data': 'emi',
-                        'tab': '4',
-                        'tabname': 'EMI',
-                        'imgicon': 'emi'
-                    }, {
-                        'data': 'rtgs',
-                        'tab': '5',
-                        'tabname': 'RTGS / NEFT',
-                        'imgicon': 'rtnft'
-                    }, {
-                        'data': 'wallet',
-                        'tab': '6',
-                        'tabname': 'Wallet',
-                        'imgicon': 'wallet'
-                    }, {
-                        'data': 'Amex-click',
-                        'tab': '7',
-                        'tabname': 'Amex eZeClick'
-                    }, {
-                        'data': 'Express_Payment',
-                        'tab': '8',
-                        'tabname': 'Express Payments'
-                    }, {
-                        'data': 'UPI',
-                        'tab': '9',
-                        'tabname': 'UPI'
-                    }, {
-                        'data': 'bharat-qr',
-                        'tab': '10',
-                        'tabname': 'Bharat QR'
-                    }, {
-                        'data': 'pay-later',
-                        'tab': '11',
-                        'tabname': 'Pay Later'
-                    },
-                ]
-            };
-            var menuDom = Payments.templates.menu_tab(menuData);
-            $('.tab-menu').append(menuDom);
-            $('.menuli:first-child').addClass('active');
-            bindMenuEvents();
-            if(!isMobile()){
-                renderSelectedTab();
+function bindLangChangeEvent(){
+    $('.language-selector').off('change').on('change',function(){
+        var selectedLang = $(event.currentTarget).val();
+        resetPage();
+        loadTranslateJson(selectedLang,true);
+    });
+}
+
+function resetPage(){
+    $('.tab-menu').html('');
+    $('.tab-container').html('');
+}
+
+function loadMenuTab(isLanguageChange){
+    if(Payments.templates['menu_tab']){
+        renderMenuTab(isLanguageChange);
+    } else {
+        $.ajax('./templates/menu_tab.js',{
+            success: function(){
+                renderMenuTab();
             }
-        }
-    });    
+        });   
+    } 
+}
+
+function renderMenuTab(isLanguageChange){
+    var menuData = {
+        'menu': [
+            {
+                'data': 'credit-debit',
+                'tab': '1',
+                'tabname': translate('Credit / Debit'),
+                'imgicon': 'cdc'
+            }, {
+                'data': 'net-banking',
+                'tab': '2',
+                'tabname': translate('Net Banking'),
+                'imgicon': 'nb'
+            }, {
+                'data': 'cash',
+                'tab': '3',
+                'tabname': 'Cash',
+                'imgicon': 'cash'
+            }, {
+                'data': 'emi',
+                'tab': '4',
+                'tabname': 'EMI',
+                'imgicon': 'emi'
+            }, {
+                'data': 'rtgs',
+                'tab': '5',
+                'tabname': 'RTGS / NEFT',
+                'imgicon': 'rtnft'
+            }, {
+                'data': 'wallet',
+                'tab': '6',
+                'tabname': 'Wallet',
+                'imgicon': 'wallet'
+            }, {
+                'data': 'Amex-click',
+                'tab': '7',
+                'tabname': 'Amex eZeClick'
+            }, {
+                'data': 'Express_Payment',
+                'tab': '8',
+                'tabname': 'Express Payments'
+            }, {
+                'data': 'UPI',
+                'tab': '9',
+                'tabname': 'UPI'
+            }, {
+                'data': 'bharat-qr',
+                'tab': '10',
+                'tabname': 'Bharat QR'
+            }, {
+                'data': 'pay-later',
+                'tab': '11',
+                'tabname': 'Pay Later'
+            },
+        ]
+    };
+    var menuDom = Payments.templates.menu_tab(menuData);
+    $('.tab-menu').html(menuDom);
+    $('.menuli:first-child').addClass('active');
+    bindMenuEvents();
+    if(!isMobile()){
+        renderSelectedTab('',isLanguageChange);
+    }
 }
 
 function bindMenuEvents(){
-    $('.tab-menu-options').on('click', function (event) {
+    $('.tab-menu-options').off('click').on('click', function (event) {
         $('.tab-menu-options.active').removeClass('active');
         $(event.currentTarget).addClass('active');
         var blockDatatype = $(event.currentTarget).attr('data-tab');
@@ -161,7 +184,7 @@ function bindMobileHideEvent() {
     });
 }
 
-function renderSelectedTab(paymentId){
+function renderSelectedTab(paymentId,isLanguageChange){
     var callbackMethod,
         fileName;
     switch(paymentId) {
@@ -228,13 +251,17 @@ function renderSelectedTab(paymentId){
             break;
     }
 
-    renderTab(paymentId,fileName,callbackMethod);
+    renderTab(paymentId,fileName,callbackMethod,isLanguageChange);
 }
 
-function renderTab(paymentTabId,templateFileName,callbackMethod){
+function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange){
     if(Payments.templates[templateFileName]){
-        $('.blockMain').hide();
-        $('[data-tab-type="'+paymentTabId+'"]').show();
+        if(isLanguageChange){
+            callbackMethod(paymentTabId); 
+        } else {
+            $('.blockMain').hide();
+            $('[data-tab-type="'+paymentTabId+'"]').show();
+        }
         if (isMobile()) {
             tabcont = $('.tabWrap');
             animateMobileTab();
@@ -259,5 +286,5 @@ function renderTab(paymentTabId,templateFileName,callbackMethod){
 
 $(document).ready(function(){
     console.log('Hi we are in!!!');
-    loadTranslateJson();
+    loadTranslateJson('en');
 });
