@@ -825,13 +825,6 @@ ul.walletlist li label {
 }
 
 @media (max-width: 767px) {
-    body {
-        background-color: #e1edf5;
-    }
-    #wrap {
-        padding: 0 10px;
-
-    }
     .head {
         background: #fff;
     }
@@ -1025,9 +1018,6 @@ ul.walletlist li label {
 }
 
 @media (max-width: 480px) {
-    #wrap {
-        padding: 0 5px;
-    }
     ul.menu-list {
         .menuli {
             width: 50%;
