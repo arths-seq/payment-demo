@@ -1411,35 +1411,35 @@ ul.walletlist li label {
   height: 28px;
   text-indent: -9999px; }
   .blockWallet .walletLogo.logo-amazon {
-    background-position: 0px -422px; }
+    background-position: 0px -326px; }
   .blockWallet .walletLogo.logo-citrus {
-    background-position: -125px -421px; }
+    background-position: -125px -325px; }
   .blockWallet .walletLogo.logo-freecharge {
-    background-position: -245px -420px; }
+    background-position: -245px -324px; }
   .blockWallet .walletLogo.logo-payzap {
-    background-position: -366px -421px; }
+    background-position: -366px -324px; }
   .blockWallet .walletLogo.logo-jio {
-    background-position: -5px -471px; }
+    background-position: -5px -373px; }
   .blockWallet .walletLogo.logo-ola {
-    background-position: -125px -471px; }
+    background-position: -125px -373px; }
   .blockWallet .walletLogo.logo-payu {
-    background-position: -245px -471px; }
+    background-position: -245px -373px; }
   .blockWallet .walletLogo.logo-paytm {
-    background-position: -366px -471px; }
+    background-position: -366px -373px; }
   .blockWallet .walletLogo.logo-oxygen {
-    background-position: -5px -519px; }
+    background-position: -5px -423px; }
   .blockWallet .walletLogo.logo-quick {
-    background-position: -125px -519px; }
+    background-position: -125px -423px; }
   .blockWallet .walletLogo.logo-sbibuddy {
-    background-position: -245px -517px; }
+    background-position: -245px -422px; }
   .blockWallet .walletLogo.logo-money {
-    background-position: -366px -519px; }
+    background-position: -366px -423px; }
   .blockWallet .walletLogo.logo-mobikwik {
-    background-position: -5px -567px; }
+    background-position: -5px -471px; }
   .blockWallet .walletLogo.logo-itzcash {
-    background-position: -125px -566px; }
+    background-position: -125px -470px; }
   .blockWallet .walletLogo.logo-sodexo {
-    background-position: -245px -567px; }
+    background-position: -245px -471px; }
 
 .blockEmitable {
   font-size: 12px; }
@@ -1707,7 +1707,6 @@ ul.walletlist li label {
   .tablogo {
     width: 176px;
     background-size: 438px 666px;
-<<<<<<< HEAD
     background-position: -160px -5px; }
   ul.blocklist li {
     height: 50px;
@@ -1716,50 +1715,18 @@ ul.walletlist li label {
       width: 100%;
       min-height: 50px;
       padding: 10px 6%; } }
-=======
-    background-position: -160px -5px; } }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
 
 @media (max-width: 767px) {
-  #wrap {
-    padding: 0 10px;
-    background-color: #e1edf5; }
-  .head {
-    background: #fff; }
-  .logo {
-    float: none;
-    width: 100%;
-    padding: 0 15px 5px 15px; }
+  .blockMain {
+    padding: 35px 2% 80px; }
   .langbar, .mobile .langbar {
     float: none;
-    padding: 3px 10px;
-    background-color: #e1edf5;
-    border-bottom: 1px solid #d1dee6; }
-    .langbar:after, .mobile .langbar:after {
-      content: '';
-      clear: both;
-      display: block;
-      height: 0; }
+    padding: 15px 0 0 15px; }
     .langbar select, .mobile .langbar select {
-<<<<<<< HEAD
       max-width: 120px;
       float: right; }
   .pay-container {
     border: none; }
-=======
-      max-width: 80px;
-      float: right;
-      background-color: #e1edf5;
-      border: 0px;
-      -webkit-box-shadow: inset 0 1px 1px transparent;
-      box-shadow: inset 0 1px 1px transparent; }
-  .blockMain {
-    padding: 35px 2% 80px; }
-  .pay-container {
-    border: none;
-    background: #fff;
-    padding: 0 10px 10px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     .pay-container:before {
       content: '';
       width: 0px; }
@@ -1770,11 +1737,6 @@ ul.walletlist li label {
   .amount-block {
     width: 100%;
     max-width: inherit; }
-<<<<<<< HEAD
-=======
-  .amount-block {
-    padding: 0px 5px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
   .tab-menu {
     width: 100%;
     max-width: inherit;
@@ -1793,12 +1755,8 @@ ul.walletlist li label {
     width: 33.33%;
     float: left;
     background-color: #0061a3;
-<<<<<<< HEAD
     border: 1px solid #0c74bb;
     padding-top: 20px; }
-=======
-    border: 1px solid #0c74bb; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     ul.menu-list .menuli a {
       /*padding: 50px 20px;
                 margin: 8px;
@@ -1814,23 +1772,14 @@ ul.walletlist li label {
       padding: 15px 8px 35px;
       font-size: 12px;
       color: #fff; }
-<<<<<<< HEAD
     ul.menu-list .menuli .imgmob {
       margin: 0 auto;
       height: 38px;
       width: 38px; }
-=======
-    ul.menu-list .menuli img {
-      float: none;
-      display: block;
-      padding: 15px 8px 15px 8px;
-      margin: 0 auto; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
       background-color: #055a94; }
     ul.menu-list .menuli:last-child a {
       border: none; }
-<<<<<<< HEAD
     ul.menu-list .menuli .icon-cdc {
       background-position: -4px -225px; }
     ul.menu-list .menuli .icon-nb {
@@ -1853,8 +1802,6 @@ ul.walletlist li label {
       background-position: -436px -225px; }
     ul.menu-list .menuli .icon-pay-later {
       background-position: -4px -273px; }
-=======
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
   .footer {
     margin: 0;
     width: 100%; }
@@ -1872,31 +1819,13 @@ ul.walletlist li label {
       min-height: 0;
       padding-bottom: 0; }
     .tabWrap .footer {
-<<<<<<< HEAD
       display: none; } }
 
 @media (max-width: 480px) {
-=======
-      display: none; }
-  ul.blocklist li {
-    height: 50px;
-    width: 31.3%; }
-    ul.blocklist li label {
-      width: 100%;
-      min-height: 50px;
-      padding: 10px 6%; } }
-
-@media (max-width: 480px) {
-  #wrap {
-    padding: 0 5px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
   ul.menu-list .menuli {
     width: 50%; }
   ul.blocklist li {
-    width: 47%; }
-  .amount-block .odrID,
-  .amount-block .merName {
-    padding: 0 0 8px 0; } }
+    width: 47%; } }
 
 .spriteCommon, .visa ~ .card-icon, .amex ~ .card-icon, .mastercard ~ .card-icon {
   width: 40px;

@@ -13,9 +13,10 @@ body {
         text-decoration: none;
     }
 }
+
 .icon {
     background-color: transparent;
-    background-image: url(../img/spriteimg.png); 
+    background-image: url(../img/spriteimg.png);
     background-repeat: no-repeat;
 }
 
@@ -46,6 +47,7 @@ body {
 .iEmail {
     background-position: -318px -52px;
 }
+
 .iupi {
     background-position: -120px -52px;
 }
@@ -53,12 +55,15 @@ body {
 .iaadhar {
     background-position: -360px -52px;
 }
+
 .ipancard {
     background-position: -156px -52px;
 }
+
 .ical {
     background-position: -318px -52px;
 }
+
 .iotp {
     background-position: -318px -52px;
 }
@@ -78,30 +83,35 @@ body {
         @extend %clearfix;
     }
 }
-.head{
+
+.head {
     position: relative;
     &:after {
         @extend %clearfix;
     }
 }
-.logo{
-    width:80%;
+
+.logo {
+    width: 80%;
     float: left;
 }
-.logo img{
-    max-width:80%;
-    max-height:75px;
+
+.logo img {
+    max-width: 80%;
+    max-height: 75px;
 }
-.langbar{
+
+.langbar {
     float: right;
-    min-width:120px;
-    padding:45px 0 0 15px;
-    & select{
-        padding:3px 5px;
-        height:26px;
-        line-height:20px;
+    min-width: 120px;
+    padding: 45px 0 0 15px;
+    & select {
+        padding: 3px 5px;
+        height: 26px;
+        line-height: 20px;
     }
 }
+
 .pay-container {
     border: 1px solid #b7b7b8;
     position: relative;
@@ -286,6 +296,7 @@ ul.menu-list {
     width: 160px;
     height: 44px;
 }
+
 .tablogo {
     @extend %icon;
     background-position: -185px -16px;
@@ -307,25 +318,26 @@ ul.menu-list {
         text-decoration: none;
     }
 }
-.closetab {
-        background-color: transparent; 
-        background-repeat: no-repeat;
-        background-position: -82px -84px;
-        float: right;
 
-       /* background-image: url(../img/spriteimg.png); 
+.closetab {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: -82px -84px;
+    float: right;
+
+    /* background-image: url(../img/spriteimg.png); 
         height: 35px;
         width: 35px;*/
-        display: none;
-        position: absolute;
-        z-index: 99;
-        bottom: -30px;
-        right: 3px;
-        padding: 3px 5px;
-        color:$primary-color;
-        font-size: 14px;
-        text-decoration: underline;
-    }
+    display: none;
+    position: absolute;
+    z-index: 99;
+    bottom: -30px;
+    right: 3px;
+    padding: 3px 5px;
+    color: $primary-color;
+    font-size: 14px;
+    text-decoration: underline;
+}
 
 .blockMain {
     display: none;
@@ -422,49 +434,49 @@ ul.walletlist li label {
     height: 28px;
     text-indent: -9999px;
     &.logo-amazon {
-        background-position: 0px -326px;
+        background-position: 0px -422px;
     }
     &.logo-citrus {
-        background-position: -125px -325px;
+        background-position: -125px -421px;
     }
     &.logo-freecharge {
-        background-position: -245px -324px;
+        background-position: -245px -420px;
     }
     &.logo-payzap {
-        background-position: -366px -324px;
+        background-position: -366px -421px;
     }
     &.logo-jio {
-        background-position: -5px -373px;
-    }
-    &.logo-ola {
-        background-position: -125px -373px;
-    }
-    &.logo-payu {
-        background-position: -245px -373px;
-    }
-    &.logo-paytm {
-        background-position: -366px -373px;
-    }
-    &.logo-oxygen {
-        background-position: -5px -423px;
-    }
-    &.logo-quick {
-        background-position: -125px -423px;
-    }
-    &.logo-sbibuddy {
-        background-position: -245px -422px;
-    }
-    &.logo-money {
-        background-position: -366px -423px;
-    }
-    &.logo-mobikwik {
         background-position: -5px -471px;
     }
+    &.logo-ola {
+        background-position: -125px -471px;
+    }
+    &.logo-payu {
+        background-position: -245px -471px;
+    }
+    &.logo-paytm {
+        background-position: -366px -471px;
+    }
+    &.logo-oxygen {
+        background-position: -5px -519px;
+    }
+    &.logo-quick {
+        background-position: -125px -519px;
+    }
+    &.logo-sbibuddy {
+        background-position: -245px -517px;
+    }
+    &.logo-money {
+        background-position: -366px -519px;
+    }
+    &.logo-mobikwik {
+        background-position: -5px -567px;
+    }
     &.logo-itzcash {
-        background-position: -125px -470px;
+        background-position: -125px -566px;
     }
     &.logo-sodexo {
-        background-position: -245px -471px;
+        background-position: -245px -567px;
     }
 }
 
@@ -529,7 +541,7 @@ ul.walletlist li label {
     -webkit-box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
     box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0;
     z-index: 3;
-	@include border-radius(3px);
+    @include border-radius(3px);
     bottom: 100%;
     margin-top: 12px;
     pointer-events: none !important;
@@ -571,120 +583,145 @@ ul.walletlist li label {
     display: block;
 }
 
-.has-content input.errorvalue{
-    border-bottom:1px solid red !important;
+.has-content input.errorvalue {
+    border-bottom: 1px solid red !important;
     opacity: 1;
 }
-.box-shadow-none{
-	box-shadow:none !important;
+
+.box-shadow-none {
+    box-shadow: none !important;
 }
-.note{
-    font-size:14px;
-    padding-bottom:25px;
+
+.note {
+    font-size: 14px;
+    padding-bottom: 25px;
 }
-.form-group .note-txt{
-    font-size:11px;
-    padding:5px 0 0 0;
-    margin:0;
-    color:#d25f68;
+
+.form-group .note-txt {
+    font-size: 11px;
+    padding: 5px 0 0 0;
+    margin: 0;
+    color: #d25f68;
 }
-.form-group .noteLink a{
-    display:inline-block;
+
+.form-group .noteLink a {
+    display: inline-block;
 }
-.epay-uid,.epay-otp{
-    display:none;
+
+.epay-uid,
+.epay-otp {
+    display: none;
 }
-.stepwrap{ 
-    max-width:380px; 
-    margin:0 auto; 
-    padding:0; 
-    text-align:center;
+
+.stepwrap {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
-.step{
-    list-style-type:none; 
-    margin:0; 
-    padding:0 0 0 0;
-    text-align:center;
-    width:100%; 
-    border:0px solid #888;
+
+.step {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 0 0;
+    text-align: center;
+    width: 100%;
+    border: 0px solid #888;
     &:after {
         @extend %clearfix;
     }
 }
-.step li{
-    list-style-type:none; 
-    margin:0; 
-    padding:0 1%; 
-    display:inline-block;
-    width:31.33%; 
-    position:relative;
-    color:#cfcdcd; 
-    font-size:14px;
-    span{
-        display:block; 
-        padding:5px 0 10px 0;
+
+.step li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 1%;
+    display: inline-block;
+    width: 31.33%;
+    position: relative;
+    color: #cfcdcd;
+    font-size: 14px;
+    span {
+        display: block;
+        padding: 5px 0 10px 0;
     }
-    .num{ 
-        display:block; 
-        width:33px; 
-        height:33px; 
-        position:relative; 
-        z-index:2; 
-        margin:0 auto; 
-        padding:0; 
-        line-height:33px; 
-        font-size:20px; 
-        font-weight:bold; 
-        color:#cfcdcd; 
-        background-color:#e2e1e1; 
-        border:1px solid #d1d0d0;
-        -webkit-border-radius:100%;-moz-border-radius: 100%;border-radius: 100%;
+    .num {
+        display: block;
+        width: 33px;
+        height: 33px;
+        position: relative;
+        z-index: 2;
+        margin: 0 auto;
+        padding: 0;
+        line-height: 33px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #cfcdcd;
+        background-color: #e2e1e1;
+        border: 1px solid #d1d0d0;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
     }
-    .line{ 
-        position:absolute; 
-        left:48%; 
-        top:15px; 
-        z-index:1; 
-        display: inline-block; 
-        width:100%; 
-        max-width:150px; 
-        height:3px; 
-        background-color:#e2e1e1;
+    .line {
+        position: absolute;
+        left: 48%;
+        top: 15px;
+        z-index: 1;
+        display: inline-block;
+        width: 100%;
+        max-width: 150px;
+        height: 3px;
+        background-color: #e2e1e1;
     }
-    &.hold span{
-        color:#7a7979;
-    }    
-    &.hold .num{
-        color:#7a7979; 
-        background-color:#cacaca; 
-        border:1px solid #acabab;
-    }   
-    &.hold .line{
-        background-color:#cacaca;
+    &.hold span {
+        color: #7a7979;
+    }
+    &.hold .num {
+        color: #7a7979;
+        background-color: #cacaca;
+        border: 1px solid #acabab;
+    }
+    &.hold .line {
+        background-color: #cacaca;
     }
 
-    &.comp span{
-        color:#3e7420;
-    }    
-    &.comp .num{
-        color:#fff; 
-        background-color:#3e7420; 
-        border:1px solid #29570f;
-    }   
-    &.comp .line{
-        background-color:#3e7420;
+    &.comp span {
+        color: #3e7420;
     }
-    &.firstli,&.lastli{ width:20%; min-width:60px;}
-    &.midli{ width:54%; min-width:88px;}
-    &.firstli .line{ width:180%;}
-    &.lastli .line{ display:none;}
+    &.comp .num {
+        color: #fff;
+        background-color: #3e7420;
+        border: 1px solid #29570f;
+    }
+    &.comp .line {
+        background-color: #3e7420;
+    }
+    &.firstli,
+    &.lastli {
+        width: 20%;
+        min-width: 60px;
+    }
+    &.midli {
+        width: 54%;
+        min-width: 88px;
+    }
+    &.firstli .line {
+        width: 180%;
+    }
+    &.lastli .line {
+        display: none;
+    }
 }
-.note{
+
+.note {
     margin-bottom: 30px;
 }
-.note p{
+
+.note p {
     margin: 0;
 }
+
 .cls-popup {
     position: absolute;
     top: 10px;
@@ -694,9 +731,11 @@ ul.walletlist li label {
     font-weight: bold;
     text-decoration: none;
 }
+
 .popup-content {
     max-width: 300px;
 }
+
 .popupWrap {
     position: fixed;
     left: 0;
@@ -706,7 +745,7 @@ ul.walletlist li label {
     background-color: rgba(0, 0, 0, 0.5);
     display: block;
     z-index: 99999;
-  
+
     .popup-content {
         width: 100%;
         display: block;
@@ -723,13 +762,15 @@ ul.walletlist li label {
         float: right;
     }
 }
+
 @media only screen and (max-height: 500px) {
-    .popupWrap{
-    .popup-content {
-        margin: 10px auto 0; 
-    }
+    .popupWrap {
+        .popup-content {
+            margin: 10px auto 0;
+        }
     }
 }
+
 @media all and (max-width:840px) {
     #wrap {
         padding: 0 15px;
@@ -742,7 +783,7 @@ ul.walletlist li label {
     }
     .amount-block {
         width: 23.5%;
-        padding-top:10px;
+        padding-top: 10px;
     }
     .tab-menu {
         width: 21%;
@@ -766,34 +807,63 @@ ul.walletlist li label {
         width: 176px;
         background-size: 438px 666px;
         background-position: -160px -5px;
+        <<<<<<< HEAD
     }
 
-    ul.blocklist li{
-        height:50px;
+    ul.blocklist li {
+        height: 50px;
         width: 31.3%;
-        & label{
-            width:100%;
-            min-height:50px;
+        & label {
+            width: 100%;
+            min-height: 50px;
             padding: 10px 6%;
         }
+        ======= > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e
     }
 }
 
 @media (max-width: 767px) {
-    .blockMain {
-        padding: 35px 2% 80px;
+    #wrap {
+        padding: 0 10px;
+        background-color: #e1edf5;
+    }
+    .head {
+        background: #fff;
+    }
+    .logo {
+        float: none;
+        width: 100%;
+        padding: 0 15px 5px 15px;
     }
 
-    .langbar,.mobile .langbar{
-        float:none;
-        padding:15px 0 0 15px;
-        & select{
-            max-width:120px;
-            float:right;
+    .langbar,
+    .mobile .langbar {
+        float: none;
+        padding: 3px 10px;
+        background-color: #e1edf5;
+        border-bottom: 1px solid #d1dee6;
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+            height: 0;
+        }
+        & select {
+            max-width: 80px;
+            float: right;
+            background-color: #e1edf5;
+            border: 0px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
         }
     }
-    .pay-container {
+    <<<<<<< HEAD=======.blockMain {
+        padding: 35px 2% 80px;
+    }
+    > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .pay-container {
         border: none;
+        background: #fff;
+        padding: 0 10px 10px;
         &:before {
             content: '';
             width: 0px;
@@ -809,18 +879,23 @@ ul.walletlist li label {
         width: 100%;
         max-width: inherit;
     }
-
-     .tab-menu {
-        width: 100%;
-        max-width: inherit;
-        margin: 0 auto;
-        float: none;
-        padding: 5px;
+    .amount-block {
+        padding: 0px 5px;
     }
 
-     ul.menu-list {
-        .menuli {
-            /*width: 45%;
+    <<<<<<< HEAD .tab-menu {
+        =======.tab-menu {
+            > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e width: 100%;
+            max-width: inherit;
+            margin: 0 auto;
+            float: none;
+            padding: 5px;
+        }
+
+        <<<<<<< HEAD ul.menu-list {
+            =======ul.menu-list {
+                > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .menuli {
+                    /*width: 45%;
             width: 33.33%;
             float: left;
             display: table;
@@ -828,13 +903,13 @@ ul.walletlist li label {
             box-shadow: 0 8px 6px -6px #a0b8c7;
             background-color: #0061a3;
             height: calc(100vh - 80vh)*/
-            width: 33.33%;
-            float: left;
-            background-color: #0061a3;
-            border: 1px solid #0c74bb;
-            padding-top: 20px;
-            a {
-                /*padding: 50px 20px;
+                    width: 33.33%;
+                    float: left;
+                    background-color: #0061a3;
+                    border: 1px solid #0c74bb;
+                    padding-top: 20px;
+                    a {
+                        /*padding: 50px 20px;
                 margin: 8px;
                 padding: 0;
 				@include border-radius(5px);
@@ -842,98 +917,120 @@ ul.walletlist li label {
                 height: calc(100vh - 78vh);
                 vertical-align: middle;
                 display: table-cell;*/
-                height: calc(100vh - 93vh);
-                border-bottom: none;
-                text-align: center;
-                padding: 15px 8px 35px;
-                font-size: 12px;
-                color: #fff;
+                        height: calc(100vh - 93vh);
+                        border-bottom: none;
+                        text-align: center;
+                        padding: 15px 8px 35px;
+                        font-size: 12px;
+                        color: #fff;
+                    }
+                    .imgmob {
+                        margin: 0 auto;
+                        height: 38px;
+                        width: 38px;
+                    }
+
+                    &:hover,
+                    &.active {
+                        background-color: #055a94;
+                    }
+                    &:last-child a {
+                        border: none;
+                    }
+                    .icon-cdc {
+                        background-position: -4px -225px;
+                    }
+                    .icon-nb {
+                        background-position: -52px -225px;
+                    }
+                    .icon-cash {
+                        background-position: -100px -225px;
+                    }
+                    .icon-emi {
+                        background-position: -149px -225px;
+                    }
+                    .icon-rtnft {
+                        background-position: -195px -225px;
+                    }
+                    .icon-wallet {
+                        background-position: -244px -225px;
+                    }
+                    .icon-amex {
+                        background-position: -292px -225px;
+                    }
+                    .icon-upi {
+                        background-position: -340px -225px;
+                    }
+                    .icon-qr {
+                        background-position: -388px -225px;
+                    }
+                    .icon-exp-pay {
+                        background-position: -436px -225px;
+                    }
+                    .icon-pay-later {
+                        background-position: -4px -273px;
+                    }
+                }
             }
-            .imgmob {
-                margin: 0 auto;
-                height: 38px;
-                width: 38px;
-             }
-            
-            &:hover,
-            &.active {
-                background-color: #055a94;
+
+            .footer {
+                margin: 0;
+                width: 100%;
             }
-            &:last-child a {
-                border: none;
+            .tabWrap {
+                position: absolute;
+                top: 100vh;
+                overflow: hidden;
+                background-color: #FFF;
+                transition: all 0.5s;
+                width: 100%; //opacity: 0;
+                &.showtab {
+                    top: 150px;
+                    transition: all 0.5s; //opacity: 1;
+                }
+
+                .tab-container {
+                    min-height: 0;
+                    padding-bottom: 0;
+                }
+                .footer {
+                    display: none;
+                }
             }
-            .icon-cdc {
-                background-position: -4px -225px;
-        }
-        .icon-nb {
-            background-position: -52px -225px;
-        }
-        .icon-cash {
-            background-position: -100px -225px;
-        }
-        .icon-emi {
-            background-position: -149px -225px;
-        }
-        .icon-rtnft {
-            background-position: -195px -225px;
-        }
-        .icon-wallet {
-            background-position: -244px -225px;
-        }
-        .icon-amex {
-            background-position: -292px -225px;
-        }
-        .icon-upi {
-            background-position: -340px -225px;
-        }
-        .icon-qr {
-            background-position: -388px -225px;
-        }
-        .icon-exp-pay {
-            background-position: -436px -225px;
-        }
-        .icon-pay-later {
-            background-position: -4px -273px;
-        }
-      }
-    }
 
-    .footer {
-        margin: 0;
-        width: 100%;
-    }
-    .tabWrap {
-        position: absolute;
-        top: 100vh;
-        overflow: hidden;
-        background-color: #FFF;
-        transition: all 0.5s;
-        width: 100%; //opacity: 0;
-        &.showtab {
-            top: 150px;
-            transition: all 0.5s; //opacity: 1;
+
+            ul.blocklist li {
+                height: 50px;
+                width: 31.3%;
+                & label {
+                    width: 100%;
+                    min-height: 50px;
+                    padding: 10px 6%;
+                }
+            }
+
+
+
         }
 
-        .tab-container {
-            min-height: 0;
-            padding-bottom: 0;
-        }
-        .footer {
-            display: none;
-        }
-    }    
+        @media (max-width: 480px) {
+            <<<<<<< HEAD ul.menu-list {
+                =======#wrap {
+                    padding: 0 5px;
+                }
+                ul.menu-list {
+                    > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .menuli {
+                        width: 50%;
+                    }
+                }
+                ul.blocklist li {
+                    width: 47%;
+                }
+                .amount-block {
+                    .odrID,
+                    .merName {
+                        padding: 0 0 8px 0;
+                    }
+                }
 
-    
-
-}
-
-@media (max-width: 480px) {
-     ul.menu-list {
-        .menuli {
-            width: 50%;
-        }
-    }
-    ul.blocklist li{
-        width:47%;
-    }
-}
+            }
