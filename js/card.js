@@ -3,6 +3,7 @@ function renderCcDc(paymentTabId){
     $('.blockMain').hide();
     $('[data-tab-type="'+paymentTabId+'"]').show();
 	bindCcDcEvent();
+	var isCardValidated = false;
 }
 
 function bindCcDcEvent(){
@@ -11,13 +12,17 @@ function bindCcDcEvent(){
 	expiryDateLengthValidation();
 	cardNumberUpdate();
 	floatLabels();
+	emailValidation();
+	passwordValidation();
+	saveCardLogin();
+	ccdcSaveCardCheck();
 }
 
 function renderCcDcTemplate(){
 	var cardData = {
         isEmiTab: false,
         showSavedCard: true,
-        savedCard: false,
+        savedCard: true,
         blockName: 'blockCards',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',
@@ -87,6 +92,7 @@ function cardNumberUpdate() {
 			});
 			//ele.addClass(cardtype+"logos");
 			$(this).addClass('errorvalue');
+			//return false;
 		} else {
 			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
 			ele.val(e);
@@ -96,42 +102,45 @@ function cardNumberUpdate() {
 			ele.removeClass (function (index, className) {
 				return (className.match (/\w*-icon\w*/) || []).join(' ');				
 			});
-			ele.addClass(ct);	
+			ele.addClass(ct);
+			//return false;
 		}
 		var cardnumber = $(this);
-		if(!cardnumber.val().length > 22){
+		if(cardnumber.val().length > 22){
+			$(this).removeClass('errorvalue');
+		}else{
 			$(this).addClass('errorvalue');
 		}
 	});
-function get_card_type(number) {
-    number = number.replace(/ /g, '');
-    var prefix_ret = match_prefix(number);
-    if (prefix_ret != false) {
-        return prefix_ret;
-    }
-}
-function match_prefix(card_number) {
-    var card_prefix;
-    card_prefix = {
-        "CC_AMEX": [34, 37],
-        "CC_DINERSCLUB": [300, 301, 302, 303, 304, 305, 36, 38],
-        "CC_DISCOVER": [6011],
-        "CC_JCB": [3, 1800, 2131],
-        "CC_MASTERCARD": [51, 52, 53, 54, 55],
-        "CC_VISA": [4],
-        "CC_RUPAY": [5085, 5086, 5087, 5088, 5089, 6061, 6062, 6063, 6064, 6065, 6066, 6067, 6068, 6069, 607, 6080, 6081, 6082, 6083, 6084, 6085, 65215, 6522, 6523, 6524, 6525, 6526, 6527, 6528, 6530, 6531,6521],
-        "CC_MAESTRO": [622018, 600206, 504435, 504775, 504645, 603845, 504809, 504993, 504774, 502165, 502260, 504433, 504434, 504437, 504681, 504753, 504817, 504834, 504848, 504884, 504973, 508125, 508126, 508159, 603123, 603741,5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017, 5018, 502, 503, 504, 505, 506, 507, 508, 6012, 6013, 6014, 6015, 6016, 6017, 6018, 6019, 602, 603, 604, 605, 6060, 677, 675, 674, 673, 672, 671, 670, 6760, 6761, 6762, 6763, 6764, 6765, 6766, 6768, 6769, 581, 600, 622],
-    };
-    for (var index in card_prefix)
-        for (var index1 in card_prefix[index]) {
-            var pattern = card_prefix[index][index1];
-            var a = card_number.substring(0, pattern.toString().length);
-            if (a == pattern) {
-                return (index);
-            }
-        }
-    return "CC_UNKNOWN";
-}
+	function get_card_type(number) {
+		number = number.replace(/ /g, '');
+		var prefix_ret = match_prefix(number);
+		if (prefix_ret != false) {
+			return prefix_ret;
+		}
+	}
+	function match_prefix(card_number) {
+		var card_prefix;
+		card_prefix = {
+			"CC_AMEX": [34, 37],
+			"CC_DINERSCLUB": [300, 301, 302, 303, 304, 305, 36, 38],
+			"CC_DISCOVER": [6011],
+			"CC_JCB": [3, 1800, 2131],
+			"CC_MASTERCARD": [51, 52, 53, 54, 55],
+			"CC_VISA": [4],
+			"CC_RUPAY": [5085, 5086, 5087, 5088, 5089, 6061, 6062, 6063, 6064, 6065, 6066, 6067, 6068, 6069, 607, 6080, 6081, 6082, 6083, 6084, 6085, 65215, 6522, 6523, 6524, 6525, 6526, 6527, 6528, 6530, 6531,6521],
+			"CC_MAESTRO": [622018, 600206, 504435, 504775, 504645, 603845, 504809, 504993, 504774, 502165, 502260, 504433, 504434, 504437, 504681, 504753, 504817, 504834, 504848, 504884, 504973, 508125, 508126, 508159, 603123, 603741,5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017, 5018, 502, 503, 504, 505, 506, 507, 508, 6012, 6013, 6014, 6015, 6016, 6017, 6018, 6019, 602, 603, 604, 605, 6060, 677, 675, 674, 673, 672, 671, 670, 6760, 6761, 6762, 6763, 6764, 6765, 6766, 6768, 6769, 581, 600, 622],
+		};
+		for (var index in card_prefix)
+			for (var index1 in card_prefix[index]) {
+				var pattern = card_prefix[index][index1];
+				var a = card_number.substring(0, pattern.toString().length);
+				if (a == pattern) {
+					return (index);
+				}
+			}
+		return "CC_UNKNOWN";
+	}
 }
 
 // expiry Date validation
@@ -250,14 +259,107 @@ function expiryDateValidation() {
 // csv/ cvv
 function cvvLengthValidation(){
 	$(document).on('keyup', '.cvv', function (e) {
+		var yourInput = $(this).val();
+		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
+			$(this).removeClass('errorvalue')
+		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
+			$(this).removeClass('errorvalue')
+		}else{
+			$(this).addClass('errorvalue')
+		}
 		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
 	});	
 };
 
 // expriy date
 function expiryDateLengthValidation(){
-	$(document).on('keyup blur', '.exp_date, .cardname, .cardNumber', function (e) {
+	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
 		var yourInput = $(this).val();
 		yourInput = yourInput.length > 4 ? $(this).removeClass('errorvalue') : $(this).addClass('errorvalue');
 	});
-}	
+};
+// Email validation
+function emailValidation(){
+	$(document).ready(function(e) {
+		$(document).on('focusout', '.emailV', function (e) {			
+			var sEmail = $('.emailV').val();
+			if ($.trim(sEmail).length == 0) {
+				//alert('Please enter valid email address');
+				$(this).addClass('errorvalue');
+				return false;
+			}
+			if (validateEmail(sEmail)) {
+				$(this).removeClass('errorvalue');
+			}
+			else {
+				$(this).addClass('errorvalue');
+				return false;
+			}
+		});
+	});
+	function validateEmail(sEmail) {
+		var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		if (filter.test(sEmail)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+};
+// password validation 
+function passwordValidation(){
+	$(document).on('focusout','.newPassword', function() {			
+		var password = $('.newPassword').val();
+		var confirmPass = $('.confirmPassword').val();
+		var passReg = /^((?=.*\d)(?=.*[a-z]).{8,30})+$/;
+		var passReg1 = /(.)\1\1\1/;				
+				   
+		   if(password.length < 7){
+				  $(this).addClass('errorvalue');
+				  console.log('password.length');
+				 
+			 }				 
+			 if(confirmPass.length < 7){
+				 $(this).addClass('errorvalue');
+				 console.log('confirmPass.length');
+			 }									  
+			
+			 if(password.length > 7 && !passReg1.test(password)){
+				  $(this).removeClass('errorvalue');
+				  console.log('password.length > 7');
+			 }
+			 
+			 var confirmPassFlag = false;
+			 if(confirmPass.length > 7 && !passReg1.test(confirmPass)){
+				 $(this).addClass('errorvalue');
+				 confirmPassFlag = true;
+				 console.log('confirmPass.length > 7 true');
+				
+			}			 
+			if(password.length > 7 && confirmPass.length > 7 && !confirmPassFlag && password != confirmPass){
+				
+				$(this).addClass('errorvalue');
+				console.log('password.length > 7 ');
+				
+			}	 
+		
+	});
+};
+// check box
+function ccdcSaveCardCheck(){
+	
+}
+// sign up 
+function saveCardLogin (){	
+	$('.savedCard').hide();
+	$(document).on('click', '.save-card', function (e) {
+		//expiryDateLengthValidation
+		//cvvLengthValidation
+		//cardNumberUpdate
+		if($('.save-Card-Check').is(':checked')){
+			$('.defaultBlock').hide();
+			$('.savedCard').show();
+		}		
+	});
+}

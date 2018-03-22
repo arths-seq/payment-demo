@@ -1532,7 +1532,7 @@ ul.walletlist li label {
 .needhelp a:hover .info-content {
   display: block; }
 
-.has-content input.errorvalue {
+.has-content input.errorvalue, .form-control.errorvalue {
   border-bottom: 1px solid red !important;
   opacity: 1; }
 
