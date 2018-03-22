@@ -3,7 +3,6 @@ function renderCcDc(paymentTabId){
     $('.blockMain').hide();
     $('[data-tab-type="'+paymentTabId+'"]').show();
 	bindCcDcEvent();
-	var isCardValidated = false;
 }
 
 function bindCcDcEvent(){
@@ -77,7 +76,13 @@ function renderCcDcTemplate(){
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
 }
-
+/*var isCardValidated = validateAllInputFields();
+function validateAllInputFields(){
+	cardNumberUpdate();
+	expiryDateLengthValidation();
+	cvvLengthValidation();
+	console.log(isCardValidated + 'validcards');
+}*/
 // card number validation
 function cardNumberUpdate() {
 	$(".cardNumber").keyup(function () {		
@@ -109,8 +114,10 @@ function cardNumberUpdate() {
 		var cardnumber = $(this);
 		if(cardnumber.val().length > 22){
 			$(this).removeClass('errorvalue');
+			return true;
 		}else{
 			$(this).addClass('errorvalue');
+			return false;
 		}
 	});
 	function get_card_type(number) {
@@ -262,21 +269,33 @@ function cvvLengthValidation(){
 	$(document).on('keyup', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
-			$(this).removeClass('errorvalue')
+			$(this).removeClass('errorvalue');
+			return true;
 		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
-			$(this).removeClass('errorvalue')
+			$(this).removeClass('errorvalue');
+			return true;
 		}else{
-			$(this).addClass('errorvalue')
+			$(this).addClass('errorvalue');
+			return false;
 		}
-		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
+		
 	});	
+	$(document).on('focus', '.cvv', function (e) {
+		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
+	});
 };
 
 // expriy date
 function expiryDateLengthValidation(){
 	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
 		var yourInput = $(this).val();
-		yourInput = yourInput.length > 4 ? $(this).removeClass('errorvalue') : $(this).addClass('errorvalue');
+		if(yourInput.length > 4){
+			$(this).removeClass('errorvalue');
+			return true
+		}else{
+			$(this).addClass('errorvalue');
+			return false;
+		}		 
 	});
 };
 // Email validation
@@ -354,13 +373,15 @@ function ccdcSaveCardCheck(){
 // sign up 
 function saveCardLogin (){	
 	$('.savedCard').hide();
+	//console.log(isCardValidated + 'save card');
 	$(document).on('click', '.save-card', function (e) {
-		//expiryDateLengthValidation
-		//cvvLengthValidation
-		//cardNumberUpdate
+		/*if(isCardValidated == true){
+			console.log('truue');
+			console.log(isCardValidated + 'save card');
+		}*/
 		if($('.save-Card-Check').is(':checked')){
 			$('.defaultBlock').hide();
 			$('.savedCard').show();
-		}		
+		}	
 	});
 }
