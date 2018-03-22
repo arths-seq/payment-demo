@@ -282,7 +282,7 @@ ul.menu-list {
 
 .paylogo {
     @extend %icon;
-    background-position: -8px -686px;
+    background-position: -8px -782px;
     width: 160px;
     height: 44px;
 }
@@ -320,8 +320,8 @@ ul.menu-list {
         position: absolute;
         z-index: 99;
         bottom: -30px;
-        right: 6px;
-        padding: 3px 10px;
+        right: 3px;
+        padding: 3px 5px;
         color:$primary-color;
         font-size: 14px;
         text-decoration: underline;
@@ -760,12 +760,12 @@ ul.walletlist li label {
         padding: 0 2%;
     }
     .paylogo {
-        background-position: -8px -682px;
+        background-position: -8px -777px;
     }
     .tablogo {
         width: 176px;
         background-size: 438px 666px;
-        background-position: -160px -10px;
+        background-position: -160px -5px;
     }
 
     ul.blocklist li{
@@ -792,7 +792,7 @@ ul.walletlist li label {
             float:right;
         }
     }
-    .mobile .pay-container {
+    .pay-container {
         border: none;
         &:before {
             content: '';
@@ -804,13 +804,13 @@ ul.walletlist li label {
         }
     }
 
-    .mobile .tab-container,
+    .tab-container,
     .amount-block {
         width: 100%;
         max-width: inherit;
     }
 
-    .mobile .tab-menu {
+     .tab-menu {
         width: 100%;
         max-width: inherit;
         margin: 0 auto;
@@ -818,7 +818,7 @@ ul.walletlist li label {
         padding: 5px;
     }
 
-    .mobile ul.menu-list {
+     ul.menu-list {
         .menuli {
             /*width: 45%;
             width: 33.33%;
@@ -826,11 +826,13 @@ ul.walletlist li label {
             display: table;
             margin: 7px;
             box-shadow: 0 8px 6px -6px #a0b8c7;
-            background-color: #0061a3;*/
+            background-color: #0061a3;
+            height: calc(100vh - 80vh)*/
             width: 33.33%;
             float: left;
             background-color: #0061a3;
-            border: 1px solid #0c74bb; // height: calc(100vh - 80vh);
+            border: 1px solid #0c74bb;
+            padding-top: 20px;
             a {
                 /*padding: 50px 20px;
                 margin: 8px;
@@ -843,16 +845,16 @@ ul.walletlist li label {
                 height: calc(100vh - 93vh);
                 border-bottom: none;
                 text-align: center;
-                padding: 0px 8px 35px;
+                padding: 15px 8px 35px;
                 font-size: 12px;
                 color: #fff;
             }
-            img {
-                float: none;
-                display: block;
-                padding: 15px 8px 15px 8px;
+            .imgmob {
                 margin: 0 auto;
-            }
+                height: 38px;
+                width: 38px;
+             }
+            
             &:hover,
             &.active {
                 background-color: #055a94;
@@ -860,14 +862,47 @@ ul.walletlist li label {
             &:last-child a {
                 border: none;
             }
+            .icon-cdc {
+                background-position: -4px -225px;
         }
+        .icon-nb {
+            background-position: -52px -225px;
+        }
+        .icon-cash {
+            background-position: -100px -225px;
+        }
+        .icon-emi {
+            background-position: -149px -225px;
+        }
+        .icon-rtnft {
+            background-position: -195px -225px;
+        }
+        .icon-wallet {
+            background-position: -244px -225px;
+        }
+        .icon-amex {
+            background-position: -292px -225px;
+        }
+        .icon-upi {
+            background-position: -340px -225px;
+        }
+        .icon-qr {
+            background-position: -388px -225px;
+        }
+        .icon-exp-pay {
+            background-position: -436px -225px;
+        }
+        .icon-pay-later {
+            background-position: -4px -273px;
+        }
+      }
     }
 
-    .mobile .footer {
+    .footer {
         margin: 0;
         width: 100%;
     }
-    .mobile .tabWrap {
+    .tabWrap {
         position: absolute;
         top: 100vh;
         overflow: hidden;
@@ -893,7 +928,7 @@ ul.walletlist li label {
 }
 
 @media (max-width: 480px) {
-    .mobile ul.menu-list {
+     ul.menu-list {
         .menuli {
             width: 50%;
         }

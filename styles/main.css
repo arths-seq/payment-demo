@@ -1302,7 +1302,7 @@ ul.menu-list .menuli {
   overflow: hidden; }
 
 .paylogo {
-  background-position: -8px -686px;
+  background-position: -8px -782px;
   width: 160px;
   height: 44px; }
 
@@ -1335,8 +1335,8 @@ ul.menu-list .menuli {
   position: absolute;
   z-index: 99;
   bottom: -30px;
-  right: 6px;
-  padding: 3px 10px;
+  right: 3px;
+  padding: 3px 5px;
   color: #0066a5;
   font-size: 14px;
   text-decoration: underline; }
@@ -1703,11 +1703,11 @@ ul.walletlist li label {
   .footer {
     padding: 0 2%; }
   .paylogo {
-    background-position: -8px -682px; }
+    background-position: -8px -777px; }
   .tablogo {
     width: 176px;
     background-size: 438px 666px;
-    background-position: -160px -10px; }
+    background-position: -160px -5px; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1725,37 +1725,39 @@ ul.walletlist li label {
     .langbar select, .mobile .langbar select {
       max-width: 120px;
       float: right; }
-  .mobile .pay-container {
+  .pay-container {
     border: none; }
-    .mobile .pay-container:before {
+    .pay-container:before {
       content: '';
       width: 0px; }
-    .mobile .pay-container:after {
+    .pay-container:after {
       content: '';
       width: 0px; }
-  .mobile .tab-container,
+  .tab-container,
   .amount-block {
     width: 100%;
     max-width: inherit; }
-  .mobile .tab-menu {
+  .tab-menu {
     width: 100%;
     max-width: inherit;
     margin: 0 auto;
     float: none;
     padding: 5px; }
-  .mobile ul.menu-list .menuli {
+  ul.menu-list .menuli {
     /*width: 45%;
             width: 33.33%;
             float: left;
             display: table;
             margin: 7px;
             box-shadow: 0 8px 6px -6px #a0b8c7;
-            background-color: #0061a3;*/
+            background-color: #0061a3;
+            height: calc(100vh - 80vh)*/
     width: 33.33%;
     float: left;
     background-color: #0061a3;
-    border: 1px solid #0c74bb; }
-    .mobile ul.menu-list .menuli a {
+    border: 1px solid #0c74bb;
+    padding-top: 20px; }
+    ul.menu-list .menuli a {
       /*padding: 50px 20px;
                 margin: 8px;
                 padding: 0;
@@ -1767,39 +1769,60 @@ ul.walletlist li label {
       height: calc(100vh - 93vh);
       border-bottom: none;
       text-align: center;
-      padding: 0px 8px 35px;
+      padding: 15px 8px 35px;
       font-size: 12px;
       color: #fff; }
-    .mobile ul.menu-list .menuli img {
-      float: none;
-      display: block;
-      padding: 15px 8px 15px 8px;
-      margin: 0 auto; }
-    .mobile ul.menu-list .menuli:hover, .mobile ul.menu-list .menuli.active {
+    ul.menu-list .menuli .imgmob {
+      margin: 0 auto;
+      height: 38px;
+      width: 38px; }
+    ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
       background-color: #055a94; }
-    .mobile ul.menu-list .menuli:last-child a {
+    ul.menu-list .menuli:last-child a {
       border: none; }
-  .mobile .footer {
+    ul.menu-list .menuli .icon-cdc {
+      background-position: -4px -225px; }
+    ul.menu-list .menuli .icon-nb {
+      background-position: -52px -225px; }
+    ul.menu-list .menuli .icon-cash {
+      background-position: -100px -225px; }
+    ul.menu-list .menuli .icon-emi {
+      background-position: -149px -225px; }
+    ul.menu-list .menuli .icon-rtnft {
+      background-position: -195px -225px; }
+    ul.menu-list .menuli .icon-wallet {
+      background-position: -244px -225px; }
+    ul.menu-list .menuli .icon-amex {
+      background-position: -292px -225px; }
+    ul.menu-list .menuli .icon-upi {
+      background-position: -340px -225px; }
+    ul.menu-list .menuli .icon-qr {
+      background-position: -388px -225px; }
+    ul.menu-list .menuli .icon-exp-pay {
+      background-position: -436px -225px; }
+    ul.menu-list .menuli .icon-pay-later {
+      background-position: -4px -273px; }
+  .footer {
     margin: 0;
     width: 100%; }
-  .mobile .tabWrap {
+  .tabWrap {
     position: absolute;
     top: 100vh;
     overflow: hidden;
     background-color: #FFF;
     transition: all 0.5s;
     width: 100%; }
-    .mobile .tabWrap.showtab {
+    .tabWrap.showtab {
       top: 150px;
       transition: all 0.5s; }
-    .mobile .tabWrap .tab-container {
+    .tabWrap .tab-container {
       min-height: 0;
       padding-bottom: 0; }
-    .mobile .tabWrap .footer {
+    .tabWrap .footer {
       display: none; } }
 
 @media (max-width: 480px) {
-  .mobile ul.menu-list .menuli {
+  ul.menu-list .menuli {
     width: 50%; }
   ul.blocklist li {
     width: 47%; } }

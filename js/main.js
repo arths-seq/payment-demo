@@ -82,23 +82,28 @@ function loadMenuTab(){
                     }, {
                         'data': 'Amex-click',
                         'tab': '7',
-                        'tabname': 'Amex eZeClick'
+                        'tabname': 'Amex eZeClick',
+                        'imgicon': 'amex'
                     }, {
                         'data': 'Express_Payment',
                         'tab': '8',
-                        'tabname': 'Express Payments'
+                        'tabname': 'Express Payments',
+                        'imgicon': 'exp-pay'
                     }, {
                         'data': 'UPI',
                         'tab': '9',
-                        'tabname': 'UPI'
+                        'tabname': 'UPI',
+                        'imgicon': 'upi'
                     }, {
                         'data': 'bharat-qr',
                         'tab': '10',
-                        'tabname': 'Bharat QR'
+                        'tabname': 'Bharat QR',
+                        'imgicon': 'qr'
                     }, {
                         'data': 'pay-later',
                         'tab': '11',
-                        'tabname': 'Pay Later'
+                        'tabname': 'Pay Later',
+                        'imgicon': 'pay-later'
                     },
                 ]
             };
