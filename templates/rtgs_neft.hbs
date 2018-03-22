@@ -1,19 +1,15 @@
 
-<div class="blockMain blockWallet" data="tabs-6">
-	<ul class="blocklist walletlist">
-		{{#each allWallet}} 
-			<li class="{{titile}}">
-				<label for="{{titile}}-ppc">
-					<input type="radio" name="wallet_radio" class="radio-box" value="{{value}}" data-wallettype="{{value}}Wallet" id="{{titile}}-ppc">
-					<span class="walletLogo logo-{{titile}}">{{walletname}}</span>
-				</label>
-				
-			</li>
-		{{/each}}
-	</ul>
-	
-	
-	<div class="form-group">
-		<input type="submit" value="Submit" data-btnid="nb_submit" class="btn">
-	</div>
+<div class="blockMain blockRtgs" data="tabs-5" data-tab-type="rtgs">
+    <div class="formDom form-group">
+        <div class="input-group">
+            <input class="form-control" name="rtgs" placeholder="Unique Transaction Reference No" required="" value="">
+            <label>UTR</label>
+            <span class="input-group-addon"></span>
+        </div>
+        <!-- <span class="help"></span>-->
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn">
+    </div>
 </div>
+   

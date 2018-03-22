@@ -183,8 +183,8 @@ function renderSelectedTab(paymentId){
             callbackMethod = renderEmiChannel;
             break;
         case 'rtgs':
-            fileName = '';
-            callbackMethod;
+            fileName = 'rtgs_neft';
+            callbackMethod = renderRtgs;
             break;
         case 'wallet':
             fileName = 'wallet';
