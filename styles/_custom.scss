@@ -282,7 +282,7 @@ ul.menu-list {
 
 .paylogo {
     @extend %icon;
-    background-position: -8px -686px;
+    background-position: -8px -782px;
     width: 160px;
     height: 44px;
 }
@@ -422,49 +422,49 @@ ul.walletlist li label {
     height: 28px;
     text-indent: -9999px;
     &.logo-amazon {
-        background-position: 0px -326px;
+        background-position: 0px -422px;
     }
     &.logo-citrus {
-        background-position: -125px -325px;
+        background-position: -125px -421px;
     }
     &.logo-freecharge {
-        background-position: -245px -324px;
+        background-position: -245px -420px;
     }
     &.logo-payzap {
-        background-position: -366px -324px;
+        background-position: -366px -421px;
     }
     &.logo-jio {
-        background-position: -5px -373px;
-    }
-    &.logo-ola {
-        background-position: -125px -373px;
-    }
-    &.logo-payu {
-        background-position: -245px -373px;
-    }
-    &.logo-paytm {
-        background-position: -366px -373px;
-    }
-    &.logo-oxygen {
-        background-position: -5px -423px;
-    }
-    &.logo-quick {
-        background-position: -125px -423px;
-    }
-    &.logo-sbibuddy {
-        background-position: -245px -422px;
-    }
-    &.logo-money {
-        background-position: -366px -423px;
-    }
-    &.logo-mobikwik {
         background-position: -5px -471px;
     }
+    &.logo-ola {
+        background-position: -125px -471px;
+    }
+    &.logo-payu {
+        background-position: -245px -471px;
+    }
+    &.logo-paytm {
+        background-position: -366px -471px;
+    }
+    &.logo-oxygen {
+        background-position: -5px -519px;
+    }
+    &.logo-quick {
+        background-position: -125px -519px;
+    }
+    &.logo-sbibuddy {
+        background-position: -245px -517px;
+    }
+    &.logo-money {
+        background-position: -366px -519px;
+    }
+    &.logo-mobikwik {
+        background-position: -5px -567px;
+    }
     &.logo-itzcash {
-        background-position: -125px -470px;
+        background-position: -125px -566px;
     }
     &.logo-sodexo {
-        background-position: -245px -471px;
+        background-position: -245px -567px;
     }
 }
 
@@ -732,7 +732,7 @@ ul.walletlist li label {
 }
 @media all and (max-width:840px) {
     #wrap {
-        padding: 0 15px;
+        padding:0 15px;
     }
     .pay-container:before {
         left: 21%;
@@ -760,40 +760,53 @@ ul.walletlist li label {
         padding: 0 2%;
     }
     .paylogo {
-        background-position: -8px -682px;
+        background-position: -8px -777px;
     }
     .tablogo {
         width: 176px;
         background-size: 438px 666px;
-        background-position: -160px -10px;
-    }
-
-    ul.blocklist li{
-        height:50px;
-        width: 31.3%;
-        & label{
-            width:100%;
-            min-height:50px;
-            padding: 10px 6%;
-        }
+        background-position: -160px -5px;
     }
 }
 
 @media (max-width: 767px) {
-    .blockMain {
-        padding: 35px 2% 80px;
+    #wrap {
+        padding:0 10px;
+        background-color: #e1edf5;
+    }
+    .head{
+        background: #fff;
+    }
+    .logo{
+        float:none;
+        width:100%;
+        padding:0 15px 5px 15px;
     }
 
     .langbar,.mobile .langbar{
-        float:none;
-        padding:15px 0 0 15px;
+        float: none;
+        padding: 3px 10px;
+        background-color: #e1edf5;
+        border-bottom: 1px solid #d1dee6;
+        &:after {
+            content:''; clear:both; display: block; height:0;
+        }
         & select{
-            max-width:120px;
+            max-width:80px;
             float:right;
+            background-color: #e1edf5;
+            border: 0px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
         }
     }
-    .mobile .pay-container {
+    .blockMain {
+        padding: 35px 2% 80px;
+    }
+    .pay-container {
         border: none;
+        background: #fff;
+        padding: 0 10px 10px;
         &:before {
             content: '';
             width: 0px;
@@ -804,13 +817,16 @@ ul.walletlist li label {
         }
     }
 
-    .mobile .tab-container,
+    .tab-container,
     .amount-block {
         width: 100%;
         max-width: inherit;
     }
+    .amount-block {
+        padding: 0px 5px;
+    }
 
-    .mobile .tab-menu {
+    .tab-menu {
         width: 100%;
         max-width: inherit;
         margin: 0 auto;
@@ -818,7 +834,7 @@ ul.walletlist li label {
         padding: 5px;
     }
 
-    .mobile ul.menu-list {
+    ul.menu-list {
         .menuli {
             /*width: 45%;
             width: 33.33%;
@@ -863,11 +879,11 @@ ul.walletlist li label {
         }
     }
 
-    .mobile .footer {
+    .footer {
         margin: 0;
         width: 100%;
     }
-    .mobile .tabWrap {
+    .tabWrap {
         position: absolute;
         top: 100vh;
         overflow: hidden;
@@ -886,6 +902,17 @@ ul.walletlist li label {
         .footer {
             display: none;
         }
+    }
+
+
+    ul.blocklist li{
+        height:50px;
+        width: 31.3%;
+        & label{
+            width:100%;
+            min-height:50px;
+            padding: 10px 6%;
+        }
     }    
 
     
@@ -893,7 +920,10 @@ ul.walletlist li label {
 }
 
 @media (max-width: 480px) {
-    .mobile ul.menu-list {
+    #wrap {
+        padding:0 5px;
+    }
+    ul.menu-list {
         .menuli {
             width: 50%;
         }
@@ -901,4 +931,11 @@ ul.walletlist li label {
     ul.blocklist li{
         width:47%;
     }
+    .amount-block {
+        .odrID,
+        .merName {
+            padding: 0 0 8px 0;
+        }
+    }
+
 }
