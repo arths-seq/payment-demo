@@ -21,9 +21,8 @@ function loadTranslateJson(){
 
     languageJson = localStorage.getItem(currentLang+'-payment');
     if(languageJson && typeof languageJson === "string"){
-        languageJson = JSON.parse(languageJson);
+        languageJson = languageJson;
     }
-
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
@@ -83,23 +82,28 @@ function loadMenuTab(){
                     }, {
                         'data': 'Amex-click',
                         'tab': '7',
-                        'tabname': 'Amex eZeClick'
+                        'tabname': 'Amex eZeClick',
+                        'imgicon': 'amex'
                     }, {
                         'data': 'Express_Payment',
                         'tab': '8',
-                        'tabname': 'Express Payments'
+                        'tabname': 'Express Payments',
+                        'imgicon': 'exp-pay'
                     }, {
                         'data': 'UPI',
                         'tab': '9',
-                        'tabname': 'UPI'
+                        'tabname': 'UPI',
+                        'imgicon': 'upi'
                     }, {
                         'data': 'bharat-qr',
                         'tab': '10',
-                        'tabname': 'Bharat QR'
+                        'tabname': 'Bharat QR',
+                        'imgicon': 'qr'
                     }, {
                         'data': 'pay-later',
                         'tab': '11',
-                        'tabname': 'Pay Later'
+                        'tabname': 'Pay Later',
+                        'imgicon': 'pay-later'
                     },
                 ]
             };
@@ -130,7 +134,7 @@ function autoHeightAnimate(element, time, callback) {
         autoHeight = element.css('height', 'auto').height(); // Get Auto Height
     element.height(curHeight); // Reset to Default Height
     element.stop().animate({
-        height: autoHeight
+        height: autoHeight 
     }, time); // Animate to Auto Height
 }
 
@@ -140,7 +144,7 @@ function animateMobileTab() {
     var tabHeight = tabcont.height();
     setTimeout(function () {
         $(".tabWrap").animate({
-            height: tabHeight
+            height: tabHeight + $('.footer').height()
         }, 500);
         $('.tabWrap').addClass('showtab');
         $('.tab-menu').fadeOut(500);
@@ -183,8 +187,8 @@ function renderSelectedTab(paymentId){
             callbackMethod = renderEmiChannel;
             break;
         case 'rtgs':
-            fileName = '';
-            callbackMethod;
+            fileName = 'rtgs_neft';
+            callbackMethod = renderRtgs;
             break;
         case 'wallet':
             fileName = 'wallet';
