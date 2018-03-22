@@ -446,6 +446,9 @@ fieldset[disabled] a.btn {
 select.form-control option:first-child {
   display: none; }
 
+.langbar select.form-control option:first-child {
+  display: block; }
+
 .formDom .form-control {
   position: relative;
   z-index: 2;
@@ -1149,9 +1152,22 @@ body {
 .head {
   position: relative; }
 
+.logo {
+  width: 80%;
+  float: left; }
+
 .logo img {
   max-width: 80%;
   max-height: 75px; }
+
+.langbar {
+  float: right;
+  min-width: 120px;
+  padding: 45px 0 0 15px; }
+  .langbar select {
+    padding: 3px 5px;
+    height: 26px;
+    line-height: 20px; }
 
 .pay-container {
   border: 1px solid #b7b7b8;
@@ -1539,6 +1555,9 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
+.epay-uid, .epay-otp {
+  display: none; }
+
 .stepwrap {
   max-width: 380px;
   margin: 0 auto;
@@ -1700,6 +1719,12 @@ ul.walletlist li label {
 @media (max-width: 767px) {
   .blockMain {
     padding: 35px 2% 80px; }
+  .langbar, .mobile .langbar {
+    float: none;
+    padding: 15px 0 0 15px; }
+    .langbar select, .mobile .langbar select {
+      max-width: 120px;
+      float: right; }
   .mobile .pay-container {
     border: none; }
     .mobile .pay-container:before {
@@ -1813,7 +1838,7 @@ ul.walletlist li label {
     border-bottom: none; }
 
 .eze_logo {
-  background-position: -16px -518px;
+  background-position: -7px -518px;
   width: 204px;
   height: 55px; }
 
