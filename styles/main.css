@@ -1334,12 +1334,13 @@ ul.menu-list .menuli {
   display: none;
   position: absolute;
   z-index: 99;
-  bottom: -30px;
-  right: 3px;
+  bottom: -20px;
+  right: 12px;
   padding: 3px 5px;
   color: #0066a5;
   font-size: 14px;
-  text-decoration: underline; }
+  text-decoration: underline;
+  cursor: pointer; }
 
 .blockMain {
   display: none;
@@ -1555,7 +1556,8 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
-.epay-uid, .epay-otp {
+.epay-uid,
+.epay-otp {
   display: none; }
 
 .stepwrap {
@@ -1707,7 +1709,6 @@ ul.walletlist li label {
   .tablogo {
     width: 176px;
     background-size: 438px 666px;
-<<<<<<< HEAD
     background-position: -160px -5px; }
   ul.blocklist li {
     height: 50px;
@@ -1716,37 +1717,32 @@ ul.walletlist li label {
       width: 100%;
       min-height: 50px;
       padding: 10px 6%; } }
-=======
-    background-position: -160px -5px; } }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
 
 @media (max-width: 767px) {
-  #wrap {
-    padding: 0 10px;
+  body {
     background-color: #e1edf5; }
+  #wrap {
+    padding: 0 10px; }
   .head {
     background: #fff; }
   .logo {
     float: none;
     width: 100%;
     padding: 0 15px 5px 15px; }
-  .langbar, .mobile .langbar {
+  .langbar,
+  .mobile .langbar {
     float: none;
     padding: 3px 10px;
     background-color: #e1edf5;
     border-bottom: 1px solid #d1dee6; }
-    .langbar:after, .mobile .langbar:after {
+    .langbar:after,
+    .mobile .langbar:after {
       content: '';
       clear: both;
       display: block;
       height: 0; }
-    .langbar select, .mobile .langbar select {
-<<<<<<< HEAD
-      max-width: 120px;
-      float: right; }
-  .pay-container {
-    border: none; }
-=======
+    .langbar select,
+    .mobile .langbar select {
       max-width: 80px;
       float: right;
       background-color: #e1edf5;
@@ -1754,12 +1750,12 @@ ul.walletlist li label {
       -webkit-box-shadow: inset 0 1px 1px transparent;
       box-shadow: inset 0 1px 1px transparent; }
   .blockMain {
-    padding: 35px 2% 80px; }
+    padding: 15px 2% 15px; }
   .pay-container {
+    position: relative;
     border: none;
     background: #fff;
     padding: 0 10px 10px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     .pay-container:before {
       content: '';
       width: 0px; }
@@ -1770,11 +1766,8 @@ ul.walletlist li label {
   .amount-block {
     width: 100%;
     max-width: inherit; }
-<<<<<<< HEAD
-=======
   .amount-block {
-    padding: 0px 5px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
+    padding: 0px 5px 15px; }
   .tab-menu {
     width: 100%;
     max-width: inherit;
@@ -1793,12 +1786,8 @@ ul.walletlist li label {
     width: 33.33%;
     float: left;
     background-color: #0061a3;
-<<<<<<< HEAD
     border: 1px solid #0c74bb;
     padding-top: 20px; }
-=======
-    border: 1px solid #0c74bb; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     ul.menu-list .menuli a {
       /*padding: 50px 20px;
                 margin: 8px;
@@ -1814,23 +1803,14 @@ ul.walletlist li label {
       padding: 15px 8px 35px;
       font-size: 12px;
       color: #fff; }
-<<<<<<< HEAD
     ul.menu-list .menuli .imgmob {
       margin: 0 auto;
       height: 38px;
       width: 38px; }
-=======
-    ul.menu-list .menuli img {
-      float: none;
-      display: block;
-      padding: 15px 8px 15px 8px;
-      margin: 0 auto; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
     ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
       background-color: #055a94; }
     ul.menu-list .menuli:last-child a {
       border: none; }
-<<<<<<< HEAD
     ul.menu-list .menuli .icon-cdc {
       background-position: -4px -225px; }
     ul.menu-list .menuli .icon-nb {
@@ -1853,8 +1833,6 @@ ul.walletlist li label {
       background-position: -436px -225px; }
     ul.menu-list .menuli .icon-pay-later {
       background-position: -4px -273px; }
-=======
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
   .footer {
     margin: 0;
     width: 100%; }
@@ -1866,18 +1844,17 @@ ul.walletlist li label {
     transition: all 0.5s;
     width: 100%; }
     .tabWrap.showtab {
-      top: 150px;
-      transition: all 0.5s; }
+      top: 125px;
+      left: 0;
+      transition: all 0.5s;
+      padding: 0px 10px; }
     .tabWrap .tab-container {
       min-height: 0;
-      padding-bottom: 0; }
+      padding-bottom: 0;
+      float: none; }
     .tabWrap .footer {
-<<<<<<< HEAD
-      display: none; } }
-
-@media (max-width: 480px) {
-=======
-      display: none; }
+      display: none;
+      position: relative; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1889,7 +1866,6 @@ ul.walletlist li label {
 @media (max-width: 480px) {
   #wrap {
     padding: 0 5px; }
->>>>>>> 53b6b95d34f9570047ca1af1c39092dff229db1e
   ul.menu-list .menuli {
     width: 50%; }
   ul.blocklist li {

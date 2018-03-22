@@ -331,12 +331,13 @@ ul.menu-list {
     display: none;
     position: absolute;
     z-index: 99;
-    bottom: -30px;
-    right: 3px;
+    bottom: -20px;
+    right: 12px;
     padding: 3px 5px;
     color: $primary-color;
     font-size: 14px;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .blockMain {
@@ -821,9 +822,12 @@ ul.walletlist li label {
 }
 
 @media (max-width: 767px) {
+    body{
+        background-color: #e1edf5;
+    }
     #wrap {
         padding: 0 10px;
-        background-color: #e1edf5;
+        
     }
     .head {
         background: #fff;
@@ -856,9 +860,10 @@ ul.walletlist li label {
         }
     }
     .blockMain {
-        padding: 35px 2% 80px;
+        padding: 15px 2% 15px;
     }
     .pay-container {
+        position: relative;
         border: none;
         background: #fff;
         padding: 0 10px 10px;
@@ -878,7 +883,7 @@ ul.walletlist li label {
         max-width: inherit;
     }
     .amount-block {
-        padding: 0px 5px;
+        padding: 0px 5px 15px;
     }
 
     .tab-menu {
@@ -981,16 +986,20 @@ ul.walletlist li label {
                 transition: all 0.5s;
                 width: 100%; //opacity: 0;
                 &.showtab {
-                    top: 150px;
+                    top: 125px;
+                    left:0;
                     transition: all 0.5s; //opacity: 1;
+                    padding: 0px 10px;
                 }
 
                 .tab-container {
                     min-height: 0;
                     padding-bottom: 0;
+                    float: none;
                 }
                 .footer {
                     display: none;
+                        position: relative;
                 }
             }
 

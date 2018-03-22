@@ -134,7 +134,7 @@ function autoHeightAnimate(element, time, callback) {
         autoHeight = element.css('height', 'auto').height(); // Get Auto Height
     element.height(curHeight); // Reset to Default Height
     element.stop().animate({
-        height: autoHeight
+        height: autoHeight 
     }, time); // Animate to Auto Height
 }
 
@@ -144,7 +144,7 @@ function animateMobileTab() {
     var tabHeight = tabcont.height();
     setTimeout(function () {
         $(".tabWrap").animate({
-            height: tabHeight
+            height: tabHeight + $('.footer').height()
         }, 500);
         $('.tabWrap').addClass('showtab');
         $('.tab-menu').fadeOut(500);
