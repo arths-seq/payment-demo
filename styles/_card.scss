@@ -8,15 +8,15 @@
     width: 80px;
     @extend %icon;
 }
-.visa ~ .card-icon{
+.visa ~ .iCard{
     background-position: 0 -121px; 
     @extend .spriteCommon;
 }
-.amex ~ .card-icon {
+.amex ~ .iCard {
     background-position: -159px -121px;
     @extend .spriteCommon;
 }
-.mastercard ~ .card-icon {
+.mastercard ~ .iCard {
     background-position: -39px -121px;
     @extend .spriteCommon;
 }

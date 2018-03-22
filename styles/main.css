@@ -1877,7 +1877,7 @@ ul.walletlist li label {
   ul.blocklist li {
     width: 47%; } }
 
-.spriteCommon, .visa ~ .card-icon, .amex ~ .card-icon, .mastercard ~ .card-icon {
+.spriteCommon, .visa ~ .iCard, .amex ~ .iCard, .mastercard ~ .iCard {
   width: 40px;
   height: 25px; }
 
@@ -1885,13 +1885,13 @@ ul.walletlist li label {
   background-position: 0px -118px;
   width: 80px; }
 
-.visa ~ .card-icon {
+.visa ~ .iCard {
   background-position: 0 -121px; }
 
-.amex ~ .card-icon {
+.amex ~ .iCard {
   background-position: -159px -121px; }
 
-.mastercard ~ .card-icon {
+.mastercard ~ .iCard {
   background-position: -39px -121px; }
 
 .formDom .form-control.net-banking-options {
