@@ -1540,6 +1540,9 @@ ul.walletlist li label {
   border-bottom: 1px solid red !important;
   opacity: 1; }
 
+.form-control.exp_date.errorvalue {
+  opacity: 0; }
+
 .box-shadow-none {
   box-shadow: none !important; }
 
