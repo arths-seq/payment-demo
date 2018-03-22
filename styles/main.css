@@ -446,6 +446,9 @@ fieldset[disabled] a.btn {
 select.form-control option:first-child {
   display: none; }
 
+.langbar select.form-control option:first-child {
+  display: block; }
+
 .formDom .form-control {
   position: relative;
   z-index: 2;
@@ -1552,6 +1555,9 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
+.epay-uid, .epay-otp {
+  display: none; }
+
 .stepwrap {
   max-width: 380px;
   margin: 0 auto;
@@ -1832,7 +1838,7 @@ ul.walletlist li label {
     border-bottom: none; }
 
 .eze_logo {
-  background-position: -16px -518px;
+  background-position: -7px -518px;
   width: 204px;
   height: 55px; }
 
@@ -1884,9 +1890,6 @@ ul.walletlist li label {
 
 .popularBanks .active {
   background-color: #e2e2e2 !important; }
-
-.blockUpi {
-  min-height: 420px; }
 
 .howto-text {
   background: #F7F7F7;
