@@ -807,7 +807,6 @@ ul.walletlist li label {
         width: 176px;
         background-size: 438px 666px;
         background-position: -160px -5px;
-        <<<<<<< HEAD
     }
 
     ul.blocklist li {
@@ -818,7 +817,6 @@ ul.walletlist li label {
             min-height: 50px;
             padding: 10px 6%;
         }
-        ======= > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e
     }
 }
 
@@ -857,10 +855,10 @@ ul.walletlist li label {
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
         }
     }
-    <<<<<<< HEAD=======.blockMain {
+    .blockMain {
         padding: 35px 2% 80px;
     }
-    > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .pay-container {
+    .pay-container {
         border: none;
         background: #fff;
         padding: 0 10px 10px;
@@ -883,18 +881,16 @@ ul.walletlist li label {
         padding: 0px 5px;
     }
 
-    <<<<<<< HEAD .tab-menu {
-        =======.tab-menu {
-            > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e width: 100%;
+    .tab-menu {
+            width: 100%;
             max-width: inherit;
             margin: 0 auto;
             float: none;
             padding: 5px;
         }
 
-        <<<<<<< HEAD ul.menu-list {
-            =======ul.menu-list {
-                > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .menuli {
+        ul.menu-list {
+           .menuli {
                     /*width: 45%;
             width: 33.33%;
             float: left;
@@ -1014,12 +1010,11 @@ ul.walletlist li label {
         }
 
         @media (max-width: 480px) {
-            <<<<<<< HEAD ul.menu-list {
-                =======#wrap {
+                #wrap {
                     padding: 0 5px;
                 }
                 ul.menu-list {
-                    > > > > > > > 53b6b95d34f9570047ca1af1c39092dff229db1e .menuli {
+                    .menuli {
                         width: 50%;
                     }
                 }
