@@ -38,7 +38,7 @@ function mobileNum() {
 function pinCodeValidation() {
 	$(document).on('keyup blur', '.cash_pincode', function(e) {
 		var pinCode = $(this);
-		if (pinCode.val().length > 5 && globalRegex1.test(pinCode.val())) {
+		if (pinCode.val().length > 5) {
 			$(this).removeClass('errorvalue');
 		} else {
 			$(this).addClass('errorvalue');

@@ -84,11 +84,24 @@ body {
         @extend %clearfix;
     }
 }
+.logo{
+    width:80%;
+    float: left;
+}
 .logo img{
     max-width:80%;
     max-height:75px;
 }
-
+.langbar{
+    float: right;
+    min-width:120px;
+    padding:45px 0 0 15px;
+    & select{
+        padding:3px 5px;
+        height:26px;
+        line-height:20px;
+    }
+}
 .pay-container {
     border: 1px solid #b7b7b8;
     position: relative;
@@ -767,6 +780,15 @@ ul.walletlist li label {
 @media (max-width: 767px) {
     .blockMain {
         padding: 35px 2% 80px;
+    }
+
+    .langbar,.mobile .langbar{
+        float:none;
+        padding:15px 0 0 15px;
+        & select{
+            max-width:120px;
+            float:right;
+        }
     }
     .mobile .pay-container {
         border: none;
