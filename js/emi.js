@@ -6,8 +6,10 @@ function renderEmiChannel(paymentTabId){
     $('.block-emi').attr('data-tab-type','emi');
     $('[data-tab-type="emi"]').show();
     bindEmiEvent();
-    floatLabels();
 }
+function bindEmiEvent(){
+    floatLabels();
+};
 
 function renderEmiTemplate(){
     var emiData = {

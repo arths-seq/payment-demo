@@ -20,7 +20,7 @@ function loadTranslateJson(currentLang,isLanguageChange){
 
     languageJson = localStorage.getItem(currentLang+'-payment');
     if(languageJson && typeof languageJson === "string"){
-        languageJson = JSON.parse(languageJson);
+        languageJson = languageJson;
     }
 
     if(!languageJson){
@@ -152,7 +152,7 @@ function autoHeightAnimate(element, time, callback) {
         autoHeight = element.css('height', 'auto').height(); // Get Auto Height
     element.height(curHeight); // Reset to Default Height
     element.stop().animate({
-        height: autoHeight
+        height: autoHeight 
     }, time); // Animate to Auto Height
 }
 
@@ -162,7 +162,7 @@ function animateMobileTab() {
     var tabHeight = tabcont.height();
     setTimeout(function () {
         $(".tabWrap").animate({
-            height: tabHeight
+            height: tabHeight + $('.footer').height()
         }, 500);
         $('.tabWrap').addClass('showtab');
         $('.tab-menu').fadeOut(500);
@@ -173,14 +173,15 @@ function animateMobileTab() {
 
 function bindMobileHideEvent() {
     $('.closetab').off('click').on('click', function () {
+    setTimeout(function () {
         $('.tabWrap').stop().animate({
             height: '0'
-        }, 500, function () {
+        }, 1000, function () {
             $('.tabWrap').removeClass('showtab');
-            $('.footer,.closetab').fadeOut();
+            $('.footer,.closetab').fadeOut(500);
             $('.tab-menu').fadeIn(500);
         });
-
+}, 500);
     });
 }
 
