@@ -25,7 +25,7 @@ function loadTranslateJson(currentLang,isLanguageChange){
 
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
-            success: $.proxy(function(currentLang,data){debugger
+            success: $.proxy(function(currentLang,data){
                 languageJson = data;
                 localStorage.setItem(currentLang+'-payment',data);
                 render(isLanguageChange);
