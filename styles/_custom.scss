@@ -825,12 +825,12 @@ ul.walletlist li label {
 }
 
 @media (max-width: 767px) {
-    body{
+    body {
         background-color: #e1edf5;
     }
     #wrap {
         padding: 0 10px;
-        
+
     }
     .head {
         background: #fff;
@@ -887,19 +887,22 @@ ul.walletlist li label {
     }
     .amount-block {
         padding: 0px 5px 15px;
+        .odrID,
+        .merName {
+            padding: 0 0 8px 0;
+        }
+    }
+    .tab-menu {
+        width: 100%;
+        max-width: inherit;
+        margin: 0 auto;
+        float: none;
+        padding: 5px;
     }
 
-    .tab-menu {
-            width: 100%;
-            max-width: inherit;
-            margin: 0 auto;
-            float: none;
-            padding: 5px;
-        }
-
-        ul.menu-list {
-           .menuli {
-                    /*width: 45%;
+    ul.menu-list {
+        .menuli {
+            /*width: 45%;
             width: 33.33%;
             float: left;
             display: table;
@@ -907,13 +910,13 @@ ul.walletlist li label {
             box-shadow: 0 8px 6px -6px #a0b8c7;
             background-color: #0061a3;
             height: calc(100vh - 80vh)*/
-                    width: 33.33%;
-                    float: left;
-                    background-color: #0061a3;
-                    border: 1px solid #0c74bb;
-                    padding-top: 20px;
-                    a {
-                        /*padding: 50px 20px;
+            width: 33.33%;
+            float: left;
+            background-color: #0061a3;
+            border: 1px solid #0c74bb;
+            padding-top: 20px;
+            a {
+                /*padding: 50px 20px;
                 margin: 8px;
                 padding: 0;
 				@include border-radius(5px);
@@ -921,123 +924,117 @@ ul.walletlist li label {
                 height: calc(100vh - 78vh);
                 vertical-align: middle;
                 display: table-cell;*/
-                        height: calc(100vh - 93vh);
-                        border-bottom: none;
-                        text-align: center;
-                        padding: 15px 8px 35px;
-                        font-size: 12px;
-                        color: #fff;
-                    }
-                    .imgmob {
-                        margin: 0 auto;
-                        height: 38px;
-                        width: 38px;
-                    }
-
-                    &:hover,
-                    &.active {
-                        background-color: #055a94;
-                    }
-                    &:last-child a {
-                        border: none;
-                    }
-                    .icon-cdc {
-                        background-position: -4px -225px;
-                    }
-                    .icon-nb {
-                        background-position: -52px -225px;
-                    }
-                    .icon-cash {
-                        background-position: -100px -225px;
-                    }
-                    .icon-emi {
-                        background-position: -149px -225px;
-                    }
-                    .icon-rtnft {
-                        background-position: -195px -225px;
-                    }
-                    .icon-wallet {
-                        background-position: -244px -225px;
-                    }
-                    .icon-amex {
-                        background-position: -292px -225px;
-                    }
-                    .icon-upi {
-                        background-position: -340px -225px;
-                    }
-                    .icon-qr {
-                        background-position: -388px -225px;
-                    }
-                    .icon-exp-pay {
-                        background-position: -436px -225px;
-                    }
-                    .icon-pay-later {
-                        background-position: -4px -273px;
-                    }
-                }
+                height: calc(100vh - 93vh);
+                border-bottom: none;
+                text-align: center;
+                padding: 15px 8px 35px;
+                font-size: 12px;
+                color: #fff;
+            }
+            .imgmob {
+                margin: 0 auto;
+                height: 38px;
+                width: 38px;
             }
 
-            .footer {
-                margin: 0;
-                width: 100%;
+            &:hover,
+            &.active {
+                background-color: #055a94;
             }
-            .tabWrap {
-                position: absolute;
-                top: 100vh;
-                overflow: hidden;
-                background-color: #FFF;
-                transition: all 0.5s;
-                width: 100%; //opacity: 0;
-                &.showtab {
-                    top: 125px;
-                    left:0;
-                    transition: all 0.5s; //opacity: 1;
-                    padding: 0px 10px;
-                }
-
-                .tab-container {
-                    min-height: 0;
-                    padding-bottom: 0;
-                    float: none;
-                }
-                .footer {
-                    display: none;
-                        position: relative;
-                }
+            &:last-child a {
+                border: none;
             }
-
-
-            ul.blocklist li {
-                height: 50px;
-                width: 31.3%;
-                & label {
-                    width: 100%;
-                    min-height: 50px;
-                    padding: 10px 6%;
-                }
+            .icon-cdc {
+                background-position: -4px -225px;
             }
+            .icon-nb {
+                background-position: -52px -225px;
+            }
+            .icon-cash {
+                background-position: -100px -225px;
+            }
+            .icon-emi {
+                background-position: -149px -225px;
+            }
+            .icon-rtnft {
+                background-position: -195px -225px;
+            }
+            .icon-wallet {
+                background-position: -244px -225px;
+            }
+            .icon-amex {
+                background-position: -292px -225px;
+            }
+            .icon-upi {
+                background-position: -340px -225px;
+            }
+            .icon-qr {
+                background-position: -388px -225px;
+            }
+            .icon-exp-pay {
+                background-position: -436px -225px;
+            }
+            .icon-pay-later {
+                background-position: -4px -273px;
+            }
+        }
+    }
 
-
-
+    .footer {
+        margin: 0;
+        width: 100%;
+    }
+    .tabWrap {
+        position: absolute;
+        top: 100vh;
+        overflow: hidden;
+        background-color: #FFF;
+        transition: all 0.8s;
+        left: 0;
+        width: 100%; //opacity: 0;
+        &.showtab {
+            top: 125px;
+            transition: all 0.5s; //opacity: 1;
+            padding: 0px 10px;
         }
 
-        @media (max-width: 480px) {
-                #wrap {
-                    padding: 0 5px;
-                }
-                ul.menu-list {
-                    .menuli {
-                        width: 50%;
-                    }
-                }
-                ul.blocklist li {
-                    width: 47%;
-                }
-                .amount-block {
-                    .odrID,
-                    .merName {
-                        padding: 0 0 8px 0;
-                    }
-                }
+        .tab-container {
+            min-height: 0;
+            padding-bottom: 0;
+            float: none;
+        }
+        .footer {
+            display: none;
+            position: relative;
+        }
+    }
 
-            }
+
+    ul.blocklist li {
+        height: 50px;
+        width: 31.3%;
+        & label {
+            width: 100%;
+            min-height: 50px;
+            padding: 10px 6%;
+        }
+    }
+
+
+
+}
+
+@media (max-width: 480px) {
+    #wrap {
+        padding: 0 5px;
+    }
+    ul.menu-list {
+        .menuli {
+            width: 50%;
+        }
+    }
+    ul.blocklist li {
+        width: 47%;
+    }
+
+}

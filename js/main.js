@@ -155,14 +155,15 @@ function animateMobileTab() {
 
 function bindMobileHideEvent() {
     $('.closetab').off('click').on('click', function () {
+    setTimeout(function () {
         $('.tabWrap').stop().animate({
             height: '0'
-        }, 500, function () {
+        }, 1000, function () {
             $('.tabWrap').removeClass('showtab');
-            $('.footer,.closetab').fadeOut();
+            $('.footer,.closetab').fadeOut(500);
             $('.tab-menu').fadeIn(500);
         });
-
+}, 500);
     });
 }
 
