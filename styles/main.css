@@ -1891,9 +1891,6 @@ ul.walletlist li label {
 .popularBanks .active {
   background-color: #e2e2e2 !important; }
 
-.blockUpi {
-  min-height: 420px; }
-
 .howto-text {
   background: #F7F7F7;
   color: #373a49;

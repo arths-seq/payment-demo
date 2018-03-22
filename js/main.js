@@ -21,7 +21,7 @@ function loadTranslateJson(){
 
     languageJson = localStorage.getItem(currentLang+'-payment');
     if(languageJson && typeof languageJson === "string"){
-        languageJson = JSON.parse(languageJson);
+        languageJson = languageJson;
     }
 
     if(!languageJson){
