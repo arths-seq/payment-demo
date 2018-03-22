@@ -825,6 +825,10 @@ ul.walletlist li label {
 }
 
 @media (max-width: 767px) {
+    wrap {
+        padding:0;
+
+    }
     .head {
         background: #fff;
     }
