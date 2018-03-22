@@ -584,13 +584,10 @@ ul.walletlist li label {
     display: block;
 }
 
-<<<<<<< HEAD
-.has-content input.errorvalue, .form-control.errorvalue{
-    border-bottom:1px solid red !important;
-=======
-.has-content input.errorvalue {
+
+.has-content input.errorvalue,
+.form-control.errorvalue {
     border-bottom: 1px solid red !important;
->>>>>>> e9a8ba1a60f74d71867de79e35790635307a0915
     opacity: 1;
 }
 
