@@ -599,6 +599,10 @@ ul.walletlist li label {
 .note {
     font-size: 14px;
     padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+.note p {
+    margin: 0;
 }
 
 .form-group .note-txt {
@@ -612,119 +616,6 @@ ul.walletlist li label {
     display: inline-block;
 }
 
-.epay-uid,
-.epay-otp {
-    display: none;
-}
-
-.stepwrap {
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-}
-
-.step {
-    list-style-type: none;
-    margin: 0;
-    padding: 0 0 0 0;
-    text-align: center;
-    width: 100%;
-    border: 0px solid #888;
-    &:after {
-        @extend %clearfix;
-    }
-}
-
-.step li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0 1%;
-    display: inline-block;
-    width: 31.33%;
-    position: relative;
-    color: #cfcdcd;
-    font-size: 14px;
-    span {
-        display: block;
-        padding: 5px 0 10px 0;
-    }
-    .num {
-        display: block;
-        width: 33px;
-        height: 33px;
-        position: relative;
-        z-index: 2;
-        margin: 0 auto;
-        padding: 0;
-        line-height: 33px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #cfcdcd;
-        background-color: #e2e1e1;
-        border: 1px solid #d1d0d0;
-        -webkit-border-radius: 100%;
-        -moz-border-radius: 100%;
-        border-radius: 100%;
-    }
-    .line {
-        position: absolute;
-        left: 48%;
-        top: 15px;
-        z-index: 1;
-        display: inline-block;
-        width: 100%;
-        max-width: 150px;
-        height: 3px;
-        background-color: #e2e1e1;
-    }
-    &.hold span {
-        color: #7a7979;
-    }
-    &.hold .num {
-        color: #7a7979;
-        background-color: #cacaca;
-        border: 1px solid #acabab;
-    }
-    &.hold .line {
-        background-color: #cacaca;
-    }
-
-    &.comp span {
-        color: #3e7420;
-    }
-    &.comp .num {
-        color: #fff;
-        background-color: #3e7420;
-        border: 1px solid #29570f;
-    }
-    &.comp .line {
-        background-color: #3e7420;
-    }
-    &.firstli,
-    &.lastli {
-        width: 20%;
-        min-width: 60px;
-    }
-    &.midli {
-        width: 54%;
-        min-width: 88px;
-    }
-    &.firstli .line {
-        width: 180%;
-    }
-    &.lastli .line {
-        display: none;
-    }
-}
-
-.note {
-    margin-bottom: 30px;
-}
-
-.note p {
-    margin: 0;
-}
 
 .cls-popup {
     position: absolute;
@@ -826,7 +717,7 @@ ul.walletlist li label {
 
 @media (max-width: 767px) {
     #wrap {
-        padding: 0;
+        padding:0;
     }
     .head {
         background: #fff;
