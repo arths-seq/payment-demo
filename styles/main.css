@@ -1100,6 +1100,9 @@ body {
 .margin0 {
   margin: 0; }
 
+.inline-block {
+  display: inline-block; }
+
 .icon {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
@@ -1347,7 +1350,7 @@ ul.menu-list .menuli {
 
 .blockMain {
   display: none;
-  padding: 35px 6% 15px;
+  padding: 28px 6% 15px;
   margin: 0 auto;
   max-width: 426px; }
 
@@ -1469,7 +1472,17 @@ ul.walletlist li label {
 }*/
 .savedCard {
   margin: 0 auto;
-  max-width: 295px; }
+  max-width: 295px;
+  width: 48%;
+  float: left; }
+
+.signin-section {
+  padding-left: 1%; }
+
+.signup-section {
+  margin-right: 2%;
+  border-right: 1px solid #ccc;
+  padding-right: 2%; }
 
 .savedCard h3 {
   font-weight: bold;
@@ -1886,6 +1899,31 @@ ul.walletlist li label {
   background-position: 0px -118px;
   width: 80px; }
 
+.view-plans {
+  margin-left: 10px;
+  display: inline-block;
+  padding: 10px 0;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer; }
+
+.view-plans-box {
+  display: none;
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 99;
+  width: 220px; }
+  .view-plans-box.active {
+    display: block; }
+    .view-plans-box.active input[type="radio"] {
+      opacity: 1; }
+  .view-plans-box li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px; }
+
 .visa ~ .iCard {
   background-position: 0 -121px; }
 
@@ -1926,11 +1964,12 @@ ul.walletlist li label {
 .cashworkBox {
   display: none;
   position: absolute;
-  left: 26%;
+  left: 100%;
   top: 0;
   border: 1px solid #ccc;
   background-color: #fff;
-  z-index: 99; }
+  z-index: 99;
+  width: 320px; }
   .cashworkBox li {
     border-bottom: 1px solid #ccc;
     padding: 10px; }

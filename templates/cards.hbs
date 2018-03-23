@@ -54,40 +54,27 @@
                 <label>
                     <input type="checkbox" class="emi-Check" value="">
                     {{emiCheck}}
-                    <span class="viewPlans">{{emiPlans}}</span>
                 </label>
+                <!-- modal for emi Plans -->
+                    <div class="formDom form-group brdrnone inline-block">
+                        <span class="view-plans">
+                            <span class="emi-plans">{{emiPlans}}</span>
+                            <span class="emi-change">{{emiPlansChange}}</span>
+                        </span>
+                        <div class="view-plans-box">
+                            <ul class="menu-list">
+                            {{#each emiTable}}
+                            <li data-attr-radioname="{{nbname}}">
+                                <input type="radio" name="radioval" value="{{radioval}}" >
+                                {{emiTenure}} | {{bankRate}} | {{interestPaid}}
+                            </li>                               
+                            {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="radioname"></div>
             </div>
         </div>
-        {{/if}}
-        {{#if isEmiTab}}
-            <div class="formDom form-group emi-option-box">
-                <select class="form-control">
-                    <option>Select Bank</option>
-                    {{#each cardEmiBank}} 
-                        {{#if cardEmi}}
-                            <option value="{{value}}">{{nbname}}</option>
-                        {{/if}}
-                    {{/each}}
-                </select>
-            </div>
-            <table width="100%" class="emitable">
-                <tr>
-                    <th></th>
-                    <th>EMI Tenure</th>
-                    <th>Bank Interest Rate</th>
-                    <th>Monthly Installments</th>
-                    <th>Interest paid to Bank</th>
-                </tr>
-                {{#each emiTable}}
-                <tr>
-                    <td><input type="radio" name="radioval" value="{{radioval}}" ></td>
-                    <td>{{emiTenure}}</td>
-                    <td>{{bankRate}}</td>
-                    <td>{{installments}}</td>
-                    <td>{{interestPaid}}</td>                    
-                </tr>
-                {{/each}}
-            </table>
         {{/if}}
         <!-- emi section end -->
         <div class="form-group">
@@ -97,10 +84,9 @@
     
 
     {{#if savedCard}}
-    <div class="savedCard">
+    <div class="savedCard signup-section">
         <div class="signBlock">
             <h3>Sign Up</h3>
-
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10">
@@ -129,6 +115,48 @@
                 <div class="input-group">
                     <input type="password" class="form-control confirmPassword" >
                     <label>{{confirmPass}}</label>
+                    <span class="input-group-addon icon {{iconPass}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="{{submitBtnTxt}}" class="btn">
+            </div> 
+            <div class="row">
+                {{#if showSavedCard}}
+                    <div class="col-xs-6 needhelp">
+                        <a href="#" class="alink">Need help?
+                            <div class="info-content">
+                                <p><strong>Rule 1:</strong> Password must not exceed 21 characters.</p>
+                                <p><strong>Rule 2:</strong> Password must contain at least 7 characters, with minimum if 1 uppercase character, 1 lowercase character and 1 number.</p>
+                                <p><strong>Rule 3:</strong> Password should not contain any space or any special characters (e.g. ~ ! @ # $ % ^ &amp; * ( ) - _ + = . / \ |).</p>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+                <div class="col-xs-6 text-right">
+                    <a href="#" class="alink ccdc-goback">go back</a>
+                </div>
+            </div>  
+
+        </div>
+    </div>
+    <!-- sign in -->
+    <div class="savedCard signin-section">
+        <div class="signBlock">
+            <h3>Sign In</h3>
+             <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10">
+                    <label>{{saveMob}}</label>
+                    <span class="input-group-addon icon {{iconMob}}"></span>
+                </div>
+                <span class="help errorBox"></span>
+            </div>
+            <div class="formDom form-group">
+                <div class="input-group">
+                    <input type="password" class="form-control newPassword" >
+                    <label>{{savePass}}</label>
                     <span class="input-group-addon icon {{iconPass}}"></span>
                 </div>
                 <span class="help errorBox"></span>
