@@ -5,75 +5,75 @@
         <ul class="step">
         <li id="P1" class="firstli comp">
             <div class="num">1</div>
-            <span>Sign Up</span>
+            <span>{{signUp}}</span>
             <div class="line"></div>
         </li>
         <li id="P2" class="midli hold">
             <div class="num">2</div>
-            <span>Verification</span>
+            <span>{{verification}}</span>
             <div class="line"></div>
         </li>
         <li id="P3" class="lastli">
             <div class="num">3</div>
-            <span>OTP</span>
+            <span>{{otptx}}</span>
             <div class="line"></div>
         </li>
          </ul>
      </div>
 
-    <div class="note text-center" id="payltrNote"><p>Shop today. Pay 14 days later. 0% interest!</p></div>
+    <div class="note text-center" id="payltrNote"><p>{{epayNote}}</p></div>
 
     <div class="defaultBlock">
         <div class="epay-details">
             <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>First Name</label>
+                    <label>{{firstName}}</label>
                     <span class="input-group-addon icon iUser"></span>
                 </div>
-                <span class="help">Please enter your first name</span>
+                <span class="help">{{fnHelp}}</span>
             </div>  
 
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>Last Name</label>
+                    <label>{{lastName}}</label>
                     <span class="input-group-addon icon iUser"></span>
                 </div>
-                <span class="help">Please enter your last name</span>
+                <span class="help">{{lnHelp}}</span>
             </div> 
 
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>Email ID</label>
+                    <label>{{emailID}}</label>
                     <span class="input-group-addon icon iEmail"></span>
                 </div>
-                <span class="help">Enter your e-mail Id</span>
+                <span class="help">{{eidHelp}}</span>
             </div> 
 
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>Phone No.</label>
+                    <label>{{phone}}</label>
                     <span class="input-group-addon icon iMob"></span>
                 </div>
-                <span class="help">Please enter a number</span>
+                <span class="help">{{phHelp}}</span>
             </div> 
 
             <div class="form-group">
                 <label>
                     <input type="checkbox" class="checkbox-inline" value="">
-                    I agree to the <a class="payltrtnc" data-type="tncpayltr" href="javascript:void(0);" id="payltr-tnc">terms &amp; conditions.</a>
+                    {{termsLine}} <a class="payltrtnc" data-type="tncpayltr" href="javascript:void(0);" id="payltr-tnc">{{terms}}</a>
                 </label>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn">
-                <p class="note-txt text-right">all fields are mandatory</p> 
+                <input type="submit" value="{{sumbitBtn}}" class="btn">
+                <p class="note-txt text-right">{{formNote}}</p> 
             </div> 
 
-            <p class="text-right"><a href="javascript:void(0);">what is Pay Later?</a></p>
+            <p class="text-right"><a href="javascript:void(0);">{{epayInfo}}</a></p>
         </div>
 
 
@@ -81,34 +81,34 @@
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>Adhar Card No</label>
+                    <label>{{adharlabel}}</label>
                     <span class="input-group-addon icon iaadhar"></span>
                 </div>
-                <span class="help">Enter your e-mail Id</span>
+                <span class="help">{{adharHelp}}</span>
             </div> 
 
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>PAN No</label>
+                    <label>{{panLabel}}</label>
                     <span class="input-group-addon icon ipancard"></span>
                 </div>
-                <span class="help">Please enter a number</span>
+                <span class="help">{{panHelp}}</span>
             </div> 
 
             <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">
-                    <label>Date of Birth</label>
+                    <label>{{birthlabel}}</label>
                     <span class="input-group-addon icon ical"></span>
                 </div>
-                <span class="help">Please enter a number</span>
+                <span class="help">{{birthHelp}}</span>
             </div> 
 
 
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn">
-                <p class="text-right"><a href="javascript:void(0);">cancel</a></p> 
+                <input type="submit" value="{{sumbitBtn}}" class="btn">
+                <p class="text-right"><a href="javascript:void(0);">{{canceltx}}</a></p> 
             </div> 
 
         </div>
@@ -117,16 +117,16 @@
             <div class="formDom form-group">
                 <div class="input-group">
                     <input type="password" class="form-control">
-                    <label>Enter your OTP code</label>
+                    <label>{{otpLabel}}</label>
                     <span class="input-group-addon icon iotp"></span>
                 </div>
-                <span class="help">Enter your e-mail Id</span>
+                <span class="help">{{otpHelp}}</span>
             </div> 
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn">
+                <input type="submit" value="{{sumbitBtn}}" class="btn">
                 <p class="noteLink">
-                    <a class="float-left" href="javascript:void(0);">cancel</a>
-                    <a class="float-right" href="javascript:void(0);">resend OTP</a>
+                    <a class="float-left" href="javascript:void(0);">{{canceltx}}</a>
+                    <a class="float-right" href="javascript:void(0);">{{resendtx}}</a>
                 </p> 
             </div> 
         </div>
