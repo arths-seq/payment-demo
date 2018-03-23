@@ -20,13 +20,13 @@ function loadTranslateJson(currentLang,isLanguageChange){
 
     languageJson = localStorage.getItem(currentLang+'-payment');
     if(languageJson && typeof languageJson === "string"){
-        //languageJson = JSON.parse(languageJson);
+        languageJson = JSON.parse(languageJson);
     }
 
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
-                languageJson = data;
+                languageJson = JSON.parse(data);
                 localStorage.setItem(currentLang+'-payment',data);
                 render(isLanguageChange);
             },this,currentLang)
