@@ -26,9 +26,9 @@ function pinCodeValidation() {
 	$(document).on('keyup blur', '.cash_pincode', function(e) {
 		var pinCode = $(this);
 		if (pinCode.val().length > 5) {
-			$(this).removeClass('errorvalue');
+			$(this).parents('.formDom').removeClass('errorvalue');
 		} else {
-			$(this).addClass('errorvalue');
+			$(this).parents('.formDom').addClass('errorvalue');
 		}
 	});
 }
