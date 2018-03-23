@@ -18,11 +18,7 @@ function bindCcDcEvent(){
 	passwordValidation();
 	saveCardLogin();
 	ccdcGoBack();
-<<<<<<< HEAD
-	cardNameValidation();
 	emiValidation();
-=======
->>>>>>> 7b86d87a932ca81df62129a9d6ba932a1d63a51d
 }
 
 function renderCcDcTemplate(){
@@ -455,73 +451,3 @@ function ccdcGoBack(){
 		$('.savedCard').hide();
 	});
 };
-<<<<<<< HEAD
-
-// card name validation
-function cardNameValidation(){
-	$(document).on('keypress','.cardname', function(e) {
-		var currentCursorPosition = this.selectionStart;
-		var regex = new RegExp("^[a-zA-Z0-9]+$");
-		var key = String
-				.fromCharCode(!event.charCode ? event.which
-						: event.charCode);
-		var keycode = event.keyCode;
-		var spaceCharCode = event.charCode;
-		if (spaceCharCode == "32") {
-			// for space
-			var nameOnCard = $('.cardname').val();
-			// if last character for nameOnCard is space dont
-			// allow else allow.
-			var lastChar = nameOnCard
-					.charAt(currentCursorPosition - 1);
-			if (lastChar == " ") {
-				event.preventDefault();
-				return false;
-			}
-		}
-		switch (keycode) {
-		case 8: // Backspace
-		case 9: // Tab
-		case 13: // Enter
-		case 37: // Left
-		case 38: // Up
-		case 39: // Right
-		case 40: // Down
-			break;
-		default:
-			var regex = new RegExp("^[a-zA-Z0-9 ]+$");
-			var key = event.key;
-			if (!regex.test(key)) {
-				event.preventDefault();
-				return false;
-			}
-			break;
-		}
-	});
-}
-
-// emi validation
-function emiValidation(){
-	$('.emitable').hide();
-	$('.emi-option-box').hide();
-	
-	// emi section table
-    $(document).on('change', 'select', function (e) {
-        if ($(this).val() == 'hdfc') {
-            $('.emitable').show(500);
-        }else if ($(this).val() == 'selectbank') {
-            $('.emitable').hide(500);
-        }
-	});
-	// emi check box event
-	$(document).on('click', '.emi-Check', function (e) {
-		if($('.emi-Check').is(':checked')){
-			$('.emi-option-box').show(500);
-		}else{
-			$('.emitable').hide(500);
-			$('.emi-option-box').hide(500);
-		}
-	});
-}
-=======
->>>>>>> 7b86d87a932ca81df62129a9d6ba932a1d63a51d
