@@ -18,12 +18,14 @@ function bindCcDcEvent(){
 	passwordValidation();
 	saveCardLogin();
 	ccdcGoBack();
+	emiValidation();
 }
 
 function renderCcDcTemplate(){
 	var cardData = {
-        isEmiTab: false,
-        showSavedCard: true,
+        isEmiTab: true,
+		showSavedCard: true,
+		showEmiCheck: true,
         savedCard: true,
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),
@@ -45,8 +47,16 @@ function renderCcDcTemplate(){
         heChold: translate('Please enter name on your card'),
         heCVV: translate('Its a 3 digit code printed on the back of your card'),
 		savetx: translate('Save card now to enable express payments'),
+		emiCheck: translate('Pay with EMI'),
+		emiPlans: translate('View Plans'),
 		submitBtnTxt: translate('Submit'),
         'cardEmiBank': [
+			{
+                nbname: 'Select Bank',
+                value: 'selectbank',
+                titile: 'selectbank',
+                cardEmi: true
+            },
             {
                 nbname: 'ICICI Bank',
                 value: 'icici',
@@ -74,6 +84,26 @@ function renderCcDcTemplate(){
                 cardEmi: false
             }
 
+        ],
+        'emiTable': [
+            {
+                emiTenure: '0 months',
+                bankRate: '12%',
+                installments: 'Rs. 0',
+                interestPaid: 'Rs. 0'
+            },
+            {
+                emiTenure: '3 months',
+                bankRate: '12%',
+                installments: 'Rs. 55',
+                interestPaid: 'Rs. 20'
+            },
+            {
+                emiTenure: '6 months',
+                bankRate: '12%',
+                installments: 'Rs. 5,100',
+                interestPaid: 'Rs. 301'
+            }
         ]
     };
     var cards = Payments.templates.cards(cardData);
@@ -400,7 +430,6 @@ function passwordValidation(){
 function saveCardLogin (){
 	$('.savedCard').hide();
 	$(document).on('click', '.save-card', function (e) {
-		$(this).parents('.formDom').addClass('errorvalue');
 		if(!$('.defaultBlock .formDom  input').val() == ''){
 			if(isCardValidated == true){
 				$('.defaultBlock').hide();
@@ -410,7 +439,9 @@ function saveCardLogin (){
 				$('.defaultBlock').hide();
 				$('.savedCard').show();
 			}	
-		};		
+		}else if($('.defaultBlock .formDom  input').val() == ''){
+			$('.formDom').addClass('errorvalue');	
+		}			
 	});
 };
 // sign up go back

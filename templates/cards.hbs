@@ -1,41 +1,5 @@
 <div id="{{pageID}}" class="blockMain blockCards {{cardsclasss}}"  data-tab-type="credit-debit"  data={{tab}}>
     <div class="defaultBlock">
-        {{#if isEmiTab}}
-            <div class="formDom form-group">
-                <select class="form-control">
-                    <option></option>
-                    {{#each cardEmiBank}} 
-                        {{#if cardEmi}}
-                            <option value="{{value}}">{{nbname}}</option>
-                        {{/if}}
-                    {{/each}}
-                </select>
-                <label>Select Bank</label>
-            </div>
-            <table width="100%" class="emitable">
-                <tr>
-                    <th></th>
-                    <th>EMI Tenure</th>
-                    <th>Bank Interest Rate</th>
-                    <th>Monthly Installments</th>
-                    <th>Interest paid to Bank</th>
-                </tr>
-                {{#each emiTable}}
-                <tr>
-                    <td><input type="radio" name="radioval" value="{{radioval}}" ></td>
-                    <td>{{emiTenure}}</td>
-                    <td>{{bankRate}}</td>
-                    <td>{{installments}}</td>
-                    <td>{{interestPaid}}</td>                    
-                </tr>
-                {{/each}}
-            </table>
-            {{#each emiTable}} 
-                {{#if cardEmi}}
-                    <option value="{{value}}">{{nbname}}</option>
-                {{/if}}
-            {{/each}}
-        {{/if}}
         <div class="cardWrap">
             <input type="hidden" name="cardinfo.cardtype" id="cardType" value="CREDITCARD" />
             <div class="formDom form-group">
@@ -76,14 +40,56 @@
             </div> 
         </div>  
         {{#if showSavedCard}}
-            <div class="form-group">
+            <div class="form-group margin0">
                 <label>
                     <input type="checkbox" class="save-Card-Check" value="">
                     {{savetx}}
                 </label>
             </div>  
         {{/if}}
-
+        <!-- emi section st -->
+        {{#if showEmiCheck}}
+        <div class="emi-info">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" class="emi-Check" value="">
+                    {{emiCheck}}
+                    <span class="viewPlans">{{emiPlans}}</span>
+                </label>
+            </div>
+        </div>
+        {{/if}}
+        {{#if isEmiTab}}
+            <div class="formDom form-group emi-option-box">
+                <select class="form-control">
+                    <option>Select Bank</option>
+                    {{#each cardEmiBank}} 
+                        {{#if cardEmi}}
+                            <option value="{{value}}">{{nbname}}</option>
+                        {{/if}}
+                    {{/each}}
+                </select>
+            </div>
+            <table width="100%" class="emitable">
+                <tr>
+                    <th></th>
+                    <th>EMI Tenure</th>
+                    <th>Bank Interest Rate</th>
+                    <th>Monthly Installments</th>
+                    <th>Interest paid to Bank</th>
+                </tr>
+                {{#each emiTable}}
+                <tr>
+                    <td><input type="radio" name="radioval" value="{{radioval}}" ></td>
+                    <td>{{emiTenure}}</td>
+                    <td>{{bankRate}}</td>
+                    <td>{{installments}}</td>
+                    <td>{{interestPaid}}</td>                    
+                </tr>
+                {{/each}}
+            </table>
+        {{/if}}
+        <!-- emi section end -->
         <div class="form-group">
             <input type="submit" value="Submit" class="btn save-card dsclick">
         </div>    

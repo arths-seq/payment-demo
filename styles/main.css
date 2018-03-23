@@ -1097,6 +1097,9 @@ body {
   .alink:hover {
     text-decoration: none; }
 
+.margin0 {
+  margin: 0; }
+
 .icon {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
