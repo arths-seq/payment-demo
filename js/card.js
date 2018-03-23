@@ -1,3 +1,6 @@
+// all function validation 
+var isCardValidated = false;
+
 function renderCcDc(paymentTabId){
 	renderCcDcTemplate();
     $('.blockMain').hide();
@@ -9,14 +12,17 @@ function bindCcDcEvent(){
 	cvvLengthValidation();
 	expiryDateValidation();
 	expiryDateLengthValidation();
-	cardNumberUpdate();
+	cardNameNumVal();
 	floatLabels();
 	emailValidation();
 	passwordValidation();
 	saveCardLogin();
 	ccdcGoBack();
+<<<<<<< HEAD
 	cardNameValidation();
 	emiValidation();
+=======
+>>>>>>> 7b86d87a932ca81df62129a9d6ba932a1d63a51d
 }
 
 function renderCcDcTemplate(){
@@ -107,8 +113,54 @@ function renderCcDcTemplate(){
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
 }
-// all function validation 
-var isCardValidated = false;
+
+function cardNameNumVal(){
+	cardNumberUpdate();
+	//card name validation
+	var validationRegex = new RegExp("^[a-zA-Z0-9]+$");
+	bindCardNameNumEvent(validationRegex,'cardname');
+}
+
+function bindCardNameNumEvent(validationRegex,className){
+	$(document).on('keypress','.' + className, function(e) {
+		var currentCursorPosition = this.selectionStart;
+		var key = String
+				.fromCharCode(!event.charCode ? event.which
+						: event.charCode);
+		var keycode = event.keyCode;
+		var spaceCharCode = event.charCode;
+		if (spaceCharCode == "32") {
+			// for space
+			var nameOnCard = $('.'+className).val();
+			// if last character for nameOnCard is space dont
+			// allow else allow.
+			var lastChar = nameOnCard
+					.charAt(currentCursorPosition - 1);
+			if (lastChar == " ") {
+				event.preventDefault();
+				return false;
+			}
+		}
+		switch (keycode) {
+		case 8: // Backspace
+		case 9: // Tab
+		case 13: // Enter
+		case 37: // Left
+		case 38: // Up
+		case 39: // Right
+		case 40: // Down
+			break;
+		default:
+			var key = event.key;
+			if (!validationRegex.test(key)) {
+				event.preventDefault();
+				return false;
+			}
+			break;
+		}
+	});
+}
+
 // card number validation
 function cardNumberUpdate() {
 	$(document).on('keyup blur','.cardNumber', function(e) {		
@@ -145,45 +197,11 @@ function cardNumberUpdate() {
 		isCardValidated = false;
 		
 	});
-	$(document).on('keypress','.cardNumber', function(e) {
-		var currentCursorPosition = this.selectionStart;
-		var regex = new RegExp("^[0-9]+$");
-		var key = String
-				.fromCharCode(!event.charCode ? event.which
-						: event.charCode);
-		var keycode = event.keyCode;
-		var spaceCharCode = event.charCode;
-		if (spaceCharCode == "32") {
-			// for space
-			var nameOnCard = $('.cardNumber').val();
-			// if last character for nameOnCard is space dont
-			// allow else allow.
-			var lastChar = nameOnCard
-					.charAt(currentCursorPosition - 1);
-			if (lastChar == " ") {
-				event.preventDefault();
-				return false;
-			}
-		}
-		switch (keycode) {
-		case 8: // Backspace
-		case 9: // Tab
-		case 13: // Enter
-		case 37: // Left
-		case 38: // Up
-		case 39: // Right
-		case 40: // Down
-			break;
-		default:
-			var regex = new RegExp("^[0-9 ]+$");
-			var key = event.key;
-			if (!regex.test(key)) {
-				event.preventDefault();
-				return false;
-			}
-			break;
-		}
-	});
+	
+	// card number validation
+	validationRegex =  new RegExp("^[0-9]+$");
+	bindCardNameNumEvent(validationRegex,'cardNumber');
+
 	function get_card_type(number) {
 		number = number.replace(/ /g, '');
 		var prefix_ret = match_prefix(number);
@@ -437,6 +455,7 @@ function ccdcGoBack(){
 		$('.savedCard').hide();
 	});
 };
+<<<<<<< HEAD
 
 // card name validation
 function cardNameValidation(){
@@ -504,3 +523,5 @@ function emiValidation(){
 		}
 	});
 }
+=======
+>>>>>>> 7b86d87a932ca81df62129a9d6ba932a1d63a51d
