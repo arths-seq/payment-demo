@@ -18,16 +18,17 @@ function loadTranslateJson(currentLang,isLanguageChange){
             break;
     }
 
-    languageJson = localStorage.getItem(currentLang+'-payment');
-    if(languageJson && typeof languageJson === "string"){
-        languageJson = JSON.parse(languageJson);
-    }
+    languageJson = localStorage.getItem(currentLang+'-payment')? JSON.parse(localStorage.getItem(currentLang+'-payment')):null;
 
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
-                languageJson = JSON.parse(data);
-                localStorage.setItem(currentLang+'-payment',data);
+                if(typeof data === "string"){
+                    languageJson = JSON.parse(data);
+                } else {
+                    languageJson = data;
+                }
+                localStorage.setItem(currentLang+'-payment',JSON.stringify(languageJson));
                 render(isLanguageChange);
             },this,currentLang)
         });
