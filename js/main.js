@@ -90,11 +90,6 @@ function renderMenuTab(isLanguageChange){
                 'tabname': 'Cash',
                 'imgicon': 'cash'
             }, {
-                'data': 'emi',
-                'tab': '4',
-                'tabname': 'EMI',
-                'imgicon': 'emi'
-            }, {
                 'data': 'rtgs',
                 'tab': '5',
                 'tabname': 'RTGS / NEFT',
