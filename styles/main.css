@@ -1560,7 +1560,11 @@ ul.walletlist li label {
 
 .note {
   font-size: 14px;
-  padding-bottom: 25px; }
+  padding-bottom: 25px;
+  margin-bottom: 30px; }
+
+.note p {
+  margin: 0; }
 
 .form-group .note-txt {
   font-size: 11px;
@@ -1570,96 +1574,6 @@ ul.walletlist li label {
 
 .form-group .noteLink a {
   display: inline-block; }
-
-.epay-uid,
-.epay-otp {
-  display: none; }
-
-.stepwrap {
-  max-width: 380px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center; }
-
-.step {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 0 0 0;
-  text-align: center;
-  width: 100%;
-  border: 0px solid #888; }
-
-.step li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 1%;
-  display: inline-block;
-  width: 31.33%;
-  position: relative;
-  color: #cfcdcd;
-  font-size: 14px; }
-  .step li span {
-    display: block;
-    padding: 5px 0 10px 0; }
-  .step li .num {
-    display: block;
-    width: 33px;
-    height: 33px;
-    position: relative;
-    z-index: 2;
-    margin: 0 auto;
-    padding: 0;
-    line-height: 33px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #cfcdcd;
-    background-color: #e2e1e1;
-    border: 1px solid #d1d0d0;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%; }
-  .step li .line {
-    position: absolute;
-    left: 48%;
-    top: 15px;
-    z-index: 1;
-    display: inline-block;
-    width: 100%;
-    max-width: 150px;
-    height: 3px;
-    background-color: #e2e1e1; }
-  .step li.hold span {
-    color: #7a7979; }
-  .step li.hold .num {
-    color: #7a7979;
-    background-color: #cacaca;
-    border: 1px solid #acabab; }
-  .step li.hold .line {
-    background-color: #cacaca; }
-  .step li.comp span {
-    color: #3e7420; }
-  .step li.comp .num {
-    color: #fff;
-    background-color: #3e7420;
-    border: 1px solid #29570f; }
-  .step li.comp .line {
-    background-color: #3e7420; }
-  .step li.firstli, .step li.lastli {
-    width: 20%;
-    min-width: 60px; }
-  .step li.midli {
-    width: 54%;
-    min-width: 88px; }
-  .step li.firstli .line {
-    width: 180%; }
-  .step li.lastli .line {
-    display: none; }
-
-.note {
-  margin-bottom: 30px; }
-
-.note p {
-  margin: 0; }
 
 .cls-popup {
   position: absolute;
@@ -1980,7 +1894,7 @@ ul.walletlist li label {
 .bqr-tab-logo {
   max-width: 100px;
   display: block;
-  background: url(../img/spriteimg.png) 0px -977px no-repeat;
+  background: url(../img/spriteimg.png) -250px -600px no-repeat;
   height: 85px; }
 
 .bharat-qr-submit {
@@ -2042,3 +1956,92 @@ ul.walletlist li label {
 
 .qr-link {
   font-size: 16px; }
+
+.epay-details {
+  display: block; }
+
+.epay-uid {
+  display: none; }
+
+.epay-otp {
+  display: none; }
+
+.stepwrap {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center; }
+
+.step {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 0;
+  text-align: center;
+  width: 100%;
+  border: 0px solid #888; }
+
+.step li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 1%;
+  display: inline-block;
+  width: 31.33%;
+  position: relative;
+  color: #cfcdcd;
+  font-size: 14px; }
+  .step li span {
+    display: block;
+    padding: 5px 0 10px 0; }
+  .step li .num {
+    display: block;
+    width: 33px;
+    height: 33px;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 33px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #cfcdcd;
+    background-color: #e2e1e1;
+    border: 1px solid #d1d0d0;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%; }
+  .step li .line {
+    position: absolute;
+    left: 48%;
+    top: 15px;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+    max-width: 150px;
+    height: 3px;
+    background-color: #e2e1e1; }
+  .step li.hold span {
+    color: #7a7979; }
+  .step li.hold .num {
+    color: #7a7979;
+    background-color: #cacaca;
+    border: 1px solid #acabab; }
+  .step li.hold .line {
+    background-color: #cacaca; }
+  .step li.comp span {
+    color: #3e7420; }
+  .step li.comp .num {
+    color: #fff;
+    background-color: #3e7420;
+    border: 1px solid #29570f; }
+  .step li.comp .line {
+    background-color: #3e7420; }
+  .step li.firstli, .step li.lastli {
+    width: 20%;
+    min-width: 60px; }
+  .step li.midli {
+    width: 54%;
+    min-width: 88px; }
+  .step li.firstli .line {
+    width: 180%; }
+  .step li.lastli .line {
+    display: none; }
