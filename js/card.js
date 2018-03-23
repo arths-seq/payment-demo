@@ -451,3 +451,25 @@ function ccdcGoBack(){
 		$('.savedCard').hide();
 	});
 };
+// emi validation
+function emiValidation(){
+		$('.emitable').hide();
+		$('.emi-option-box').hide();
+		// emi section table
+	    $(document).on('change', 'select', function (e) {
+	        if ($(this).val() == 'hdfc') {
+	            $('.emitable').show(500);
+	        }else if ($(this).val() == 'selectbank') {
+	            $('.emitable').hide(500);
+	        }
+		});
+		// emi check box event
+		$(document).on('click', '.emi-Check', function (e) {
+			if($('.emi-Check').is(':checked')){
+				$('.emi-option-box').show(500);
+			}else{
+				$('.emitable').hide(500);
+				$('.emi-option-box').hide(500);
+			}
+		});
+	}
