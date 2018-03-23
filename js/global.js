@@ -6,12 +6,12 @@
 
 	// Special Characters
 	function specialCharactersValidation(){
-		$(document).on('keyup blur', '.cvv, .mobnumns, .cardname, .cash_pincode, .cardNumber', function (e) {
+		$(document).on('keyup blur', '.cvv, .mobnumns, .cash_pincode', function (e) {
 			var yourInput = $(this).val(),
-				globalRegex = $(this).hasClass("cardname") ? globalRegex1 : globalRegex2;
+				globalRegex = globalRegex2;
 				
 			if (globalRegex.test(yourInput)) {
-				var no_spl_char = yourInput.replace(globalRegex, ' ');
+				var no_spl_char = yourInput.replace(globalRegex, '');
 				$(this).val(no_spl_char);
 			}		
 		});

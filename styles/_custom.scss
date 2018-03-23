@@ -583,13 +583,9 @@ ul.walletlist li label {
 .needhelp a:hover .info-content {
     display: block;
 }
+.formDom.errorvalue{
+    border-bottom:1px solid red;
 
-.has-content input.errorvalue, .form-control.errorvalue, .focused .form-control.exp_date.errorvalue, .has-content .form-control.exp_date.errorvalue{
-    border-bottom:1px solid red !important;
-    opacity: 1;
-}
-.form-control.exp_date.errorvalue{
-    opacity: 0;
 }
 
 .box-shadow-none {

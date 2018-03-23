@@ -14,7 +14,8 @@ function bindCcDcEvent(){
 	emailValidation();
 	passwordValidation();
 	saveCardLogin();
-	ccdcSaveCardCheck();
+	ccdcGoBack();
+	cardNameValidation();
 }
 
 function renderCcDcTemplate(){
@@ -76,13 +77,8 @@ function renderCcDcTemplate(){
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
 }
-/*var isCardValidated = validateAllInputFields();
-function validateAllInputFields(){
-	cardNumberUpdate();
-	expiryDateLengthValidation();
-	cvvLengthValidation();
-	console.log(isCardValidated + 'validcards');
-}*/
+// all function validation 
+var isCardValidated = false;
 // card number validation
 function cardNumberUpdate() {
 	$(".cardNumber").keyup(function () {		
@@ -92,13 +88,12 @@ function cardNumberUpdate() {
 		if (e == "") {
 
 			ele.removeClass (function (index, className) {
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return (className.match (/\w*-icon\w*/) || []).join(' ');
 				
 			});
 			//ele.addClass(cardtype+"logos");
-			$(this).addClass('errorvalue');
-			//return false;
+			$(this).parents('.formDom').addClass('errorvalue');
 		} else {
 			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
 			ele.val(e);
@@ -109,15 +104,54 @@ function cardNumberUpdate() {
 				return (className.match (/\w*-icon\w*/) || []).join(' ');				
 			});
 			ele.addClass(ct);
-			//return false;
 		}
 		var cardnumber = $(this);
 		if(cardnumber.val().length > 22){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true;
 		}else{
-			$(this).addClass('errorvalue');
-			return false;
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
+		}
+		
+	});
+	$(document).on('keypress','.cardNumber', function(e) {
+		var currentCursorPosition = this.selectionStart;
+		var regex = new RegExp("^[0-9]+$");
+		var key = String
+				.fromCharCode(!event.charCode ? event.which
+						: event.charCode);
+		var keycode = event.keyCode;
+		var spaceCharCode = event.charCode;
+		if (spaceCharCode == "32") {
+			// for space
+			var nameOnCard = $('.cardNumber').val();
+			// if last character for nameOnCard is space dont
+			// allow else allow.
+			var lastChar = nameOnCard
+					.charAt(currentCursorPosition - 1);
+			if (lastChar == " ") {
+				event.preventDefault();
+				return false;
+			}
+		}
+		switch (keycode) {
+		case 8: // Backspace
+		case 9: // Tab
+		case 13: // Enter
+		case 37: // Left
+		case 38: // Up
+		case 39: // Right
+		case 40: // Down
+			break;
+		default:
+			var regex = new RegExp("^[0-9 ]+$");
+			var key = event.key;
+			if (!regex.test(key)) {
+				event.preventDefault();
+				return false;
+			}
+			break;
 		}
 	});
 	function get_card_type(number) {
@@ -269,14 +303,14 @@ function cvvLengthValidation(){
 	$(document).on('keyup', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated =  true;
 		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true;
 		}else{
-			$(this).addClass('errorvalue');
-			return false;
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
 		}
 		
 	});	
@@ -290,12 +324,12 @@ function expiryDateLengthValidation(){
 	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
 		var yourInput = $(this).val();
 		if(yourInput.length > 4){
-			$(this).removeClass('errorvalue');
-			return true
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true
 		}else{
-			$(this).addClass('errorvalue');
-			return false;
-		}		 
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
+		}	 
 	});
 };
 // Email validation
@@ -305,14 +339,14 @@ function emailValidation(){
 			var sEmail = $('.emailV').val();
 			if ($.trim(sEmail).length == 0) {
 				//alert('Please enter valid email address');
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return false;
 			}
 			if (validateEmail(sEmail)) {
-				$(this).removeClass('errorvalue');
+				$(this).parents('.formDom').removeClass('errorvalue');
 			}
 			else {
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return false;
 			}
 		});
@@ -329,59 +363,90 @@ function emailValidation(){
 };
 // password validation 
 function passwordValidation(){
-	$(document).on('focusout','.newPassword', function() {			
+	$(document).on('keyup','.newPassword', function() {
+		var password = $('.newPassword').val();
+		var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/g;
+		if(password.length > 7 && passReg.test(password)){
+			$(this).parents('.formDom').removeClass('errorvalue'); 
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+		}
+	});
+	$(document).on('focusout','.confirmPassword', function() {
 		var password = $('.newPassword').val();
 		var confirmPass = $('.confirmPassword').val();
-		var passReg = /^((?=.*\d)(?=.*[a-z]).{8,30})+$/;
-		var passReg1 = /(.)\1\1\1/;				
-				   
-		   if(password.length < 7){
-				  $(this).addClass('errorvalue');
-				  console.log('password.length');
-				 
-			 }				 
-			 if(confirmPass.length < 7){
-				 $(this).addClass('errorvalue');
-				 console.log('confirmPass.length');
-			 }									  
-			
-			 if(password.length > 7 && !passReg1.test(password)){
-				  $(this).removeClass('errorvalue');
-				  console.log('password.length > 7');
-			 }
-			 
-			 var confirmPassFlag = false;
-			 if(confirmPass.length > 7 && !passReg1.test(confirmPass)){
-				 $(this).addClass('errorvalue');
-				 confirmPassFlag = true;
-				 console.log('confirmPass.length > 7 true');
-				
-			}			 
-			if(password.length > 7 && confirmPass.length > 7 && !confirmPassFlag && password != confirmPass){
-				
-				$(this).addClass('errorvalue');
-				console.log('password.length > 7 ');
-				
-			}	 
-		
+		if(password === confirmPass){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+		}
 	});
 };
-// check box
-function ccdcSaveCardCheck(){
-	
-}
+
 // sign up 
-function saveCardLogin (){	
+function saveCardLogin (){
 	$('.savedCard').hide();
-	//console.log(isCardValidated + 'save card');
 	$(document).on('click', '.save-card', function (e) {
-		/*if(isCardValidated == true){
-			console.log('truue');
-			console.log(isCardValidated + 'save card');
-		}*/
-		if($('.save-Card-Check').is(':checked')){
-			$('.defaultBlock').hide();
-			$('.savedCard').show();
-		}	
+		$(this).parents('.formDom').addClass('errorvalue');
+		if(!$('.defaultBlock .formDom  input').val() == ''){
+			if(isCardValidated == true){
+				$('.defaultBlock').hide();
+				$('.savedCard').show();
+			}
+			if(isCardValidated == true && $('.save-Card-Check').is(':checked')){
+				$('.defaultBlock').hide();
+				$('.savedCard').show();
+			}	
+		};		
+	});
+};
+// sign up go back
+function ccdcGoBack(){
+	$(document).on('click', '.ccdc-goback', function (e) {
+		$('.defaultBlock').show();
+		$('.savedCard').hide();
+	});
+};
+
+// card name validation
+function cardNameValidation(){
+	$(document).on('keypress','.cardname', function(e) {
+		var currentCursorPosition = this.selectionStart;
+		var regex = new RegExp("^[a-zA-Z0-9]+$");
+		var key = String
+				.fromCharCode(!event.charCode ? event.which
+						: event.charCode);
+		var keycode = event.keyCode;
+		var spaceCharCode = event.charCode;
+		if (spaceCharCode == "32") {
+			// for space
+			var nameOnCard = $('.cardname').val();
+			// if last character for nameOnCard is space dont
+			// allow else allow.
+			var lastChar = nameOnCard
+					.charAt(currentCursorPosition - 1);
+			if (lastChar == " ") {
+				event.preventDefault();
+				return false;
+			}
+		}
+		switch (keycode) {
+		case 8: // Backspace
+		case 9: // Tab
+		case 13: // Enter
+		case 37: // Left
+		case 38: // Up
+		case 39: // Right
+		case 40: // Down
+			break;
+		default:
+			var regex = new RegExp("^[a-zA-Z0-9 ]+$");
+			var key = event.key;
+			if (!regex.test(key)) {
+				event.preventDefault();
+				return false;
+			}
+			break;
+		}
 	});
 }

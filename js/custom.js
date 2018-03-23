@@ -11,7 +11,7 @@ function floatLabels() {
     $('.form-control').on('focus', function () {
         $(this).parents('.formDom').addClass("focused");
     });
-    };    
+};    
 
     /* Function to animate height: auto */
     

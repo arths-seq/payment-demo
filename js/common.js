@@ -8,9 +8,9 @@ function mobileNum() {
         var mobile = $(this);				
         var mobRegExpr = /^[6-9]{1}[0-9]{9}$/;
         if (mobile.val().length > 9 && mobRegExpr.test(mobile.val())) {
-            $(this).removeClass('errorvalue');
+            $(this).parents('.formDom').removeClass('errorvalue');
         } else {
-            $(this).addClass('errorvalue');
+            $(this).parents('.formDom').addClass('errorvalue');
         }
     });
 }
