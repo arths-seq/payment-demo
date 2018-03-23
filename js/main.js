@@ -171,7 +171,6 @@ function animateMobileTab() {
     }, 500);
 }
 
-
 function bindMobileHideEvent() {
     $('.closetab').off('click').on('click', function () {
     setTimeout(function () {
@@ -243,8 +242,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod;
             break;
         case 'bharat-qr':
-            fileName = '';
-            callbackMethod;
+            fileName = 'bharat_qr';
+            callbackMethod = renderBharatqrChannel;
             break;
         default:
             paymentId = 'credit-debit';
