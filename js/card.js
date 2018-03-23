@@ -81,7 +81,7 @@ function renderCcDcTemplate(){
 var isCardValidated = false;
 // card number validation
 function cardNumberUpdate() {
-	$(".cardNumber").keyup(function () {		
+	$(document).on('keyup blur','.cardNumber', function(e) {		
 		var ele = $(this);
 		var cardtype = ele.data('cardtype');
 		var e = ele.val().split(" ").join("");
@@ -111,8 +111,8 @@ function cardNumberUpdate() {
 			isCardValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
-			isCardValidated = false;
 		}
+		isCardValidated = false;
 		
 	});
 	$(document).on('keypress','.cardNumber', function(e) {
@@ -300,7 +300,7 @@ function expiryDateValidation() {
 
 // csv/ cvv
 function cvvLengthValidation(){
-	$(document).on('keyup', '.cvv', function (e) {
+	$(document).on('keyup blur', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
 			$(this).parents('.formDom').removeClass('errorvalue');
@@ -311,8 +311,7 @@ function cvvLengthValidation(){
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
 			isCardValidated = false;
-		}
-		
+		}		
 	});	
 	$(document).on('focus', '.cvv', function (e) {
 		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
