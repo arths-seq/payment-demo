@@ -286,6 +286,5 @@ function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange
 }
 
 $(document).ready(function(){
-    console.log('Hi we are in!!!');
     loadTranslateJson('en');
 });
