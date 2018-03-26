@@ -18,16 +18,17 @@ function loadTranslateJson(currentLang,isLanguageChange){
             break;
     }
 
-    languageJson = localStorage.getItem(currentLang+'-payment');
-    if(languageJson && typeof languageJson === "string"){
-        languageJson = JSON.parse(languageJson);
-    }
+    languageJson = localStorage.getItem(currentLang+'-payment')? JSON.parse(localStorage.getItem(currentLang+'-payment')):null;
 
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
-                languageJson = data;
-                localStorage.setItem(currentLang+'-payment',data);
+                if(typeof data === "string"){
+                    languageJson = JSON.parse(data);
+                } else {
+                    languageJson = data;
+                }
+                localStorage.setItem(currentLang+'-payment',JSON.stringify(languageJson));
                 render(isLanguageChange);
             },this,currentLang)
         });
@@ -89,11 +90,6 @@ function renderMenuTab(isLanguageChange){
                 'tab': '3',
                 'tabname': 'Cash',
                 'imgicon': 'cash'
-            }, {
-                'data': 'emi',
-                'tab': '4',
-                'tabname': 'EMI',
-                'imgicon': 'emi'
             }, {
                 'data': 'rtgs',
                 'tab': '5',
@@ -175,7 +171,6 @@ function animateMobileTab() {
     }, 500);
 }
 
-
 function bindMobileHideEvent() {
     $('.closetab').off('click').on('click', function () {
     setTimeout(function () {
@@ -247,8 +242,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod;
             break;
         case 'bharat-qr':
-            fileName = '';
-            callbackMethod;
+            fileName = 'bharat_qr';
+            callbackMethod = renderBharatqrChannel;
             break;
         default:
             paymentId = 'credit-debit';
@@ -291,6 +286,5 @@ function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange
 }
 
 $(document).ready(function(){
-    console.log('Hi we are in!!!');
     loadTranslateJson('en');
 });

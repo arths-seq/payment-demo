@@ -1,3 +1,6 @@
+// all function validation 
+var isCardValidated = false;
+
 function renderCcDc(paymentTabId){
 	renderCcDcTemplate();
     $('.blockMain').hide();
@@ -6,21 +9,23 @@ function renderCcDc(paymentTabId){
 }
 
 function bindCcDcEvent(){
-	cvvLengthValidation();
+	cvvValidation();
 	expiryDateValidation();
-	expiryDateLengthValidation();
-	cardNumberUpdate();
+	cardNameNumVal();
 	floatLabels();
 	emailValidation();
 	passwordValidation();
 	saveCardLogin();
-	ccdcSaveCardCheck();
+	ccdcGoBack();
+	emiValidation();
+	mobileNum();
 }
 
 function renderCcDcTemplate(){
 	var cardData = {
-        isEmiTab: false,
-        showSavedCard: true,
+        isEmiTab: true,
+		showSavedCard: true,
+		showEmiCheck: true,
         savedCard: true,
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),
@@ -42,8 +47,17 @@ function renderCcDcTemplate(){
         heChold: translate('Please enter name on your card'),
         heCVV: translate('Its a 3 digit code printed on the back of your card'),
 		savetx: translate('Save card now to enable express payments'),
+		emiCheck: translate('Pay with EMI'),
+		emiPlans: translate('View Plans'),
+		emiPlansChange: translate('Change'),
 		submitBtnTxt: translate('Submit'),
         'cardEmiBank': [
+			{
+                nbname: 'Select Bank',
+                value: 'selectbank',
+                titile: 'selectbank',
+                cardEmi: true
+            },
             {
                 nbname: 'ICICI Bank',
                 value: 'icici',
@@ -71,34 +85,97 @@ function renderCcDcTemplate(){
                 cardEmi: false
             }
 
-        ]
+        ],
+        'emiTable': [
+            {
+                emiTenure: '0 months',
+                bankRate: '12%',
+                installments: 'Rs. 0',
+				interestPaid: 'Rs. 0',
+				nbname: '12'
+            },
+            {
+                emiTenure: '3 months',
+                bankRate: '12%',
+                installments: 'Rs. 55',
+				interestPaid: 'Rs. 20',
+				nbname: '34'
+            },
+            {
+                emiTenure: '6 months',
+                bankRate: '12%',
+                installments: 'Rs. 5,100',
+				interestPaid: 'Rs. 301',
+				nbname: '56'
+            }
+		]
     };
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
 }
-/*var isCardValidated = validateAllInputFields();
-function validateAllInputFields(){
+
+function cardNameNumVal(){
 	cardNumberUpdate();
-	expiryDateLengthValidation();
-	cvvLengthValidation();
-	console.log(isCardValidated + 'validcards');
-}*/
+	//card name validation
+	var validationRegex = new RegExp("^[a-zA-Z0-9]+$");
+	bindCardNameNumEvent(validationRegex,'cardname');
+}
+
+function bindCardNameNumEvent(validationRegex,className){
+	$(document).on('keypress','.' + className, function(e) {
+		var currentCursorPosition = this.selectionStart;
+		var key = String
+				.fromCharCode(!event.charCode ? event.which
+						: event.charCode);
+		var keycode = event.keyCode;
+		var spaceCharCode = event.charCode;
+		if (spaceCharCode == "32") {
+			// for space
+			var nameOnCard = $('.'+className).val();
+			// if last character for nameOnCard is space dont
+			// allow else allow.
+			var lastChar = nameOnCard
+					.charAt(currentCursorPosition - 1);
+			if (lastChar == " ") {
+				event.preventDefault();
+				return false;
+			}
+		}
+		switch (keycode) {
+		case 8: // Backspace
+		case 9: // Tab
+		case 13: // Enter
+		case 37: // Left
+		case 38: // Up
+		case 39: // Right
+		case 40: // Down
+			break;
+		default:
+			var key = event.key;
+			if (!validationRegex.test(key)) {
+				event.preventDefault();
+				return false;
+			}
+			break;
+		}
+	});
+}
+
 // card number validation
 function cardNumberUpdate() {
-	$(".cardNumber").keyup(function () {		
+	$(document).on('keyup blur','.cardNumber', function(e) {		
 		var ele = $(this);
 		var cardtype = ele.data('cardtype');
 		var e = ele.val().split(" ").join("");
 		if (e == "") {
 
 			ele.removeClass (function (index, className) {
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return (className.match (/\w*-icon\w*/) || []).join(' ');
 				
 			});
 			//ele.addClass(cardtype+"logos");
-			$(this).addClass('errorvalue');
-			//return false;
+			$(this).parents('.formDom').addClass('errorvalue');
 		} else {
 			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
 			ele.val(e);
@@ -109,17 +186,22 @@ function cardNumberUpdate() {
 				return (className.match (/\w*-icon\w*/) || []).join(' ');				
 			});
 			ele.addClass(ct);
-			//return false;
 		}
 		var cardnumber = $(this);
 		if(cardnumber.val().length > 22){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true;
 		}else{
-			$(this).addClass('errorvalue');
-			return false;
+			$(this).parents('.formDom').addClass('errorvalue');
 		}
+		isCardValidated = false;
+		
 	});
+	
+	// card number validation
+	validationRegex =  new RegExp("^[0-9]+$");
+	bindCardNameNumEvent(validationRegex,'cardNumber');
+
 	function get_card_type(number) {
 		number = number.replace(/ /g, '');
 		var prefix_ret = match_prefix(number);
@@ -262,42 +344,43 @@ function expiryDateValidation() {
 			e.preventDefault();
 			return;									
 	});
+
+	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
+		var yourInput = $(this).val();
+		if(yourInput.length > 4){
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
+		}	 
+	});
 };
 
 // csv/ cvv
-function cvvLengthValidation(){
-	$(document).on('keyup', '.cvv', function (e) {
+function cvvValidation(){
+	if (isMobile()) {
+		$(".cvv").attr('type','tel');	
+		$(".cvv").css('-webkit-text-security','disc');
+	}
+	$(document).on('keyup blur', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated =  true;
 		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
-			$(this).removeClass('errorvalue');
-			return true;
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true;
 		}else{
-			$(this).addClass('errorvalue');
-			return false;
-		}
-		
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
+		}		
 	});	
 	$(document).on('focus', '.cvv', function (e) {
 		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
 	});
 };
 
-// expriy date
-function expiryDateLengthValidation(){
-	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
-		var yourInput = $(this).val();
-		if(yourInput.length > 4){
-			$(this).removeClass('errorvalue');
-			return true
-		}else{
-			$(this).addClass('errorvalue');
-			return false;
-		}		 
-	});
-};
 // Email validation
 function emailValidation(){
 	$(document).ready(function(e) {
@@ -305,14 +388,14 @@ function emailValidation(){
 			var sEmail = $('.emailV').val();
 			if ($.trim(sEmail).length == 0) {
 				//alert('Please enter valid email address');
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return false;
 			}
 			if (validateEmail(sEmail)) {
-				$(this).removeClass('errorvalue');
+				$(this).parents('.formDom').removeClass('errorvalue');
 			}
 			else {
-				$(this).addClass('errorvalue');
+				$(this).parents('.formDom').addClass('errorvalue');
 				return false;
 			}
 		});
@@ -329,59 +412,102 @@ function emailValidation(){
 };
 // password validation 
 function passwordValidation(){
-	$(document).on('focusout','.newPassword', function() {			
+	$(document).on('keyup','.newPassword', function() {
+		var password = $('.newPassword').val();
+		var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/g;
+		if(password.length > 7 && passReg.test(password)){
+			$(this).parents('.formDom').removeClass('errorvalue'); 
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+		}
+	});
+	$(document).on('focusout','.confirmPassword', function() {
 		var password = $('.newPassword').val();
 		var confirmPass = $('.confirmPassword').val();
-		var passReg = /^((?=.*\d)(?=.*[a-z]).{8,30})+$/;
-		var passReg1 = /(.)\1\1\1/;				
-				   
-		   if(password.length < 7){
-				  $(this).addClass('errorvalue');
-				  console.log('password.length');
-				 
-			 }				 
-			 if(confirmPass.length < 7){
-				 $(this).addClass('errorvalue');
-				 console.log('confirmPass.length');
-			 }									  
-			
-			 if(password.length > 7 && !passReg1.test(password)){
-				  $(this).removeClass('errorvalue');
-				  console.log('password.length > 7');
-			 }
-			 
-			 var confirmPassFlag = false;
-			 if(confirmPass.length > 7 && !passReg1.test(confirmPass)){
-				 $(this).addClass('errorvalue');
-				 confirmPassFlag = true;
-				 console.log('confirmPass.length > 7 true');
-				
-			}			 
-			if(password.length > 7 && confirmPass.length > 7 && !confirmPassFlag && password != confirmPass){
-				
-				$(this).addClass('errorvalue');
-				console.log('password.length > 7 ');
-				
-			}	 
-		
+		if(password === confirmPass){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+		}
 	});
 };
-// check box
-function ccdcSaveCardCheck(){
-	
-}
+
 // sign up 
-function saveCardLogin (){	
+function saveCardLogin (){
 	$('.savedCard').hide();
-	//console.log(isCardValidated + 'save card');
 	$(document).on('click', '.save-card', function (e) {
-		/*if(isCardValidated == true){
-			console.log('truue');
-			console.log(isCardValidated + 'save card');
-		}*/
-		if($('.save-Card-Check').is(':checked')){
-			$('.defaultBlock').hide();
-			$('.savedCard').show();
-		}	
+		if(!$('.defaultBlock .formDom  input').val() == ''){
+			if(isCardValidated == true){
+				$('.defaultBlock').hide();
+				$('.savedCard').show();
+			}
+			if(isCardValidated == true && $('.save-Card-Check').is(':checked')){
+				$('.defaultBlock').hide();
+				$('.savedCard').show();
+			}	
+		}else if($('.defaultBlock .formDom  input').val() == ''){
+			$('.formDom').addClass('errorvalue');	
+		}			
 	});
+};
+// sign up go back
+function ccdcGoBack(){
+	$(document).on('click', '.ccdc-goback', function (e) {
+		$('.defaultBlock').show();
+		$('.savedCard').hide();
+	});
+};
+// emi validation
+function emiValidation(){
+		/*$('.emitable').hide();
+		$('.emi-option-box').hide();
+		// emi section table
+	    $(document).on('change', 'select', function (e) {
+	        if ($(this).val() == 'hdfc') {
+	            $('.emitable').show(500);
+	        }else if ($(this).val() == 'selectbank') {
+	            $('.emitable').hide(500);
+	        }
+		});
+		// emi check box event
+		$(document).on('click', '.emi-Check', function (e) {
+			if($('.emi-Check').is(':checked')){
+				$('.emi-option-box').show(500);
+			}else{
+				$('.emitable').hide(500);
+				$('.emi-option-box').hide(500);
+			}
+		});*/
+		// emi check box event
+		$('.view-plans').hide();
+		$('.emi-change').hide();
+
+		$(document).on('click', '.emi-Check', function (e) {
+			if($('.emi-Check').is(':checked')){
+				$('.view-plans').show();
+			}else{
+				$('.view-plans').hide();
+				$('.radioname').hide();
+				$('.emi-change').hide();
+				$('.emi-plans').show();			
+				$('.view-plans-box').removeClass('active');
+			}
+		});
+		$(document).on('blur', 'body', function (e) {
+			$('.view-plans-box').removeClass('active');
+		});
+		$(document).on('click', '.view-plans', function (e) {
+			$('.view-plans-box').toggleClass('active');
+			//$('.view-plans-box').addClass('active');
+		});
+		
+		$(document).on('click', '.view-plans-box li', function (e) {
+			var radioname = $(this).attr('data-attr-radioname');
+			$(".view-plans-box li").removeClass("active");
+			$(this).addClass("active");
+			$('.radioname').show();
+			$(".radioname").text(radioname);
+			$('.emi-change').show();
+			$('.emi-plans').hide();   
+		});
 }
