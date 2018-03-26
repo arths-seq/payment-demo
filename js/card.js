@@ -9,9 +9,8 @@ function renderCcDc(paymentTabId){
 }
 
 function bindCcDcEvent(){
-	cvvLengthValidation();
+	cvvValidation();
 	expiryDateValidation();
-	expiryDateLengthValidation();
 	cardNameNumVal();
 	floatLabels();
 	emailValidation();
@@ -19,6 +18,7 @@ function bindCcDcEvent(){
 	saveCardLogin();
 	ccdcGoBack();
 	emiValidation();
+	mobileNum();
 }
 
 function renderCcDcTemplate(){
@@ -49,6 +49,7 @@ function renderCcDcTemplate(){
 		savetx: translate('Save card now to enable express payments'),
 		emiCheck: translate('Pay with EMI'),
 		emiPlans: translate('View Plans'),
+		emiPlansChange: translate('Change'),
 		submitBtnTxt: translate('Submit'),
         'cardEmiBank': [
 			{
@@ -90,21 +91,24 @@ function renderCcDcTemplate(){
                 emiTenure: '0 months',
                 bankRate: '12%',
                 installments: 'Rs. 0',
-                interestPaid: 'Rs. 0'
+				interestPaid: 'Rs. 0',
+				nbname: '12'
             },
             {
                 emiTenure: '3 months',
                 bankRate: '12%',
                 installments: 'Rs. 55',
-                interestPaid: 'Rs. 20'
+				interestPaid: 'Rs. 20',
+				nbname: '34'
             },
             {
                 emiTenure: '6 months',
                 bankRate: '12%',
                 installments: 'Rs. 5,100',
-                interestPaid: 'Rs. 301'
+				interestPaid: 'Rs. 301',
+				nbname: '56'
             }
-        ]
+		]
     };
     var cards = Payments.templates.cards(cardData);
 	$('.tab-container').append(cards);
@@ -340,10 +344,25 @@ function expiryDateValidation() {
 			e.preventDefault();
 			return;									
 	});
+
+	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
+		var yourInput = $(this).val();
+		if(yourInput.length > 4){
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardValidated = true
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardValidated = false;
+		}	 
+	});
 };
 
 // csv/ cvv
-function cvvLengthValidation(){
+function cvvValidation(){
+	if (isMobile()) {
+		$(".cvv").attr('type','tel');	
+		$(".cvv").css('-webkit-text-security','disc');
+	}
 	$(document).on('keyup blur', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
@@ -362,19 +381,6 @@ function cvvLengthValidation(){
 	});
 };
 
-// expriy date
-function expiryDateLengthValidation(){
-	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
-		var yourInput = $(this).val();
-		if(yourInput.length > 4){
-			$(this).parents('.formDom').removeClass('errorvalue');
-			isCardValidated = true
-		}else{
-			$(this).parents('.formDom').addClass('errorvalue');
-			isCardValidated = false;
-		}	 
-	});
-};
 // Email validation
 function emailValidation(){
 	$(document).ready(function(e) {
@@ -453,7 +459,7 @@ function ccdcGoBack(){
 };
 // emi validation
 function emiValidation(){
-		$('.emitable').hide();
+		/*$('.emitable').hide();
 		$('.emi-option-box').hide();
 		// emi section table
 	    $(document).on('change', 'select', function (e) {
@@ -471,5 +477,37 @@ function emiValidation(){
 				$('.emitable').hide(500);
 				$('.emi-option-box').hide(500);
 			}
+		});*/
+		// emi check box event
+		$('.view-plans').hide();
+		$('.emi-change').hide();
+
+		$(document).on('click', '.emi-Check', function (e) {
+			if($('.emi-Check').is(':checked')){
+				$('.view-plans').show();
+			}else{
+				$('.view-plans').hide();
+				$('.radioname').hide();
+				$('.emi-change').hide();
+				$('.emi-plans').show();			
+				$('.view-plans-box').removeClass('active');
+			}
 		});
-	}
+		$(document).on('blur', 'body', function (e) {
+			$('.view-plans-box').removeClass('active');
+		});
+		$(document).on('click', '.view-plans', function (e) {
+			$('.view-plans-box').toggleClass('active');
+			//$('.view-plans-box').addClass('active');
+		});
+		
+		$(document).on('click', '.view-plans-box li', function (e) {
+			var radioname = $(this).attr('data-attr-radioname');
+			$(".view-plans-box li").removeClass("active");
+			$(this).addClass("active");
+			$('.radioname').show();
+			$(".radioname").text(radioname);
+			$('.emi-change').show();
+			$('.emi-plans').hide();   
+		});
+}

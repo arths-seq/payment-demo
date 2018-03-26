@@ -16,6 +16,9 @@ body {
 .margin0{
     margin: 0;
 }
+.inline-block{
+    display: inline-block;
+}
 .icon {
     background-color: transparent;
     background-image: url(../img/spriteimg.png);
@@ -344,7 +347,7 @@ ul.menu-list {
 
 .blockMain {
     display: none;
-    padding: 35px 6% 15px;
+    padding: 28px 6% 15px;
     margin: 0 auto;
     max-width: 426px;
 }
@@ -512,8 +515,17 @@ ul.walletlist li label {
 .savedCard {
     margin: 0 auto;
     max-width: 295px;
+    width: 49%;
+    float: left;
 }
-
+.signin-section{
+    padding-left: 1%;
+}
+.signup-section{
+    margin-right: 2%;
+    border-right: 1px solid #ccc;
+    padding-right: 2%;
+}
 .savedCard h3 {
     font-weight: bold;
     margin-bottom: 15px;
