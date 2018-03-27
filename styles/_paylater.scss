@@ -1,6 +1,5 @@
 .epay-details{ display: block;}
-.epay-uid{display: none;}
-.epay-otp {
+.epay-uid,.epay-otp {
     display: none;
 }
 
@@ -102,5 +101,11 @@
     }
     &.lastli .line {
         display: none;
+    }
+}
+
+@media all and (max-width:380px) {
+    .step li .line{
+        max-width: 125px
     }
 }

@@ -109,7 +109,7 @@ body {
 .langbar {
     float: right;
     min-width: 120px;
-    padding: 45px 0 0 15px;
+    padding:15px 0 20px 15px;
     & select {
         padding: 3px 5px;
         height: 26px;
@@ -626,21 +626,6 @@ ul.walletlist li label {
     display: inline-block;
 }
 
-
-.cls-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.popup-content {
-    max-width: 300px;
-}
-
 .popupWrap {
     position: fixed;
     left: 0;
@@ -649,18 +634,56 @@ ul.walletlist li label {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: block;
-    z-index: 99999;
-
-    .popup-content {
+    z-index: 99999; 
+    display: none;
+}
+.popup-content {
+    width: 90%;
+    display: block;
+    background-color: #fff;
+    border: 2px solid #0066a6;
+    margin: 50px auto 0;
+    position: relative;
+    padding: 20px;
+    .upi-popup &{
+        max-width: 300px;
+    }
+    .epaytnc-popup &, .waypay-popup &{
+        max-width: 950px;
+    }
+    .popup-body{
+        max-height: 350px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin:15px 0 0;
+    }
+    h2{
+        margin:0;
+        padding:0 0 10px 0;
+        font-size: 20px;
+        line-height:26px;
+    }
+    h3 {
         width: 100%;
+        font-size: 18px;
+        color: #0067a6;
+        font-weight: normal;
+        padding:0 0 5px 0;
+        margin: 0;
+    }
+    .cls-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
         display: block;
-        background-color: #fff;
-        border: 2px solid #0066a6;
-        margin: 50px auto 0;
-        position: relative;
-        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color:$primary-color;
     }
 }
+
+
 
 @media (min-width: 768px) {
     .amount-block {
@@ -710,8 +733,8 @@ ul.walletlist li label {
     }
     .tablogo {
         width: 176px;
-        background-size: 438px 666px;
-        background-position: -160px -5px;
+        background-size: 440px 820px;
+        background-position: -160px -8px;
     }
 
     ul.blocklist li {
@@ -910,7 +933,11 @@ ul.walletlist li label {
         }
         .footer {
             display: none;
+            margin: 0 auto;
             position: relative;
+        }
+        .tablogo{
+            background-position: -160px 0px;
         }
     }
 
@@ -938,5 +965,15 @@ ul.walletlist li label {
     ul.blocklist li {
         width: 47%;
     }
+    .tabWrap .tablogo {
+        background-position: -160px -11px;
+    }
 
+}
+
+@media (max-width: 420px) {
+    .tabWrap .tablogo {
+        background-size: 386px 719px;
+        background-position: -129px -5px;
+    }
 }
