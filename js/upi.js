@@ -11,6 +11,7 @@ function bindUpiEvent() {
     startTimer();
     openPopup();
     closePopup();
+    floatLabels();
 }
 
 var stimer = null;

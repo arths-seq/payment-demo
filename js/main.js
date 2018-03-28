@@ -18,7 +18,7 @@ function loadTranslateJson(currentLang,isLanguageChange){
             break;
     }
 
-    languageJson = localStorage.getItem(currentLang+'-payment')? JSON.parse(localStorage.getItem(currentLang+'-payment')):null;
+    //languageJson = localStorage.getItem(currentLang+'-payment')? JSON.parse(localStorage.getItem(currentLang+'-payment')):null;
 
     if(!languageJson){
         $.ajax('./language/'+jsonFileName,{
@@ -132,6 +132,7 @@ function renderMenuTab(isLanguageChange){
     $('.tab-menu').html(menuDom);
     $('.menuli:first-child').addClass('active');
     bindMenuEvents();
+   
     if(!isMobile()){
         renderSelectedTab('',isLanguageChange);
     }
@@ -285,6 +286,36 @@ function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange
    
 }
 
+
+
 $(document).ready(function(){
     loadTranslateJson('en');
+    
+    $(".regular").slick({
+        arrows: false,
+        dots: true,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 2,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    centerMode: true,
+                    centerPadding: '20px',
+                    slidesToShow: 2
+                }
+    },
+            {
+                breakpoint: 640,
+                settings: {
+                    centerMode: true,
+                    centerPadding: '20px',
+                    slidesToShow: 1
+					
+                }
+    }
+  ]
+    });
+    
 });

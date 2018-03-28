@@ -5,33 +5,37 @@
     <title>Airpay</title>
     <script>
         var Payments = {
-			templates:{}
-		};
+            templates: {}
+        };
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles/slick.css" type="text/css" />
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <script type="text/javascript" src='vendor/jquery.min.js'></script>
     <!-- <script type="text/javascript" src='vendor/handlebars.min.js'></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/javascript" src='vendor/slick.min.js'></script>
 
-	<!--- Airpay validtion JS Files -->
+    <!--- Airpay validtion JS Files -->
 
-	<!--- Airpay JS Files -->
-	<script type="text/javascript" src='js/cash.js'></script>
-    <script type="text/javascript" src='js/card.js'></script>    
-	<script type="text/javascript" src='js/netbanking.js'></script>
+    <!--- Airpay JS Files -->
+    <script type="text/javascript" src='js/cash.js'></script>
+    <script type="text/javascript" src='js/card.js'></script>
+    <script type="text/javascript" src='js/netbanking.js'></script>
     <script type="text/javascript" src='js/amex.js'></script>
-	<script type="text/javascript" src='js/upi.js'></script>
-	<script type="text/javascript" src='js/wallet.js'></script>
+    <script type="text/javascript" src='js/upi.js'></script>
+    <script type="text/javascript" src='js/wallet.js'></script>
     <script type="text/javascript" src='js/paylater.js'></script>
     <script type="text/javascript" src='js/rtgs.js'></script>
     <script type="text/javascript" src='js/bharat_qr.js'></script>
+    <script type="text/javascript" src='js/savedcards.js'></script>
 
-    
+
     <!--- Airpay JS Files -->
     <script type="text/javascript" src='js/common.js'></script>
     <script type="text/javascript" src='js/main.js'></script>
+
 </head>
 
 <body>
@@ -40,7 +44,7 @@
         <div class="main-container">
 
             <div class="head">
-                
+
                 <div class="langbar">
                     <select class="form-control language-selector"> 
                         <option value="en">English</option>
@@ -56,6 +60,110 @@
             </div>
             <div class="message-block"></div>
             <div class="pay-container">
+                <div class="save-card-container">
+
+                    <div class="regular slider">
+                        <div class="slide-content">
+                            <div class="saved-card-wrap">
+                                <div class="icon-div">
+                                    <div class="visa cdheight"></div>
+                                    <span class="input-group-addon icon iCard"></span>
+                                    <div class="trash-card icon"></div>
+                                </div>
+                                <div class="cdno">
+                                    <h3 class="cardNumber">4111 1111 1111 1111</h3>
+                                </div>
+                                <p class="cardname">Purab Shah</p>
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <h4 class="exp_date">12/22</h4>
+                                    </div>
+                                    
+                                    <div class="col-xs-5">
+                                        <div class="formDom form-group">
+                                            <input type="tel" class="form-control cvv" placeholder="CSV / CVV">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="saved-card-wrap">
+                                <div class="icon-div">
+                                    <div class="mastercard cdheight"></div>
+                                    <span class="input-group-addon icon iCard"></span>
+                                    <div class="trash-card icon"></div>
+                                </div>
+                                <div class="cdno">
+                                    <h3 class="cardNumber">5211 1111 1111 1111</h3>
+                                </div>
+                                <p class="cardname">Prajakta Bongane</p>
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <h4 class="exp_date">11/20</h4>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <div class="formDom form-group">
+                                            <div class="input-group">
+                                                <input type="tel" class="form-control cvv" style="-webkit-text-security: disc;">
+                                                <label>CSV / CVV</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="saved-card-wrap">
+                                <div class="icon-div">
+                                    <div class="visa cdheight"></div>
+                                    <span class="input-group-addon icon iCard"></span>
+                                    <div class="trash-card icon"></div>
+                                </div>
+                                <div class="cdno">
+                                    <h3 class="cardNumber">4145 1111 1111 1111</h3>
+                                </div>
+                                <p class="cardname">Amol Kadam</p>
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <h4 class="exp_date">12/24</h4>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <div class="formDom form-group">
+                                            <div class="input-group">
+                                                <input type="tel" class="form-control cvv" style="-webkit-text-security: disc;">
+                                                <label>CSV / CVV</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="saved-card-wrap">
+                                <div class="icon-div">
+                                    <div class="mastercard cdheight"></div>
+                                    <span class="input-group-addon icon iCard"></span>
+                                    <div class="trash-card icon"></div>
+                                </div>
+                                <div class="cdno">
+                                    <h3 class="cardNumber">5222 1111 1111 1111</h3>
+                                </div>
+                                <p class="cardname">Arthur Sequeira</p>
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <h4 class="exp_date">07/20</h4>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <div class="formDom form-group">
+                                            <input type="tel" class="form-control cvv" placeholder="CSV/CVV">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="container block-container">
                     <div class="amount-block">
                         <h2>Summary</h2>

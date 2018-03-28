@@ -1,0 +1,310 @@
+/* Slider */
+
+.slick-slider {
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    padding: 0 10% 0 0 !important;
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -20px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+
+    display: inline-block;
+
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+    outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    font-size: 30px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}
+
+
+.regular .saved-card-wrap {
+    -moz-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    -o-transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    opacity: 0.6;
+    background-color: #055488;
+    /* background-color: #05547A;*/
+    color: #fff;
+    /* border: 1px solid #3498db;*/
+    border-radius: 3px;
+    padding: 15px;
+    margin: 0 5px;
+    max-width: 300px;
+}
+
+.cdno h3 {
+    margin: 0;
+    float: left;
+    font-size: 18px;
+}
+.save-card-container{ max-width: 320px; margin: 0 auto;}
+
+.save-card-container .formDom {
+    margin-bottom: 0;
+}
+
+.save-card-container .form-control ~ label {
+    font-size: 12px;
+    color: #fff;
+}
+
+.save-card-container .input-group-addon {
+    float: right;
+    height: 30px;
+    margin: 0;
+}
+
+.save-card-container .cdno::after,
+.save-card-container .cdno::before {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.save-card-container .trash-card {
+    float: right;
+    width: 25px;
+    height: 25px;
+    background-position: -443px -273px;
+}
+
+.save-card-container .icon-div::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.save-card-container .cdno {
+    padding-top: 5px;
+}
+
+.save-card-container p.cardname {
+   margin: 14px 0 -7px;
+}
+
+.save-card-container .iCard {
+    float: left;
+    background-color: #fff;
+}
+
+.save-card-container .cvv {
+    color: #fff;
+}
+.save-card-container .cvv {
+    color: #fff;
+}
+.save-card-container .cvv::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+.save-card-container .cvv::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+.save-card-container .cvv:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+.save-card-container .cvv:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+.save-card-container .cdheight ~ .iCard{
+    height:28px;
+}
+.save-card-container .exp_date{
+   padding-top: 11px;
+}
+.saved-card-wrap .formDom{ float: right; max-width: 65px; border-bottom: 1px solid #64bbf5;    padding-top: 3px;}
+.saved-card-wrap .formDom .form-control{ opacity: 1; font-size: 12px; padding: 0; height: 26px; line-height: 24px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);}
+
+.slick-active .saved-card-wrap {
+    opacity: 1;
+}
