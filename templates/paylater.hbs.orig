@@ -81,7 +81,6 @@
 
 
         <div class="epay-uid">
-            
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control ovd-val epay-aadhar">
@@ -90,9 +89,7 @@
                 </div>
                 <span class="help">{{adharHelp}}</span>
             </div> 
-            <div class="aadhar-or-pan">
-            <h4 class="ovd-title">OR</h4>
-            </div>
+
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control ovd-val epay-pan">

@@ -8,8 +8,11 @@ function bindEpayEvent(){
 	floatLabels();
     openPopup();
     closePopup();
+<<<<<<< HEAD
 	bindpaylaterEvents();
 	goback();
+=======
+>>>>>>> d2f9e7e7a13958aa0a7ad0cdd4ce28396e7edfaf
 	nameValidation();
 	paylaterValidation();	
 }
@@ -57,8 +60,8 @@ function bindpaylaterEvents(){
 function generatepaylaterPopup(){
     $('.epaytnc-popup').show();
 }
-
-function goback(){	 
+function paylaterValidation(){
+	 
 	$('.step1-btn').on('click', function () {
 		if(!$('.epay-details  input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true && $('.payltr-check').is(':checked')){
 			setTimeout(function(){
@@ -68,26 +71,22 @@ function goback(){
 				$(".firstli").addClass("comp");
 				$(".midli").addClass("hold");
 			}, 200);
-			$('.epay-details  input').parents('.formDom').removeClass('errorvalue');	
 		}else if($('.epay-details  input').val() == ''){
-			$('.epay-details  input').parents('.formDom').addClass('errorvalue');	
+			console.log('2');
+			$('.formDom').addClass('errorvalue');	
 		}	
     });
     $('.step2-btn').on('click', function () {
 		if(!$('.epay-uid  input').val() == '' && isAadharValidated == true || isPanValidated == true){
-			setTimeout(function(){   
+			setTimeout(function(){            
 				$(".epay-otp").fadeIn();
 				$(".epay-uid").fadeOut();
 				$(".epay-details").fadeOut();
 				$(".midli").addClass("comp");
 				$(".lastli").addClass("hold");
 			}, 200);
-			$('.epay-uid  input').parents('.formDom').removeClass('errorvalue');
-		}else if($('.epay-uid  input').val() == ''){
-			$('.epay-uid  input').parents('.formDom').addClass('errorvalue');	
-		}	
+		}
     });
-
 
     $('.can2-btn').on('click', function () {
         setTimeout(function(){            
@@ -109,9 +108,7 @@ function goback(){
 	        $(".midli").addClass("hold");
         }, 500);
 	});
-}
-
-function paylaterValidation(){	
+	
 	// aadhar and pan card validation
 	$(document).on('keyup blur', '.ovd-val', function (e) {
 		var ovdNumVal =  $(this);

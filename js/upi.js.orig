@@ -9,10 +9,11 @@ function bindUpiEvent(){
     openPopupQR();
     closePopupQR();
     startTimer();
-    upiValidation();
 }
 
-function renderupiTemplate(){    
+
+<<<<<<< HEAD
+function renderupiTemplate(){
     var upiData = {
         sumbitBtnTxt:translate('Submit'),
         upiNote:translate('Pay using VPA or Scan QR code and pay'),
@@ -30,6 +31,14 @@ function renderupiTemplate(){
     };  
     var upiTemplate = Payments.templates.upi_vpa(upiData);
     $('.tab-container').append(upiTemplate);
+=======
+function bindUpiEvent() {
+    startTimer();
+    openPopup();
+    closePopup();
+    floatLabels();
+    upiValidation();
+>>>>>>> 651bee4babcd9f592a3a9f21910df4d558197b0b
 }
 
 var stimer = null;
