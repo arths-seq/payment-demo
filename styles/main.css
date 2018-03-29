@@ -143,10 +143,32 @@ table > tfoot > tr > td {
 .table-hover > tbody > tr:hover {
   background-color: #f5f5f5; }
 
-li, ul {
+ul, li {
   list-style-type: none;
   margin: 0;
   padding: 0; }
+  ul ul, li ul {
+    margin: 0 0 0;
+    padding: 10px 0 0 18px; }
+    ul ul li, li ul li {
+      list-style-type: circle;
+      margin: 0 0 15px;
+      padding: 0 0 0 0; }
+
+ul.list {
+  margin: 0 0 0;
+  padding: 0 0 0 18px; }
+  ul.list li {
+    list-style-type: disc;
+    margin: 0 0 15px;
+    padding: 0 0 0 0; }
+    ul.list li ul {
+      margin: 0 0 0;
+      padding: 10px 0 0 18px; }
+      ul.list li ul li {
+        list-style-type: circle;
+        margin: 0 0 15px;
+        padding: 0 0 0 0; }
 
 h1, h1, h3, h4, h5, h6 {
   margin: 0;
@@ -1133,16 +1155,16 @@ body {
   background-position: -120px -52px; }
 
 .iaadhar {
-  background-position: -360px -52px; }
+  background-position: -356px -52px; }
 
 .ipancard {
   background-position: -156px -52px; }
 
 .ical {
-  background-position: -318px -52px; }
+  background-position: -160px -89px; }
 
 .iotp {
-  background-position: -318px -52px; }
+  background-position: -436px -52px; }
 
 .mer-logo-txt {
   font-size: 30px;
@@ -1169,7 +1191,7 @@ body {
 .langbar {
   float: right;
   min-width: 120px;
-  padding: 45px 0 0 15px; }
+  padding: 15px 0 20px 15px; }
   .langbar select {
     padding: 3px 5px;
     height: 26px;
@@ -1473,7 +1495,7 @@ ul.walletlist li label {
 .savedCard {
   margin: 0 auto;
   max-width: 295px;
-  width: 48%;
+  width: 49%;
   float: left; }
 
 .signin-section {
@@ -1575,18 +1597,6 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
-.cls-popup {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none; }
-
-.popup-content {
-  max-width: 300px; }
-
 .popupWrap {
   position: fixed;
   left: 0;
@@ -1595,15 +1605,47 @@ ul.walletlist li label {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: block;
-  z-index: 99999; }
-  .popupWrap .popup-content {
+  z-index: 99999;
+  display: none; }
+
+.popup-content {
+  width: 90%;
+  display: block;
+  background-color: #fff;
+  border: 2px solid #0066a6;
+  margin: 50px auto 0;
+  position: relative;
+  padding: 20px; }
+  .upi-popup .popup-content {
+    max-width: 300px; }
+  .epaytnc-popup .popup-content, .waypay-popup .popup-content {
+    max-width: 950px; }
+  .popup-content .popup-body {
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 15px 0 0; }
+  .popup-content h2 {
+    margin: 0;
+    padding: 0 0 10px 0;
+    font-size: 20px;
+    line-height: 26px; }
+  .popup-content h3 {
     width: 100%;
+    font-size: 18px;
+    color: #0067a6;
+    font-weight: normal;
+    padding: 0 0 5px 0;
+    margin: 0; }
+  .popup-content .cls-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: block;
-    background-color: #fff;
-    border: 2px solid #0066a6;
-    margin: 50px auto 0;
-    position: relative;
-    padding: 20px; }
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066a5; }
 
 @media (min-width: 768px) {
   .amount-block {
@@ -1637,8 +1679,8 @@ ul.walletlist li label {
     background-position: -8px -777px; }
   .tablogo {
     width: 176px;
-    background-size: 438px 666px;
-    background-position: -160px -5px; }
+    background-size: 440px 820px;
+    background-position: -160px -8px; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1790,7 +1832,10 @@ ul.walletlist li label {
       float: none; }
     .tabWrap .footer {
       display: none;
+      margin: 0 auto;
       position: relative; }
+    .tabWrap .tablogo {
+      background-position: -160px 0px; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1803,7 +1848,14 @@ ul.walletlist li label {
   ul.menu-list .menuli {
     width: 50%; }
   ul.blocklist li {
-    width: 47%; } }
+    width: 47%; }
+  .tabWrap .tablogo {
+    background-position: -160px -11px; } }
+
+@media (max-width: 420px) {
+  .tabWrap .tablogo {
+    background-size: 386px 719px;
+    background-position: -129px -5px; } }
 
 .spriteCommon, .visa ~ .iCard, .amex ~ .iCard, .mastercard ~ .iCard {
   width: 40px;
@@ -1938,9 +1990,6 @@ ul.walletlist li label {
   font-size: 16px;
   font-weight: bold; }
 
-.upi-popup {
-  display: none; }
-
 .div-or {
   width: 50%;
   margin: 20px auto;
@@ -1960,10 +2009,7 @@ ul.walletlist li label {
 .epay-details {
   display: block; }
 
-.epay-uid {
-  display: none; }
-
-.epay-otp {
+.epay-uid, .epay-otp {
   display: none; }
 
 .stepwrap {
@@ -2045,3 +2091,7 @@ ul.walletlist li label {
     width: 180%; }
   .step li.lastli .line {
     display: none; }
+
+@media all and (max-width: 380px) {
+  .step li .line {
+    max-width: 125px; } }

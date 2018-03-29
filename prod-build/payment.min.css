@@ -138,7 +138,8 @@ a.btn.disabled,fieldset[disabled] a.btn{pointer-events:none}.form-group .btn{wid
 .col-lg-offset-3{margin-left:25%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-1{margin-left:8.33333333%}
 .col-lg-offset-0{margin-left:0}}body{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#656565}
 .alink{display:inline-block;cursor:pointer;text-decoration:underline;color:#0066a5}
-.alink:hover{text-decoration:none}.margin0{margin:0}.icon{background-color:transparent;background-image:url(../img/spriteimg.png);background-repeat:no-repeat}
+.alink:hover{text-decoration:none}.margin0{margin:0}.inline-block{display:inline-block}
+.icon{background-color:transparent;background-image:url(../img/spriteimg.png);background-repeat:no-repeat}
 .iCard{background-position:-2px -50px}.iNameCard{background-position:-42px -50px}
 .iCVV{background-position:-82px -50px}.iUser{background-position:-201px -52px}.iMob{background-position:-243px -52px}
 .iPass{background-position:-285px -52px}.iEmail{background-position:-318px -52px}
@@ -167,7 +168,7 @@ ul.menu-list .menuli.active a{color:#fff}.amount-block{width:25.5%;max-width:210
 .tablogo{background-position:-185px -16px;width:190px;height:38px;float:right}.tnc{line-height:1;font-size:11px;padding:5px 0}
 .tnc a{text-decoration:underline;cursor:pointer}.tnc a:hover{text-decoration:none}
 .closetab{background-color:transparent;background-repeat:no-repeat;background-position:-82px -84px;float:right;display:none;position:absolute;z-index:99;bottom:-20px;right:12px;padding:3px 5px;color:#0066a5;font-size:14px;text-decoration:underline;cursor:pointer}
-.blockMain{display:none;padding:35px 6% 15px;margin:0 auto;max-width:426px}ul.blocklist{display:block;margin:0 -7px 35px 0}
+.blockMain{display:none;padding:28px 6% 15px;margin:0 auto;max-width:426px}ul.blocklist{display:block;margin:0 -7px 35px 0}
 ul.blocklist li{float:left;overflow:hidden;height:36px;margin:0 8px 8px 0}ul.blocklist li label{border:1px solid #becfd6;cursor:pointer;display:table;width:119px;min-height:36px;font-size:13px;line-height:14px;padding:3px 3px 3px 3px;margin:0}
 ul.blocklist li label.focused{border:1px solid #0066a5}ul.blocklist li input[type="radio"],ul.blocklist li input[type="checkbox"]{display:none}
 .blockNetBanking .bankLogo{display:table-cell;vertical-align:top;width:26px;height:26px;text-indent:-9999px}
@@ -186,7 +187,8 @@ ul.walletlist li{margin-bottom:10px;height:42px}ul.walletlist li label{padding:5
 .blockWallet .walletLogo.logo-mobikwik{background-position:-5px -567px}.blockWallet .walletLogo.logo-itzcash{background-position:-125px -566px}
 .blockWallet .walletLogo.logo-sodexo{background-position:-245px -567px}.blockEmitable{font-size:12px}
 .blockEmitable table>thead>tr>th{text-align:left;min-width:25px}.blockEmitable table>tbody>tr>td{min-width:25px;line-height:14px}
-.savedCard{margin:0 auto;max-width:295px}.savedCard h3{font-weight:bold;margin-bottom:15px}
+.savedCard{margin:0 auto;max-width:295px;width:49%;float:left}.signin-section{padding-left:1%}
+.signup-section{margin-right:2%;border-right:1px solid #ccc;padding-right:2%}.savedCard h3{font-weight:bold;margin-bottom:15px}
 .info-content{display:none;-webkit-transform:translateY(-10px);-ms-transform:translateY(-10px);transform:translateY(-10px);color:#fff;position:absolute;line-height:16px;padding:8px 12px;font-size:12px;font-weight:normal;background:#555;-webkit-box-shadow:rgba(0,0,0,0.05) 1px 1px 2px 0;box-shadow:rgba(0,0,0,0.05) 1px 1px 2px 0;z-index:3;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;border-radius:3px;bottom:100%;margin-top:12px;pointer-events:none !important;min-width:230px}
 .info-content:after{content:"";position:absolute;width:0;height:0;border-width:5px;border-style:solid;border-color:transparent transparent #555;top:100%;left:20px;margin:0 0 -1px -10px;transform:rotate(180deg)}
 .info-content p{border-top:1px #becfd6 solid;cursor:default !important;font-size:12px !important;padding:5px 0;margin:0}
@@ -226,12 +228,15 @@ ul.menu-list .menuli .icon-exp-pay{background-position:-436px -225px}ul.menu-lis
 .tabWrap .footer{display:none;position:relative}ul.blocklist li{height:50px;width:31.3%}
 ul.blocklist li label{width:100%;min-height:50px;padding:10px 6%}}@media(max-width:480px){ul.menu-list .menuli{width:50%}
 ul.blocklist li{width:47%}}.spriteCommon,.visa ~ .iCard,.amex ~ .iCard,.mastercard ~ .iCard{width:40px;height:25px}
-.card-icon{background-position:0 -118px;width:80px}.visa ~ .iCard{background-position:0 -121px}
+.card-icon{background-position:0 -118px;width:80px}.view-plans{margin-left:10px;display:inline-block;padding:10px 0;color:blue;text-decoration:underline;cursor:pointer}
+.view-plans-box{display:none;position:absolute;left:100%;bottom:0;border:1px solid #ccc;background-color:#fff;z-index:99;width:220px}
+.view-plans-box.active{display:block}.view-plans-box.active input[type="radio"]{opacity:1}
+.view-plans-box li{border-bottom:1px solid #ccc;padding:10px}.visa ~ .iCard{background-position:0 -121px}
 .amex ~ .iCard{background-position:-159px -121px}.mastercard ~ .iCard{background-position:-39px -121px}
 .formDom .form-control.net-banking-options{width:100%;height:52px;position:absolute;top:0;left:0;opacity:0}
 .emitable{display:table;border-collapse:separate;margin-bottom:20px}.emitable td{border-top:1px solid #becfd6;border-bottom:0}
 .eze_logo{background-position:-7px -615px;width:204px;height:55px}.brdrnone{border:0}
-.cashwork{display:inline-block;padding:10px 0}.cashworkBox{display:none;position:absolute;left:26%;top:0;border:1px solid #ccc;background-color:#fff;z-index:99}
+.cashwork{display:inline-block;padding:10px 0}.cashworkBox{display:none;position:absolute;left:100%;top:0;border:1px solid #ccc;background-color:#fff;z-index:99;width:320px}
 .cashworkBox li{border-bottom:1px solid #ccc;padding:10px}.cashwork:hover+.cashworkBox{display:block}
 .bqr-tab-logo{max-width:100px;display:block;background:url(../img/spriteimg.png) -250px -600px no-repeat;height:85px}
 .bharat-qr-submit{width:100%;display:block;background-color:#0067a6;color:#fff;font-size:13px;font-weight:700;border:0;text-transform:uppercase;text-align:center;padding:10px 0;cursor:pointer}
