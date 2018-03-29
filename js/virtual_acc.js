@@ -2,9 +2,9 @@ function renderVirtual(paymentTabId){
 	renderVirtualTemplate();
     $('.blockMain').hide();
     $('[data-tab-type="'+paymentTabId+'"]').show();
-    bindEpayEvent();
+    bindVirtualAccEvent();
 };
-function bindEpayEvent(){
+function bindVirtualAccEvent(){
 	floatLabels();
 }
 
