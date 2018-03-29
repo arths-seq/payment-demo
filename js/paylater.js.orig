@@ -6,16 +6,15 @@ function renderPaylater(paymentTabId){
 };
 function bindEpayEvent(){
 	floatLabels();
-<<<<<<< HEAD
-	bindpaylaterEvents();
-    goback();
-=======
     openPopup();
     closePopup();
+<<<<<<< HEAD
+	bindpaylaterEvents();
 	goback();
+=======
+>>>>>>> d2f9e7e7a13958aa0a7ad0cdd4ce28396e7edfaf
 	nameValidation();
 	paylaterValidation();	
->>>>>>> 651bee4babcd9f592a3a9f21910df4d558197b0b
 }
 
 function renderEpayTemplate(){
@@ -61,9 +60,9 @@ function bindpaylaterEvents(){
 function generatepaylaterPopup(){
     $('.epaytnc-popup').show();
 }
-
-function goback() {   
-     $('.step1-btn').on('click', function () {
+function paylaterValidation(){
+	 
+	$('.step1-btn').on('click', function () {
 		if(!$('.epay-details  input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true && $('.payltr-check').is(':checked')){
 			setTimeout(function(){
 				$(".epay-uid").fadeIn();
@@ -89,7 +88,6 @@ function goback() {
 		}
     });
 
-
     $('.can2-btn').on('click', function () {
         setTimeout(function(){            
 	        $(".epay-details").fadeIn();
@@ -109,9 +107,8 @@ function goback() {
 	        $(".midli").removeClass("comp");
 	        $(".midli").addClass("hold");
         }, 500);
-    });
-}
-function paylaterValidation(){
+	});
+	
 	// aadhar and pan card validation
 	$(document).on('keyup blur', '.ovd-val', function (e) {
 		var ovdNumVal =  $(this);
