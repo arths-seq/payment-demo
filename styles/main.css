@@ -1506,7 +1506,7 @@ ul.walletlist li label {
   border-right: 1px solid #ccc;
   padding-right: 2%; }
 
-.savedCard h3 {
+.subtitle {
   font-weight: bold;
   margin-bottom: 15px; }
 
@@ -1878,7 +1878,7 @@ ul.walletlist li label {
     background-size: 386px 719px;
     background-position: -129px -5px; } }
 
-.spriteCommon, .visa ~ .iCard, .amex ~ .iCard, .mastercard ~ .iCard {
+.spriteCommon, .visa-icon ~ .iCard, .amex-icon ~ .iCard, .mastercard-icon ~ .iCard {
   width: 40px;
   height: 25px; }
 
@@ -1886,38 +1886,54 @@ ul.walletlist li label {
   background-position: 0px -118px;
   width: 80px; }
 
+.relative {
+  position: relative; }
+
 .view-plans {
   margin-left: 10px;
   display: inline-block;
-  padding: 10px 0;
   color: blue;
   text-decoration: underline;
   cursor: pointer; }
 
-.view-plans-box {
-  display: none;
-  position: absolute;
-  left: 100%;
-  bottom: 0;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  z-index: 99;
-  width: 220px; }
-  .view-plans-box.active {
-    display: block; }
-    .view-plans-box.active input[type="radio"] {
-      opacity: 1; }
-  .view-plans-box li {
-    border-bottom: 1px solid #ccc;
-    padding: 10px; }
+.view-plans-box.info-content {
+  display: none; }
 
-.visa ~ .iCard {
+.view-plans-box.active.info-content {
+  display: block;
+  z-index: 999;
+  pointer-events: auto !important; }
+
+.radioname {
+  margin-top: 10px; }
+
+/*.view-plans-box{
+    display: none;
+	position:absolute;
+	left:100%;
+	bottom:0;
+	border:1px solid #ccc;
+	background-color:#fff;
+	z-index:99;
+    width: 220px;
+    &.active{
+        display: block;
+        input[type="radio"]{
+            opacity: 1;
+        }
+    }
+	li{
+		border-bottom: 1px solid #ccc;
+		padding: 10px;
+	}
+}*/
+.visa-icon ~ .iCard {
   background-position: 0 -121px; }
 
-.amex ~ .iCard {
+.amex-icon ~ .iCard {
   background-position: -159px -121px; }
 
-.mastercard ~ .iCard {
+.mastercard-icon ~ .iCard {
   background-position: -39px -121px; }
 
 .formDom .form-control.net-banking-options {
@@ -2164,6 +2180,11 @@ ul.walletlist li label {
 @media all and (max-width: 380px) {
   .step li .line {
     max-width: 125px; } }
+
+.wallet-section {
+  margin: 0 auto;
+  max-width: 320px;
+  width: 60%; }
 
 .block-va-acc {
   display: none; }

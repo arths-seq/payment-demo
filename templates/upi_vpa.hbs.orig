@@ -6,8 +6,13 @@
 
     <div class="formDom form-group">
         <div class="input-group">
-            <input class="form-control upi-validation" name="vpa" placeholder="" required="" pattern=".+@.+" value="">
+<<<<<<< HEAD
+            <input class="form-control" name="vpa" placeholder="" required="" pattern=".+@.+" value="">
             <label>{{upiaddLabel}}</label>
+=======
+            <input class="form-control upi-validation" name="vpa" placeholder="" required="" pattern=".+@.+" value="">
+            <label>Enter UPI address</label>
+>>>>>>> 651bee4babcd9f592a3a9f21910df4d558197b0b
             <span class="input-group-addon icon iupi"></span>
         </div>
         <span class="help">{{upiaddHelp}}</span>

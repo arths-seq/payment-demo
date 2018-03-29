@@ -6,12 +6,16 @@ function renderPaylater(paymentTabId){
 };
 function bindEpayEvent(){
 	floatLabels();
+<<<<<<< HEAD
+	bindpaylaterEvents();
+    goback();
+=======
     openPopup();
     closePopup();
-	bindpaylaterEvents();
 	goback();
 	nameValidation();
 	paylaterValidation();	
+>>>>>>> 651bee4babcd9f592a3a9f21910df4d558197b0b
 }
 
 function renderEpayTemplate(){

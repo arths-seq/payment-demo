@@ -7,15 +7,28 @@
     width: 80px;
     @extend %icon;
 }
+.relative{
+    position: relative;
+}
 .view-plans{
     margin-left:10px; 
 	display:inline-block;
-    padding: 10px 0;
     color:blue;
     text-decoration: underline;
     cursor: pointer;
 }
-.view-plans-box{
+.view-plans-box.info-content{
+    display: none;
+}
+.view-plans-box.active.info-content{
+    display: block;
+    z-index: 999;
+    pointer-events: auto !important;
+}
+.radioname{
+    margin-top: 10px;
+}
+/*.view-plans-box{
     display: none;
 	position:absolute;
 	left:100%;
@@ -34,16 +47,16 @@
 		border-bottom: 1px solid #ccc;
 		padding: 10px;
 	}
-}
-.visa ~ .iCard{
+}*/
+.visa-icon ~ .iCard{
     background-position: 0 -121px; 
     @extend .spriteCommon;
 }
-.amex ~ .iCard {
+.amex-icon ~ .iCard {
     background-position: -159px -121px;
     @extend .spriteCommon;
 }
-.mastercard ~ .iCard {
+.mastercard-icon ~ .iCard {
     background-position: -39px -121px;
     @extend .spriteCommon;
 }

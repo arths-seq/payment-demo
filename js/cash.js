@@ -9,6 +9,7 @@ function bindCashEvents(){
 	mobileNum();
 	pinCodeValidation();
 	floatLabels();
+	specialCharactersValidation();
 }
 
 function renderCashTemplate(){
