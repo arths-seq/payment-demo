@@ -6,14 +6,13 @@ function renderPaylater(paymentTabId){
 };
 function bindEpayEvent(){
 	floatLabels();
-    openPopup();
-    closePopup();
+	bindpaylaterEvents();
     goback();
 }
 
 function renderEpayTemplate(){
 	var paylaterData = {
-		sumbitBtn:translate('Submit'),
+		sumbitBtnTxt:translate('Submit'),
 		firstName:translate('First Name'),
 		lastName:translate('Last Name'),
 		emailID:translate('Email Id'),
@@ -43,35 +42,16 @@ function renderEpayTemplate(){
 	};	
     var paylaterTemplate = Payments.templates.paylater(paylaterData);
     $('.tab-container').append(paylaterTemplate);
+    bindpaylaterEvents();
+    goback();
 }
 
-function openPopup() {
-    $('.payltrtnc').on('click', function () {
-        $(".epaytnc-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-
-    $('.way-txt').on('click', function () {
-        $(".waypay-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
+function bindpaylaterEvents(){
+    $('.epaytnc-popup').hide();
+    $('.payltrtnc').on('click',generatepaylaterPopup);
 }
-
-function closePopup() {
-    $('.cls-popup').on('click', function () {
-        clearInterval(stimer);
-        $(".epaytnc-popup").fadeOut();
-        $(".waypay-popup").fadeOut();
-        $('.timer').text(" ");
-    });
+function generatepaylaterPopup(){
+    $('.epaytnc-popup').show();
 }
 
 function goback() {   

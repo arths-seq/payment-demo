@@ -5,7 +5,7 @@
   display: block;
   height: 0; }
 
-.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo {
+.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo, .bqr-tab-logo, .bqr-logo, .bqr-supp {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
   background-repeat: no-repeat; }
@@ -143,10 +143,32 @@ table > tfoot > tr > td {
 .table-hover > tbody > tr:hover {
   background-color: #f5f5f5; }
 
-li, ul {
+ul, li {
   list-style-type: none;
   margin: 0;
   padding: 0; }
+  ul ul, li ul {
+    margin: 0 0 0;
+    padding: 10px 0 0 18px; }
+    ul ul li, li ul li {
+      list-style-type: circle;
+      margin: 0 0 15px;
+      padding: 0 0 0 0; }
+
+ul.list {
+  margin: 0 0 0;
+  padding: 0 0 0 18px; }
+  ul.list li {
+    list-style-type: disc;
+    margin: 0 0 15px;
+    padding: 0 0 0 0; }
+    ul.list li ul {
+      margin: 0 0 0;
+      padding: 10px 0 0 18px; }
+      ul.list li ul li {
+        list-style-type: circle;
+        margin: 0 0 15px;
+        padding: 0 0 0 0; }
 
 h1, h1, h3, h4, h5, h6 {
   margin: 0;
@@ -1133,16 +1155,16 @@ body {
   background-position: -120px -52px; }
 
 .iaadhar {
-  background-position: -360px -52px; }
+  background-position: -356px -52px; }
 
 .ipancard {
   background-position: -156px -52px; }
 
 .ical {
-  background-position: -318px -52px; }
+  background-position: -321px -89px; }
 
 .iotp {
-  background-position: -318px -52px; }
+  background-position: -436px -52px; }
 
 .mer-logo-txt {
   font-size: 30px;
@@ -1169,7 +1191,7 @@ body {
 .langbar {
   float: right;
   min-width: 120px;
-  padding: 45px 0 0 15px; }
+  padding: 15px 0 20px 15px; }
   .langbar select {
     padding: 3px 5px;
     height: 26px;
@@ -1473,7 +1495,7 @@ ul.walletlist li label {
 .savedCard {
   margin: 0 auto;
   max-width: 295px;
-  width: 48%;
+  width: 49%;
   float: left; }
 
 .signin-section {
@@ -1575,19 +1597,27 @@ ul.walletlist li label {
 .form-group .noteLink a {
   display: inline-block; }
 
-.cls-popup {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none; }
+.block-info {
+  color: #424141;
+  line-height: 18px;
+  padding: 0 0 20px 0; }
+  .block-info h3 {
+    color: #2f2f2f;
+    font-weight: bold; }
 
-.popup-content {
-  max-width: 300px; }
+.block-acc .list-acc {
+  display: table;
+  width: 100%; }
+  .block-acc .list-acc li {
+    display: table-cell;
+    line-height: 16px;
+    padding: 2px 0; }
+    .block-acc .list-acc li.thval {
+      width: 98px; }
+    .block-acc .list-acc li.thdata {
+      font-weight: bold; }
 
-.popupWrap {
+.popup-wrap {
   position: fixed;
   left: 0;
   top: 0;
@@ -1595,15 +1625,48 @@ ul.walletlist li label {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: block;
-  z-index: 99999; }
-  .popupWrap .popup-content {
+  z-index: 99999;
+  display: none; }
+
+.popup-content {
+  width: 90%;
+  display: block;
+  background-color: #fff;
+  border: 2px solid #0066a6;
+  margin: 50px auto 0;
+  position: relative;
+  padding: 20px; }
+  .upi-popup .popup-content, .bharat-qr-popup .popup-content {
+    max-width: 300px; }
+  .epaytnc-popup .popup-content, .waypay-popup .popup-content {
+    max-width: 950px; }
+  .popup-content .popup-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 15px 0 0; }
+    .epaytnc-popup .popup-content .popup-body {
+      max-height: 350px; }
+  .popup-content h2 {
+    margin: 0;
+    padding: 0 0 10px 0;
+    font-size: 20px;
+    line-height: 26px; }
+  .popup-content h3 {
     width: 100%;
+    font-size: 18px;
+    color: #0067a6;
+    font-weight: normal;
+    padding: 0 0 5px 0;
+    margin: 0; }
+  .popup-content .cls-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: block;
-    background-color: #fff;
-    border: 2px solid #0066a6;
-    margin: 50px auto 0;
-    position: relative;
-    padding: 20px; }
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066a5; }
 
 @media (min-width: 768px) {
   .amount-block {
@@ -1637,8 +1700,8 @@ ul.walletlist li label {
     background-position: -8px -777px; }
   .tablogo {
     width: 176px;
-    background-size: 438px 666px;
-    background-position: -160px -5px; }
+    background-size: 440px 820px;
+    background-position: -160px -8px; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1790,7 +1853,10 @@ ul.walletlist li label {
       float: none; }
     .tabWrap .footer {
       display: none;
+      margin: 0 auto;
       position: relative; }
+    .tabWrap .tablogo {
+      background-position: -160px 0px; }
   ul.blocklist li {
     height: 50px;
     width: 31.3%; }
@@ -1803,7 +1869,14 @@ ul.walletlist li label {
   ul.menu-list .menuli {
     width: 50%; }
   ul.blocklist li {
-    width: 47%; } }
+    width: 47%; }
+  .tabWrap .tablogo {
+    background-position: -160px -11px; } }
+
+@media (max-width: 420px) {
+  .tabWrap .tablogo {
+    background-size: 386px 719px;
+    background-position: -129px -5px; } }
 
 .spriteCommon, .visa ~ .iCard, .amex ~ .iCard, .mastercard ~ .iCard {
   width: 40px;
@@ -1893,22 +1966,67 @@ ul.walletlist li label {
 
 .bqr-tab-logo {
   max-width: 100px;
+  height: 85px;
   display: block;
-  background: url(../img/spriteimg.png) -250px -600px no-repeat;
-  height: 85px; }
+  background-position: -250px -600px; }
 
-.bharat-qr-submit {
-  width: 100%;
+.bqr-logo {
+  background-position: -250px -614px;
+  width: 78px;
+  height: 60px;
   display: block;
-  background-color: #0067a6;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  border: 0;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 10px 0;
-  cursor: pointer; }
+  margin: 0 auto; }
+
+.bqr-img {
+  background-image: url(../img/qr.png);
+  border: 1px solid #becfd6;
+  max-width: 250px;
+  height: 250px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px 0; }
+
+.bqr-supp {
+  width: 207px;
+  height: 40px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-position: -261px -832px; }
+
+.bqr-work ul {
+  list-style-type: none;
+  margin: 90px 0 0 0;
+  padding: 0 0 5px 0;
+  font-size: 11px;
+  color: #424141;
+  text-align: center; }
+  .bqr-work ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: top; }
+    .bqr-work ul li.th {
+      padding: 0 0 5px 0;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      font-size: 13px; }
+    .bqr-work ul li i {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 5px auto; }
+
+.iphscan {
+  background-position: -13px -834px; }
+
+.iconfirm {
+  background-position: -93px -834px; }
+
+.iphpin {
+  background-position: -172px -834px; }
 
 .formDom input.bankName {
   opacity: 1;
@@ -1938,9 +2056,6 @@ ul.walletlist li label {
   font-size: 16px;
   font-weight: bold; }
 
-.upi-popup {
-  display: none; }
-
 .div-or {
   width: 50%;
   margin: 20px auto;
@@ -1955,15 +2070,15 @@ ul.walletlist li label {
     font-weight: bold; }
 
 .qr-link {
-  font-size: 16px; }
+  font-size: 16px;
+  text-align: center; }
+  .qr-link a {
+    padding-top: 10px; }
 
 .epay-details {
   display: block; }
 
-.epay-uid {
-  display: none; }
-
-.epay-otp {
+.epay-uid, .epay-otp {
   display: none; }
 
 .stepwrap {
@@ -2045,3 +2160,10 @@ ul.walletlist li label {
     width: 180%; }
   .step li.lastli .line {
     display: none; }
+
+@media all and (max-width: 380px) {
+  .step li .line {
+    max-width: 125px; } }
+
+.block-va-acc {
+  display: none; }

@@ -66,7 +66,7 @@ body {
 }
 
 .ical {
-    background-position: -160px -89px;
+    background-position: -321px -89px;
 }
 
 .iotp {
@@ -626,7 +626,34 @@ ul.walletlist li label {
     display: inline-block;
 }
 
-.popupWrap {
+.block-info{
+    color:#424141;
+    line-height:18px;
+    padding:0 0 20px 0;
+    h3{
+        color:#2f2f2f;
+        font-weight: bold;
+    }
+}
+.block-acc{
+    .list-acc{
+        display: table;
+        width:100%;
+        li{
+            display: table-cell;
+            line-height: 16px;
+            padding:2px 0;            
+            &.thval {
+                width: 98px;
+            }        
+            &.thdata {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.popup-wrap {
     position: fixed;
     left: 0;
     top: 0;
@@ -645,17 +672,19 @@ ul.walletlist li label {
     margin: 50px auto 0;
     position: relative;
     padding: 20px;
-    .upi-popup &{
+    .upi-popup &, .bharat-qr-popup &{
         max-width: 300px;
     }
     .epaytnc-popup &, .waypay-popup &{
         max-width: 950px;
     }
     .popup-body{
-        max-height: 350px;
         overflow-y: auto;
         overflow-x: hidden;
         margin:15px 0 0;
+        .epaytnc-popup &{
+            max-height: 350px;
+        }
     }
     h2{
         margin:0;

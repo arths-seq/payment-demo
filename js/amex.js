@@ -9,6 +9,10 @@ function bindAmexEvents(){
 }
 
 function renderAmexTemplate(){
-    var amexTab = Payments.templates.amex();
-    $('.tab-container').append(amexTab);
+	var amexData = {
+		sumbitBtnTxt:translate('Submit'),
+		amexphara:translate('One ID is all it takes. Exclusively for American Express Cardmembers')
+	};
+    var amexTemplate = Payments.templates.amex(amexData);
+    $('.tab-container').append(amexTemplate);
 }
