@@ -1872,14 +1872,6 @@ ul.walletlist li label {
     width: 47%; }
   .tabWrap .tablogo {
     background-position: -160px -11px; } }
-<<<<<<< HEAD
-
-@media (max-width: 420px) {
-  .tabWrap .tablogo {
-    background-size: 386px 719px;
-    background-position: -129px -5px; } }
-=======
->>>>>>> 4942a0d2f953d8091f94e10d024c35c3ad34d5fe
 
 @media (max-width: 420px) {
   .tabWrap .tablogo {
@@ -2188,17 +2180,11 @@ ul.walletlist li label {
 @media all and (max-width: 380px) {
   .step li .line {
     max-width: 125px; } }
-<<<<<<< HEAD
-=======
 
 .wallet-section {
   margin: 0 auto;
   max-width: 320px;
   width: 60%; }
-<<<<<<< HEAD
 
 .block-va-acc {
   display: none; }
-=======
->>>>>>> 4942a0d2f953d8091f94e10d024c35c3ad34d5fe
->>>>>>> d2f9e7e7a13958aa0a7ad0cdd4ce28396e7edfaf
