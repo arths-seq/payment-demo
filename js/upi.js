@@ -11,6 +11,8 @@ function bindUpiEvent() {
     startTimer();
     openPopup();
     closePopup();
+    floatLabels();
+    upiValidation();
 }
 
 var stimer = null;
@@ -51,4 +53,25 @@ function closePopup() {
         $(".upi-popup").fadeOut();
         $('.timer').text(" ");
     });
-}
+};
+
+// UPI validation
+function upiValidation(){
+	$(document).ready(function(e) {
+		$(document).on('focusout', '.upi-validation', function (e) {			
+            var upiValidation = $('.upi-validation').val();
+            var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\[0-9]{1,3}\[0-9]{1,3}\.)|(([\w-])+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+			if ($.trim(upiValidation).length == 0) {
+				$(this).parents('.formDom').addClass('errorvalue');
+				return false;
+			}
+			if (filter.test(upiValidation)) {
+				$(this).parents('.formDom').removeClass('errorvalue');
+			}
+			else {
+				$(this).parents('.formDom').addClass('errorvalue');
+				return false;
+			}
+		});
+	});
+};
