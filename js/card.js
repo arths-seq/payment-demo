@@ -416,10 +416,11 @@ function saveCardLogin (){
 				$('.card-ccdc').hide();
 				$('.savedCard').show();
 			}
-		}else if($('.card-ccdc .formDom  input').val() == ''){
-			$(this).parents('.formDom').addClass('errorvalue');	
-		}else{
 			$(this).parents('.formDom').removeClass('errorvalue');	
+		}else if($('.card-ccdc .formDom  input').val() == ''){
+			$('.card-ccdc .formDom  input').parents('.formDom').addClass('errorvalue');	
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');	
 		}		
 	});
 };

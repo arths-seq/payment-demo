@@ -2,7 +2,19 @@
 .epay-uid,.epay-otp {
     display: none;
 }
-
+.aadhar-or-pan{
+    border-top: 1px solid #d2dbdf;
+    position: relative;
+    margin: 10px 0;
+}
+.ovd-title{
+    position: absolute;
+    top: -11px;
+    left: 41%;
+    width: 10%;
+    background-color: #fff;
+    text-align: center;
+}
 .stepwrap {
     max-width: 380px;
     margin: 0 auto;

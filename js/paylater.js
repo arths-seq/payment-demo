@@ -85,21 +85,24 @@ function paylaterValidation(){
 				$(".firstli").addClass("comp");
 				$(".midli").addClass("hold");
 			}, 200);
+			$('.epay-details  input').parents('.formDom').removeClass('errorvalue');	
 		}else if($('.epay-details  input').val() == ''){
-			console.log('2');
-			$('.formDom').addClass('errorvalue');	
+			$('.epay-details  input').parents('.formDom').addClass('errorvalue');	
 		}	
     });
     $('.step2-btn').on('click', function () {
 		if(!$('.epay-uid  input').val() == '' && isAadharValidated == true || isPanValidated == true){
-			setTimeout(function(){            
+			setTimeout(function(){   
 				$(".epay-otp").fadeIn();
 				$(".epay-uid").fadeOut();
 				$(".epay-details").fadeOut();
 				$(".midli").addClass("comp");
 				$(".lastli").addClass("hold");
 			}, 200);
-		}
+			$('.epay-uid  input').parents('.formDom').removeClass('errorvalue');
+		}else if($('.epay-uid  input').val() == ''){
+			$('.epay-uid  input').parents('.formDom').addClass('errorvalue');	
+		}	
     });
 
     $('.can2-btn').on('click', function () {
