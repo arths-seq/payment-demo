@@ -1,35 +1,18 @@
 function renderUpi(paymentTabId) {
-    renderupiTemplate();
+    var upi = Payments.templates.upi_vpa();
+    $('.tab-container').append(upi);
     $('.blockMain').hide();
     $('[data-tab-type="' + paymentTabId + '"]').show();
     bindUpiEvent();
 }
-function bindUpiEvent(){
-    floatLabels();
-    openPopupQR();
-    closePopupQR();
+
+
+function bindUpiEvent() {
     startTimer();
+    openPopup();
+    closePopup();
+    floatLabels();
     upiValidation();
-}
-
-function renderupiTemplate(){    
-    var upiData = {
-        sumbitBtnTxt:translate('Submit'),
-        upiNote:translate('Pay using VPA or Scan QR code and pay'),
-        upiaddLabel:translate('Enter UPI address'),
-        upiaddHelp:translate('Please enter vpa'),
-        genQRcode:translate('Generate QR code'),
-        orTxt:translate('OR'),
-        titleQRcode:translate('Scan the QR Code'),
-        qrpupTx1:translate('To complete your online payment please follow the steps'),
-        sessionTx:translate('Session timeout in <span class="timer"></span> minutes!'),
-        stepTx1:translate('Login into your PSP application'),
-        stepTx2:translate('Authorise your payment')
-
-
-    };  
-    var upiTemplate = Payments.templates.upi_vpa(upiData);
-    $('.tab-container').append(upiTemplate);
 }
 
 var stimer = null;
@@ -53,7 +36,7 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-function openPopupQR() {
+function openPopup() {
     $('.qr-btn').on('click', function () {
         $(".upi-popup").fadeIn();
         var fiveMinutes = 60 * 5,
@@ -64,7 +47,7 @@ function openPopupQR() {
     });
 }
 
-function closePopupQR() {
+function closePopup() {
     $('.cls-popup').on('click', function () {
         clearInterval(stimer);
         $(".upi-popup").fadeOut();

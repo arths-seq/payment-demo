@@ -1,29 +1,18 @@
 <div class="blockMain" data="tabs-10" data-tab-type="bharat-qr">
     <div class="bharatqr-list">
         <div class="bqr-tab-logo"></div>
-        <div class="form-group">
-            <input type="button" value="{{genqrBtnTxt}}" class="btn bharat-qr-submit">
-        </div>
+        <fieldset>
+            <input type="button" value="Generate QR" class="btn bharat-qr-submit" id="pay-bharatqr">
+        </fieldset>
     </div>
-
-    <div class="bqr-work">
-        <ul>
-            <li class="th">How it works</li>
-            <li><i class="icon iphscan"></i>{{workTx1}} </li>
-            <li><i class="icon iconfirm"></i>{{workTx2}} </li>
-            <li><i class="icon iphpin"></i>{{workTx3}} </li>
-        </ul>
-    </div>
-
-
-    <div class="popup-wrap bharat-qr-popup" id="bhpopup">
+    <div class="popupwrap bharat-qr-popup" id="bhpopup">
         <div class="popup-content">
             <!-- <span><a href="#" class="cls-popup cls-bhpopup">X</a></span> -->
             <div class="bharat-qr">
                 <div class="bqr-logo"></div>
-                <div class="bqr-img" id="bharatqr_img"><!--<img src="" alt="BHARAT QR Code">--></div>
+                <div class="bqr-img" id="bharatqr_img"><img src="" alt="BHARAT QR Code"></div>
                 <div class="bqr-supp"></div>
-                <p class="session-time text-center">{{{sessionTx}}} </p>
+                <p class="label session-time" id="session_time_bharatqr" rel="3"></p>
             </div>
         </div>
     </div>
