@@ -91,7 +91,7 @@ function paylaterValidation(){
 		}	
     });
     $('.step2-btn').on('click', function () {
-		if(!$('.epay-uid  input').val() == '' && isAadharValidated == true || isPanValidated == true){
+		if((!$('.epay-uid  .epay-pan').val() == '' || !$('.epay-uid  .epay-aadhar').val() == '') && isAadharValidated == true || isPanValidated == true){
 			setTimeout(function(){   
 				$(".epay-otp").fadeIn();
 				$(".epay-uid").fadeOut();
