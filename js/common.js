@@ -141,19 +141,48 @@ function specialCharactersValidation(){
         }		
     });
 }
-// all popup
-function openPopup() {
+// Modal popup
+function modalPopup() {
+	// open popup
 	$('[data-popup-open]').on('click', function(e)  {
 		var targeted_popup_class = jQuery(this).attr('data-popup-open');
 		$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+		setTime();
 		e.preventDefault();
 	});
-}
-// close popup
-function closePopup() {
-    $('.cls-popup').on('click', function () {
+	// close popup
+	$('.cls-popup').on('click', function () {
         clearInterval(stimer);
         $(".popupWrap").fadeOut();
         $('.timer').text(" ");
 	});
+}
+
+// set timeout
+var stimer = null;
+
+function startTimer(duration, display) {
+    var timer = duration,
+        minutes = 0,
+        seconds = 0;
+    stimer = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        $(display).text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+};
+function setTime(){
+	var fiveMinutes = 60 * 5,
+            display = $('.timer');
+        setTimeout(function(){
+            startTimer(fiveMinutes, display);
+        }, 500);
 }

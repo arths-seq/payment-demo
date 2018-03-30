@@ -130,6 +130,11 @@ function renderMenuTab(isLanguageChange){
                 'tab': '12',
                 'tabname': 'Virtual Account',
                 'imgicon': 'virtual-acc'
+            },{
+                'data': 'aloan',
+                'tab': '13',
+                'tabname': 'Air Loan',
+                'imgicon': 'air-loan'
             }
         ]
     };
@@ -243,8 +248,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderVirtual;
             break;
         case 'aloan':
-            fileName = '';
-            callbackMethod;
+            fileName = 'air_loan';
+            callbackMethod = renderAirLoan;
             break;
         case 'bharat-qr':
             fileName = 'bharat_qr';

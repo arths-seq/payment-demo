@@ -1,21 +1,35 @@
 function renderUpi(paymentTabId) {
-    var upi = Payments.templates.upi_vpa();
-    $('.tab-container').append(upi);
+    renderupiTemplate();
     $('.blockMain').hide();
     $('[data-tab-type="' + paymentTabId + '"]').show();
     bindUpiEvent();
 }
-
-
-function bindUpiEvent() {
-    startTimer();
-    openPopup();
-    closePopup();
+function bindUpiEvent(){
     floatLabels();
+    modalPopup();
+    startTimer();
     upiValidation();
 }
 
-var stimer = null;
+function renderupiTemplate(){    
+    var upiData = {
+        sumbitBtnTxt:translate('Submit'),
+        upiNote:translate('Pay using VPA or Scan QR code and pay'),
+        upiaddLabel:translate('Enter UPI address'),
+        upiaddHelp:translate('Please enter vpa'),
+        genQRcode:translate('Generate QR code'),
+        orTxt:translate('OR'),
+        titleQRcode:translate('Scan the QR Code'),
+        qrpupTx1:translate('To complete your online payment please follow the steps'),
+        sessionTx:translate('Session timeout in <span class="timer"></span> minutes!'),
+        stepTx1:translate('Login into your PSP application'),
+        stepTx2:translate('Authorise your payment')
+    };  
+    var upiTemplate = Payments.templates.upi_vpa(upiData);
+    $('.tab-container').append(upiTemplate);
+}
+
+/*var stimer = null;
 
 function startTimer(duration, display) {
     var timer = duration,
@@ -34,25 +48,26 @@ function startTimer(duration, display) {
             timer = duration;
         }
     }, 1000);
-}
+}*/
+
 
 // UPI validation
 function upiValidation(){
-	$(document).ready(function(e) {
-		$(document).on('focusout', '.upi-validation', function (e) {			
+    $(document).ready(function(e) {
+        $(document).on('focusout', '.upi-validation', function (e) { 
             var upiValidation = $('.upi-validation').val();
             var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\[0-9]{1,3}\[0-9]{1,3}\.)|(([\w-])+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-			if ($.trim(upiValidation).length == 0) {
-				$(this).parents('.formDom').addClass('errorvalue');
-				return false;
-			}
-			if (filter.test(upiValidation)) {
-				$(this).parents('.formDom').removeClass('errorvalue');
-			}
-			else {
-				$(this).parents('.formDom').addClass('errorvalue');
-				return false;
-			}
-		});
-	});
+            if ($.trim(upiValidation).length == 0) {
+                $(this).parents('.formDom').addClass('errorvalue');
+                return false;
+            }
+            if (filter.test(upiValidation)) {
+                $(this).parents('.formDom').removeClass('errorvalue');
+            }
+            else {
+                $(this).parents('.formDom').addClass('errorvalue');
+                return false;
+            }
+        });
+    });
 };

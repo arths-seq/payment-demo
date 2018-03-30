@@ -6,8 +6,8 @@ function renderPaylater(paymentTabId){
 };
 function bindEpayEvent(){
 	floatLabels();
-    openPopup();
-    closePopup();
+	mobileNum();
+	modalPopup();
 	nameValidation();
 	paylaterValidation();	
 }
@@ -46,34 +46,7 @@ function renderEpayTemplate(){
     $('.tab-container').append(paylaterTemplate);
 }
 
-/*function openPopup() {
-    $('.payltrtnc').on('click', function () {
-        $(".epaytnc-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-
-    $('.way-txt').on('click', function () {
-        $(".waypay-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-}
-
-function closePopup() {
-    $('.cls-popup').on('click', function () {
-        clearInterval(stimer);
-        $(".epaytnc-popup").fadeOut();
-        $(".waypay-popup").fadeOut();
-        $('.timer').text(" ");
-    });
-}*/
+// pay later validation
 function paylaterValidation(){
 	 
 	$('.step1-btn').on('click', function () {
@@ -86,7 +59,7 @@ function paylaterValidation(){
 				$(".midli").addClass("hold");
 			}, 200);
 			$('.epay-details  input').parents('.formDom').removeClass('errorvalue');	
-		}else if($('.epay-details  input').val() == ''){
+		}else{
 			$('.epay-details  input').parents('.formDom').addClass('errorvalue');	
 		}	
     });
@@ -100,7 +73,7 @@ function paylaterValidation(){
 				$(".lastli").addClass("hold");
 			}, 200);
 			$('.epay-uid  input').parents('.formDom').removeClass('errorvalue');
-		}else if($('.epay-uid  input').val() == ''){
+		}else{
 			$('.epay-uid  input').parents('.formDom').addClass('errorvalue');	
 		}	
     });
