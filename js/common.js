@@ -140,4 +140,20 @@ function specialCharactersValidation(){
             $(this).val(no_spl_char);
         }		
     });
-}	
+}
+// all popup
+function openPopup() {
+	$('[data-popup-open]').on('click', function(e)  {
+		var targeted_popup_class = jQuery(this).attr('data-popup-open');
+		$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+		e.preventDefault();
+	});
+}
+// close popup
+function closePopup() {
+    $('.cls-popup').on('click', function () {
+        clearInterval(stimer);
+        $(".popupWrap").fadeOut();
+        $('.timer').text(" ");
+	});
+}

@@ -125,7 +125,12 @@ function renderMenuTab(isLanguageChange){
                 'tab': '11',
                 'tabname': 'Pay Later',
                 'imgicon': 'pay-later'
-            },
+            }, {
+                'data': 'virtual-acc',
+                'tab': '12',
+                'tabname': 'Virtual Account',
+                'imgicon': 'virtual-acc'
+            }
         ]
     };
     var menuDom = Payments.templates.menu_tab(menuData);
@@ -233,9 +238,9 @@ function renderSelectedTab(paymentId,isLanguageChange){
             fileName = '';
             callbackMethod;
             break;
-        case 'va':
-            fileName = '';
-            callbackMethod;
+        case 'virtual-acc':
+            fileName = 'virtual_acc';
+            callbackMethod = renderVirtual;
             break;
         case 'aloan':
             fileName = '';

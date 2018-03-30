@@ -46,7 +46,7 @@ function renderEpayTemplate(){
     $('.tab-container').append(paylaterTemplate);
 }
 
-function openPopup() {
+/*function openPopup() {
     $('.payltrtnc').on('click', function () {
         $(".epaytnc-popup").fadeIn();
         var fiveMinutes = 60 * 5,
@@ -73,7 +73,7 @@ function closePopup() {
         $(".waypay-popup").fadeOut();
         $('.timer').text(" ");
     });
-}
+}*/
 function paylaterValidation(){
 	 
 	$('.step1-btn').on('click', function () {

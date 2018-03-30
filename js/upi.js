@@ -36,25 +36,6 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-function openPopup() {
-    $('.qr-btn').on('click', function () {
-        $(".upi-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-}
-
-function closePopup() {
-    $('.cls-popup').on('click', function () {
-        clearInterval(stimer);
-        $(".upi-popup").fadeOut();
-        $('.timer').text(" ");
-    });
-};
-
 // UPI validation
 function upiValidation(){
 	$(document).ready(function(e) {

@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label>
                     <input type="checkbox" class="checkbox-inline payltr-check" value="">
-                    {{termsLine}} <a class="payltrtnc" data-type="tncpayltr" href="javascript:void(0);" id="payltr-tnc">{{terms}}</a>
+                    {{termsLine}} <a class="payltrtnc" data-popup-open="popup-epay" data-type="tncpayltr" href="#" id="payltr-tnc">{{terms}}</a>
                 </label>
             </div>
 
@@ -73,7 +73,7 @@
                 <p class="note-txt text-right">{{formNote}}</p> 
             </div> 
 
-            <p class="text-right"><a href="javascript:void(0);" class="way-txt">{{epayInfo}}</a></p>
+            <p class="text-right"><a href="#" class="way-txt" data-popup-open="popup-waypay">{{epayInfo}}</a></p>
         </div>
 
 
@@ -137,7 +137,7 @@
     </div>
 </div> 
 
-<div class="epaytnc-popup popupWrap">
+<div class="epaytnc-popup popupWrap" data-popup="popup-epay">
     <div class="epay-content popup-content">
     <a href="javascript:void(0)" class="cls-popup qrimgbtnclose" id="qrimgbtnclose">X</a>
         <div class="popup-body">
@@ -195,7 +195,7 @@
 </div> <!-- close  popupWrap-->
 
 
- <div class="waypay-popup popupWrap">
+ <div class="waypay-popup popupWrap" data-popup="popup-waypay">
     <div class="waypay-content popup-content">
     <a href="javascript:void(0)" class="cls-popup qrimgbtnclose" id="qrimgbtnclose">X</a>
         <div class="popup-body">
