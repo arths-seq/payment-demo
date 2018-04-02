@@ -16,7 +16,7 @@ function renderExpressPaymentTemplate(){
 	var expressPaymentData = {
 		sumbitBtn:translate('Submit'),
 		emailID:translate('Email Id'),
-		savePass: 'Enter your Password',
+		savePass: translate('Enter your Password'),
 		eidHelp:translate('Enter your e-mail Id'),
 		phHelp:translate('Please enter a number'),
 		iconPass: 'iPass',

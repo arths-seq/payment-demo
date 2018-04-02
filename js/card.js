@@ -178,7 +178,15 @@ function cardNumberUpdate() {
 			//var cardtype = ele.data('cardtype');
 			var e = ele.val().split(" ").join("");
 			if (e == "") {
-	
+				$('.cvv').val('');
+				$('.cvv').parents('.formDom').removeClass("has-content"); 
+				// emi plan if card number is null 
+				$('.emi-Check').attr('checked', false); 
+				$('.view-plans').hide();
+				$('.radioname').hide();
+				$('.emi-change').hide();		
+				$('.view-plans-box').removeClass('active');
+
 				ele.removeClass (function (index, className) {
 					return (className.match (/\w*-icon\w*/) || []).join(' ');
 					
@@ -391,7 +399,7 @@ function cvvValidation(){
 		}
 	});	
 	$(document).on('focus', '.cvv', function (e) {
-		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
+		$('.cardNumber').hasClass('amex-icon') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
 	});
 };
 // go back
@@ -429,8 +437,10 @@ function emiValidation(){
 		$('.emi-change').hide();
 
 		$(document).on('click', '.emi-Check', function (e) {
+			$('.emi-Check').attr('checked', true); 
 			if($('.emi-Check').is(':checked')){
 				$('.view-plans').show();
+				$('.emi-plans').show();
 			}else{
 				$('.view-plans').hide();
 				$('.radioname').hide();
@@ -444,7 +454,6 @@ function emiValidation(){
 		});
 		$(document).on('click', '.view-plans', function (e) {
 			$('.view-plans-box').toggleClass('active');
-			//$('.view-plans-box').addClass('active');
 		});
 		
 		$(document).on('click', '.view-plans-box li', function (e) {
