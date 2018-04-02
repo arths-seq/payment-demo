@@ -121,7 +121,7 @@ function renderCcDcTemplate(){
 function cardNameNumVal(){
 	cardNumberUpdate();
 	//card name validation
-	var validationRegex = new RegExp("^[a-zA-Z0-9]+$");
+	var validationRegex = new RegExp("^[a-zA-Z0-9 ]+$");
 	bindCardNameNumEvent(validationRegex,'cardname');
 }
 
