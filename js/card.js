@@ -186,6 +186,7 @@ function cardNumberUpdate() {
 				$('.radioname').hide();
 				$('.emi-change').hide();		
 				$('.view-plans-box').removeClass('active');
+				isCvvValidated = false;
 
 				ele.removeClass (function (index, className) {
 					return (className.match (/\w*-icon\w*/) || []).join(' ');
@@ -367,7 +368,7 @@ function expiryDateValidation() {
 			return;									
 	});
 
-	$(document).on('keyup blur change', '.exp_date, .cardname', function (e) {
+	$(document).on('keyup blur change', '.exp_date', function (e) {
 		var yourInput = $(this).val();
 		if(yourInput.length > 4){
 			$(this).parents('.formDom').removeClass('errorvalue');
@@ -375,6 +376,16 @@ function expiryDateValidation() {
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
 			isExpDateValidated = false;
+		}
+	});
+	$(document).on('keyup blur change', '.cardname', function (e) {
+		var yourInput = $(this).val();
+		if(yourInput.length > 2){
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardNameValidated = true;
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardNameValidated = false;
 		}
 	});
 };
@@ -415,7 +426,7 @@ function saveCardLogin (){
 	$('.savedCard').hide();
 	$('.existing-user').hide();
 	$(document).on('click', '.save-card', function (e) {
-		if(!$('.card-ccdc .formDom  input').val() == '' && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
+		if(!$('.card-ccdc .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
 			if($('.save-Card-Check').is(':checked')){
 				$('.card-ccdc').hide();
 				$('.savedCard').hide();

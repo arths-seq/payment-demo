@@ -11,6 +11,8 @@ isExpDateValidated =false;
 isPanValidated = false;
 isAadharValidated = false;
 
+isCardNameValidated = false;
+
 function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth <= 767;;
 }
