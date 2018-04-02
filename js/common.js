@@ -87,7 +87,7 @@ function emailValidation(){
 // password validation 
 function passwordValidation(){
 	$(document).on('keyup','.newPassword', function() {
-		var password = $('.newPassword').val();
+		var password = $(this).val();
 		var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/g;
 		if(password.length > 7 && passReg.test(password)){
 			$(this).parents('.formDom').removeClass('errorvalue');
