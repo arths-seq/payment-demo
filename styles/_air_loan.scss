@@ -5,3 +5,26 @@
     height: 40px;
     margin: 0 auto 20px auto;
 }
+
+.bcklaon{float: left;}
+.blockAirlaon .airloanLogo {
+    @extend %icon;
+    &.logo-kissht {
+       background-position: -357px -560px;
+    }
+    &.logo-suvidha {
+        background-position: -370px -611px;
+    }
+}
+.blockAirlaon .airloanLogo {
+    display: table-cell;
+    text-indent: -9999px;
+    height: 40px;
+    width: 119px;
+}
+ul.airloanlist li{
+    height: 50px;
+}
+.loanWrap,.suvidha-loan{
+    display: none;
+}

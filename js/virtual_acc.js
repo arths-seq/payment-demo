@@ -16,11 +16,22 @@ function renderVirtualTemplate(){
 		vablockPara1:translate('The Account Details for this transaction is as below'),
 		vablockPara2:translate('This account is exclusively assigned to you for this transaction, please do NOT share with anyone or do more than 1 transaction to this account.'),
 		vaAccTx:translate('Account no'),
-		vaIFSCtx:translate('IFSC code'),
+		vaifscTx:translate('IFSC code'),
 		vaBankTx:translate('Bank'),
-		vaBraTx:translate('Branch'),
-		vaBaAddTx:translate('Bank Address')
+		vaBranchTx:translate('Branch'),
+		vaBankAddTx:translate('Bank Address'),
+		vaifscCode:translate('KKBK0000958'),
+		vaBankCode:translate('Kotak Mahindra Bank'),
+		vaBranchCode:translate('Nariman Point'),
+		vaBankAddCode:translate('5 C/II MITTAL COURT, 224, NARIMAN POINT, MUMBAI-400021'),
 	};	
     var virtualTemplate = Payments.templates.virtual_acc(virtualAccData);
     $('.tab-container').append(virtualTemplate);
+}
+
+function bindVirtualAccEvent(){
+	$(document).on('click','.virtual-acc-details', function(e) {
+		$('.block-info').hide();
+		$('.block-va-acc').show();
+	});
 }

@@ -5,7 +5,7 @@
   display: block;
   height: 0; }
 
-.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo, .kissht-logo {
+.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo, .bqr-tab-logo, .bqr-logo, .bqr-supp, .kissht-logo, .blockAirlaon .airloanLogo {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
   background-repeat: no-repeat; }
@@ -1617,9 +1617,9 @@ ul.walletlist li label {
   margin: 50px auto 0;
   position: relative;
   padding: 20px; }
-  .upi-popup .popup-content {
+  .xs-popup .popup-content {
     max-width: 300px; }
-  .epaytnc-popup .popup-content, .waypay-popup .popup-content {
+  .lg-popup .popup-content {
     max-width: 950px; }
   .popup-content .popup-body {
     max-height: 350px;
@@ -1647,6 +1647,11 @@ ul.walletlist li label {
     font-weight: bold;
     text-decoration: none;
     color: #0066a5; }
+
+.small60 {
+  margin: 0 auto;
+  max-width: 320px;
+  width: 60%; }
 
 @media (min-width: 768px) {
   .amount-block {
@@ -1962,22 +1967,67 @@ ul.walletlist li label {
 
 .bqr-tab-logo {
   max-width: 100px;
+  height: 85px;
   display: block;
-  background: url(../img/spriteimg.png) -250px -600px no-repeat;
-  height: 85px; }
+  background-position: -250px -600px; }
 
-.bharat-qr-submit {
-  width: 100%;
+.bqr-logo {
+  background-position: -250px -614px;
+  width: 78px;
+  height: 60px;
   display: block;
-  background-color: #0067a6;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  border: 0;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 10px 0;
-  cursor: pointer; }
+  margin: 0 auto; }
+
+.bqr-img {
+  background-image: url(../img/qr.png);
+  border: 1px solid #becfd6;
+  max-width: 250px;
+  height: 250px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px 0; }
+
+.bqr-supp {
+  width: 207px;
+  height: 40px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-position: -261px -832px; }
+
+.bqr-work ul {
+  list-style-type: none;
+  margin: 90px 0 0 0;
+  padding: 0 0 5px 0;
+  font-size: 11px;
+  color: #424141;
+  text-align: center; }
+  .bqr-work ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: top; }
+    .bqr-work ul li.th {
+      padding: 0 0 5px 0;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      font-size: 13px; }
+    .bqr-work ul li i {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 5px auto; }
+
+.iphscan {
+  background-position: -13px -834px; }
+
+.iconfirm {
+  background-position: -93px -834px; }
+
+.iphpin {
+  background-position: -172px -834px; }
 
 .formDom input.bankName {
   opacity: 1;
@@ -2126,13 +2176,51 @@ ul.walletlist li label {
   .step li .line {
     max-width: 125px; } }
 
-.wallet-section {
-  margin: 0 auto;
-  max-width: 320px;
-  width: 60%; }
-
 .kissht-logo {
   background-position: -351px -562px;
   width: 118px;
   height: 40px;
   margin: 0 auto 20px auto; }
+
+.bcklaon {
+  float: left; }
+
+.blockAirlaon .airloanLogo.logo-kissht {
+  background-position: -357px -560px; }
+
+.blockAirlaon .airloanLogo.logo-suvidha {
+  background-position: -370px -611px; }
+
+.blockAirlaon .airloanLogo {
+  display: table-cell;
+  text-indent: -9999px;
+  height: 40px;
+  width: 119px; }
+
+ul.airloanlist li {
+  height: 50px; }
+
+.loanWrap, .suvidha-loan {
+  display: none; }
+
+.block-info {
+  color: #424141;
+  line-height: 18px;
+  padding: 0 0 20px 0; }
+  .block-info h3 {
+    color: #2f2f2f;
+    font-weight: bold; }
+
+.block-acc {
+  display: none; }
+  .block-acc .list-acc {
+    display: table;
+    width: 100%; }
+    .block-acc .list-acc li {
+      display: table-cell;
+      line-height: 16px;
+      padding: 2px 0; }
+      .block-acc .list-acc li.thval {
+        width: 98px; }
+      .block-acc .list-acc li.thdata {
+        font-weight: bold; }

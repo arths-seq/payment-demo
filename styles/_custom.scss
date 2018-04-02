@@ -645,10 +645,10 @@ ul.walletlist li label {
     margin: 50px auto 0;
     position: relative;
     padding: 20px;
-    .upi-popup &{
+    .xs-popup &{
         max-width: 300px;
     }
-    .epaytnc-popup &, .waypay-popup &{
+    .lg-popup &{
         max-width: 950px;
     }
     .popup-body{
@@ -683,7 +683,11 @@ ul.walletlist li label {
     }
 }
 
-
+.small60{
+    margin: 0 auto;
+    max-width: 320px;
+    width: 60%;
+}
 
 @media (min-width: 768px) {
     .amount-block {

@@ -13,28 +13,84 @@ function bindAirLoanEvents(){
 }
 
 function renderAirloanTemplate(){
-	var airLoanData = {
+	var airloanData = {
 		sumbitBtn:translate('Submit'),
 		firstName:translate('First Name'),
 		lastName:translate('Last Name'),
 		emailID:translate('Email Id'),
 		phone:translate('Phone No.'),
+		adharlabel:translate('Adhar Card No'),
+		panLabel:translate('PAN No'),
+		voterLabel:translate('Voter Id'),
+		birthlabel:translate('Date of Birth'),
+		selectLoanlabel:translate('Select Loan Type'),
+		selectMartlabel:translate('Select Marital Status'),
+		selectGenderlabel:translate('Select Gender'),
 		fnHelp: translate('Please enter your first name'),
 		lnHelp:translate('Please enter your last name'),
 		eidHelp:translate('Enter your e-mail Id'),
 		phHelp:translate('Please enter a number'),
-		formNote:translate('all fields are mandatory')
-	};	
-    var airLoanTemplate = Payments.templates.air_loan(airLoanData);
-    $('.tab-container').append(airLoanTemplate);
+		adharHelp:translate('Please enter your adhar card no'),
+		panHelp:translate('Please enter a PAN no'),
+		voteridHelp:translate('Please enter voter id'),
+		birthHelp:translate('Please enter birth date'),
+		loanHelp:translate('Please select loan type'),
+		MartHelp:translate('Please select marital status'),
+		GenderHelp:translate('Please select gender'),
+		formNote:translate('all fields are mandatory'),
+		backtx:translate('back'),
+				'allLoan': [
+		{
+						alname: 'Kissht',
+						value: 'kissht',
+						titile: 'kissht'
+					},
+					{
+						alname: 'Cash Suvidha',
+						value: 'suvidha',
+						titile: 'suvidha'
+					},
+				],
+				'loanType':[
+					{
+						titile:'businessloan',
+						lname: 'Business Loan'
+					},
+					{
+						titile:'personalloan',
+						lname: 'Personal Loan'
+					}
+				],
+				'MaritalType':[
+					{
+						titile:'single',
+						mlname: 'Single'
+					},
+					{
+						titile:'married',
+						mlname: 'Married'
+					}
+				],
+				'GenderType':[
+					{
+						titile:'male',
+						gname: 'Male'
+					},
+					{
+						titile:'female',
+						gname: 'Female'
+					}
+				]
+			};
+			var airloanTemplate = Payments.templates.air_loan(airloanData);
+			$('.tab-container').append(airloanTemplate);
 }
 function airLoanValidation() {
 	$('.airloan-signup').on('click', function () {
-		if(!$('.air-loan input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true){
-            $('.air-loan').append('successfull');
-            $('air-loan input').parents('.formDom').removeClass('errorvalue');	
+		if(!$('.kissht-loan input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true){
+            $('.kissht-loan input').parents('.formDom').removeClass('errorvalue');	
 		}else{
-			$('.air-loan input').parents('.formDom').addClass('errorvalue');	
+			$('.kissht-loan input').parents('.formDom').addClass('errorvalue');	
 		}	
     });
 }

@@ -228,8 +228,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderAmexChannel;
             break;
         case 'Express_Payment':
-            fileName = '';
-            callbackMethod;
+            fileName = 'express_payment';
+            callbackMethod = renderExpressPayment;
             break;
         case 'UPI':
             fileName = 'upi_vpa';
