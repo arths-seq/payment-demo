@@ -10,5 +10,4 @@
 @import 'upi';
 @import 'paylater';
 @import 'wallet';
-@import 'air_loan';
-@import 'virtualacc';
+

@@ -1,0 +1,28 @@
+.block-info{	
+	color: #424141;
+  	line-height: 18px;
+  	padding: 0 0 20px 0;
+  	h3 {
+    	color: #2f2f2f;
+    	font-weight: bold;
+    }
+}
+
+.block-acc{
+	display:none;
+	.list-acc {
+		display: table;
+	  	width: 100%; 
+	  	li {
+		    display: table-cell;
+		    line-height: 16px;
+		    padding: 2px 0;
+		    &.thval {
+		      	width: 98px; 
+		    }
+		    &.thdata {
+		    	font-weight: bold;
+		    }
+		}
+  	}
+}

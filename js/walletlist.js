@@ -6,7 +6,6 @@ function renderRtgs(paymentTabId) {
     bindRtgsEvent();
 }
 
-
 function bindRtgsEvent() {
     floatLabels();
     UTRValidation();

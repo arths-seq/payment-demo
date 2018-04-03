@@ -6,9 +6,10 @@ function renderPaylater(paymentTabId){
 };
 function bindEpayEvent(){
 	floatLabels();
-    openPopup();
-    closePopup();
-    goback();
+	mobileNum();
+	modalPopup();
+	nameValidation();
+	paylaterValidation();	
 }
 
 function renderEpayTemplate(){
@@ -45,55 +46,37 @@ function renderEpayTemplate(){
     $('.tab-container').append(paylaterTemplate);
 }
 
-function openPopup() {
-    $('.payltrtnc').on('click', function () {
-        $(".epaytnc-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-
-    $('.way-txt').on('click', function () {
-        $(".waypay-popup").fadeIn();
-        var fiveMinutes = 60 * 5,
-            display = $('.timer');
-        setTimeout(function(){
-            startTimer(fiveMinutes, display);
-        }, 500);
-    });
-}
-
-function closePopup() {
-    $('.cls-popup').on('click', function () {
-        clearInterval(stimer);
-        $(".epaytnc-popup").fadeOut();
-        $(".waypay-popup").fadeOut();
-        $('.timer').text(" ");
-    });
-}
-
-function goback() {   
-     $('.step1-btn').on('click', function () {
-       setTimeout(function(){
-		    $(".epay-uid").fadeIn();
-		    $(".epay-details").fadeOut();     
-	        $(".epay-otp").fadeOut();
-	        $(".firstli").addClass("comp");
-	        $(".midli").addClass("hold");
-        }, 500);
+// pay later validation
+function paylaterValidation(){
+	 
+	$('.step1-btn').on('click', function () {
+		if(!$('.epay-details  input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true && $('.payltr-check').is(':checked')){
+			setTimeout(function(){
+				$(".epay-uid").fadeIn();
+				$(".epay-details").fadeOut();     
+				$(".epay-otp").fadeOut();
+				$(".firstli").addClass("comp");
+				$(".midli").addClass("hold");
+			}, 200);
+			$('.epay-details  input').parents('.formDom').removeClass('errorvalue');	
+		}else{
+			$('.epay-details  input').parents('.formDom').addClass('errorvalue');	
+		}	
     });
     $('.step2-btn').on('click', function () {
-        setTimeout(function(){            
-	        $(".epay-otp").fadeIn();
-	        $(".epay-uid").fadeOut();
-	        $(".epay-details").fadeOut();
-	        $(".midli").addClass("comp");
-	        $(".lastli").addClass("hold");
-        }, 500);
+		if((!$('.epay-uid  .epay-pan').val() == '' || !$('.epay-uid  .epay-aadhar').val() == '') && isAadharValidated == true || isPanValidated == true){
+			setTimeout(function(){   
+				$(".epay-otp").fadeIn();
+				$(".epay-uid").fadeOut();
+				$(".epay-details").fadeOut();
+				$(".midli").addClass("comp");
+				$(".lastli").addClass("hold");
+			}, 200);
+			$('.epay-uid  input').parents('.formDom').removeClass('errorvalue');
+		}else{
+			$('.epay-uid  input').parents('.formDom').addClass('errorvalue');	
+		}	
     });
-
 
     $('.can2-btn').on('click', function () {
         setTimeout(function(){            
@@ -114,5 +97,46 @@ function goback() {
 	        $(".midli").removeClass("comp");
 	        $(".midli").addClass("hold");
         }, 500);
-    });
+	});
+	
+	// aadhar and pan card validation
+	$(document).on('keyup blur', '.ovd-val', function (e) {
+		var ovdNumVal =  $(this);
+		var regexAadhar = new RegExp (/^\d{4}\d{4}\d{4}$/g);
+		var regexPan = new RegExp (/[A-Z]{3}[P][A-Z]{1}\d{4}[A-Z]{1}/);
+
+		if($('input').hasClass('epay-aadhar')){
+			if(ovdNumVal.val().length == 12 && regexAadhar.test(ovdNumVal.val())){
+				$(this).parents('.formDom').removeClass('errorvalue');
+				isAadharValidated = true;
+				return true;
+			}else{
+				$(this).parents('.formDom').addClass('errorvalue');
+				isAadharValidated = false;
+				return false;
+			}
+		}else if($('input').hasClass('epay-pan')){
+			if(ovdNumVal.val().length == 10 && regexPan.test(ovdNumVal.val())){
+				$(this).parents('.formDom').removeClass('errorvalue');
+				isPanValidated = true;
+				return true;
+			}else{
+				$(this).parents('.formDom').addClass('errorvalue');
+				isPanValidated = false;
+				return false;
+			}
+		}else{
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}
+		
+	});
+
+	// Otp validation
+	$(document).on('keyup blur', '.paylater-otp', function(e) {
+		if ($(".paylater-otp").val().length > 5) {
+			$(this).parents('.formDom').removeClass('errorvalue');
+		} else {
+			$(this).parents('.formDom').addClass('errorvalue');
+		}
+	});
 }

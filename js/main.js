@@ -125,13 +125,17 @@ function renderMenuTab(isLanguageChange){
                 'tab': '11',
                 'tabname': 'Pay Later',
                 'imgicon': 'pay-later'
-            },
-                {
-                'data': 'airloan',
+            }, {
+                'data': 'virtual-acc',
+                'tab': '12',
+                'tabname': 'Virtual Account',
+                'imgicon': 'virtual-acc'
+            },{
+                'data': 'aloan',
                 'tab': '13',
                 'tabname': 'Air Loan',
                 'imgicon': 'air-loan'
-            },
+            }
         ]
     };
     var menuDom = Payments.templates.menu_tab(menuData);
@@ -225,8 +229,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderAmexChannel;
             break;
         case 'Express_Payment':
-            fileName = '';
-            callbackMethod;
+            fileName = 'express_payment';
+            callbackMethod = renderExpressPayment;
             break;
         case 'UPI':
             fileName = 'upi_vpa';
@@ -240,12 +244,12 @@ function renderSelectedTab(paymentId,isLanguageChange){
             fileName = '';
             callbackMethod;
             break;
-        case 'va':
-            fileName = '';
-            callbackMethod;
+        case 'virtual-acc':
+            fileName = 'virtual_acc';
+            callbackMethod = renderVirtual;
             break;
         case 'airloan':
-            fileName = 'airloan';
+            fileName = 'air_loan';
             callbackMethod = renderAirLoan;
             break;
         case 'bharat-qr':

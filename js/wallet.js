@@ -6,11 +6,21 @@ function renderWalletChannel(paymentTabId){
 }
 
 function bindWalletEvents(){
-	mobileNum();
+    floatLabels();
+    mobileNum();
+    walletValidation();
+    emailValidation();
+    ccdcGoBack();
 }
 
 function renderWalletTemplate(){
     var walletData = {
+        walletMob: 'Mobile Number',
+        walletEmail: 'Enter your E-mail Id',
+        iconMob: 'iMob',
+        iconEmail: 'iEmail',
+        iconUser: 'iUser',
+        submitBtnTxt: translate('Submit'),
         'allWallet': [
             {
                 walletname: 'Amazon Pay',
@@ -78,4 +88,20 @@ function renderWalletTemplate(){
 
     var walletkli = Payments.templates.wallet(walletData);
     $('.tab-container').append(walletkli);
+}
+
+function walletValidation(){
+    $('.wallet-login').hide();
+
+    $(document).on('click','.walletlist li', function(e) {
+        if ($(this).hasClass("citrus") || $(this).hasClass("freecharge")) {
+            $('.walletlist').hide()
+		    $('.wallet-login').show();
+        }       
+    });
+    // go back
+	$(document).on('click', '.goback', function (e) {
+		$('.walletlist').show();
+		$('.wallet-login').hide();
+    });
 }

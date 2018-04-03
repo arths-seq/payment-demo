@@ -1,5 +1,4 @@
 // all function validation 
-var isCardValidated = false;
 
 function renderCcDc(paymentTabId){
 	renderCcDcTemplate();
@@ -9,6 +8,7 @@ function renderCcDc(paymentTabId){
 }
 
 function bindCcDcEvent(){
+	specialCharactersValidation();
 	cvvValidation();
 	expiryDateValidation();
 	cardNameNumVal();
@@ -25,6 +25,7 @@ function renderCcDcTemplate(){
 	var cardData = {
         isEmiTab: true,
 		showSavedCard: true,
+		existingUser: true,
 		showEmiCheck: true,
         savedCard: true,
         blockName: 'blockCards',
@@ -49,7 +50,7 @@ function renderCcDcTemplate(){
 		savetx: translate('Save card now to enable express payments'),
 		emiCheck: translate('Pay with EMI'),
 		emiPlans: translate('View Plans'),
-		emiPlansChange: translate('Change'),
+		emiPlansChange: translate('Change Plan'),
 		submitBtnTxt: translate('Submit'),
         'cardEmiBank': [
 			{
@@ -92,21 +93,24 @@ function renderCcDcTemplate(){
                 bankRate: '12%',
                 installments: 'Rs. 0',
 				interestPaid: 'Rs. 0',
-				nbname: '12'
+				totalAmount: '1200',
+				bankname: '12'
             },
             {
                 emiTenure: '3 months',
                 bankRate: '12%',
                 installments: 'Rs. 55',
 				interestPaid: 'Rs. 20',
-				nbname: '34'
+				totalAmount: '10200',
+				bankname: '34'
             },
             {
                 emiTenure: '6 months',
                 bankRate: '12%',
                 installments: 'Rs. 5,100',
 				interestPaid: 'Rs. 301',
-				nbname: '56'
+				totalAmount: '20200',
+				bankname: '56'
             }
 		]
     };
@@ -117,7 +121,7 @@ function renderCcDcTemplate(){
 function cardNameNumVal(){
 	cardNumberUpdate();
 	//card name validation
-	var validationRegex = new RegExp("^[a-zA-Z0-9]+$");
+	var validationRegex = new RegExp("^[a-zA-Z0-9 ]+$");
 	bindCardNameNumEvent(validationRegex,'cardname');
 }
 
@@ -163,39 +167,58 @@ function bindCardNameNumEvent(validationRegex,className){
 
 // card number validation
 function cardNumberUpdate() {
-	$(document).on('keyup blur','.cardNumber', function(e) {		
-		var ele = $(this);
-		var cardtype = ele.data('cardtype');
-		var e = ele.val().split(" ").join("");
-		if (e == "") {
+	function removeErrorDisplay(errorID, messageID) {
+		$("#" + errorID).css('border', '1px solid #becfd6');
+		$("#" + messageID).removeClass("display");
+		$("#" + messageID).html('');
+	}
+	
+	$(document).on('keyup blur change','.cardNumber', function(e) {	
+			var ele = $(this);
+			//var cardtype = ele.data('cardtype');
+			var e = ele.val().split(" ").join("");
+			if (e == "") {
+				$('.cvv').val('');
+				$('.cvv').parents('.formDom').removeClass("has-content"); 
+				// emi plan if card number is null 
+				$('.emi-Check').attr('checked', false); 
+				$('.view-plans').hide();
+				$('.radioname').hide();
+				$('.emi-change').hide();		
+				$('.view-plans-box').removeClass('active');
+				isCvvValidated = false;
 
-			ele.removeClass (function (index, className) {
-				$(this).parents('.formDom').addClass('errorvalue');
-				return (className.match (/\w*-icon\w*/) || []).join(' ');
-				
-			});
-			//ele.addClass(cardtype+"logos");
-			$(this).parents('.formDom').addClass('errorvalue');
-		} else {
-			e = e.match(new RegExp(".{1,4}", "g")).join(" ");
-			ele.val(e);
-			var r = get_card_type(e);
-			var i = r.split('_');
-			var ct = i[1].toLowerCase();;
-			ele.removeClass (function (index, className) {
-				return (className.match (/\w*-icon\w*/) || []).join(' ');				
-			});
-			ele.addClass(ct);
-		}
+				ele.removeClass (function (index, className) {
+					return (className.match (/\w*-icon\w*/) || []).join(' ');
+					
+				});
+				ele.addClass(ct+"-icon");
+			} else {
+				removeErrorDisplay('c1', 'cnumspan');
+				e = e.match(new RegExp(".{1,4}", "g")).join(" ");
+				ele.val(e);
+				var r = get_card_type(e);
+				var i = r.split('_');
+				var ct = i[1].toLowerCase();;
+				ele.removeClass (function (index, className) {
+					return (className.match (/\w*-icon\w*/) || []).join(' ');
+					
+				});				
+				ele.addClass(ct+"-icon");
+			}
+
 		var cardnumber = $(this);
 		if(cardnumber.val().length > 22){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			//$('.emi-Check').removeAttr('disabled');
+			$('.emi-Check').prop("disabled", false);
 			isCardValidated = true;
 		}else{
-			$(this).parents('.formDom').addClass('errorvalue');
+			$('.emi-Check').attr('disabled');
+			$('.emi-Check').prop("disabled", true);
+			$(this).parents('.formDom').addClass('errorvalue');			
+			isCardValidated = false;
 		}
-		isCardValidated = false;
-		
 	});
 	
 	// card number validation
@@ -230,7 +253,7 @@ function cardNumberUpdate() {
 				}
 			}
 		return "CC_UNKNOWN";
-	}
+	};
 }
 
 // expiry Date validation
@@ -345,15 +368,25 @@ function expiryDateValidation() {
 			return;									
 	});
 
-	$(document).on('keyup blur', '.exp_date, .cardname', function (e) {
+	$(document).on('keyup blur change', '.exp_date', function (e) {
 		var yourInput = $(this).val();
 		if(yourInput.length > 4){
 			$(this).parents('.formDom').removeClass('errorvalue');
-			isCardValidated = true
+			isExpDateValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
-			isCardValidated = false;
-		}	 
+			isExpDateValidated = false;
+		}
+	});
+	$(document).on('keyup blur change', '.cardname', function (e) {
+		var yourInput = $(this).val();
+		if(yourInput.length > 2){
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isCardNameValidated = true;
+		}else{
+			$(this).parents('.formDom').addClass('errorvalue');
+			isCardNameValidated = false;
+		}
 	});
 };
 
@@ -363,128 +396,62 @@ function cvvValidation(){
 		$(".cvv").attr('type','tel');	
 		$(".cvv").css('-webkit-text-security','disc');
 	}
-	$(document).on('keyup blur', '.cvv', function (e) {
+	$(document).on('keyup blur change', '.cvv', function (e) {
 		var yourInput = $(this).val();
 		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
 			$(this).parents('.formDom').removeClass('errorvalue');
-			isCardValidated =  true;
+			isCvvValidated =  true;
 		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
 			$(this).parents('.formDom').removeClass('errorvalue');
-			isCardValidated = true;
+			isCvvValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
-			isCardValidated = false;
-		}		
+			isCvvValidated = false;
+		}
 	});	
 	$(document).on('focus', '.cvv', function (e) {
-		$('.cardNumber').hasClass('amex') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
+		$('.cardNumber').hasClass('amex-icon') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
 	});
 };
-
-// Email validation
-function emailValidation(){
-	$(document).ready(function(e) {
-		$(document).on('focusout', '.emailV', function (e) {			
-			var sEmail = $('.emailV').val();
-			if ($.trim(sEmail).length == 0) {
-				//alert('Please enter valid email address');
-				$(this).parents('.formDom').addClass('errorvalue');
-				return false;
-			}
-			if (validateEmail(sEmail)) {
-				$(this).parents('.formDom').removeClass('errorvalue');
-			}
-			else {
-				$(this).parents('.formDom').addClass('errorvalue');
-				return false;
-			}
-		});
-	});
-	function validateEmail(sEmail) {
-		var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-		if (filter.test(sEmail)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-};
-// password validation 
-function passwordValidation(){
-	$(document).on('keyup','.newPassword', function() {
-		var password = $('.newPassword').val();
-		var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/g;
-		if(password.length > 7 && passReg.test(password)){
-			$(this).parents('.formDom').removeClass('errorvalue'); 
-		}else{
-			$(this).parents('.formDom').addClass('errorvalue');
-		}
-	});
-	$(document).on('focusout','.confirmPassword', function() {
-		var password = $('.newPassword').val();
-		var confirmPass = $('.confirmPassword').val();
-		if(password === confirmPass){
-			$(this).parents('.formDom').removeClass('errorvalue');
-		}else{
-			$(this).parents('.formDom').addClass('errorvalue');
-		}
+// go back
+function ccdcGoBack(){
+	$(document).on('click', '.ccdc-goback', function (e) {
+		$('.card-ccdc').show();
+		$('.savedCard').hide();
+		$('.existing-user').hide();
 	});
 };
-
 // sign up 
 function saveCardLogin (){
 	$('.savedCard').hide();
+	$('.existing-user').hide();
 	$(document).on('click', '.save-card', function (e) {
-		if(!$('.defaultBlock .formDom  input').val() == ''){
-			if(isCardValidated == true){
-				$('.defaultBlock').hide();
+		if(!$('.card-ccdc .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
+			if($('.save-Card-Check').is(':checked')){
+				$('.card-ccdc').hide();
+				$('.savedCard').hide();
+				$('.existing-user').show();
+			}else{
+				$('.card-ccdc').hide();
 				$('.savedCard').show();
 			}
-			if(isCardValidated == true && $('.save-Card-Check').is(':checked')){
-				$('.defaultBlock').hide();
-				$('.savedCard').show();
-			}	
-		}else if($('.defaultBlock .formDom  input').val() == ''){
-			$('.formDom').addClass('errorvalue');	
-		}			
+			$(this).parents('.formDom').removeClass('errorvalue');	
+		}else{
+			$('.card-ccdc  input').parents('.formDom').addClass('errorvalue');	
+		}	
 	});
 };
-// sign up go back
-function ccdcGoBack(){
-	$(document).on('click', '.ccdc-goback', function (e) {
-		$('.defaultBlock').show();
-		$('.savedCard').hide();
-	});
-};
+
 // emi validation
 function emiValidation(){
-		/*$('.emitable').hide();
-		$('.emi-option-box').hide();
-		// emi section table
-	    $(document).on('change', 'select', function (e) {
-	        if ($(this).val() == 'hdfc') {
-	            $('.emitable').show(500);
-	        }else if ($(this).val() == 'selectbank') {
-	            $('.emitable').hide(500);
-	        }
-		});
-		// emi check box event
-		$(document).on('click', '.emi-Check', function (e) {
-			if($('.emi-Check').is(':checked')){
-				$('.emi-option-box').show(500);
-			}else{
-				$('.emitable').hide(500);
-				$('.emi-option-box').hide(500);
-			}
-		});*/
-		// emi check box event
 		$('.view-plans').hide();
 		$('.emi-change').hide();
 
 		$(document).on('click', '.emi-Check', function (e) {
+			$('.emi-Check').attr('checked', true); 
 			if($('.emi-Check').is(':checked')){
 				$('.view-plans').show();
+				$('.emi-plans').show();
 			}else{
 				$('.view-plans').hide();
 				$('.radioname').hide();
@@ -493,20 +460,19 @@ function emiValidation(){
 				$('.view-plans-box').removeClass('active');
 			}
 		});
-		$(document).on('blur', 'body', function (e) {
+		$("body").click(function(e) {
 			$('.view-plans-box').removeClass('active');
 		});
 		$(document).on('click', '.view-plans', function (e) {
 			$('.view-plans-box').toggleClass('active');
-			//$('.view-plans-box').addClass('active');
 		});
 		
 		$(document).on('click', '.view-plans-box li', function (e) {
-			var radioname = $(this).attr('data-attr-radioname');
+			var radioname = $(this).text();
 			$(".view-plans-box li").removeClass("active");
-			$(this).addClass("active");
-			$('.radioname').show();
+			$(this).addClass("active");			
 			$(".radioname").text(radioname);
+			$('.radioname').show();
 			$('.emi-change').show();
 			$('.emi-plans').hide();   
 		});
