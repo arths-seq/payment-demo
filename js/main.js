@@ -91,6 +91,11 @@ function renderMenuTab(isLanguageChange){
                 'tabname': 'Cash',
                 'imgicon': 'cash'
             }, {
+                'data': 'emi',
+                'tab': '4',
+                'tabname': 'EMI',
+                'imgicon': 'emi'
+            }, {
                 'data': 'rtgs',
                 'tab': '5',
                 'tabname': 'RTGS / NEFT',
@@ -212,7 +217,7 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderCashChannel;
             break;
         case 'emi':
-            fileName = 'emi';
+            fileName = 'cards';
             callbackMethod = renderEmiChannel;
             break;
         case 'rtgs':

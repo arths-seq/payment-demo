@@ -23,7 +23,7 @@ function bindCcDcEvent(){
 
 function renderCcDcTemplate(){
 	var cardData = {
-        isEmiTab: true,
+        isEmiTab: false,
 		showSavedCard: true,
 		existingUser: true,
 		showEmiCheck: true,

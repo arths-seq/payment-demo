@@ -1204,7 +1204,7 @@ body {
   .pay-container:before {
     content: '';
     width: 1px;
-    background: #b7b7b8;
+    /* background: #b7b7b8;*/
     height: 100%;
     position: absolute;
     left: 22%;
@@ -1246,19 +1246,17 @@ ul.menu-list .menuli {
     font-size: 14px;
     color: #373a49;
     display: block;
-    border-bottom: 1px solid #b7b7b8; }
-    ul.menu-list .menuli a:hover, ul.menu-list .menuli a.active {
-      color: #fff; }
+    border-bottom: 1px solid #b7b7b8;
+    border-right: 1px solid #b7b7b8; }
   ul.menu-list .menuli img {
     float: left;
     margin: 4px 8px;
     display: none; }
   ul.menu-list .menuli:last-child a {
     border-bottom: none; }
-  ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
-    background-color: #787f97; }
   ul.menu-list .menuli.active a {
-    color: #fff; }
+    /*color: #fff;*/
+    border-right: 0 solid transparent; }
 
 .amount-block {
   width: 25.5%;
