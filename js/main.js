@@ -1,5 +1,6 @@
 var languageJson,
     tabcont;
+var loadEmiOnce = true;
 function loadTranslateJson(currentLang,isLanguageChange){
     var jsonFileName;
 
@@ -272,7 +273,8 @@ function renderSelectedTab(paymentId,isLanguageChange){
 
 function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange){
     if(Payments.templates[templateFileName]){
-        if(isLanguageChange){
+        if(isLanguageChange || (loadEmiOnce && paymentTabId === 'emi')){
+            loadEmiOnce = paymentTabId === 'emi'? false : loadEmiOnce;
             callbackMethod(paymentTabId); 
         } else {
             $('.blockMain').hide();

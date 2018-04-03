@@ -13,6 +13,8 @@ function bindEmiEvent(){
 }
 function renderEmiTemplate(){
     var emiData = {
+        dataTabType:'emi',
+        cardsClass: 'emi-tab',
         isEmiTab: true,
         pageID: "emi",
         tab: "tabs-4",
@@ -93,7 +95,7 @@ function renderEmiTemplate(){
             }
         ]
     };
-    var emiTabTemplate = Payments.templates.card(emiData);
+    var emiTabTemplate = Payments.templates.cards(emiData);
 	$('.tab-container').append(emiTabTemplate);
 }
 

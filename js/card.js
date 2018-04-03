@@ -23,6 +23,8 @@ function bindCcDcEvent(){
 
 function renderCcDcTemplate(){
 	var cardData = {
+		dataTabType:'credit-debit',
+		cardsClass: 'credit-debit-tab',
         isEmiTab: false,
 		showSavedCard: true,
 		existingUser: true,
