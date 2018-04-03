@@ -1746,6 +1746,9 @@ ul.walletlist li label {
     .pay-container:after {
       content: '';
       width: 0px; }
+  .tab-container {
+    border-left: none;
+    margin-left: 0; }
   .tab-container,
   .amount-block {
     width: 100%;
@@ -1775,6 +1778,8 @@ ul.walletlist li label {
     background-color: #0061a3;
     border: 1px solid #0c74bb;
     padding-top: 20px; }
+    ul.menu-list .menuli.active a {
+      border-right: none; }
     ul.menu-list .menuli a {
       /*padding: 50px 20px;
                 margin: 8px;
