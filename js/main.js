@@ -126,6 +126,12 @@ function renderMenuTab(isLanguageChange){
                 'tabname': 'Pay Later',
                 'imgicon': 'pay-later'
             },
+                {
+                'data': 'airloan',
+                'tab': '13',
+                'tabname': 'Air Loan',
+                'imgicon': 'air-loan'
+            },
         ]
     };
     var menuDom = Payments.templates.menu_tab(menuData);
@@ -238,9 +244,9 @@ function renderSelectedTab(paymentId,isLanguageChange){
             fileName = '';
             callbackMethod;
             break;
-        case 'aloan':
-            fileName = '';
-            callbackMethod;
+        case 'airloan':
+            fileName = 'airloan';
+            callbackMethod = renderAirLoan;
             break;
         case 'bharat-qr':
             fileName = 'bharat_qr';

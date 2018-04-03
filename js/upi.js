@@ -9,8 +9,8 @@ function renderUpi(paymentTabId) {
 
 function bindUpiEvent() {
     startTimer();
-    openPopup();
-    closePopup();
+    openPopupQR();
+    closePopupQR();
     floatLabels();
 }
 
@@ -35,8 +35,8 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-function openPopup() {
-    $('.qr-btn').on('click', function () {
+function openPopupQR() {
+    $('.qr-link').on('click', function () {
         $(".upi-popup").fadeIn();
         var fiveMinutes = 60 * 5,
             display = $('.timer');
@@ -46,7 +46,7 @@ function openPopup() {
     });
 }
 
-function closePopup() {
+function closePopupQR() {
     $('.cls-popup').on('click', function () {
         clearInterval(stimer);
         $(".upi-popup").fadeOut();

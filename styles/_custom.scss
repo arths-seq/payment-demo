@@ -66,7 +66,7 @@ body {
 }
 
 .ical {
-    background-position: -160px -89px;
+    background-position: -321px -89px;
 }
 
 .iotp {
@@ -683,7 +683,29 @@ ul.walletlist li label {
     }
 }
 
-
+/* Air Loan */
+.bcklaon{float: left;}
+.blockAirlaon .airloanLogo {
+    @extend %icon;
+    &.logo-kissht {
+       background-position: -357px -560px;
+    }
+    &.logo-suvidha {
+        background-position: -370px -611px;
+    }
+}
+.blockAirlaon .airloanLogo {
+    display: table-cell;
+    text-indent: -9999px;
+    height: 40px;
+    width: 119px;
+}
+ul.airloanlist li{
+    height: 50px;
+}
+.kissht-loan,.suvidha-loan{
+    display: none;
+}
 
 @media (min-width: 768px) {
     .amount-block {
