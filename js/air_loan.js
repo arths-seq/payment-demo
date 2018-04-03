@@ -14,6 +14,8 @@ function bindAirLoanEvents(){
 
 function renderAirloanTemplate(){
 	var airloanData = {
+		dataTabType:'aloan',
+		cardsClass: 'aloan-tab',
 		sumbitBtn:translate('Submit'),
 		firstName:translate('First Name'),
 		lastName:translate('Last Name'),

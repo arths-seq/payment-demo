@@ -10,6 +10,8 @@ function bindVirtualAccEvent(){
 
 function renderVirtualTemplate(){
 	var virtualAccData = {
+		dataTabType:'virtual-acc',
+		cardsClass: 'virtual-acc-tab',
 		sumbitBtnTxt:translate('Submit'),
 		vainfoTitle:translate('VirtualAcc Info'),
 		vablockPara:translate('A bank account is being assigned exclusively to you for this transaction. <br>Kindly do NOT share it with anyone or do more than one transaction to this account. <br>Please click on "Submit" to get the account details. '),

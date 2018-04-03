@@ -28,7 +28,7 @@ function renderCcDcTemplate(){
         isEmiTab: false,
 		showSavedCard: true,
 		existingUser: true,
-		showEmiCheck: true,
+		showEmiCheck: false,
         savedCard: true,
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),

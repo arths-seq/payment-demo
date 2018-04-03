@@ -14,6 +14,8 @@ function bindEpayEvent(){
 
 function renderEpayTemplate(){
 	var paylaterData = {
+		dataTabType:'pay-later',
+		cardsClass: 'pay-later-tab',
 		sumbitBtn:translate('Submit'),
 		firstName:translate('First Name'),
 		lastName:translate('Last Name'),

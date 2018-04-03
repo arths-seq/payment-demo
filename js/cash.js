@@ -14,6 +14,8 @@ function bindCashEvents(){
 
 function renderCashTemplate(){
 	var cashData = {
+		dataTabType:'cash',
+		cardsClass: 'cash-tab',
 		cashmob: 'Mobile Number',
 		cashpin: 'Pincode',
 		cashlocatin: 'Deposit Locations',

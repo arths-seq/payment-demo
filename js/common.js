@@ -115,9 +115,14 @@ function passwordValidation(){
 function nameValidation(){
 	$(document).on('keyup blur change', '.first-name, .last-name', function (e) {
 		var yourInput = $(this).val();
-		if(yourInput.length > 2){
-			$(this).parents('.formDom').removeClass('errorvalue');
-			isNameValidated = true;
+		if(globalRegex1.test(yourInput)){
+			var no_spl_char = yourInput.replace(globalRegex1, ' ');
+			$(this).val(no_spl_char);
+			if(yourInput.length > 2 ) {			
+				$(this).parents('.formDom').removeClass('errorvalue');
+				isNameValidated = true;
+			}
+			isNameValidated = false;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
 			isNameValidated = false;

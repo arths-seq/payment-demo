@@ -214,11 +214,11 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
   background-image: none;
   border: 1px solid #d2dbdf;
   border-radius: 0px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;*/ }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, select:focus, textarea:focus, .form-control:focus {
   border-color: #d2dbdf;
@@ -1226,7 +1226,9 @@ body {
   float: left;
   position: relative;
   min-height: 350px;
-  padding-bottom: 80px; }
+  padding-bottom: 80px;
+  border-left: 1px solid #b7b7b8;
+  margin-left: -1px; }
 
 .tab-menu {
   margin: 0;
@@ -1256,7 +1258,10 @@ ul.menu-list .menuli {
     border-bottom: none; }
   ul.menu-list .menuli.active a {
     /*color: #fff;*/
-    border-right: 0 solid transparent; }
+    border-right: 1px solid #fff;
+    margin-right: 0px;
+    z-index: 1;
+    position: relative; }
 
 .amount-block {
   width: 25.5%;
@@ -1784,7 +1789,8 @@ ul.walletlist li label {
       text-align: center;
       padding: 15px 8px 35px;
       font-size: 12px;
-      color: #fff; }
+      color: #fff;
+      border-right: transparent; }
     ul.menu-list .menuli .imgmob {
       margin: 0 auto;
       height: 38px;
