@@ -20,6 +20,8 @@ function renderEmiTemplate(){
         tab: "tabs-4",
         showSavedCard: true,
         savedCard: false,
+        savedCreditCard: true,
+		savedDebitCard: false,
         blockName: 'block-emi',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',

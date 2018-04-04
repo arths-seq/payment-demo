@@ -113,9 +113,16 @@
         </div>
         {{/if}}
         <!-- emi section end -->
+        {{#if savedCreditCard}}
         <div class="form-group">
             <input type="submit" value="Submit" class="btn save-card">
-        </div>    
+        </div> 
+        {{/if}}
+        {{#if savedDebitCard}}
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn save-debit-card">
+            </div> 
+        {{/if}}
     </div>
     
 
