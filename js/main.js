@@ -165,7 +165,11 @@ function bindMenuEvents(){
         $(event.currentTarget).addClass('active');
         var blockDatatype = $(event.currentTarget).attr('data-tab');
         var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
-
+        $('.card-ccdc .formDom  input').val('');
+        if ($('.card-ccdc .formDom  input').val() == "") {
+            $('.card-ccdc .formDom  input').parents('.formDom').removeClass("has-content");
+            $('.card-ccdc .formDom  input').parents('.formDom').removeClass('errorvalue');            
+        }
         renderSelectedTab(currentTabId);
     });
 }

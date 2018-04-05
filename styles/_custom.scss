@@ -196,7 +196,8 @@ ul.menu-list {
             border-bottom: none;
         }
         &.active a {
-            /*color: #fff;*/
+            color: #0066a5;
+            font-weight: bold;
             border-right: 1px solid #fff;
             margin-right: 0px;
             z-index: 1;
@@ -850,6 +851,8 @@ ul.walletlist li label {
             padding-top: 20px;
             &.active a {
                 border-right: none;
+                color: transparent;
+                font-weight: normal;
             }
             a {
                 /*padding: 50px 20px;

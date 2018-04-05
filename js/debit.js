@@ -13,9 +13,9 @@ function bindDebitEvent(){
 	floatLabels();
 	emailValidation();
 	passwordValidation();
-	saveCardLogin();
-	ccdcGoBack();
-	emiValidation();
+    //saveDebitCardLogin();
+    saveCardLogin();
+	debitGoBack();
 	mobileNum();
 }
 
@@ -29,13 +29,13 @@ function renderDebitTemplate(){
 		showEmiCheck: false,
         savedCard: true,
         savedCreditCard: false,
-        savedDebitCard: true,
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),
         cxLabel: translate('Card Exp Date'),
         chnLabel: translate('Card Holder Name'),
         cvvLabel: translate('CSV / CVV'),
         saveMob: 'Mobile Number',
+        dataSubFormId: 'debitFormId',
         saveEmail: 'Enter your E-mail Id',
         savePass: 'Enter your Password',
         confirmPass: 'Re enter Password',
@@ -49,6 +49,7 @@ function renderDebitTemplate(){
         heCnum: translate('Please enter a valid card number'),
         heChold: translate('Please enter name on your card'),
         heCVV: translate('Its a 3 digit code printed on the back of your card'),
+        heCVVAmex: translate('Its a 4 digit code printed on the back of your card'),
 		savetx: translate('Save card now to enable express payments'),
 		emiCheck: translate('Pay with EMI'),
 		emiPlans: translate('View Plans'),
@@ -95,7 +96,7 @@ function renderDebitTemplate(){
 }
 
 // go back
-function ccdcGoBack(){
+function debitGoBack(){
 	$(document).on('click', '.ccdc-goback', function (e) {
 		$('.card-ccdc').show();
 		$('.savedCard').hide();
@@ -103,7 +104,7 @@ function ccdcGoBack(){
 	});
 };
 // sign up 
-function saveCardLogin (){
+function saveDebitCardLogin (){
 	$('.savedCard').hide();
 	$('.existing-user').hide();
 	$(document).on('click', '.save-card', function (e) {

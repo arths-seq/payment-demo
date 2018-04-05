@@ -7,6 +7,7 @@ isNameValidated = false;
 isCardValidated = false;
 isCvvValidated = false;
 isExpDateValidated =false;
+isExpDateNotValidated = false;
 
 isPanValidated = false;
 isAadharValidated = false;
@@ -118,11 +119,11 @@ function nameValidation(){
 		if(globalRegex1.test(yourInput)){
 			var no_spl_char = yourInput.replace(globalRegex1, ' ');
 			$(this).val(no_spl_char);
-			if(yourInput.length > 2 ) {			
-				$(this).parents('.formDom').removeClass('errorvalue');
-				isNameValidated = true;
-			}
 			isNameValidated = false;
+		}
+		if(yourInput.length > 2 ) {			
+			$(this).parents('.formDom').removeClass('errorvalue');
+			isNameValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
 			isNameValidated = false;
@@ -265,6 +266,7 @@ function cardNumberUpdate() {
 				$('.emi-change').hide();		
 				$('.view-plans-box').removeClass('active');
 				isCvvValidated = false;
+				$('.amexcvv-help').hide();
 
 				ele.removeClass (function (index, className) {
 					return (className.match (/\w*-icon\w*/) || []).join(' ');
@@ -290,11 +292,13 @@ function cardNumberUpdate() {
 			$(this).parents('.formDom').removeClass('errorvalue');
 			//$('.emi-Check').removeAttr('disabled');
 			$('.emi-Check').prop("disabled", false);
+			$(this).attr('data-rule-required' , 'true');
 			isCardValidated = true;
 		}else{
 			$('.emi-Check').attr('disabled');
 			$('.emi-Check').prop("disabled", true);
-			$(this).parents('.formDom').addClass('errorvalue');			
+			$(this).parents('.formDom').addClass('errorvalue');	
+			$(this).attr('data-rule-required' , 'false');		
 			isCardValidated = false;
 		}
 	});
@@ -443,16 +447,54 @@ function expiryDateValidation() {
 		//We are in YY Section
 		$(this).val(txtDateValue+ keypressed);	
 			e.preventDefault();
-			return;									
+			return;	
 	});
+	function expYearVal(){
+		var expdate = $('.exp_date:visible').val();
+	   var cardExp = expdate.split("/");
+		if(cardExp.length < 2){
+			// if exp date is 2 digit
+		}else{ 
+			var expMonth = cardExp[0].trim();
+			var expYear = cardExp[1].trim();
+		 	$("#exp-month").val(expMonth);
+			 $("#exp-year").val('20'+expYear);
+			 
+			if(expYear.length < 2 || expMonth.length < 2  || !validateExpDate(expYear, expMonth)){
+				$('.exp_date:visible').parents('.formDom').addClass('errorvalue');
+				$(this).attr('data-rule-required' , 'false');
+				isExpDateNotValidated = false;
+			}else{
+				$(this).attr('data-rule-required' , 'true');
+				isExpDateNotValidated = true;
+			}
+		}
+	};
+	function validateExpDate(expiryYear, expiryMonth) {
+		//24454: prevent invalid month being passed to backend.
+		if(expiryMonth>12 || expiryMonth<1){
+			return false;
+		}
+ 		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth() +1 ;
+		
+ 		var selDate = new Date('20'+expiryYear, expiryMonth);
+ 		var selYear = selDate.getFullYear();
+ 		var selMonth = selDate.getMonth();
 
+		return (selYear > year || (year === selYear && selMonth >= month));
+ 	}
 	$(document).on('keyup blur change', '.exp_date', function (e) {
+		expYearVal();
 		var yourInput = $(this).val();
-		if(yourInput.length > 4){
+		if(yourInput.length > 4 && isExpDateNotValidated == true){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isExpDateValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isExpDateValidated = false;
 		}
 	});
@@ -460,9 +502,11 @@ function expiryDateValidation() {
 		var yourInput = $(this).val();
 		if(yourInput.length > 2){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isCardNameValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isCardNameValidated = false;
 		}
 	});
@@ -470,25 +514,58 @@ function expiryDateValidation() {
 
 // csv/ cvv 
 function cvvValidation(){
+	$('.amexcvv-help').hide();
 	if (isMobile()) {
 		$(".cvv").attr('type','tel');	
 		$(".cvv").css('-webkit-text-security','disc');
 	}
-	$(document).on('keyup blur change', '.cvv', function (e) {
+	$(document).on('keyup blur change focus', '.cvv:visible', function (e) {
 		var yourInput = $(this).val();
-		if ($('.cardNumber').hasClass('amex') && yourInput.length > 3){
+		if ($('.cardNumber:visible').hasClass('amex-icon') && yourInput.length > 3){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isCvvValidated =  true;
-		}else if(!$('.cardNumber').hasClass('amex') && yourInput.length > 2){
+		}else if(!$('.cardNumber:visible').hasClass('amex-icon') && yourInput.length > 2){			
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isCvvValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isCvvValidated = false;
 		}
-	});	
-	$(document).on('focus', '.cvv', function (e) {
-		$('.cardNumber').hasClass('amex-icon') == true ? $('.cvv').attr('maxlength',4) : $('.cvv').attr('maxlength',3);
+		if ($('.cardNumber:visible').hasClass('amex-icon')){
+			$('.cvv').attr('maxlength',4);
+			$('.amexcvv-help').show();
+		}else{
+			$('.cvv').attr('maxlength',3); 
+			$('.cvv-help').show();
+			$('.amexcvv-help').hide();
+		}
+	});
+};
+
+// sign up 
+function saveCardLogin (){
+	$('.savedCard').hide();
+	$('.existing-user').hide();
+	$(document).on('click', '.save-card', function (e) {
+		var subFormId = $(this).attr('data-sub-form-id');
+
+		if(!$('.card-ccdc:visible .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
+			if($('.save-Card-Check:visible').is(':checked')){
+				$('.card-ccdc').hide();
+				$('.savedCard').hide();
+				$('.existing-user').show();
+			}else{
+				$('.card-ccdc').hide();
+				$('.savedCard').show();
+			}
+			$(this).parents('.formDom').removeClass('errorvalue');	
+		}else{
+			$("input[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');
+			//$('.card-ccdc  input').parents('.formDom').addClass('errorvalue');	
+		}	
 	});
 };
 

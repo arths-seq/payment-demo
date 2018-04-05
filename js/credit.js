@@ -28,10 +28,10 @@ function renderCcDcTemplate(){
         isEmiTab: false,
 		showSavedCard: true,
 		existingUser: true,
-		showEmiCheck: false,
+		showEmiCheck: true,
 		savedCard: true,
 		savedCreditCard: true,
-		savedDebitCard: false,
+		dataSubFormId: 'creditFormId',
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),
         cxLabel: translate('Card Exp Date'),
@@ -50,7 +50,8 @@ function renderCcDcTemplate(){
         iconPass: 'iPass',
         heCnum: translate('Please enter a valid card number'),
         heChold: translate('Please enter name on your card'),
-        heCVV: translate('Its a 3 digit code printed on the back of your card'),
+		heCVV: translate('Its a 3 digit code printed on the back of your card'),
+		heCVVAmex: translate('Its a 4 digit code printed on the back of your card'),
 		savetx: translate('Save card now to enable express payments'),
 		emiCheck: translate('Pay with EMI'),
 		emiPlans: translate('View Plans'),
@@ -128,26 +129,6 @@ function ccdcGoBack(){
 		$('.card-ccdc').show();
 		$('.savedCard').hide();
 		$('.existing-user').hide();
-	});
-};
-// sign up 
-function saveCardLogin (){
-	$('.savedCard').hide();
-	$('.existing-user').hide();
-	$(document).on('click', '.save-card', function (e) {
-		if(!$('.card-ccdc .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
-			if($('.save-Card-Check').is(':checked')){
-				$('.card-ccdc').hide();
-				$('.savedCard').hide();
-				$('.existing-user').show();
-			}else{
-				$('.card-ccdc').hide();
-				$('.savedCard').show();
-			}
-			$(this).parents('.formDom').removeClass('errorvalue');	
-		}else{
-			$('.card-ccdc  input').parents('.formDom').addClass('errorvalue');	
-		}	
 	});
 };
 

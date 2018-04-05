@@ -9,7 +9,7 @@ function renderEmiChannel(paymentTabId){
 }
 function bindEmiEvent(){
     floatLabels();
-    emiValidation();
+    emiValidationTab();
 }
 function renderEmiTemplate(){
     var emiData = {
@@ -21,7 +21,6 @@ function renderEmiTemplate(){
         showSavedCard: true,
         savedCard: false,
         savedCreditCard: true,
-		savedDebitCard: false,
         blockName: 'block-emi',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',
@@ -41,6 +40,7 @@ function renderEmiTemplate(){
         heCnum: 'Please enter a valid card number',
         heChold: 'Please enter name on your card',
         heCVV: 'Its a 3 digit code printed on the back of your card',
+        heCVVAmex: translate('Its a 4 digit code printed on the back of your card'),
         savetx: 'Save card now to enable express payments',
         'cardEmiBank': [
             {
@@ -101,7 +101,7 @@ function renderEmiTemplate(){
 	$('.tab-container').append(emiTabTemplate);
 }
 
-function emiValidation(){
+function emiValidationTab(){
     $('.emitable').hide();
     $(document).on('change', 'select', function (e) {
         if ($(this).val() == 'hdfc') {
