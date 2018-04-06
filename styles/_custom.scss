@@ -157,8 +157,6 @@ body {
     position: relative;
     min-height: 350px;
     padding-bottom: 80px;
-    border-left: 1px solid #b7b7b8;
-    margin-left: -1px;
 }
 
 .tab-menu {
@@ -537,16 +535,6 @@ ul.walletlist li label {
 }
 
 .info-content {
-    /*background: #F7F7F7;
-    color: #373a49;
-    border: 1px solid #0067a6;
-    padding: 5px;
-    width: 222px;
-    margin: 5px 0 0;
-    position: absolute;
-    top: -110px;
-    left: 79px;
-    z-index: 9;*/
     display: none;
     -webkit-transform: translateY(-10px);
     -ms-transform: translateY(-10px);
@@ -878,80 +866,80 @@ ul.walletlist li label {
             border-right: none;
             color: transparent;
             font-weight: normal;
-        }
-        a {
-            height: calc(100vh - 93vh);
-            border-bottom: none;
-            text-align: center;
-            padding: 15px 8px 35px;
-            font-size: 12px;
-            color: #6f6b6b;
-            border-right: transparent;
-        }
-        .imgmob {
-            margin: 0 auto;
-            height: 38px;
-            width: 38px;
-        }
-
-        &:hover,
-        &.active {
-            background-color: #eaf3f9;
-            border: 1px solid #b4d1e4;
-            color: #6f6b6b;
+            
             a {
+                height: calc(100vh - 93vh);
+                border-bottom: none;
+                text-align: center;
+                padding: 15px 8px 35px;
+                font-size: 12px;
                 color: #6f6b6b;
+                border-right: transparent;
             }
-        }
+            .imgmob {
+                margin: 0 auto;
+                height: 38px;
+                width: 38px;
+            }
 
-        &:last-child a {
-            border: none;
-        }
-        .icon-cdc {
-            background-position: -4px -225px;
-        }
-        .icon-nb {
-            background-position: -52px -225px;
-        }
-        .icon-cash {
-            background-position: -100px -225px;
-        }
-        .icon-emi {
-            background-position: -149px -225px;
-        }
-        .icon-rtnft {
-            background-position: -195px -225px;
-        }
-        .icon-wallet {
-            background-position: -244px -225px;
-        }
-        .icon-amex {
-            background-position: -292px -225px;
-        }
-        .icon-upi {
-            background-position: -340px -225px;
-        }
-        .icon-qr {
-            background-position: -388px -225px;
-        }
-        .icon-exp-pay {
-            background-position: -436px -225px;
-        }
-        .icon-pay-later {
-            background-position: -4px -273px;
-        }
-        .icon-virtual-acc {
-            background-position: -53px -273px;
-        }
-        .icon-air-loan {
-            background-position: -102px -273px;
-        }
-        .icon-amazonpay {
-            background-position: -149px -273px;
-        }
+            &:hover,
+            &.active {
+                background-color: #eaf3f9;
+	            border: 1px solid #b4d1e4;
+	            color: #6f6b6b;
+                a {
+                    color: #6f6b6b;
+                }
+            }
 
+            &:last-child a {
+                border: none;
+            }
+            .icon-cdc {
+                background-position: -4px -225px;
+            }
+            .icon-nb {
+                background-position: -52px -225px;
+            }
+            .icon-cash {
+                background-position: -100px -225px;
+            }
+            .icon-emi {
+                background-position: -149px -225px;
+            }
+            .icon-rtnft {
+                background-position: -195px -225px;
+            }
+            .icon-wallet {
+                background-position: -244px -225px;
+            }
+            .icon-amex {
+                background-position: -292px -225px;
+            }
+            .icon-upi {
+                background-position: -340px -225px;
+            }
+            .icon-qr {
+                background-position: -388px -225px;
+            }
+            .icon-exp-pay {
+                background-position: -436px -225px;
+            }
+            .icon-pay-later {
+                background-position: -4px -273px;
+            }
+            .icon-virtual-acc {
+                background-position: -53px -273px;
+            }
+            .icon-air-loan {
+                background-position: -102px -273px;
+            }
+            .icon-amazonpay {
+                background-position: -149px -273px;
+            }
+
+        }
     }
-
     .footer {
         margin: 0;
         width: 100%;
