@@ -11,6 +11,7 @@ isExpDateNotValidated = false;
 
 isPanValidated = false;
 isAadharValidated = false;
+isPayltrValidated = false;
 
 isCardNameValidated = false;
 
@@ -50,13 +51,24 @@ function mobileNum() {
         var mobRegExpr = /^[6-9]{1}[0-9]{9}$/;
         if (mobile.val().length > 9 && mobRegExpr.test(mobile.val())) {
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isMobileValidated = true;
         } else {
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isMobileValidated = false;
         }
     });
 }
+// go back
+function ccdcGoBack(){
+	$(document).on('click', '.ccdc-goback', function (e) {
+		$('.card-ccdc').show();
+		$('.savedCard').hide();
+		$('.existing-user').hide();
+	});
+	//signup-section
+};
 // Email validation
 function emailValidation(){
 	$(document).on('keyup blur change', '.emailV', function (e) {			
@@ -64,15 +76,18 @@ function emailValidation(){
 		if ($.trim(sEmail).length == 0) {
 			//alert('Please enter valid email address');
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isEmailValidated = false;
 			return false;
 		}
 		if (validateEmail(sEmail)) {
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isEmailValidated = true;
 		}
 		else {
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isEmailValidated = false;
 			return false;
 		}
@@ -119,13 +134,16 @@ function nameValidation(){
 		if(globalRegex1.test(yourInput)){
 			var no_spl_char = yourInput.replace(globalRegex1, ' ');
 			$(this).val(no_spl_char);
+			$(this).attr('data-rule-required' , 'false');
 			isNameValidated = false;
 		}
 		if(yourInput.length > 2 ) {			
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isNameValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isNameValidated = false;
 		}
 	});
@@ -565,7 +583,7 @@ function saveCardLogin (){
 			}
 			$(this).parents('.formDom').removeClass('errorvalue');	
 		}else{
-			$("input[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
 		}	
 	});
 };

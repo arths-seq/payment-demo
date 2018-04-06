@@ -2084,7 +2084,7 @@ ul.walletlist li label {
   display: none; }
 
 .aadhar-or-pan {
-  border-top: 1px solid #d2dbdf;
+  /*border-top: 1px solid #d2dbdf;*/
   position: relative;
   margin: 10px 0; }
 
@@ -2212,7 +2212,11 @@ ul.airloanlist li {
   border-collapse: separate;
   margin-bottom: 20px;
   color: #656565;
-  text-align: center; }
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 5px 8px 1px #ccc;
+  width: 100%; }
   .emitable th {
     border-bottom: none; }
   .emitable td {

@@ -123,15 +123,6 @@ function renderCcDcTemplate(){
 	$('.tab-container').append(cards);
 }
 
-// go back
-function ccdcGoBack(){
-	$(document).on('click', '.ccdc-goback', function (e) {
-		$('.card-ccdc').show();
-		$('.savedCard').hide();
-		$('.existing-user').hide();
-	});
-};
-
 // emi validation
 function emiValidation(){
 	$('.view-plans').hide();
