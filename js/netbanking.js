@@ -1,5 +1,7 @@
 function renderNetBnk(paymentTabId){
     var bankData = {
+        dataTabType:'net-banking',
+		cardsClass: 'net-banking-tab',
         'allbank': [
             {
                 nbname: 'ICICI Bank',

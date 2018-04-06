@@ -1,16 +1,25 @@
 function renderRtgs(paymentTabId) {
-    var rtgsTabTemplate = Payments.templates.rtgs_neft();
-    $('.tab-container').append(rtgsTabTemplate);
+    renderrtgsTemplate();
     $('.blockMain').hide();
     $('[data-tab-type="' + paymentTabId + '"]').show();
     bindRtgsEvent();
 }
 
-
 function bindRtgsEvent() {
     floatLabels();
     UTRValidation();
 }
+
+
+function renderrtgsTemplate(){
+	var rtgsData = {
+		dataTabType:'rtgs',
+		cardsClass: 'rtgs-tab',
+    };
+    var rtgsTabTemplate = Payments.templates.rtgs_neft(rtgsData);
+    $('.tab-container').append(rtgsTabTemplate);
+}
+
 
 function UTRValidation(){
     $(document).on('keyup blur','.utr-validation', function(e) {	

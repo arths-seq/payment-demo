@@ -214,11 +214,11 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
   background-image: none;
   border: 1px solid #d2dbdf;
   border-radius: 0px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;*/ }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, select:focus, textarea:focus, .form-control:focus {
   border-color: #d2dbdf;
@@ -1204,7 +1204,7 @@ body {
   .pay-container:before {
     content: '';
     width: 1px;
-    background: #b7b7b8;
+    /* background: #b7b7b8;*/
     height: 100%;
     position: absolute;
     left: 22%;
@@ -1226,7 +1226,9 @@ body {
   float: left;
   position: relative;
   min-height: 350px;
-  padding-bottom: 80px; }
+  padding-bottom: 80px;
+  border-left: 1px solid #b7b7b8;
+  margin-left: -1px; }
 
 .tab-menu {
   margin: 0;
@@ -1246,19 +1248,21 @@ ul.menu-list .menuli {
     font-size: 14px;
     color: #373a49;
     display: block;
-    border-bottom: 1px solid #b7b7b8; }
-    ul.menu-list .menuli a:hover, ul.menu-list .menuli a.active {
-      color: #fff; }
+    border-bottom: 1px solid #b7b7b8;
+    border-right: 1px solid #b7b7b8; }
   ul.menu-list .menuli img {
     float: left;
     margin: 4px 8px;
     display: none; }
   ul.menu-list .menuli:last-child a {
     border-bottom: none; }
-  ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
-    background-color: #787f97; }
   ul.menu-list .menuli.active a {
-    color: #fff; }
+    color: #0066a5;
+    font-weight: bold;
+    border-right: 1px solid #fff;
+    margin-right: 0px;
+    z-index: 1;
+    position: relative; }
 
 .amount-block {
   width: 25.5%;
@@ -1749,6 +1753,9 @@ ul.walletlist li label {
     .pay-container:after {
       content: '';
       width: 0px; }
+  .tab-container {
+    border-left: none;
+    margin-left: 0; }
   .tab-container,
   .amount-block {
     width: 100%;
@@ -1780,6 +1787,9 @@ ul.walletlist li label {
     border: 1px solid #d8d3d3;
     padding-top: 20px;
     margin: 2px; }
+      border-right: none;
+      color: transparent;
+      font-weight: normal; }
     ul.menu-list .menuli a {
       height: calc(100vh - 93vh);
       border-bottom: none;
@@ -1787,6 +1797,7 @@ ul.walletlist li label {
       padding: 15px 8px 35px;
       font-size: 12px;
       color: #6f6b6b; }
+      border-right: transparent; }
     ul.menu-list .menuli .imgmob {
       margin: 0 auto;
       height: 38px;
@@ -1948,14 +1959,6 @@ ul.walletlist li label {
   top: 0;
   left: 0;
   opacity: 0; }
-
-.emitable {
-  display: table;
-  border-collapse: separate;
-  margin-bottom: 20px; }
-  .emitable td {
-    border-top: 1px solid #becfd6;
-    border-bottom: none; }
 
 .eze_logo {
   background-position: -7px -615px;
@@ -2226,24 +2229,17 @@ ul.airloanlist li {
 .loanWrap, .suvidha-loan {
   display: none; }
 
-.block-info {
-  color: #424141;
-  line-height: 18px;
-  padding: 0 0 20px 0; }
-  .block-info h3 {
-    color: #2f2f2f;
-    font-weight: bold; }
-
-.block-acc {
-  display: none; }
-  .block-acc .list-acc {
-    display: table;
-    width: 100%; }
-    .block-acc .list-acc li {
-      display: table-cell;
-      line-height: 16px;
-      padding: 2px 0; }
-      .block-acc .list-acc li.thval {
-        width: 98px; }
-      .block-acc .list-acc li.thdata {
-        font-weight: bold; }
+.emitable {
+  display: table;
+  border-collapse: separate;
+  margin-bottom: 20px;
+  color: #656565;
+  text-align: center; }
+  .emitable th {
+    border-bottom: none; }
+  .emitable td {
+    border-top: 1px solid #becfd6;
+    border-bottom: none;
+    vertical-align: middle; }
+    .emitable td:first-child {
+      padding: 0; }

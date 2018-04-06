@@ -14,6 +14,8 @@ function bindUpiEvent(){
 
 function renderupiTemplate(){    
     var upiData = {
+        dataTabType:'UPI',
+		cardsClass: 'upi-tab',
         sumbitBtnTxt:translate('Submit'),
         upiNote:translate('Pay using VPA or Scan QR code and pay'),
         upiaddLabel:translate('Enter UPI address'),

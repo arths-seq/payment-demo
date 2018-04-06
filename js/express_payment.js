@@ -14,6 +14,8 @@ function bindExpressPaymentEvents(){
 
 function renderExpressPaymentTemplate(){
 	var expressPaymentData = {
+		dataTabType:'Express_Payment',
+		cardsClass: 'express-payment-tab',
 		sumbitBtn:translate('Submit'),
 		emailID:translate('Email Id'),
 		savePass: translate('Enter your Password'),

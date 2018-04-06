@@ -15,6 +15,8 @@ function bindWalletEvents(){
 
 function renderWalletTemplate(){
     var walletData = {
+        dataTabType:'wallet',
+		cardsClass: 'wallet-tab',
         walletMob: 'Mobile Number',
         walletEmail: 'Enter your E-mail Id',
         iconMob: 'iMob',

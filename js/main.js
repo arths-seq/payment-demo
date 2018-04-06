@@ -1,5 +1,7 @@
 var languageJson,
     tabcont;
+var loadEmiOnce = true;
+loadDebitOnce = true;
 function loadTranslateJson(currentLang,isLanguageChange){
     var jsonFileName;
 
@@ -76,63 +78,73 @@ function renderMenuTab(isLanguageChange){
     var menuData = {
         'menu': [
             {
-                'data': 'credit-debit',
+                'data': 'credit',
                 'tab': '1',
-                'tabname': translate('Credit / Debit'),
+                'tabname': translate('Credit Card'),
+                'imgicon': 'cdc'
+            },{
+                'data': 'debit',
+                'tab': '2',
+                'tabname': translate('Debit Card'),
                 'imgicon': 'cdc'
             }, {
                 'data': 'net-banking',
-                'tab': '2',
+                'tab': '3',
                 'tabname': translate('Net Banking'),
                 'imgicon': 'nb'
             }, {
                 'data': 'cash',
-                'tab': '3',
+                'tab': '4',
                 'tabname': 'Cash',
                 'imgicon': 'cash'
             }, {
-                'data': 'rtgs',
+                'data': 'emi',
                 'tab': '5',
+                'tabname': 'EMI',
+                'imgicon': 'emi'
+            }, {
+                'data': 'rtgs',
+                'tab': '6',
                 'tabname': 'RTGS / NEFT',
                 'imgicon': 'rtnft'
             }, {
                 'data': 'wallet',
-                'tab': '6',
+                'tab': '7',
                 'tabname': 'Wallet',
                 'imgicon': 'wallet'
             }, {
                 'data': 'Amex-click',
-                'tab': '7',
+                'tab': '8',
                 'tabname': 'Amex eZeClick',
                 'imgicon': 'amex'
             }, {
                 'data': 'Express_Payment',
-                'tab': '8',
+                'tab': '9',
                 'tabname': 'Express Payments',
                 'imgicon': 'exp-pay'
             }, {
                 'data': 'UPI',
-                'tab': '9',
+                'tab': '10',
                 'tabname': 'UPI',
                 'imgicon': 'upi'
             }, {
                 'data': 'bharat-qr',
-                'tab': '10',
+                'tab': '11',
                 'tabname': 'Bharat QR',
                 'imgicon': 'qr'
             }, {
                 'data': 'pay-later',
-                'tab': '11',
+                'tab': '12',
                 'tabname': 'Pay Later',
                 'imgicon': 'pay-later'
             }, {
                 'data': 'virtual-acc',
-                'tab': '12',
+                'tab': '13',
                 'tabname': 'Virtual Account',
                 'imgicon': 'virtual-acc'
             },{
                 'data': 'aloan',
-                'tab': '13',
+                'tab': '14',
                 'tabname': 'Air Loan',
                 'imgicon': 'air-loan'
             }
@@ -160,7 +172,12 @@ function bindMenuEvents(){
         $(event.currentTarget).addClass('active');
         var blockDatatype = $(event.currentTarget).attr('data-tab');
         var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
-
+        
+        $('.card-ccdc .formDom  input').val('');
+        if ($('.card-ccdc .formDom  input').val() == "") {
+            $('.card-ccdc .formDom  input').parents('.formDom').removeClass("has-content");
+            $('.card-ccdc .formDom  input').parents('.formDom').removeClass('errorvalue');            
+        }
         renderSelectedTab(currentTabId);
     });
 }
@@ -206,9 +223,13 @@ function renderSelectedTab(paymentId,isLanguageChange){
     var callbackMethod,
         fileName;
     switch(paymentId) {
-        case 'credit-debit':
+        case 'credit':
             fileName = 'cards';
             callbackMethod = renderCcDc;
+            break;
+        case 'debit':
+            fileName = 'cards';
+            callbackMethod = renderDebitCard;
             break;
         case 'net-banking':
             fileName = 'netbanking';
@@ -219,7 +240,7 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderCashChannel;
             break;
         case 'emi':
-            fileName = 'emi';
+            fileName = 'cards';
             callbackMethod = renderEmiChannel;
             break;
         case 'rtgs':
@@ -267,7 +288,7 @@ function renderSelectedTab(paymentId,isLanguageChange){
             callbackMethod = renderAmazonChannel;
             break;
         default:
-            paymentId = 'credit-debit';
+            paymentId = 'credit';
             fileName = 'cards';
             callbackMethod = renderCcDc;
             break;
@@ -278,7 +299,10 @@ function renderSelectedTab(paymentId,isLanguageChange){
 
 function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange){
     if(Payments.templates[templateFileName]){
-        if(isLanguageChange){
+        if(isLanguageChange || loadEmiOnce && paymentTabId === 'emi' || loadDebitOnce && paymentTabId === 'debit'){
+            loadEmiOnce = paymentTabId === 'emi' ?  false : loadEmiOnce;
+            loadDebitOnce = paymentTabId === 'debit' ?  false : loadDebitOnce;
+            
             callbackMethod(paymentTabId); 
         } else {
             $('.blockMain').hide();
