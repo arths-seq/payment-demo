@@ -186,10 +186,7 @@ ul.menu-list {
             color: #373a49;
             display: block;
             border-bottom: 1px solid #b7b7b8;
-            &:hover,
-            &.active {
-                color: #fff;
-            }
+            border-right: 1px solid #b7b7b8;
         }
         img {
             float: left;
@@ -869,7 +866,7 @@ ul.walletlist li label {
             border-right: none;
             color: transparent;
             font-weight: normal;
-
+            
             a {
                 height: calc(100vh - 93vh);
                 border-bottom: none;
@@ -888,8 +885,8 @@ ul.walletlist li label {
             &:hover,
             &.active {
                 background-color: #eaf3f9;
-                border: 1px solid #b4d1e4;
-                color: #6f6b6b;
+	            border: 1px solid #b4d1e4;
+	            color: #6f6b6b;
                 a {
                     color: #6f6b6b;
                 }
