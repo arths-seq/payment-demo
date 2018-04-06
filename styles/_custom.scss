@@ -157,9 +157,7 @@ body {
     position: relative;
     min-height: 350px;
     padding-bottom: 80px;
-    border-left: 1px solid #b7b7b8;
-    margin-left: -1px;
-}
+ }
 
 .tab-menu {
     margin: 0;
@@ -188,7 +186,10 @@ ul.menu-list {
             color: #373a49;
             display: block;
             border-bottom: 1px solid #b7b7b8;
-            border-right: 1px solid #b7b7b8;
+             &:hover,
+            &.active {
+                color: #fff;
+            }		  
         }
         img {
             float: left;
@@ -537,16 +538,6 @@ ul.walletlist li label {
 }
 
 .info-content {
-    /*background: #F7F7F7;
-    color: #373a49;
-    border: 1px solid #0067a6;
-    padding: 5px;
-    width: 222px;
-    margin: 5px 0 0;
-    position: absolute;
-    top: -110px;
-    left: 79px;
-    z-index: 9;*/
     display: none;
     -webkit-transform: translateY(-10px);
     -ms-transform: translateY(-10px);
@@ -878,7 +869,7 @@ ul.walletlist li label {
             border-right: none;
             color: transparent;
             font-weight: normal;
-        }
+        
         a {
             height: calc(100vh - 93vh);
             border-bottom: none;
@@ -951,7 +942,7 @@ ul.walletlist li label {
         }
 
     }
-
+}
     .footer {
         margin: 0;
         width: 100%;
