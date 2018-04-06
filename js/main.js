@@ -136,6 +136,12 @@ function renderMenuTab(isLanguageChange){
                 'tabname': 'Air Loan',
                 'imgicon': 'air-loan'
             }
+            ,{
+                'data': 'amzon',
+                'tab': '14',
+                'tabname': 'Amazon Pay',
+                'imgicon': 'amazonpay'
+            }
         ]
     };
     var menuDom = Payments.templates.menu_tab(menuData);
@@ -248,13 +254,17 @@ function renderSelectedTab(paymentId,isLanguageChange){
             fileName = 'virtual_acc';
             callbackMethod = renderVirtual;
             break;
-        case 'airloan':
+        case 'aloan':
             fileName = 'air_loan';
             callbackMethod = renderAirLoan;
             break;
         case 'bharat-qr':
             fileName = 'bharat_qr';
             callbackMethod = renderBharatqrChannel;
+            break;
+        case 'amzon':
+            fileName = 'amazonpay';
+            callbackMethod = renderAmazonChannel;
             break;
         default:
             paymentId = 'credit-debit';
@@ -300,32 +310,8 @@ function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange
 
 $(document).ready(function(){
     loadTranslateJson('en');
-    
-    $(".regular").slick({
-        arrows: false,
-        dots: true,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 2,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    centerMode: true,
-                    centerPadding: '20px',
-                    slidesToShow: 2
-                }
-    },
-            {
-                breakpoint: 640,
-                settings: {
-                    centerMode: true,
-                    centerPadding: '20px',
-                    slidesToShow: 1
-					
-                }
+    if (isMobile()) {
+        renderSavedCards();
+        $('.save-card-container').css('display', 'block');
     }
-  ]
-    });
-    
 });

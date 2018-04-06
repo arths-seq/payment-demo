@@ -37,7 +37,7 @@ $(window).resize(function () {
         $('body').addClass('mobile');
         $('.blockMain[data="tabs-1"]').hide();
         $('.menuli:first-child').removeClass('active');
-    } else {
+     } else {
         $('body').removeClass('mobile');
     }
 });
