@@ -1941,14 +1941,6 @@ ul.walletlist li label {
   left: 0;
   opacity: 0; }
 
-.emitable {
-  display: table;
-  border-collapse: separate;
-  margin-bottom: 20px; }
-  .emitable td {
-    border-top: 1px solid #becfd6;
-    border-bottom: none; }
-
 .eze_logo {
   background-position: -7px -615px;
   width: 204px;
@@ -2215,24 +2207,17 @@ ul.airloanlist li {
 .loanWrap, .suvidha-loan {
   display: none; }
 
-.block-info {
-  color: #424141;
-  line-height: 18px;
-  padding: 0 0 20px 0; }
-  .block-info h3 {
-    color: #2f2f2f;
-    font-weight: bold; }
-
-.block-acc {
-  display: none; }
-  .block-acc .list-acc {
-    display: table;
-    width: 100%; }
-    .block-acc .list-acc li {
-      display: table-cell;
-      line-height: 16px;
-      padding: 2px 0; }
-      .block-acc .list-acc li.thval {
-        width: 98px; }
-      .block-acc .list-acc li.thdata {
-        font-weight: bold; }
+.emitable {
+  display: table;
+  border-collapse: separate;
+  margin-bottom: 20px;
+  color: #656565;
+  text-align: center; }
+  .emitable th {
+    border-bottom: none; }
+  .emitable td {
+    border-top: 1px solid #becfd6;
+    border-bottom: none;
+    vertical-align: middle; }
+    .emitable td:first-child {
+      padding: 0; }

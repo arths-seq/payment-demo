@@ -80,20 +80,20 @@ function renderEmiTemplate(){
             {
                 emiTenure: '0 months',
                 bankRate: '12%',
-                installments: 'Rs. 0',
-                interestPaid: 'Rs. 0'
+                installments: '₹ 0',
+                interestPaid: '₹ 0'
             },
             {
                 emiTenure: '3 months',
                 bankRate: '12%',
-                installments: 'Rs. 55',
-                interestPaid: 'Rs. 20'
+                installments: '₹ 55',
+                interestPaid: '₹ 20'
             },
             {
                 emiTenure: '6 months',
                 bankRate: '12%',
-                installments: 'Rs. 5,100',
-                interestPaid: 'Rs. 301'
+                installments: '₹ 5,100',
+                interestPaid: '₹ 301'
             }
         ]
     };

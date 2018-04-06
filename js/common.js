@@ -551,6 +551,8 @@ function saveCardLogin (){
 	$('.existing-user').hide();
 	$(document).on('click', '.save-card', function (e) {
 		var subFormId = $(this).attr('data-sub-form-id');
+		//var currentTab = $(event.currentTarget).find('.debit-tab').attr('data-tab-type');
+		//$(this).find('.debit-tab');
 
 		if(!$('.card-ccdc:visible .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
 			if($('.save-Card-Check:visible').is(':checked')){
@@ -563,8 +565,7 @@ function saveCardLogin (){
 			}
 			$(this).parents('.formDom').removeClass('errorvalue');	
 		}else{
-			$("input[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');
-			//$('.card-ccdc  input').parents('.formDom').addClass('errorvalue');	
+			$("input[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
 		}	
 	});
 };

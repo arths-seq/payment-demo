@@ -1,0 +1,18 @@
+.emitable{
+    display: table;
+    border-collapse: separate;
+    margin-bottom: 20px;
+    color: #656565;
+    text-align: center;
+    th{
+        border-bottom: none;
+    }
+    td{
+        border-top:1px solid #becfd6;
+        border-bottom: none;
+        vertical-align: middle;
+        &:first-child{
+            padding: 0;
+        }
+    }
+}
