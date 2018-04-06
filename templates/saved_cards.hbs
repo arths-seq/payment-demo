@@ -1,0 +1,27 @@
+<div class="regular slider">
+    {{#each CardDetails}}
+    <div class="slide-content">
+        <div class="saved-card-wrap">
+            <div class="icon-div">
+                <div class="{{svdicon}}-icon cdheight"></div>
+                <span class="input-group-addon icon iCard"></span>
+                <div class="trash-card icon"></div>
+            </div>
+            <div class="cdno">
+                <h3 class="cardNumber">{{cardnumval}}</h3>
+            </div>
+            <p class="cardname">{{cardnameval}}</p>
+            <div class="row">
+                <div class="col-xs-7">
+                    <h4 class="exp_date">{{cardexp}}</h4>
+                </div>
+                <div class="col-xs-5">
+                    <div class="formDom form-group">
+                        <input type="password" class="form-control cvv" placeholder="CSV / CVV" maxlength="3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

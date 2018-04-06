@@ -5,39 +5,45 @@
     <title>Airpay</title>
     <script>
         var Payments = {
-			templates:{}
-		};
+            templates: {}
+        };
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles/slick.css" type="text/css" />
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <script type="text/javascript" src='vendor/jquery.min.js'></script>
     <!-- <script type="text/javascript" src='vendor/handlebars.min.js'></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/javascript" src='vendor/slick.min.js'></script>
 
-	<!--- Airpay validtion JS Files -->
+    <!--- Airpay validtion JS Files -->
 
-	<!--- Airpay JS Files -->
+    <!--- Airpay JS Files -->
 
-	<script type="text/javascript" src='js/cash.js'></script>
+    <script type="text/javascript" src='js/cash.js'></script>
     <script type="text/javascript" src='js/credit.js'></script>
     <script type="text/javascript" src='js/debit.js'></script>    
-	<script type="text/javascript" src='js/netbanking.js'></script>
+    <script type="text/javascript" src='js/netbanking.js'></script>
     <script type="text/javascript" src='js/amex.js'></script>
-	<script type="text/javascript" src='js/upi.js'></script>
-	<script type="text/javascript" src='js/wallet.js'></script>
+    <script type="text/javascript" src='js/upi.js'></script>
+    <script type="text/javascript" src='js/wallet.js'></script>
     <script type="text/javascript" src='js/paylater.js'></script>
     <script type="text/javascript" src='js/rtgs.js'></script>
     <script type="text/javascript" src='js/bharat_qr.js'></script>
-    <script type="text/javascript" src='js/virtual_acc.js'></script>
+    <script type="text/javascript" src='js/savedcards.js'></script>
     <script type="text/javascript" src='js/air_loan.js'></script>
+    <script type="text/javascript" src='js/virtual_acc.js'></script>
     <script type="text/javascript" src='js/express_payment.js'></script>
+    <script type="text/javascript" src='js/amazon.js'></script>
     <script type="text/javascript" src='js/emi.js'></script>
 
-    
+
+
     <!--- Airpay JS Files -->
     <script type="text/javascript" src='js/common.js'></script>
     <script type="text/javascript" src='js/main.js'></script>
+
 </head>
 
 <body>
@@ -46,7 +52,7 @@
         <div class="main-container">
 
             <div class="head">
-                
+
                 <div class="langbar">
                     <select class="form-control language-selector"> 
                         <option value="en">English</option>
@@ -56,13 +62,15 @@
 
                 </div>
                 <div class="logo">
-                    <div class="mer-logo-txt"><!--<img src="img/airpaylogo.png">-->Airpay Demo</div>
+                    <div class="mer-logo-txt">
+                        <!--<img src="img/airpaylogo.png">-->Airpay Demo</div>
                 </div>
                 <div class="closetab">&#60; Back</div>
             </div>
             <div class="message-block"></div>
             <div class="pay-container">
                 <div class="container block-container">
+
                     <div class="amount-block">
                         <h2>Summary</h2>
                         <p class="odrID">Order ID: <strong>33333</strong></p>
@@ -89,6 +97,8 @@
                             <p class="conRate">Rate of Conversion: <span>INR&nbsp;65.51</span></p>
                         </div>
                     </div>
+
+                    <div class="save-card-container"></div>
 
                     <div class="tab-menu"></div>
 

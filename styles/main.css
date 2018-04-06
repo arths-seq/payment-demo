@@ -5,7 +5,7 @@
   display: block;
   height: 0; }
 
-.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .card-icon, .eze_logo, .bqr-tab-logo, .bqr-logo, .bqr-supp, .kissht-logo, .blockAirlaon .airloanLogo {
+.paylogo, .tablogo, .blockNetBanking .bankLogo, .blockWallet .walletLogo, .blockamazon .amazon_logo, .card-icon, .eze_logo, .bqr-tab-logo, .bqr-logo, .bqr-supp, .kissht-logo, .blockAirlaon .airloanLogo {
   background-color: transparent;
   background-image: url(../img/spriteimg.png);
   background-repeat: no-repeat; }
@@ -1657,6 +1657,10 @@ ul.walletlist li label {
   max-width: 320px;
   width: 60%; }
 
+.blockamazon .amazon_logo {
+  height: 70px;
+  background-position: -7px -892px; }
+
 @media (min-width: 768px) {
   .amount-block {
     float: right; } }
@@ -1682,7 +1686,7 @@ ul.walletlist li label {
   .tab-container {
     width: 55.4%; }
   .blockMain {
-    padding: 35px 4% 80px; }
+    padding: 35px 0 80px; }
   .footer {
     padding: 0 2%; }
   .paylogo {
@@ -1708,12 +1712,14 @@ ul.walletlist li label {
     float: none;
     width: 100%;
     padding: 0 15px 5px 15px; }
+  .mer-logo-txt {
+    padding: 0 0 10px 0; }
   .langbar,
   .mobile .langbar {
     float: none;
     padding: 3px 10px;
-    background-color: #e1edf5;
-    border-bottom: 1px solid #d1dee6; }
+    background-color: #fff;
+    border-bottom: 1px solid #fff; }
     .langbar:after,
     .mobile .langbar:after {
       content: '';
@@ -1724,7 +1730,7 @@ ul.walletlist li label {
     .mobile .langbar select {
       max-width: 80px;
       float: right;
-      background-color: #e1edf5;
+      background-color: #fff;
       border: 0px;
       -webkit-box-shadow: inset 0 1px 1px transparent;
       box-shadow: inset 0 1px 1px transparent; }
@@ -1733,14 +1739,14 @@ ul.walletlist li label {
     .tnc p {
       padding: 5px 5px;
       margin: 0;
-      border-top: 1px solid #d1dee6; }
+      border-top: 0px solid #d1dee6; }
   .blockMain {
-    padding: 15px 2% 50px; }
+    padding: 15px 0 50px; }
   .pay-container {
     position: relative;
     border: none;
     background: #fff;
-    padding: 0 10px 10px; }
+    padding: 0 0px 0; }
     .pay-container:before {
       content: '';
       width: 0px; }
@@ -1755,56 +1761,53 @@ ul.walletlist li label {
     width: 100%;
     max-width: inherit; }
   .amount-block {
-    padding: 0px 5px 15px; }
+    padding: 0; }
     .amount-block .odrID,
     .amount-block .merName {
-      padding: 0 0 8px 0; }
+      padding: 0 0 8px;
+      margin: 0 15px 0; }
+    .amount-block h2 {
+      padding: 0 0 5px;
+      margin: 0 15px 15px; }
+  .amt-summary {
+    background: #0061a3;
+    font-size: 16px; }
   .tab-menu {
     width: 100%;
     max-width: inherit;
     margin: 0 auto;
     float: none;
-    padding: 5px; }
+    padding: 2px;
+    /*background-color:#e8e7e7;*/
+    background-color: #efeeef; }
   ul.menu-list .menuli {
-    /*width: 45%;
-            width: 33.33%;
-            float: left;
-            display: table;
-            margin: 7px;
-            box-shadow: 0 8px 6px -6px #a0b8c7;
-            background-color: #0061a3;
-            height: calc(100vh - 80vh)*/
-    width: 33.33%;
+    width: 32.7%;
     float: left;
-    background-color: #0061a3;
-    border: 1px solid #0c74bb;
-    padding-top: 20px; }
-    ul.menu-list .menuli.active a {
+    background-color: #fff;
+    border: 1px solid #d8d3d3;
+    padding-top: 20px;
+    margin: 2px; }
       border-right: none;
       color: transparent;
       font-weight: normal; }
     ul.menu-list .menuli a {
-      /*padding: 50px 20px;
-                margin: 8px;
-                padding: 0;
-				@include border-radius(5px);
-                border: 1px solid #d4d4d4;
-                height: calc(100vh - 78vh);
-                vertical-align: middle;
-                display: table-cell;*/
       height: calc(100vh - 93vh);
       border-bottom: none;
       text-align: center;
       padding: 15px 8px 35px;
       font-size: 12px;
-      color: #fff;
+      color: #6f6b6b; }
       border-right: transparent; }
     ul.menu-list .menuli .imgmob {
       margin: 0 auto;
       height: 38px;
       width: 38px; }
     ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
-      background-color: #055a94; }
+      background-color: #eaf3f9;
+      border: 1px solid #b4d1e4;
+      color: #6f6b6b; }
+      ul.menu-list .menuli:hover a, ul.menu-list .menuli.active a {
+        color: #6f6b6b; }
     ul.menu-list .menuli:last-child a {
       border: none; }
     ul.menu-list .menuli .icon-cdc {
@@ -1829,6 +1832,12 @@ ul.walletlist li label {
       background-position: -436px -225px; }
     ul.menu-list .menuli .icon-pay-later {
       background-position: -4px -273px; }
+    ul.menu-list .menuli .icon-virtual-acc {
+      background-position: -53px -273px; }
+    ul.menu-list .menuli .icon-air-loan {
+      background-position: -102px -273px; }
+    ul.menu-list .menuli .icon-amazonpay {
+      background-position: -149px -273px; }
   .footer {
     margin: 0;
     width: 100%; }
@@ -1843,7 +1852,7 @@ ul.walletlist li label {
     .tabWrap.showtab {
       top: 125px;
       transition: all 0.5s;
-      padding: 0px 10px; }
+      padding: 0px 15px; }
     .tabWrap .tab-container {
       min-height: 0;
       padding-bottom: 0;
@@ -1862,15 +1871,25 @@ ul.walletlist li label {
       min-height: 50px;
       padding: 10px 6%; } }
 
+@media (max-width: 640px) {
+  ul.menu-list .menuli {
+    width: 32.5%; } }
+
 @media (max-width: 480px) {
   ul.menu-list .menuli {
-    width: 50%; }
+    width: 49%; }
   ul.blocklist li {
     width: 47%; }
   .tabWrap .tablogo {
-    background-position: -160px -11px; } }
+    background-position: -160px -11px; }
+  .small60 {
+    max-width: inherit;
+    width: 100%;
+    padding: 0; } }
 
 @media (max-width: 420px) {
+  ul.menu-list .menuli {
+    width: 48.7%; }
   .tabWrap .tablogo {
     background-size: 386px 719px;
     background-position: -129px -5px; } }
@@ -2076,6 +2095,9 @@ ul.walletlist li label {
 
 .qr-link {
   font-size: 16px; }
+
+.upi-content .popup-body {
+  max-height: inherit; }
 
 .epay-details {
   display: block; }

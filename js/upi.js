@@ -9,6 +9,7 @@ function bindUpiEvent(){
     modalPopup();
     startTimer();
     upiValidation();
+    floatLabels();
 }
 
 function renderupiTemplate(){    
