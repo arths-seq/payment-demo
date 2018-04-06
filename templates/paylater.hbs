@@ -27,7 +27,7 @@
         <div class="epay-details">
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control first-name">
+                    <input type="text" class="form-control first-name" data-rule-required="false">
                     <label>{{firstName}}</label>
                     <span class="input-group-addon icon iUser"></span>
                 </div>
@@ -36,7 +36,7 @@
 
              <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control last-name">
+                    <input type="text" class="form-control last-name" data-rule-required="false">
                     <label>{{lastName}}</label>
                     <span class="input-group-addon icon iUser"></span>
                 </div>
@@ -45,7 +45,7 @@
 
              <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control emailV">
+                    <input type="text" class="form-control emailV" data-rule-required="false">
                     <label>{{emailID}}</label>
                     <span class="input-group-addon icon iEmail"></span>
                 </div>
@@ -54,7 +54,7 @@
 
              <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="tel" class="form-control mobnumns" maxlength="10">
+                   <input type="tel" class="form-control mobnumns" maxlength="10" data-rule-required="false">
                     <label>{{phone}}</label>
                     <span class="input-group-addon icon iMob"></span>
                 </div>
@@ -63,13 +63,13 @@
 
             <div class="form-group">
                 <label>
-                    <input type="checkbox" class="checkbox-inline payltr-check" value="">
+                    <input type="checkbox" class="checkbox-inline payltr-check" value="" data-rule-required="false">
                     {{termsLine}} <a class="payltrtnc" data-popup-open="popup-epay" data-type="tncpayltr" href="#" id="payltr-tnc">{{terms}}</a>
                 </label>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="{{sumbitBtn}}" class="btn step1-btn">
+                <input type="submit" value="{{sumbitBtn}}" class="btn step1-btn" data-sub-form-id="{{data0SubFormId}}">
                 <p class="note-txt text-right">{{formNote}}</p> 
             </div> 
 
@@ -78,7 +78,7 @@
 
 
         <div class="epay-uid">
-            
+            <div class="emitable">
              <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control ovd-val epay-aadhar">
@@ -98,7 +98,8 @@
                 </div>
                 <span class="help">{{panHelp}}</span>
             </div> 
-
+            </div>
+            
             <div class="formDom form-group">
                 <div class="input-group">
                     <input type="text" class="form-control">

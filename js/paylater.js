@@ -50,9 +50,19 @@ function renderEpayTemplate(){
 
 // pay later validation
 function paylaterValidation(){
-	 
+	$(document).on('click', '.payltr-check', function (e){
+		if($('.payltr-check').is(':checked')){			
+			$(this).css('outline','none');
+			$(this).attr('data-rule-required' , 'true');
+			isPayltrValidated = true;
+		}else{
+			$(this).css('outline','1px solid red');
+			$(this).attr('data-rule-required' , 'false');
+			isPayltrValidated = false;
+		}		
+	 });
 	$('.step1-btn').on('click', function () {
-		if(!$('.epay-details  input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true && $('.payltr-check').is(':checked')){
+		if(!$('.epay-details  input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true && isPayltrValidated == true){
 			setTimeout(function(){
 				$(".epay-uid").fadeIn();
 				$(".epay-details").fadeOut();     
@@ -62,7 +72,10 @@ function paylaterValidation(){
 			}, 200);
 			$('.epay-details  input').parents('.formDom').removeClass('errorvalue');	
 		}else{
-			$('.epay-details  input').parents('.formDom').addClass('errorvalue');	
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');
+			if(isPayltrValidated == false){
+				$('.payltr-check').css('outline','1px solid red');
+			}
 		}	
     });
     $('.step2-btn').on('click', function () {
@@ -110,20 +123,24 @@ function paylaterValidation(){
 		if($('input').hasClass('epay-aadhar')){
 			if(ovdNumVal.val().length == 12 && regexAadhar.test(ovdNumVal.val())){
 				$(this).parents('.formDom').removeClass('errorvalue');
+				$(this).attr('data-rule-required' , 'true');
 				isAadharValidated = true;
 				return true;
 			}else{
 				$(this).parents('.formDom').addClass('errorvalue');
+				$(this).attr('data-rule-required' , 'true');
 				isAadharValidated = false;
 				return false;
 			}
 		}else if($('input').hasClass('epay-pan')){
 			if(ovdNumVal.val().length == 10 && regexPan.test(ovdNumVal.val())){
 				$(this).parents('.formDom').removeClass('errorvalue');
+				$(this).attr('data-rule-required' , 'true');
 				isPanValidated = true;
 				return true;
 			}else{
 				$(this).parents('.formDom').addClass('errorvalue');
+				$(this).attr('data-rule-required' , 'false');
 				isPanValidated = false;
 				return false;
 			}
