@@ -32,6 +32,7 @@ function renderVirtualTemplate(){
 }
 
 function bindVirtualAccEvent(){
+	$('.block-va-acc').hide();
 	$(document).on('click','.virtual-acc-details', function(e) {
 		$('.block-info').hide();
 		$('.block-va-acc').show();

@@ -15,6 +15,8 @@ isPayltrValidated = false;
 
 isCardNameValidated = false;
 
+isCashPinValidated = false;
+
 function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth <= 767;;
 }
@@ -109,9 +111,11 @@ function passwordValidation(){
 		var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/g;
 		if(password.length > 7 && passReg.test(password)){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isPwdValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isPwdValidated = false;
 		}
 	});
@@ -120,9 +124,11 @@ function passwordValidation(){
 		var confirmPass = $('.confirmPassword').val();
 		if(password === confirmPass){
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
 			isConPwdValidated = true;
 		}else{
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
 			isConPwdValidated = false;
 		}
 	});
@@ -567,6 +573,7 @@ function cvvValidation(){
 function saveCardLogin (){
 	$('.savedCard').hide();
 	$('.existing-user').hide();
+	// credit debit card login validation
 	$(document).on('click', '.save-card', function (e) {
 		var subFormId = $(this).attr('data-sub-form-id');
 		//var currentTab = $(event.currentTarget).find('.debit-tab').attr('data-tab-type');
@@ -585,6 +592,22 @@ function saveCardLogin (){
 		}else{
 			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
 		}	
+	});
+	// after credit debit signup  validation
+	$(document).on('click', '.signup-submit', function (e) {
+		if(!$('.signup-section .formDom  input').val() == '' && isMobileValidated == true && isEmailValidated == true && isPwdValidated == true && isConPwdValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$(".signup-section input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+		}
+	});
+	// after credit debit signin validation
+	$(document).on('click', '.signin-submit', function (e) {
+		if(!$('.signin-section .formDom  input').val() == '' && isMobileValidated == true && isPwdValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$(".signin-section input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+		}
 	});
 };
 

@@ -6,7 +6,7 @@
                     <h3 class="subtitle">Sign In</h3>
                     <div class="formDom form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control emailV" >
+                        <input type="text" class="form-control emailV" data-rule-required="false">
                         <label>{{emailID}}</label>
                         <span class="input-group-addon icon {{iconEmail}}"></span>
                     </div>
@@ -14,14 +14,14 @@
                     </div>
                     <div class="formDom form-group">
                     <div class="input-group">
-                        <input type="password" class="form-control newPassword" >
+                        <input type="password" class="form-control newPassword" data-rule-required="false">
                         <label>{{savePass}}</label>
                         <span class="input-group-addon icon {{iconPass}}"></span>
                         </div>
                         <span class="help errorBox"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="{{sumbitBtn}}" class="btn">
+                        <input type="submit" value="{{sumbitBtn}}" class="btn exp-pay-submit">
                     </div> 
                     <div class="row">
                         <div class="col-xs-5">
@@ -40,7 +40,7 @@
                     <h3 class="subtitle">Forgot password</h3>
                     <div class="formDom form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control emailV" >
+                        <input type="text" class="form-control emailV" data-rule-required="false">
                         <label>{{emailID}}</label>
                         <span class="input-group-addon icon {{iconEmail}}"></span>
                     </div>

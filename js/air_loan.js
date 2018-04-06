@@ -89,10 +89,10 @@ function renderAirloanTemplate(){
 }
 function airLoanValidation() {
 	$('.airloan-signup').on('click', function () {
-		if(!$('.kissht-loan input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true){
-            $('.kissht-loan input').parents('.formDom').removeClass('errorvalue');	
+		if(!$('.kissht-details input').val() == '' && isNameValidated == true && isEmailValidated == true && isMobileValidated == true){
+            $(this).parents('.formDom').removeClass('errorvalue');
 		}else{
-			$('.kissht-loan input').parents('.formDom').addClass('errorvalue');	
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
 		}	
     });
 }

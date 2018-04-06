@@ -30,8 +30,19 @@ function pinCodeValidation() {
 		var pinCode = $(this);
 		if (pinCode.val().length > 5) {
 			$(this).parents('.formDom').removeClass('errorvalue');
+			$(this).attr('data-rule-required' , 'true');
+			isCashPinValidated =  true;
 		} else {
 			$(this).parents('.formDom').addClass('errorvalue');
+			$(this).attr('data-rule-required' , 'false');
+			isCashPinValidated =  false;
+		}
+	});
+	$(document).on('click', '.cash-submit', function (e) {
+		if(!$('.cash-tab .formDom  input').val() == '' && isMobileValidated == true && isPwdValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
 		}
 	});
 }

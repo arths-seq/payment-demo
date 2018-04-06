@@ -36,5 +36,12 @@ function expressPaymentValidation() {
     $('.back-exp-pay').on('click', function () {
         $('.exp-pay-signin').show();
 		$('.exp-pay-forgot').hide();
-    });
+	});
+	$(document).on('click', '.exp-pay-submit', function (e) {
+		if(!$('.exp-pay-signin .formDom  input').val() == '' && isPwdValidated == true && isEmailValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+		}
+	});
 }

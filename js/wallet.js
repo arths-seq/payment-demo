@@ -106,4 +106,11 @@ function walletValidation(){
 		$('.walletlist').show();
 		$('.wallet-login').hide();
     });
+    $(document).on('click', '.wallet-submit', function (e) {
+		if(!$('.wallet-login .formDom  input').val() == '' && isMobileValidated == true && isEmailValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+		}
+	});
 }

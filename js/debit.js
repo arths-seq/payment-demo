@@ -28,7 +28,7 @@ function renderDebitTemplate(){
 		existingUser: true,
 		showEmiCheck: false,
         savedCard: true,
-        savedCreditCard: false,
+        savedCreditCard: true,
         blockName: 'blockCards',
         cnLabel: translate('Card Number'),
         cxLabel: translate('Card Exp Date'),

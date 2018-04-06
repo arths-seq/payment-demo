@@ -10,6 +10,12 @@ function renderEmiChannel(paymentTabId){
 function bindEmiEvent(){
     floatLabels();
     emiValidationTab();
+    specialCharactersValidation();
+	cvvValidation();
+	expiryDateValidation();
+	cardNameNumVal();
+	saveCardLogin();
+	ccdcGoBack();
 }
 function renderEmiTemplate(){
     var emiData = {
@@ -20,7 +26,7 @@ function renderEmiTemplate(){
         tab: "tabs-4",
         showSavedCard: true,
         savedCard: false,
-        savedCreditCard: true,
+        savedCreditCard: false,
         blockName: 'block-emi',
         cnLabel: 'Card Number',
         cxLabel: 'Card Exp Date',
@@ -110,4 +116,12 @@ function emiValidationTab(){
             $('.emitable').hide();
         }
     });
+    // emi validation
+	$(document).on('click', '.emi-submit', function (e) {
+		if(!$('.emi-tab .formDom  input').val() == '' && isCardNameValidated == true && isCardValidated == true && isCvvValidated == true && isExpDateValidated == true){
+			$(this).parents('.formDom').removeClass('errorvalue');
+		}else{
+			$("input:visible[data-rule-required!='true']").parents('.formDom').addClass('errorvalue');	
+		}
+	});
 }

@@ -121,7 +121,7 @@
             {{#if savedCreditCard}}
                 <input type="submit" value="Submit" class="btn save-card" data-sub-form-id="{{dataSubFormId}}">
             {{else}}
-                 <input type="submit" value="Submit" class="btn save-card" data-sub-form-id="{{dataSubFormId}}">
+                 <input type="submit" value="Submit" class="btn emi-submit" data-sub-form-id="{{dataSubFormId}}">
             {{/if}}
         </div> 
     </div>
@@ -133,7 +133,7 @@
             <h3 class="subtitle">Sign Up</h3>
              <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10">
+                    <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10" data-rule-required="false">
                     <label>{{saveMob}}</label>
                     <span class="input-group-addon icon {{iconMob}}"></span>
                 </div>
@@ -141,7 +141,7 @@
             </div>
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control emailV" >
+                    <input type="text" class="form-control emailV" data-rule-required="false">
                     <label>{{saveEmail}}</label>
                     <span class="input-group-addon icon {{iconEmail}}"></span>
                 </div>
@@ -149,7 +149,7 @@
             </div>
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="password" class="form-control newPassword" >
+                    <input type="password" class="form-control newPassword" data-rule-required="false" >
                     <label>{{savePass}}</label>
                     <span class="input-group-addon icon {{iconPass}}"></span>
                 </div>
@@ -157,14 +157,14 @@
             </div>
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="password" class="form-control confirmPassword" >
+                    <input type="password" class="form-control confirmPassword" data-rule-required="false" >
                     <label>{{confirmPass}}</label>
                     <span class="input-group-addon icon {{iconPass}}"></span>
                 </div>
                 <span class="help errorBox"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="{{submitBtnTxt}}" class="btn">
+                <input type="submit" value="{{submitBtnTxt}}" class="btn signup-submit">
             </div> 
             <div class="row">
                 {{#if showSavedCard}}
@@ -191,7 +191,7 @@
             <h3 class="subtitle">Sign In</h3>
              <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10">
+                    <input type="tel" class="form-control mobnumns" maxlength="10" minlength="10" data-rule-required="false">
                     <label>{{saveMob}}</label>
                     <span class="input-group-addon icon {{iconMob}}"></span>
                 </div>
@@ -199,14 +199,14 @@
             </div>
             <div class="formDom form-group">
                 <div class="input-group">
-                    <input type="password" class="form-control newPassword" >
+                    <input type="password" class="form-control newPassword" data-rule-required="false">
                     <label>{{savePass}}</label>
                     <span class="input-group-addon icon {{iconPass}}"></span>
                 </div>
                 <span class="help errorBox"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="{{submitBtnTxt}}" class="btn">
+                <input type="submit" value="{{submitBtnTxt}}" class="btn signin-submit">
             </div> 
             <div class="row">
                     <div class="col-xs-5">
