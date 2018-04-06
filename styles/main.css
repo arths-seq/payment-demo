@@ -2083,18 +2083,14 @@ ul.walletlist li label {
 .epay-uid, .epay-otp {
   display: none; }
 
-.aadhar-or-pan {
-  /*border-top: 1px solid #d2dbdf;*/
-  position: relative;
-  margin: 10px 0; }
+.emitable.paylatr-pan-aadhar {
+  padding: 20px 10px 0 10px;
+  margin-left: -5px; }
 
-.ovd-title {
-  position: absolute;
-  top: -11px;
-  left: 41%;
-  width: 10%;
-  background-color: #fff;
-  text-align: center; }
+.aadhar-or-pan {
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: 0; }
 
 .stepwrap {
   max-width: 380px;
@@ -2215,7 +2211,7 @@ ul.airloanlist li {
   text-align: center;
   border: 1px solid #ccc;
   padding: 10px;
-  box-shadow: 0 5px 8px 1px #ccc;
+  box-shadow: 0 1px 6px 1px #ccc;
   width: 100%; }
   .emitable th {
     border-bottom: none; }

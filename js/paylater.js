@@ -50,6 +50,7 @@ function renderEpayTemplate(){
 
 // pay later validation
 function paylaterValidation(){
+	$('.emitable').show();
 	$(document).on('click', '.payltr-check', function (e){
 		if($('.payltr-check').is(':checked')){			
 			$(this).css('outline','none');
