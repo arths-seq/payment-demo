@@ -126,7 +126,7 @@ body {
     &:before {
         content: '';
         width: 1px;
-       /* background: #b7b7b8;*/
+        /* background: #b7b7b8;*/
         height: 100%;
         position: absolute;
         left: 22%;
@@ -831,7 +831,7 @@ ul.walletlist li label {
             width: 0px;
         }
     }
-    .tab-container{
+    .tab-container {
         border-left: none;
         margin-left: 0;
     }
@@ -875,81 +875,81 @@ ul.walletlist li label {
             border: 1px solid #d8d3d3;
             padding-top: 20px;
             margin: 2px;
-                border-right: none;
-                color: transparent;
-                font-weight: normal;
-            }
+            border-right: none;
+            color: transparent;
+            font-weight: normal;
+        }
+        a {
+            height: calc(100vh - 93vh);
+            border-bottom: none;
+            text-align: center;
+            padding: 15px 8px 35px;
+            font-size: 12px;
+            color: #6f6b6b;
+            border-right: transparent;
+        }
+        .imgmob {
+            margin: 0 auto;
+            height: 38px;
+            width: 38px;
+        }
+
+        &:hover,
+        &.active {
+            background-color: #eaf3f9;
+            border: 1px solid #b4d1e4;
+            color: #6f6b6b;
             a {
-                height: calc(100vh - 93vh);
-                border-bottom: none;
-                text-align: center;
-                padding: 15px 8px 35px;
-                font-size: 12px;
                 color: #6f6b6b;
-                border-right: transparent;
-            }
-            .imgmob {
-                margin: 0 auto;
-                height: 38px;
-                width: 38px;
-            }
-
-            &:hover,
-            &.active {
-                background-color: #eaf3f9;
-                border: 1px solid #b4d1e4;
-                color: #6f6b6b;
-                a {
-                    color: #6f6b6b;
-                }
-            }
-
-            &:last-child a {
-                border: none;
-            }
-            .icon-cdc {
-                background-position: -4px -225px;
-            }
-            .icon-nb {
-                background-position: -52px -225px;
-            }
-            .icon-cash {
-                background-position: -100px -225px;
-            }
-            .icon-emi {
-                background-position: -149px -225px;
-            }
-            .icon-rtnft {
-                background-position: -195px -225px;
-            }
-            .icon-wallet {
-                background-position: -244px -225px;
-            }
-            .icon-amex {
-                background-position: -292px -225px;
-            }
-            .icon-upi {
-                background-position: -340px -225px;
-            }
-            .icon-qr {
-                background-position: -388px -225px;
-            }
-            .icon-exp-pay {
-                background-position: -436px -225px;
-            }
-            .icon-pay-later {
-                background-position: -4px -273px;
-            }
-            .icon-virtual-acc {
-                background-position: -53px -273px;
-            }
-            .icon-air-loan {
-                background-position: -102px -273px;
-            }
-            .icon-amazonpay {
-                background-position: -149px -273px;
             }
         }
+
+        &:last-child a {
+            border: none;
+        }
+        .icon-cdc {
+            background-position: -4px -225px;
+        }
+        .icon-nb {
+            background-position: -52px -225px;
+        }
+        .icon-cash {
+            background-position: -100px -225px;
+        }
+        .icon-emi {
+            background-position: -149px -225px;
+        }
+        .icon-rtnft {
+            background-position: -195px -225px;
+        }
+        .icon-wallet {
+            background-position: -244px -225px;
+        }
+        .icon-amex {
+            background-position: -292px -225px;
+        }
+        .icon-upi {
+            background-position: -340px -225px;
+        }
+        .icon-qr {
+            background-position: -388px -225px;
+        }
+        .icon-exp-pay {
+            background-position: -436px -225px;
+        }
+        .icon-pay-later {
+            background-position: -4px -273px;
+        }
+        .icon-virtual-acc {
+            background-position: -53px -273px;
+        }
+        .icon-air-loan {
+            background-position: -102px -273px;
+        }
+        .icon-amazonpay {
+            background-position: -149px -273px;
+        }
+
     }
 
     .footer {
@@ -995,8 +995,6 @@ ul.walletlist li label {
             padding: 10px 6%;
         }
     }
-
-
 
 }
 
