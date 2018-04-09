@@ -1226,9 +1226,7 @@ body {
   float: left;
   position: relative;
   min-height: 350px;
-  padding-bottom: 80px;
-  border-left: 1px solid #b7b7b8;
-  margin-left: -1px; }
+  padding-bottom: 80px; }
 
 .tab-menu {
   margin: 0;
@@ -1516,16 +1514,6 @@ ul.walletlist li label {
   margin-bottom: 15px; }
 
 .info-content {
-  /*background: #F7F7F7;
-    color: #373a49;
-    border: 1px solid #0067a6;
-    padding: 5px;
-    width: 222px;
-    margin: 5px 0 0;
-    position: absolute;
-    top: -110px;
-    left: 79px;
-    z-index: 9;*/
   display: none;
   -webkit-transform: translateY(-10px);
   -ms-transform: translateY(-10px);
@@ -1790,54 +1778,54 @@ ul.walletlist li label {
     border-right: none;
     color: transparent;
     font-weight: normal; }
-  ul.menu-list a {
-    height: calc(100vh - 93vh);
-    border-bottom: none;
-    text-align: center;
-    padding: 15px 8px 35px;
-    font-size: 12px;
-    color: #6f6b6b;
-    border-right: transparent; }
-  ul.menu-list .imgmob {
-    margin: 0 auto;
-    height: 38px;
-    width: 38px; }
-  ul.menu-list:hover, ul.menu-list.active {
-    background-color: #eaf3f9;
-    border: 1px solid #b4d1e4;
-    color: #6f6b6b; }
-    ul.menu-list:hover a, ul.menu-list.active a {
+    ul.menu-list .menuli a {
+      height: calc(100vh - 93vh);
+      border-bottom: none;
+      text-align: center;
+      padding: 15px 8px 35px;
+      font-size: 12px;
+      color: #6f6b6b;
+      border-right: transparent; }
+    ul.menu-list .menuli .imgmob {
+      margin: 0 auto;
+      height: 38px;
+      width: 38px; }
+    ul.menu-list .menuli:hover, ul.menu-list .menuli.active {
+      background-color: #eaf3f9;
+      border: 1px solid #b4d1e4;
       color: #6f6b6b; }
-  ul.menu-list:last-child a {
-    border: none; }
-  ul.menu-list .icon-cdc {
-    background-position: -4px -225px; }
-  ul.menu-list .icon-nb {
-    background-position: -52px -225px; }
-  ul.menu-list .icon-cash {
-    background-position: -100px -225px; }
-  ul.menu-list .icon-emi {
-    background-position: -149px -225px; }
-  ul.menu-list .icon-rtnft {
-    background-position: -195px -225px; }
-  ul.menu-list .icon-wallet {
-    background-position: -244px -225px; }
-  ul.menu-list .icon-amex {
-    background-position: -292px -225px; }
-  ul.menu-list .icon-upi {
-    background-position: -340px -225px; }
-  ul.menu-list .icon-qr {
-    background-position: -388px -225px; }
-  ul.menu-list .icon-exp-pay {
-    background-position: -436px -225px; }
-  ul.menu-list .icon-pay-later {
-    background-position: -4px -273px; }
-  ul.menu-list .icon-virtual-acc {
-    background-position: -53px -273px; }
-  ul.menu-list .icon-air-loan {
-    background-position: -102px -273px; }
-  ul.menu-list .icon-amazonpay {
-    background-position: -149px -273px; }
+      ul.menu-list .menuli:hover a, ul.menu-list .menuli.active a {
+        color: #6f6b6b; }
+    ul.menu-list .menuli:last-child a {
+      border: none; }
+    ul.menu-list .menuli .icon-cdc {
+      background-position: -4px -225px; }
+    ul.menu-list .menuli .icon-nb {
+      background-position: -52px -225px; }
+    ul.menu-list .menuli .icon-cash {
+      background-position: -100px -225px; }
+    ul.menu-list .menuli .icon-emi {
+      background-position: -149px -225px; }
+    ul.menu-list .menuli .icon-rtnft {
+      background-position: -195px -225px; }
+    ul.menu-list .menuli .icon-wallet {
+      background-position: -244px -225px; }
+    ul.menu-list .menuli .icon-amex {
+      background-position: -292px -225px; }
+    ul.menu-list .menuli .icon-upi {
+      background-position: -340px -225px; }
+    ul.menu-list .menuli .icon-qr {
+      background-position: -388px -225px; }
+    ul.menu-list .menuli .icon-exp-pay {
+      background-position: -436px -225px; }
+    ul.menu-list .menuli .icon-pay-later {
+      background-position: -4px -273px; }
+    ul.menu-list .menuli .icon-virtual-acc {
+      background-position: -53px -273px; }
+    ul.menu-list .menuli .icon-air-loan {
+      background-position: -102px -273px; }
+    ul.menu-list .menuli .icon-amazonpay {
+      background-position: -149px -273px; }
   .footer {
     margin: 0;
     width: 100%; }
@@ -1971,6 +1959,19 @@ ul.walletlist li label {
 .cashwork {
   display: inline-block;
   padding: 10px 0; }
+
+.iPin {
+  background-position: -204px -84px; }
+
+.iLocation {
+  background-position: -243px -83px;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  height: 34px; }
+
+.location-section {
+  padding-right: 41px; }
 
 .cashworkBox {
   display: none;
@@ -2243,3 +2244,25 @@ ul.airloanlist li {
     vertical-align: middle; }
     .emitable td:first-child {
       padding: 0; }
+
+.block-info {
+  color: #424141;
+  line-height: 18px;
+  padding: 0 0 20px 0; }
+  .block-info h3 {
+    color: #2f2f2f;
+    font-weight: bold; }
+
+.block-acc {
+  display: none; }
+  .block-acc .list-acc {
+    display: table;
+    width: 100%; }
+    .block-acc .list-acc li {
+      display: table-cell;
+      line-height: 16px;
+      padding: 2px 0; }
+      .block-acc .list-acc li.thval {
+        width: 98px; }
+      .block-acc .list-acc li.thdata {
+        font-weight: bold; }

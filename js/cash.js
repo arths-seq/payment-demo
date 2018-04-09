@@ -19,6 +19,9 @@ function renderCashTemplate(){
 		cashmob: 'Mobile Number',
 		cashpin: 'Pincode',
 		cashlocatin: 'Deposit Locations',
+		iconMob: 'iMob',
+		iconPin: 'iPin',
+		iconLocation: 'iLocation',
 		cashheCnum: 'Please enter a valid Mobile Number'
     };
 
