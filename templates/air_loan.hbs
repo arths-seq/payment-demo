@@ -1,0 +1,139 @@
+<div class="blockMain blockAirlaon {{cardsClass}}" data-tab-type="{{dataTabType}}">
+    <div class="loanWrap">
+        <ul class="blocklist airloanlist">
+            {{#each allLoan}}
+            <li class="{{titile}}">
+                <label for="{{titile}}-ppc">
+                    <input type="radio" name="airloan_radio" class="radio-box" value="{{value}}" data-wallettype="{{value}}Wallet" id="{{titile}}-ppc">
+                    <span class="airloanLogo logo-{{titile}}">{{alname}}</span>
+                </label>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="form-group">
+            <input type="submit" value="{{sumbitBtn}}" data-btnid="loan_submit" class="btn">
+        </div>
+    </div>
+
+    <div class="kissht-loan">
+        <div class="kissht-logo"></div>
+        <div class="kissht-details">
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control first-name" data-rule-required="false">
+                        <label>{{firstName}}</label>
+                        <span class="input-group-addon icon iUser"></span>
+                    </div>
+                    <span class="help">{{fnHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control last-name" data-rule-required="false">
+                        <label>{{lastName}}</label>
+                        <span class="input-group-addon icon iUser"></span>
+                    </div>
+                    <span class="help">{{lnHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control emailV" data-rule-required="false">
+                        <label>{{emailID}}</label>
+                        <span class="input-group-addon icon iEmail"></span>
+                    </div>
+                    <span class="help">{{eidHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control mobnumns" maxlength="10" data-rule-required="false">
+                        <label>{{phone}}</label>
+                        <span class="input-group-addon icon iMob"></span>
+                    </div>
+                    <span class="help">{{phHelp}}</span>
+                </div>
+                <div class="form-group">
+                   
+                <input type="submit" value="{{sumbitBtn}}" class="btn airloan-signup">
+                    <p class="noteLink">
+                        <!--<a class="float-left bcklaon" href="javascript:void(0);">{{backtx}}</a>-->
+                        <span class="float-right note-txt">{{formNote}}</span>
+                    </p> 
+                </div>
+            
+        </div>
+    </div>
+    <div class="suvidha-loan">
+        <div class="icon suvidha-tab-logo"></div>
+        <div class="suvidha-details">
+            
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <label>{{adharlabel}}</label>
+                        <span class="input-group-addon icon iaadhar"></span>
+                    </div>
+                    <span class="help">{{adharHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <label>{{panLabel}}</label>
+                        <span class="input-group-addon icon ipancard"></span>
+                    </div>
+                    <span class="help">{{panHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <label>{{voterLabel}}</label>
+                        <span class="input-group-addon icon ipancard"></span>
+                    </div>
+                    <span class="help">{{voteridHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <select name="loan_select" class="form-control loan_select-options">
+                        <option></option>
+                        {{#each loanType}}
+                            <option value="{{titile}}">{{lname}}</option>
+                        {{/each}}
+                    </select>
+                    <label>{{selectLoanlabel}}</label>
+                    <span class="help">{{loanHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <label>{{birthlabel}}</label>
+                        <span class="input-group-addon icon ical"></span>
+                    </div>
+                    <span class="help">{{birthHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <select name="marital_select" class="form-control marital_select-options">
+                    <option></option>
+                    {{#each MaritalType}}
+                        <option value="{{titile}}">{{mlname}}</option>
+                    {{/each}}
+                </select>
+                    <label>{{selectMartlabel}}</label>
+                    <span class="help">{{MartHelp}}</span>
+                </div>
+                <div class="formDom form-group">
+                    <select name="gender_select" class="form-control gender_select-options">
+                    <option></option>
+                    {{#each GenderType}}
+                        <option value="{{titile}}">{{gname}}</option>
+                    {{/each}}
+                </select>
+                    <label>{{selectGenderlabel}}</label>
+                    <span class="help">{{GenderHelp}}</span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="{{sumbitBtn}}" class="btn">
+                    <p class="noteLink">
+                        <a class="float-left bcklaon" href="javascript:void(0);">{{backtx}}</a>
+                        <span class="float-right note-txt">{{formNote}}</span>
+                    </p> 
+                </div>
+        </div>
+    </div>
+</div>
