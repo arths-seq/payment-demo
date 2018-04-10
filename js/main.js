@@ -2,6 +2,7 @@ var languageJson,
     tabcont;
 var loadEmiOnce = true;
 loadDebitOnce = true;
+loadCreditOnce = true;
 function loadTranslateJson(currentLang,isLanguageChange){
     var jsonFileName;
 
@@ -321,9 +322,10 @@ function renderSelectedTab(paymentId,isLanguageChange){
 
 function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange){
     if(Payments.templates[templateFileName]){
-        if(isLanguageChange || loadEmiOnce && paymentTabId === 'emi' || loadDebitOnce && paymentTabId === 'debit'){
+        if(isLanguageChange || loadEmiOnce && paymentTabId === 'emi' || loadDebitOnce && paymentTabId === 'debit' || loadCreditOnce && paymentTabId === 'credit'){
             loadEmiOnce = paymentTabId === 'emi' ?  false : loadEmiOnce;
             loadDebitOnce = paymentTabId === 'debit' ?  false : loadDebitOnce;
+            loadCreditOnce = paymentTabId === 'credit' ?  false : loadCreditOnce;
             
             callbackMethod(paymentTabId); 
         } else {
