@@ -17,6 +17,32 @@ function bindEmiEvent(){
 	saveCardLogin();
 	ccdcGoBack();
 }
+
+function getEmiData(){
+    var emiData = paymentChannelsData.DOMAIN.EMI.BANK,
+        counter = 0,
+        currentObj,
+        resultArr = [];      
+        
+    resultArr.push({
+        nbname: 'Select Bank',
+        value: 'selectbank',
+        titile: 'selectbank',
+        cardEmi: true
+    });
+    for(;counter<emiData.length;counter++){
+        currentObj = emiData[counter];
+        resultArr.push({
+            nbname: currentObj.BANKTITLE,
+            value: currentObj.BANKCODE,
+            titile: currentObj.BANKCODE,
+            emitTenure: currentObj.EMI_TENURE.TENURE,
+            cardEmi: true
+        });
+    }
+    return resultArr;
+}
+
 function renderEmiTemplate(){
     var emiData = {
         dataTabType:'emi',
@@ -48,60 +74,7 @@ function renderEmiTemplate(){
         heCVV: 'Its a 3 digit code printed on the back of your card',
         heCVVAmex: translate('Its a 4 digit code printed on the back of your card'),
         savetx: 'Save card now to enable express payments',
-        'cardEmiBank': [
-            {
-                nbname: 'Select Bank',
-                value: 'selectbank',
-                titile: 'selectbank',
-                cardEmi: true
-            },
-            {
-                nbname: 'ICICI Bank',
-                value: 'icici',
-                titile: 'nbicici',
-                cardEmi: true
-            }, {
-                nbname: 'HDFC Bank',
-                value: 'hdfc',
-                titile: 'nbhdfc',
-                cardEmi: true
-            }, {
-                nbname: 'Kotak Bank',
-                value: 'kotak',
-                titile: 'nbkotak',
-                cardEmi: false
-            }, {
-                nbname: 'Axis Bank',
-                value: 'axis',
-                titile: 'nbaxis',
-                cardEmi: true
-            }, {
-                nbname: 'SBI Bank',
-                value: 'sbi',
-                titile: 'nbsbi',
-                cardEmi: false
-            }
-        ],
-        'emiTable': [
-            {
-                emiTenure: '0 months',
-                bankRate: '12%',
-                installments: '₹ 0',
-                interestPaid: '₹ 0'
-            },
-            {
-                emiTenure: '3 months',
-                bankRate: '12%',
-                installments: '₹ 55',
-                interestPaid: '₹ 20'
-            },
-            {
-                emiTenure: '6 months',
-                bankRate: '12%',
-                installments: '₹ 5,100',
-                interestPaid: '₹ 301'
-            }
-        ]
+        'cardEmiBank': getEmiData()
     };
     var emiTabTemplate = Payments.templates.cards(emiData);
 	$('.tab-container').append(emiTabTemplate);

@@ -13,79 +13,35 @@ function bindWalletEvents(){
     ccdcGoBack();
 }
 
+function getWalletData(){
+    var walletData = paymentChannelsData.DOMAIN.PREPAID.BANK,
+        counter = 0,
+        currentObject,
+        resultArr = [];
+    
+    for(;counter<walletData.length;counter++){
+        currentObject = walletData[counter];
+        resultArr.push({
+            walletname: currentObject.BANKTITLE,
+            value: currentObject.BANKCODE,
+            titile: currentObject.BANKCODE
+        });   
+    }
+
+    return resultArr;
+}
+
 function renderWalletTemplate(){
     var walletData = {
-        dataTabType:'wallet',
-		cardsClass: 'wallet-tab',
-        walletMob: 'Mobile Number',
-        walletEmail: 'Enter your E-mail Id',
-        iconMob: 'iMob',
-        iconEmail: 'iEmail',
-        iconUser: 'iUser',
-        submitBtnTxt: translate('Submit'),
-        'allWallet': [
-            {
-                walletname: 'Amazon Pay',
-                value: 'amazon',
-                titile: 'amazon'
-            }, {
-                walletname: 'Citrus Wallet',
-                value: 'citrus',
-                titile: 'citrus'
-            }, {
-                walletname: 'Freecharge',
-                value: 'freecharge',
-                titile: 'freecharge'
-            }, {
-                walletname: 'HDFC PayZapp',
-                value: 'payzap',
-                titile: 'payzap'
-            }, {
-                walletname: 'JioMoney',
-                value: 'jio',
-                titile: 'jio'
-            }, {
-                walletname: 'Ola Money',
-                value: 'ola',
-                titile: 'ola'
-            }, {
-                walletname: 'PayU',
-                value: 'payu',
-                titile: 'payu'
-            }, {
-                walletname: 'Paytm',
-                value: 'paytm',
-                titile: 'paytm'
-            }, {
-                walletname: 'Oxigen Wallet',
-                value: 'oxygen',
-                titile: 'oxygen'
-            }, {
-                walletname: 'Quik wallet',
-                value: 'quick',
-                titile: 'quick'
-            }, {
-                walletname: 'SBI Buddy',
-                value: 'sbud',
-                titile: 'sbibuddy'
-            }, {
-                walletname: 'Money On Mobile',
-                value: 'money',
-                titile: 'money'
-            }, {
-                walletname: 'MobiKwik',
-                value: 'mobikwik',
-                titile: 'mobikwik'
-            }, {
-                walletname: 'Itz Cash',
-                value: 'itzcash',
-                titile: 'itzcash'
-            }, {
-                walletname: 'sodexo',
-                value: 'sodexo',
-                titile: 'sodexo'
-            }
-        ]
+        'dataTabType':'wallet',
+		'cardsClass': 'wallet-tab',
+        'walletMob': 'Mobile Number',
+        'walletEmail': 'Enter your E-mail Id',
+        'iconMob': 'iMob',
+        'iconEmail': 'iEmail',
+        'iconUser': 'iUser',
+        'submitBtnTxt': translate('Submit'),
+        'allWallet': getWalletData()
     };
 
     var walletkli = Payments.templates.wallet(walletData);

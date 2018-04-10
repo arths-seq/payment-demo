@@ -1,47 +1,34 @@
 function renderNetBnk(paymentTabId){
     var bankData = {
-        dataTabType:'net-banking',
-		cardsClass: 'net-banking-tab',
-        'allbank': [
-            {
-                nbname: 'ICICI Bank',
-                value: 'icici',
-                titile: 'nbicici',
-                popular: true
-            }, {
-                nbname: 'HDFC Bank',
-                value: 'hdfc',
-                titile: 'nbhdfc',
-                popular: true
-            }, {
-                nbname: 'Kotak Bank',
-                value: 'kotak',
-                titile: 'nbkotak',
-                popular: true
-            }, {
-                nbname: 'Axis Bank',
-                value: 'axis',
-                titile: 'nbaxis',
-                popular: true
-            }, {
-                nbname: 'SBI Bank',
-                value: 'sbi',
-                titile: 'nbsbi',
-                popular: true
-            }, {
-                nbname: 'Bank of Maharashtra',
-                value: 'bom',
-                titile: 'nbbom',
-                popular: true
-            }
-        ]
-    };
+        'dataTabType':'net-banking',
+		'cardsClass': 'net-banking-tab',
+        'allbank': getAllBnkData()
+    }
 
     var nbankli = Payments.templates.netbanking(bankData);
     $('.tab-container').append(nbankli);
     $('.blockMain').hide();
     $('[data-tab-type="'+paymentTabId+'"]').show();
     bindPopularBnkEvents();
+}
+
+function getAllBnkData(){
+    var netBankData = paymentChannelsData.DOMAIN.NETBANK.BANK,
+        counter = 0,
+        resultArr = [],
+        currentObj;
+    
+    for(;counter<netBankData.length;counter++){
+        currentObj = netBankData[counter];
+        popularBankArr = ["AXIS","KOT","MAHNETBNK","HDF","SBINB","BDBDSBI","BDBDICI","ICICI"];
+        resultArr.push({
+            nbname: currentObj.BANKTITLE,
+            value: currentObj.BANKCODE,
+            titile: 'nb'+currentObj.BANKCODE,
+            popular: popularBankArr.indexOf(currentObj.BANKCODE) >= 0 ? true : false
+        });
+    }
+    return resultArr;
 }
 
 function bindPopularBnkEvents(){

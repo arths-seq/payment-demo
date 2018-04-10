@@ -1,8 +1,9 @@
 var languageJson,
-    tabcont;
-var loadEmiOnce = true;
-loadDebitOnce = true;
-loadCreditOnce = true;
+    tabcont,
+    loadEmiOnce = true,
+    loadCreditOnce = true,
+    loadDebitOnce = true;
+
 function loadTranslateJson(currentLang,isLanguageChange){
     var jsonFileName;
 
@@ -24,7 +25,7 @@ function loadTranslateJson(currentLang,isLanguageChange){
     //languageJson = localStorage.getItem(currentLang+'-payment')? JSON.parse(localStorage.getItem(currentLang+'-payment')):null;
 
     if(!languageJson){
-        $.ajax('./language/'+jsonFileName,{
+        $.ajax('./payment-demo/language/'+jsonFileName,{
             success: $.proxy(function(currentLang,data){
                 if(typeof data === "string"){
                     languageJson = JSON.parse(data);
@@ -32,11 +33,11 @@ function loadTranslateJson(currentLang,isLanguageChange){
                     languageJson = data;
                 }
                 localStorage.setItem(currentLang+'-payment',JSON.stringify(languageJson));
-                render(isLanguageChange);
+                updateAllData(isLanguageChange);
             },this,currentLang)
         });
     } else {
-        render(isLanguageChange);
+        updateAllData(isLanguageChange);
     }
 }
 
@@ -67,7 +68,7 @@ function loadMenuTab(isLanguageChange){
     if(Payments.templates['menu_tab']){
         renderMenuTab(isLanguageChange);
     } else {
-        $.ajax('./templates/menu_tab.js',{
+        $.ajax('./payment-demo/templates/menu_tab.js',{
             success: function(){
                 renderMenuTab();
             }
@@ -77,85 +78,7 @@ function loadMenuTab(isLanguageChange){
 
 function renderMenuTab(isLanguageChange){
     var menuData = {
-        'menu': [
-            {
-                'data': 'credit',
-                'tab': '1',
-                'tabname': translate('Credit Card'),
-                'imgicon': 'cdc'
-            },{
-                'data': 'debit',
-                'tab': '2',
-                'tabname': translate('Debit Card'),
-                'imgicon': 'cdc'
-            }, {
-                'data': 'net-banking',
-                'tab': '3',
-                'tabname': translate('Net Banking'),
-                'imgicon': 'nb'
-            }, {
-                'data': 'cash',
-                'tab': '4',
-                'tabname': 'Cash',
-                'imgicon': 'cash'
-            }, {
-                'data': 'emi',
-                'tab': '5',
-                'tabname': 'EMI',
-                'imgicon': 'emi'
-            }, {
-                'data': 'rtgs',
-                'tab': '6',
-                'tabname': 'RTGS / NEFT',
-                'imgicon': 'rtnft'
-            }, {
-                'data': 'wallet',
-                'tab': '7',
-                'tabname': 'Wallet',
-                'imgicon': 'wallet'
-            }, {
-                'data': 'Amex-click',
-                'tab': '8',
-                'tabname': 'Amex eZeClick',
-                'imgicon': 'amex'
-            }, {
-                'data': 'Express_Payment',
-                'tab': '9',
-                'tabname': 'Express Payments',
-                'imgicon': 'exp-pay'
-            }, {
-                'data': 'UPI',
-                'tab': '10',
-                'tabname': 'UPI',
-                'imgicon': 'upi'
-            }, {
-                'data': 'bharat-qr',
-                'tab': '11',
-                'tabname': 'Bharat QR',
-                'imgicon': 'qr'
-            }, {
-                'data': 'pay-later',
-                'tab': '12',
-                'tabname': 'Pay Later',
-                'imgicon': 'pay-later'
-            }, {
-                'data': 'virtual-acc',
-                'tab': '13',
-                'tabname': 'Virtual Account',
-                'imgicon': 'virtual-acc'
-            },{
-                'data': 'aloan',
-                'tab': '14',
-                'tabname': 'Air Loan',
-                'imgicon': 'air-loan'
-            }
-            ,{
-                'data': 'amzon',
-                'tab': '14',
-                'tabname': 'Amazon Pay',
-                'imgicon': 'amazonpay'
-            }
-        ]
+        'menu': paymentChannelsData.menuOptions
     };
     var menuDom = Payments.templates.menu_tab(menuData);
     $('.tab-menu').html(menuDom);
@@ -163,25 +86,9 @@ function renderMenuTab(isLanguageChange){
     bindMenuEvents();
    
     if(!isMobile()){
-        renderSelectedTab('',isLanguageChange);
+        renderSelectedTab($('.menu-link:first').data('tab-id'),isLanguageChange);
     }
 }
-
-function setMenuHeight( element, height ) {
-
-    if($('.tabWrap ').hasClass('showtab')){
-        var menuFooterHeight = height + $('.footer').height();
-        $('.mobi-height').css('height' , menuFooterHeight + 'px' );
-        $('.tnc').css({'position': 'absolute',  'bottom' : '0'});
-
-        var topAndMenu = menuFooterHeight + 125;
-        var curHeight = $(window).innerHeight();
-
-        if (topAndMenu > curHeight){
-            $('.tnc').css({'position': '',  'bottom' : ''});
-        } 
-    }
-  }
 
 function bindMenuEvents(){
     $('.tab-menu-options').off('click').on('click', function (event) {
@@ -189,11 +96,7 @@ function bindMenuEvents(){
         $(event.currentTarget).addClass('active');
         var blockDatatype = $(event.currentTarget).attr('data-tab');
         var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
-
-        setTimeout(function () {
-            setMenuHeight( "paragraph", $( ".showtab" ).height() );
-         }, 3000);
-
+        
         $('.card-ccdc .formDom  input').val('');
         if ($('.card-ccdc .formDom  input').val() == "") {
             $('.card-ccdc .formDom  input').parents('.formDom').removeClass("has-content");
@@ -235,8 +138,6 @@ function bindMobileHideEvent() {
             $('.tabWrap').removeClass('showtab');
             $('.footer,.closetab').fadeOut(500);
             $('.tab-menu').fadeIn(500);
-            $('.mobi-height').css('height' , '' );
-            $('.tnc').css({'position': '',  'bottom' : ''});
         });
     }, 0);
     });
@@ -338,7 +239,7 @@ function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange
             bindMobileHideEvent();
         }
     } else {
-        $.ajax('./templates/'+templateFileName + '.js',{
+        $.ajax('./payment-demo/templates/'+templateFileName + '.js',{
             success: $.proxy(function(callbackMethod,paymentTabId,responseData){
                 if(callbackMethod){
                     callbackMethod(paymentTabId);                
