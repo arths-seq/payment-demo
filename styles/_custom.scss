@@ -126,12 +126,13 @@ body {
     &:before {
         content: '';
         width: 1px;
-        /* background: #b7b7b8;*/
+        background: #b7b7b8;
         height: 100%;
         position: absolute;
         left: 22%;
         top: 0;
         display: block;
+        margin-left:-1px;
     }
     &:after {
         content: '';
@@ -193,8 +194,12 @@ ul.menu-list {
             margin: 4px 8px;
             display: none;
         }
+        
         &:last-child a {
             border-bottom: none;
+        }
+        &:first-child a {
+            border-bottom: 1px solid #b7b7b8;
         }
         &.active a {
             color: #0066a5;
@@ -236,7 +241,7 @@ ul.menu-list {
 
 .amt-summary {
     padding: 8px 8px;
-    background: #787f97;
+    background: #0066a5;
     line-height: 1.3;
     color: #fff;
 }
@@ -732,7 +737,7 @@ ul.walletlist li label {
         width: 55.4%;
     }
     .blockMain {
-        padding: 35px 0 80px;
+        padding: 35px 4% 80px;
     }
     .footer {
         padding: 0 2%;
@@ -749,10 +754,11 @@ ul.walletlist li label {
     ul.blocklist li {
         height: 50px;
         width: 31.3%;
+        margin: 0 6px 8px 0;
         & label {
             width: 100%;
             min-height: 50px;
-            padding: 10px 6%;
+            padding: 10px 5%;
         }
     }
 }
@@ -842,9 +848,9 @@ ul.walletlist li label {
     }
     .amt-summary {
         background: #0061a3;
-        font-size: 16px;
+        font-size: 14px;
+        padding:8px 15px;
     }
-
     .tab-menu {
         width: 100%;
         max-width: inherit;
@@ -854,7 +860,6 @@ ul.walletlist li label {
         /*background-color:#e8e7e7;*/
         background-color: #efeeef;
     }
-
     ul.menu-list {
         .menuli {
             width: 32.7%;
@@ -1022,6 +1027,6 @@ ul.walletlist li label {
     }
     .tabWrap .tablogo {
         background-size: 386px 719px;
-        background-position: -129px -5px;
+        background-position: -129px 0px;
     }
 }

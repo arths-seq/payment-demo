@@ -2,6 +2,7 @@ var languageJson,
     tabcont;
 var loadEmiOnce = true;
 loadDebitOnce = true;
+loadCreditOnce = true;
 function loadTranslateJson(currentLang,isLanguageChange){
     var jsonFileName;
 
@@ -166,13 +167,33 @@ function renderMenuTab(isLanguageChange){
     }
 }
 
+function setMenuHeight( element, height ) {
+
+    if($('.tabWrap ').hasClass('showtab')){
+        var menuFooterHeight = height + $('.footer').height();
+        $('.mobi-height').css('height' , menuFooterHeight + 'px' );
+        $('.tnc').css({'position': 'absolute',  'bottom' : '0'});
+
+        var topAndMenu = menuFooterHeight + 125;
+        var curHeight = $(window).innerHeight();
+
+        if (topAndMenu > curHeight){
+            $('.tnc').css({'position': '',  'bottom' : ''});
+        } 
+    }
+  }
+
 function bindMenuEvents(){
     $('.tab-menu-options').off('click').on('click', function (event) {
         $('.tab-menu-options.active').removeClass('active');
         $(event.currentTarget).addClass('active');
         var blockDatatype = $(event.currentTarget).attr('data-tab');
         var currentTabId = $(event.currentTarget).find('.menu-link').attr('data-tab-id');
-        
+
+        setTimeout(function () {
+            setMenuHeight( "paragraph", $( ".showtab" ).height() );
+         }, 3000);
+
         $('.card-ccdc .formDom  input').val('');
         if ($('.card-ccdc .formDom  input').val() == "") {
             $('.card-ccdc .formDom  input').parents('.formDom').removeClass("has-content");
@@ -214,6 +235,8 @@ function bindMobileHideEvent() {
             $('.tabWrap').removeClass('showtab');
             $('.footer,.closetab').fadeOut(500);
             $('.tab-menu').fadeIn(500);
+            $('.mobi-height').css('height' , '' );
+            $('.tnc').css({'position': '',  'bottom' : ''});
         });
     }, 0);
     });
@@ -299,9 +322,10 @@ function renderSelectedTab(paymentId,isLanguageChange){
 
 function renderTab(paymentTabId,templateFileName,callbackMethod,isLanguageChange){
     if(Payments.templates[templateFileName]){
-        if(isLanguageChange || loadEmiOnce && paymentTabId === 'emi' || loadDebitOnce && paymentTabId === 'debit'){
+        if(isLanguageChange || loadEmiOnce && paymentTabId === 'emi' || loadDebitOnce && paymentTabId === 'debit' || loadCreditOnce && paymentTabId === 'credit'){
             loadEmiOnce = paymentTabId === 'emi' ?  false : loadEmiOnce;
             loadDebitOnce = paymentTabId === 'debit' ?  false : loadDebitOnce;
+            loadCreditOnce = paymentTabId === 'credit' ?  false : loadCreditOnce;
             
             callbackMethod(paymentTabId); 
         } else {

@@ -16,6 +16,7 @@ function renderEpayTemplate(){
 	var paylaterData = {
 		dataTabType:'pay-later',
 		cardsClass: 'pay-later-tab',
+		iDob:'idob',
 		sumbitBtn:translate('Submit'),
 		firstName:translate('First Name'),
 		lastName:translate('Last Name'),
