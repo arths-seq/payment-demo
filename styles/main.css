@@ -1675,7 +1675,7 @@ ul.walletlist li label {
   .tab-container {
     width: 55.4%; }
   .blockMain {
-    padding: 35px 0 80px; }
+    padding: 35px 4% 80px; }
   .footer {
     padding: 0 2%; }
   .paylogo {
@@ -1686,11 +1686,12 @@ ul.walletlist li label {
     background-position: -160px -8px; }
   ul.blocklist li {
     height: 50px;
-    width: 31.3%; }
+    width: 31.3%;
+    margin: 0 6px 8px 0; }
     ul.blocklist li label {
       width: 100%;
       min-height: 50px;
-      padding: 10px 6%; } }
+      padding: 10px 5%; } }
 
 @media (max-width: 767px) {
   #wrap {
