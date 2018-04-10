@@ -1204,12 +1204,13 @@ body {
   .pay-container:before {
     content: '';
     width: 1px;
-    /* background: #b7b7b8;*/
+    background: #b7b7b8;
     height: 100%;
     position: absolute;
     left: 22%;
     top: 0;
-    display: block; }
+    display: block;
+    margin-left: -1px; }
   .pay-container:after {
     content: '';
     width: 1px;
