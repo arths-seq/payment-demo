@@ -44,7 +44,7 @@
     -ms-transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    padding: 0 22% 0 0 !important;
+    padding: 0 26% 0 0 !important;
 }
 
 .slick-track {
@@ -217,19 +217,19 @@
     color: #fff;
     /* border: 1px solid #3498db;*/
     border-radius: 3px;
-    padding: 10px;
+    padding: 15px;
     margin: 0 5px;
-    max-width: 200px;
+    max-width: 230px;
 }
 
 .cdno h3 {
     margin: 0;
     float: left;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .save-card-container {
-    max-width: 320px;
+    max-width: 380px;
     margin: 0 auto;
 }
 
@@ -255,13 +255,6 @@
     display: block;
 }
 
-.save-card-container .trash-card {
-    float: right;
-    width: 15px;
-    height: 15px;
-    background-position: -449px -277px;
-}
-
 .save-card-container .icon-div::after {
     content: '';
     clear: both;
@@ -274,7 +267,7 @@
 
 .save-card-container p.cardname {
     margin: 5px 0 0px;
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .save-card-container .iCard {
@@ -289,25 +282,25 @@
 .save-card-container .cvv::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .save-card-container .cvv::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .save-card-container .cvv:-ms-input-placeholder {
     /* IE 10+ */
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .save-card-container .cvv:-moz-placeholder {
     /* Firefox 18- */
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .save-card-container .cdheight ~ .iCard {
@@ -316,12 +309,12 @@
 
 .save-card-container .exp_date {
     padding-top: 7px;
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .saved-card-wrap .formDom {
     float: right;
-    max-width: 55px;
+    max-width: 65px;
     border-bottom: 1px solid #64bbf5;
 }
 
