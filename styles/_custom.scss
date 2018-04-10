@@ -194,8 +194,12 @@ ul.menu-list {
             margin: 4px 8px;
             display: none;
         }
+        
         &:last-child a {
             border-bottom: none;
+        }
+        &:first-child a {
+            border-bottom: 1px solid #b7b7b8;
         }
         &.active a {
             color: #0066a5;
