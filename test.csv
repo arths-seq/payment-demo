@@ -1,4 +1,4 @@
-txnid,date,amount,profileid,merchant,UDF8,City,Country,State,Latitude,Longitude,Continent
+txnid,date,amount,profileid,merchant,UDF8,city,country,state,latitude,longitude,continent
 1,21-03-18  17:43:50,265.0,20394,Mumbai University,111.91.75.165,Mumbai,India,Maharashtra,18.975,72.8258,Asia
 2,21-03-18  17:44:49,40000.0,19950,Shriram Transport Finance Assets,27.63.101.177,Secunderabad,India,Telangana,17.45,78.5,Asia
 3,21-03-18  17:43:55,35320.0,19950,Shriram Transport Finance Assets,2405:205:6324:17f2:d355:8d57:6c78:6718,Bhubaneswar,India,Odisha,20.2333,85.8333,Asia
