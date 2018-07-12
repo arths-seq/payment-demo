@@ -1,0 +1,43 @@
+txnid,date,amount,profileid,merchant,UDF8,City,Country,State,Latitude,Longitude,Continent
+1,21-03-18  17:43:50,265.0,20394,Mumbai University,111.91.75.165,Mumbai,India,Maharashtra,18.975,72.8258,Asia
+2,21-03-18  17:44:49,40000.0,19950,Shriram Transport Finance Assets,27.63.101.177,Secunderabad,India,Telangana,17.45,78.5,Asia
+3,21-03-18  17:43:55,35320.0,19950,Shriram Transport Finance Assets,2405:205:6324:17f2:d355:8d57:6c78:6718,Bhubaneswar,India,Odisha,20.2333,85.8333,Asia
+4,21-03-18  17:44:14,11100.0,19950,Shriram Transport Finance Assets,2405:204:9006:8925:ecad:7b5d:f83e:cb11,Pune,India,Maharashtra,18.5333,73.8667,Asia
+5,21-03-18  17:46:41,31360.0,19950,Shriram Transport Finance Assets,223.31.29.138,Bengaluru,India,Karnataka,12.9833,77.5833,Asia
+6,21-03-18  17:44:06,10000.0,19950,Shriram Transport Finance Assets,106.219.223.166,Dehradun,India,Uttarakhand,30.3229,78.0317,Asia
+7,21-03-18  17:44:21,265.0,20394,Mumbai University,182.56.116.87,Mumbai,India,Maharashtra,18.975,72.8258,Asia
+8,21-03-18  17:44:10,8626.0,19950,Shriram Transport Finance Assets,2405:204:6220:25c8:b689:5159:4cc7:6b8c,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+10,21-03-18  17:44:25,4305.0,19689,Eureka Forbes AMC,2001:420:c0e0:1003::2f2,Bengaluru,India,Karnataka,12.9833,77.5833,Asia
+11,21-03-18  17:46:08,1600.0,19950,Shriram Transport Finance Assets,2405:204:e083:d6f6::35e:60b1,Bhopal,India,Madhya Pradesh,23.2667,77.4,Asia
+12,21-03-18  17:44:24,465.0,20394,Mumbai University,42.106.246.133,Mumbai,India,Maharashtra,18.975,72.8258,Asia
+13,21-03-18  17:44:25,250.0,19950,Shriram Transport Finance Assets,27.59.246.231,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+14,21-03-18  17:45:16,1877.0,21454,Shriram City Union Finance Ltd,2405:204:969f:af68:24e4:c341:da7d:9d0e,Pune,India,Maharashtra,18.5333,73.8667,Asia
+15,21-03-18  17:45:58,2410.0,21454,Shriram City Union Finance Ltd,2405:204:928e:1759:e197:1902:7097:d576,Pune,India,Maharashtra,18.5333,73.8667,Asia
+16,21-03-18  17:45:25,30000.0,19950,Shriram Transport Finance Assets,106.207.48.243,Patna,India,Bihar,25.6,85.1167,Asia
+17,21-03-18  17:45:48,23071.0,19950,Shriram Transport Finance Assets,2405:204:718d:7b92::126b:38a1,Chennai,India,Tamil Nadu,13.0833,80.2833,Asia
+18,21-03-18  17:45:24,965.0,20394,Mumbai University,182.58.88.75,Mumbai,India,Maharashtra,18.975,72.8258,Asia
+19,21-03-18  17:45:20,35320.0,19950,Shriram Transport Finance Assets,2405:205:6324:17f2:d355:8d57:6c78:6718,Bhubaneswar,India,Odisha,20.2333,85.8333,Asia
+20,21-03-18  17:45:40,17760.0,19950,Shriram Transport Finance Assets,106.67.99.75,Delhi,India,National Capital Territory of Delhi,28.6667,77.2167,Asia
+21,21-03-18  17:45:23,10000.0,19950,Shriram Transport Finance Assets,2405:204:6687:72ce::867:f0a0,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+22,21-03-18  17:45:30,10000.0,19950,Shriram Transport Finance Assets,27.60.249.154,Delhi,India,National Capital Territory of Delhi,28.6667,77.2167,Asia
+23,21-03-18  17:45:27,25000.0,19950,Shriram Transport Finance Assets,106.79.63.24,,India,,20.0,77.0,Asia
+24,21-03-18  17:45:36,5000.0,19950,Shriram Transport Finance Assets,2405:204:661e:130d:7161:5c53:6b91:2a3c,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+25,21-03-18  17:44:54,65000.0,19950,Shriram Transport Finance Assets,103.57.134.28,Warangal,India,Telangana,18.0,79.5833,Asia
+26,21-03-18  17:45:53,5733.0,19950,Shriram Transport Finance Assets,2402:8100:2034:27e2::1,Faridabad,India,Haryana,28.4333,77.3167,Asia
+27,21-03-18  17:45:27,25000.0,19950,Shriram Transport Finance Assets,106.192.45.102,Ranbirsinghpura,India,Jammu and Kashmir,32.6079,74.7293,Asia
+28,21-03-18  17:45:54,16000.0,19950,Shriram Transport Finance Assets,27.63.113.164,Vemagiri,India,Andhra Pradesh,17.4888,82.8254,Asia
+29,21-03-18  17:44:59,13290.0,19392,Eureka Forbes,2405:204:92ac:e244::2a21:58ac,Pune,India,Maharashtra,18.5333,73.8667,Asia
+30,21-03-18  17:46:05,25000.0,19950,Shriram Transport Finance Assets,2405:204:6308:ca90:3859:ec74:fecd:5948,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+31,21-03-18  17:46:40,10676.0,19950,Shriram Transport Finance Assets,2405:204:53a0:25b2::1a42:80ad,Bengaluru,India,Karnataka,12.9833,77.5833,Asia
+32,21-03-18  17:45:15,7589.0,19950,Shriram Transport Finance Assets,2405:204:e48c:5156::23d8:8b1,Bhopal,India,Madhya Pradesh,23.2667,77.4,Asia
+33,21-03-18  17:45:37,20.0,19950,Shriram Transport Finance Assets,122.15.166.201,Vellore,India,Tamil Nadu,12.9333,79.1333,Asia
+34,21-03-18  17:45:18,17000.0,19950,Shriram Transport Finance Assets,106.203.160.92,Jajpur,India,Odisha,20.85,86.3333,Asia
+35,21-03-18  17:47:01,8650.0,19950,Shriram Transport Finance Assets,2405:204:6220:25c8:b689:5159:4cc7:6b8c,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+36,21-03-18  17:46:06,10310.0,19950,Shriram Transport Finance Assets,2405:204:7047:9943:f0f4:b9bf:d328:5c10,Coimbatore,India,Tamil Nadu,10.9925,76.9614,Asia
+37,21-03-18  17:46:06,15650.0,19950,Shriram Transport Finance Assets,106.76.19.202,Guntur,India,Andhra Pradesh,16.3,80.45,Asia
+38,21-03-18  17:45:53,3000.0,19950,Shriram Transport Finance Assets,2405:204:6492:93a7:2b82:61c6:9ba0:187f,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+39,21-03-18  17:45:28,20500.0,19950,Shriram Transport Finance Assets,106.67.4.99,Delhi,India,National Capital Territory of Delhi,28.6667,77.2167,Asia
+40,21-03-18  17:45:44,9000.0,19950,Shriram Transport Finance Assets,106.203.22.18,Karaikudi,India,Tamil Nadu,10.0667,78.7833,Asia
+41,21-03-18  17:46:53,32125.0,19950,Shriram Transport Finance Assets,2405:204:850a:fc39:f983:f771:abbe:b58c,Ahmedabad,India,Gujarat,23.0333,72.6167,Asia
+42,21-03-18  17:45:30,46000.0,19950,Shriram Transport Finance Assets,223.237.1.150,Hyderabad,India,Telangana,17.3753,78.4744,Asia
+43,21-03-18  17:46:05,3150.0,19403,K K TRAVELS,124.124.251.73,Mumbai,India,Maharashtra,18.975,72.8258,Asia
